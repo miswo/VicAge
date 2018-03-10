@@ -1,0 +1,20 @@
+{
+  "name": "care4u",
+  "version": "1.0.0",
+  "description": "This is the care4u server application",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon server.js",
+    "db": "mongod --dbpath=./data",
+    "client" : "cd client && parcel index.html -p 3000 --open"
+  },
+  "author": "Will Chen",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^3.5.1",
+    "express": "^4.16.2",
+    "mongodb": "^3.0.4",
+    "nodemon": "^1.17.1"
+  }
+}

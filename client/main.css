@@ -1,0 +1,14 @@
+.choice{
+    max-width:300px;
+    max-height:300px;
+    margin-top:40px;
+}
+
+
+.choice:hover{
+    opacity: 0.6;
+}
+
+.row{
+    margin-top:40px;
+}
