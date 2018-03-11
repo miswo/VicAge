@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter as Router, Route,Link} from 'react-router-dom';
 
+import Navbar from './components/Navbar';
 
 import "./main.css";
 
@@ -22,8 +23,11 @@ class App extends Component {
     render(){
         return(
             <Router>
-            
-                <Route exact path="/" component = {HomePage}/>
+                <div className="page">
+                    <Navbar />
+                    
+                    <Route exact path="/" component = {HomePage}/>
+                </div>
             </Router>
         )
     }
