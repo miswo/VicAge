@@ -4,9 +4,12 @@ import {BrowserRouter as Router, Route,Link} from 'react-router-dom';
 
 import Navbar from './components/Navbar';
 
+import HomePage from './pages/HomePage';
+import ListEventPage from './pages/Event/ListEventPage';
+
 import "./main.css";
 
-const serverURL = 'http://localhost:5000'
+const serverURL = 'http://localhost:5000';
 
 
 class App extends Component {
@@ -27,19 +30,11 @@ class App extends Component {
                     <Navbar />
                     
                     <Route exact path="/" component = {HomePage}/>
+                    <Route path="/event"  render={()=>(<ListEventPage serverURL= {serverURL} />)} />
                 </div>
             </Router>
         )
     }
 }
-
-const HomePage = () => (
-    <div className="App jumbotron">
-        <div className="container">
-            <h1>Welcome to Care4U</h1>
-            <p className="lead">Proudly present to you by WYSDoM</p>
-        </div>
-    </div>
-);
 
 ReactDOM.render(<App />,document.getElementById("root"));
