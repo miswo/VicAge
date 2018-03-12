@@ -13,8 +13,63 @@ router.get('/',(req,res)=>{
 router.get('/:id',(req,res)=>{
     var docID = new ObjectID(req.params.id);
     var collection = db.get().collection('event');
-    var result = collection.findOne({_id:docID},(err,result)=>{
+    collection.findOne({},{_id:docID},(err,result)=>{
         res.json(result);
+    })
+});
+
+router.get('/:id/survey-result',(req,res)=>{
+    var collection = db.get().collection('survey');
+    collection.find({},{eventID:req.params.id}).toArray((err,result)=>{
+        res.json({surveyResults:result});
+    })
+});
+
+router.post('/handleSurvey',(req,res)=>{
+    var newSurvey = req.body;
+
+    var collection = db.get().collection('survey');
+
+    collection.findOne({
+        eventID:newSurvey.eventID,
+        activityName:newSurvey.activityName},(err,result)=>{
+            if(result){
+                collection.findOneAndUpdate({
+                    eventID:newSurvey.eventID,
+                    activityName:newSurvey.activityName},
+                    {$inc:{count:1}
+                },(err,result)=>{
+                        res.json({result:'ok'})
+                    })
+            }else{
+                collection.insertOne({
+                    eventID:newSurvey.eventID,
+                    activityName:newSurvey.activityName,
+                    count:1
+                },(err,result)=>{
+                    res.json({result:'ok'})
+                })
+            }
+        });
+
+
+
+    // console.log(surveyResult);
+    // collection.save({
+    //     eventID:newSurvey.eventID,
+    //     activityName:newSurvey.activityName,
+    //     count:count},(err,result)=>{
+    //         if(err) return console.log(err);
+    //         else res.json({result:"ok"})
+    //     })
+});
+
+
+
+router.get('/:id/survey',(req,res)=>{
+    var collection = db.get().collection('activity');
+    collection.find().toArray((err,docs)=>{
+        res.json({activities:docs})
     })
 });
 

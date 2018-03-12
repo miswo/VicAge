@@ -10,7 +10,9 @@ export default class ListEventPage extends React.Component{
 
     componentDidMount(){
         axios.get(this.props.serverURL + '/event')
-            .then((res)=> {this.setState({"events":res.data.events})})
+            .then((res)=> {
+                this.setState({"events":res.data.events});
+        })
     }
 
     renderEvents(){
