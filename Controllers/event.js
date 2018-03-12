@@ -20,7 +20,7 @@ router.get('/:id',(req,res)=>{
 
 router.get('/:id/survey-result',(req,res)=>{
     var collection = db.get().collection('survey');
-    collection.find({},{eventID:req.params.id}).toArray((err,result)=>{
+    collection.find({eventID:req.params.id}).toArray((err,result)=>{
         res.json({surveyResults:result});
     })
 });
