@@ -1,6 +1,6 @@
 import React from 'react';
-
 import {Link} from 'react-router-dom';
+import axios from 'axios';
 
 export default class ListEventPage extends React.Component{
     constructor(props){
@@ -9,9 +9,8 @@ export default class ListEventPage extends React.Component{
     }
 
     componentDidMount(){
-        fetch(this.props.serverURL + '/event')
-            .then(res => res.json())
-            .then((res) => this.setState({"events":res.events}));
+        axios.get(this.props.serverURL + '/event')
+            .then((res)=> {this.setState({"events":res.data.events})})
     }
 
     renderEvents(){
@@ -20,6 +19,7 @@ export default class ListEventPage extends React.Component{
                 <td>{event._id}</td>
                 <td>{event.name}</td>
                 <td>{new Date(event.date).toLocaleDateString()}</td>
+                <td><Link to={"event/"+ event._id} className="btn btn-default">Detail</Link></td>
             </tr>
         ):<tr><td>No event found.</td></tr>;
 

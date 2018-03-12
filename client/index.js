@@ -9,6 +9,7 @@ import NotFound from './pages/NotFound';
 
 import ListEventPage from './pages/Event/ListEventPage';
 import CreateEventPage from './pages/Event/CreateEventPage';
+import ViewEventPage from './pages/Event/ViewEventPage';
 
 import "./main.scss";
 
@@ -33,6 +34,7 @@ class App extends Component {
                         <Route exact path="/" component = {HomePage}/>
                         <Route exact path="/event"  render={()=>(<ListEventPage serverURL= {serverURL} />)}/>
                         <Route path="/event/create" render={()=>(<CreateEventPage serverURL= {serverURL}/>)}/>
+                        <Route path="/event/:id" render={(match)=>(<ViewEventPage serverURL={serverURL} eventID={match.match.params.id} />)} />
                         <Route component={NotFound} />
                     </Switch>
                 </div>

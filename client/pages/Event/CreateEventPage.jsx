@@ -12,7 +12,6 @@ export default class CreateEventPage extends React.Component{
             name:"",
             date:null
         }
-
     }
 
     handleNameChange(e){
@@ -30,12 +29,14 @@ export default class CreateEventPage extends React.Component{
             date:new Date(this.state.date)
         })
         .then((res)=>{
-            console.log(res)
+            if(res.data.result == 'ok')
+                window.location.href='/event/' + res.data._id;
+            else
+                alert('Something is wrong');
         })
         .catch((err)=>{
             console.log(err);
         });
-        // window.location.href='/event';
     }
 
     render(){
