@@ -1,5 +1,5 @@
 {
-  "name": "care4u",
+  "name": "vicage",
   "version": "1.0.0",
   "description": "This is the care4u server application",
   "main": "server.js",
@@ -7,12 +7,13 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "nodemon server.js",
     "db": "mongod --dbpath=./data",
-    "dev":"mongod --dbpaht=./data && nodemon server.js",
-    "client" : "cd client && parcel index.html -p 3000 --open"
+    "client": "cd client && parcel index.html -p 3000 --open"
   },
   "author": "Will Chen",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.2",
     "concurrently": "^3.5.1",
     "express": "^4.16.2",
     "mongodb": "^3.0.4",

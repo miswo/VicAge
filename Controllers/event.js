@@ -9,4 +9,13 @@ router.get('/',(req,res)=>{
     })
 });
 
+router.post('/create',(req,res)=>{
+    console.log(req.body);
+    var collection = db.get().collection('event');
+    collection.save(req.body,(err,result)=>{
+        if(err) return console.log(err);
+        else console.log('Inserted..');
+    })
+})
+
 module.exports = router;

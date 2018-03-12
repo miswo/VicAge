@@ -1,5 +1,7 @@
 import React from 'react';
 
+import {Link} from 'react-router-dom';
+
 export default class ListEventPage extends React.Component{
     constructor(props){
         super(props);
@@ -17,31 +19,33 @@ export default class ListEventPage extends React.Component{
             <tr key={event._id}>
                 <td>{event._id}</td>
                 <td>{event.name}</td>
-                <td>{new Date(event.createDate).toLocaleDateString()}</td>
+                <td>{new Date(event.date).toLocaleDateString()}</td>
             </tr>
         ):<tr><td>No event found.</td></tr>;
 
         return eventItems;
     }
 
-
     render(){
         return(
             <div id="list-event-page">
                 <div className="jumbotron">
                     <div className="container">
-                        <h2>All events are list below:</h2>
+                        <h2>Events</h2>
+                        <p>Decide what activity should be held for each event.</p>
+                        <div className="btn-group">
+                            <Link to="/event/create" className="btn btn-primary">Create Event</Link>
+                        </div>
                     </div>
                 </div>
 
                 <div className="container">
-                    <h3>Events</h3>
                     <table className="table table-hover">
                         <thead>
                             <tr>
-                                <th>#</th>
+                                <th>ID</th>
                                 <th>Event Name</th>
-                                <th>Create Date</th>
+                                <th>Event Date</th>
                             </tr>
 
                         </thead>
