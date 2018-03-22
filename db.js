@@ -9,7 +9,7 @@ const auth = {
     }
 }
 
-let state = {
+var state = {
     db: null
 };
 
