@@ -28,7 +28,7 @@ export default class ViewEventPage extends React.Component{
 
         axios.get(this.props.serverURL + '/event/' + this.props.eventID +'/survey-result')
             .then((res)=>{
-                console.log(res);
+                // console.log(res);
                 this.setState({surveyResults:res.data.surveyResults})})
     }
 
