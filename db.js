@@ -1,7 +1,11 @@
 const MongoClient = require('mongodb').MongoClient;
-const url = 'mongodb://localhost:27017';
-const dbName = 'care4udb';
-
+// const url = 'mongodb://localhost:27017';
+const dbName = 'vicagedb';
+const url = "mongodb://wysdom-database.documents.azure.com:10255/?ssl=true";
+const auth= {
+    user: 'wysdom-database',
+    password:'mA2Yi71iBXcFmowiUBHQefwOiRI0DZCdQEhlxJwHcE4DaHZuyfKfzQXRi2ZJIRYYVJw7rkBAlvIp7JfA6IsQyQ=='
+}
 
 let state ={
     db: null
@@ -9,8 +13,7 @@ let state ={
 
 exports.connect =(callback)=>{
     if(state.db) return callback();
-
-    MongoClient.connect(url,(err,client)=>{
+    MongoClient.connect(url,auth,(err,client)=>{
         if(err) return callback(err);
         state.db = client.db(dbName);
         callback();
