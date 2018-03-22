@@ -1,13 +1,15 @@
 const MongoClient = require('mongodb').MongoClient;
 // const url = 'mongodb://localhost:27017';
 const dbName = 'vicagedb';
-const url = "mongodb://wysdom-database.documents.azure.com:10255/?ssl=true";
-const auth= {
-    user: 'wysdom-database',
-    password:'mA2Yi71iBXcFmowiUBHQefwOiRI0DZCdQEhlxJwHcE4DaHZuyfKfzQXRi2ZJIRYYVJw7rkBAlvIp7JfA6IsQyQ=='
+const url = "mongodb://wysdom-db.documents.azure.com:10255/?ssl=true";
+const auth = {
+    auth:{
+        user: 'wysdom-db',
+        password:'an9tNGnh6NSBYuKuWFu1ndWhlr2k72UcfD4g3MupR7lkrcRmUVrU92978zKYkmNMoXm8x2uAjUORiSPhiPO94g=='
+    }
 }
 
-let state ={
+let state = {
     db: null
 };
 

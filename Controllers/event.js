@@ -6,6 +6,7 @@ var ObjectID = require('mongodb').ObjectID;
 router.get('/',(req,res)=>{
     var collection = db.get().collection('event');
     collection.find().toArray((err,docs)=>{
+        if(err) return console.log(err);
         res.json({events:docs})
     })
 });

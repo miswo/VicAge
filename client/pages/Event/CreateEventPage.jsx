@@ -35,7 +35,7 @@ export default class CreateEventPage extends React.Component{
                 alert('Something is wrong');
         })
         .catch((err)=>{
-            console.log(err);
+            // console.log(err);
         });
     }
 

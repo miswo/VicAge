@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 
 app.use('/event', require('./Controllers/event'));
 
-let db = require('./db');
+var db = require('./db');
 db.connect((err) => {
 	if (err) {
 		console.log("Error connectiong MongoDB..")
