@@ -3,7 +3,7 @@ const url = 'mongodb://localhost:27017';
 const dbName = 'care4udb';
 
 
-let state ={
+var state ={
     db: null
 };
 
