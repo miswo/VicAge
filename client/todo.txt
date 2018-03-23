@@ -1,1 +1,0 @@
-1. window.redirect will cause problems.
