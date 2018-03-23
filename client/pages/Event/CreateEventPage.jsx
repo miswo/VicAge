@@ -30,12 +30,13 @@ export default class CreateEventPage extends React.Component{
         })
         .then((res)=>{
             if(res.data.result == 'ok')
-                window.location.href='/event/' + res.data._id;
+                // window.location.href='/event/' + res.data._id;
+                this.props.history.push('/event/'+ res.data._id);
             else
                 alert('Something is wrong');
         })
         .catch((err)=>{
-            // console.log(err);
+            console.log(err);
         });
     }
 
@@ -44,7 +45,7 @@ export default class CreateEventPage extends React.Component{
             <div id="creat-event-page">
                 <div className="jumbotron">
                     <div className="container">
-                        <h2>Create Event</h2>
+                        <h2>Create Event test</h2>
                     </div>
                 </div>
 

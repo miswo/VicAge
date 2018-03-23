@@ -34,7 +34,7 @@ class App extends Component {
                     <Switch>
                         <Route exact path="/" component = {HomePage}/>
                         <Route exact path="/event"  render={()=>(<ListEventPage serverURL= {serverURL} />)}/>
-                        <Route path="/event/create" render={()=>(<CreateEventPage serverURL= {serverURL}/>)}/>
+                        <Route path="/event/create" render={(history)=>(<CreateEventPage history = {history.history} serverURL= {serverURL}/>)}/>
                         <Route exact path="/event/:id" render={(match)=>(<ViewEventPage serverURL={serverURL} eventID={match.match.params.id} />)} />
                         <Route path="/event/:id/survey" render={(match)=><SurveyPage serverURL={serverURL}    eventID={match.match.params.id} />}  />
                         <Route component={NotFound} />
