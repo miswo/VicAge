@@ -15,3 +15,39 @@ img:hover{
 table,th{
     text-align: center;
 }
+
+
+
+
+
+
+
+// ------------------- Dev setting ------------//
+
+footer{
+    padding:50px;
+    background-color:#eee;
+    text-align:center;
+}
+
+
+
+//-------------------Home Page ----------------//
+.homepage{
+    margin-top:-20px;
+    .jumbotron{
+    text-align:center;
+        #start-event{
+            width:100px;
+        }
+    }
+
+    .facts{
+        text-align: center;
+        .fact-block{
+            span{
+                font-size:10em;
+            }
+        }
+    }
+}

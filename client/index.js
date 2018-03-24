@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import {BrowserRouter as Router, Route,Link,Switch} from 'react-router-dom';
 
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 import HomePage from './pages/HomePage';
 import NotFound from './pages/NotFound';
@@ -39,6 +40,8 @@ class App extends Component {
                         <Route path="/event/:id/survey" render={(match)=><SurveyPage serverURL={serverURL}    eventID={match.match.params.id} />}  />
                         <Route component={NotFound} />
                     </Switch>
+
+                    <Footer />
                 </div>
             </Router>
         )
