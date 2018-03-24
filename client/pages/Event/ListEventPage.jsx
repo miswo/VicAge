@@ -16,9 +16,8 @@ export default class ListEventPage extends React.Component{
     }
 
     renderEvents(){
-        const eventItems = this.state.events.length !== 0? this.state.events.map((event)=>
+        const eventItems = this.state.events.length? this.state.events.map((event)=>
             <tr key={event._id}>
-                <td>{event._id}</td>
                 <td>{event.name}</td>
                 <td>{new Date(event.date).toLocaleDateString()}</td>
                 <td><Link to={"event/"+ event._id} className="btn btn-default">Detail</Link></td>
@@ -45,9 +44,9 @@ export default class ListEventPage extends React.Component{
                     <table className="table table-hover">
                         <thead>
                             <tr>
-                                <th>ID</th>
                                 <th>Event Name</th>
                                 <th>Event Date</th>
+                                <th></th>
                             </tr>
 
                         </thead>

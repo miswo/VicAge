@@ -30,7 +30,6 @@ export default class CreateEventPage extends React.Component{
         })
         .then((res)=>{
             if(res.data.result == 'ok')
-                // window.location.href='/event/' + res.data._id;
                 this.props.history.push('/event/'+ res.data._id);
             else
                 alert('Something is wrong');
@@ -45,10 +44,9 @@ export default class CreateEventPage extends React.Component{
             <div id="creat-event-page">
                 <div className="jumbotron">
                     <div className="container">
-                        <h2>Create Event test</h2>
+                        <h2>Create Event</h2>
                     </div>
                 </div>
-
 
                 <div className="container">
                     <form name='create-event' onSubmit={this.handleFormSubmit.bind(this)}>
@@ -56,7 +54,7 @@ export default class CreateEventPage extends React.Component{
                             <div className="col-lg-4 col-md-6 col-sm-12">
                                 <div className="form-group">
                                     <label htmlFor="event-name">Event Name:</label>
-                                    <input type="text" className="form-control" id="event-name" onChange={this.handleNameChange.bind(this)}/>
+                                    <input required type="text" className="form-control" id="event-name" onChange={this.handleNameChange.bind(this)}/>
                                 </div>
                             </div>
                         </div>
@@ -65,7 +63,7 @@ export default class CreateEventPage extends React.Component{
                             <div className="col-lg-4 col-md-6 col-sm-12">
                                 <div className="form-group">
                                     <label htmlFor="event-date">Event Date:</label>
-                                    <input type="date" className="form-control" id="event-data" onChange={this.handleDateChange.bind(this)}/>
+                                    <input required type="date" className="form-control" id="event-data" onChange={this.handleDateChange.bind(this)}/>
                                 </div>
                             </div>
                         </div>

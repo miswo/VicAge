@@ -12,9 +12,8 @@ router.get('/',(req,res)=>{
 });
 
 router.get('/:id',(req,res)=>{
-    var docID = new ObjectID(req.params.id);
     var collection = db.get().collection('event');
-    collection.findOne({},{_id:docID},(err,result)=>{
+    collection.findOne({},{_id:ObjectID(req.params.id)},(err,result)=>{
         res.json(result);
     })
 });
@@ -82,6 +81,21 @@ router.post('/create',(req,res)=>{
     collection.save(newEvent,(err,result)=>{
         if(err) return console.log(err);
         else res.json({result:"ok",_id:newEvent._id})
+    })
+})
+
+
+router.delete('/delete/:id',(req,res)=>{
+    var event_collection = db.get().collection('event');
+    var survey = db.get().collection('survey')
+    event_collection.remove({'_id':ObjectID(req.params.id)},(err,result)=>{
+        if(err) return res.json({result:'error'})
+        else
+            survey.remove({'eventID':req.params.id},(err,result)=>{
+                if(err) return res.json({result:'error'})
+                else
+                    res.json({result:'ok'})
+            })
     })
 })
 

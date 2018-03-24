@@ -33,13 +33,24 @@ export default class ViewEventPage extends React.Component{
     }
 
     renderSurveyResults(){
-        const results = this.state.surveyResults.map((item)=>
+        const results = this.state.surveyResults.length?this.state.surveyResults.map((item)=>
             <tr key = {item._id}>
                 <td>{item.activityName}</td>
                 <td>{item.count}</td>
             </tr>
-        )
+
+        ):<tr><td>No result yet..</td><td></td></tr>;
         return results;
+    }
+
+    handleDelete(){
+        axios.delete(this.props.serverURL + '/event/delete/' + this.props.eventID)
+            .then((res)=>{
+                if(res.data.result == 'ok')
+                    this.props.history.push('/event')
+                else
+                    alert('Error Deleting Event, Please try again later..')
+            })
     }
 
     render(){
@@ -50,7 +61,7 @@ export default class ViewEventPage extends React.Component{
                         <h2>{this.state.event.name}</h2>
                         <p>{this.state.event.date}</p>
                         <Link to={"/event/"+this.props.eventID+"/survey"} className="btn btn-primary">New Survey</Link>
-
+                        <button className="btn btn-danger pull-right" onClick={this.handleDelete.bind(this)} >Delete</button>
                     </div>
                 </div>
 

@@ -1,12 +1,13 @@
 const MongoClient = require('mongodb').MongoClient;
 // const url = 'mongodb://localhost:27017';
 const dbName = 'vicagedb';
-const url = "mongodb://wysdom-database.documents.azure.com:10255/?ssl=true";
-const auth= {
+const url = "mongodb://wysdom-db.documents.azure.com:10255/?ssl=true";
+const auth = {
     auth:{
         user: 'wysdom-db',
         password:'an9tNGnh6NSBYuKuWFu1ndWhlr2k72UcfD4g3MupR7lkrcRmUVrU92978zKYkmNMoXm8x2uAjUORiSPhiPO94g=='
     }}
+
 
 
 MongoClient.connect(url,auth,(err,db)=>{

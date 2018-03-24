@@ -8,7 +8,7 @@ export default class SurveyPage extends React.Component{
         super(props);
         this.state={
             "activities":[],
-            "selected":''
+            "selected":'default'
         };
     }
 
