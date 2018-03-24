@@ -13,8 +13,7 @@ export default class SurveyPage extends React.Component{
     }
 
     componentDidMount(){
-        axios.get(this.props.serverURL+'/event/'+ this.props.eventID+'/survey')
-            
+        axios.get(this.props.serverURL+'/event/'+ this.props.eventID+ '/survey')
             .then((res)=>{
                 this.setState({'activities':res.data.activities})
             });
@@ -25,8 +24,9 @@ export default class SurveyPage extends React.Component{
         let activityItems = this.state.activities.map((item)=>
             <div key={item._id} className="col-lg-4 col-md-6 col-sm-12">
                 <div className="radio">
-                    <label>
+                    <label className="choice">
                         <input type="radio" name="favoriate-activity" id={'activity'+item._id} value={item.name} onClick={this.handleOnclick.bind(this)}/>
+                        <p className="lead">{item.name}</p>
                         <img alt={item.name} src={item.picurl} />
                     </label>
                 </div>

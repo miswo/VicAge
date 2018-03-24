@@ -27,9 +27,7 @@ router.get('/:id/survey-result',(req,res)=>{
 
 router.post('/handleSurvey',(req,res)=>{
     var newSurvey = req.body;
-
     var collection = db.get().collection('survey');
-
     collection.findOne({
         eventID:newSurvey.eventID,
         activityName:newSurvey.activityName},(err,result)=>{

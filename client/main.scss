@@ -7,15 +7,6 @@
     margin-bottom:0;
 }
 
-img{
-    max-width:300px;
-    margin-bottom:50px;
-}
-
-img:hover{
-    opacity: 0.7;
-}
-
 table,th{
     text-align: center;
 }
@@ -35,7 +26,7 @@ footer{
 
 
 //-------------------Home Page ----------------//
-.homepage{
+#homepage{
     .jumbotron{
     text-align:center;
         #start-event{
@@ -55,9 +46,9 @@ footer{
 }
 
 
-//------------About Page ------------
+//--------------------About Page ------------
 
-.about-page{
+#about-page{
     .team-description{
         h3{
             text-align: center;
@@ -77,4 +68,23 @@ footer{
             }
         }
     }
+}
+
+
+//-------------------- Survey Page ----------------
+
+#survey-page{
+    .choice{
+        p{
+            text-align:center;
+        }
+    }
+    img{
+        max-width:300px;
+        margin-bottom:50px;
+    }
+    img:hover{
+        opacity: 0.7;
+    }
+    
 }

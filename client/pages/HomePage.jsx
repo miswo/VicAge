@@ -13,7 +13,7 @@ const FactBlock = ()=>(
 )
 
 const HomePage = () => (
-    <div className="homepage">
+    <div id="homepage">
         <div className="jumbotron">
             <div className="container">
                 <h1>VicAge</h1>
