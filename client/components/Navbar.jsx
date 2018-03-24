@@ -6,7 +6,7 @@ class Navbar extends Component{
     
     render(){
         return(
-            <div className="navbar navbar-default">
+            <div className="navbar navbar-inverse">
                 <div className="container-fluid">
                     <div className="navbar-header">
                         <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-menu" aria-expanded="false">
@@ -22,6 +22,7 @@ class Navbar extends Component{
                         <ul className="nav navbar-nav">
                             <li><NavLink to="/"      exact activeClassName="active">Home</NavLink></li>
                             <li><NavLink to="/event"       activeClassName="active">Event</NavLink></li>
+                            <li><NavLink to="/about"       activeClassName="active">About</NavLink></li>
                         </ul>
                     </div>
                 </div>

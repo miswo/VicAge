@@ -3,7 +3,7 @@ import React from 'react';
 const Footer = () =>(
     <footer>
 
-        <p>CopyRight &copy; Team WYSDoM</p>
+        <p>&copy; CopyRight Team WYSDoM - All Right Reverved</p>
 
     </footer>
 )

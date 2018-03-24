@@ -6,6 +6,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
 import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
 import NotFound from './pages/NotFound';
 
 import ListEventPage from './pages/Event/ListEventPage';
@@ -34,6 +35,7 @@ class App extends Component {
 
                     <Switch>
                         <Route exact path="/" component = {HomePage}/>
+                        <Route path="/about" component ={AboutPage}/>
                         <Route exact path="/event"  render={()=>(<ListEventPage serverURL= {serverURL} />)}/>
                         <Route path="/event/create" render={(history)=>(<CreateEventPage history = {history.history} serverURL= {serverURL}/>)}/>
                         <Route exact path="/event/:id" render={(match)=>(<ViewEventPage serverURL={serverURL} eventID={match.match.params.id} />)} />
