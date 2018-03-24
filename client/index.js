@@ -16,8 +16,7 @@ import SurveyPage from './pages/Event/SurveyPage';
 
 import "./main.scss";
 
-// const serverURL = 'http://13.70.182.53:5000';
-const serverURL = 'http://118.139.87.32:5000';
+const serverURL = 'http://13.70.182.53:5000';
 
 
 class App extends Component {
