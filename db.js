@@ -15,7 +15,7 @@ var state = {
 
 exports.connect =(callback)=>{
     if(state.db) return callback();
-    MongoClient.connect(url,(err,client)=>{
+    MongoClient.connect(url,auth,(err,client)=>{
         if(err) return callback(err);
         state.db = client.db(dbName);
         callback();
