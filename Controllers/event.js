@@ -13,7 +13,7 @@ router.get('/',(req,res)=>{
 
 router.get('/:id',(req,res)=>{
     var collection = db.get().collection('event');
-    collection.findOne({},{_id:ObjectID(req.params.id)},(err,result)=>{
+    collection.findOne({_id:ObjectID(req.params.id)},(err,result)=>{
         res.json(result);
     })
 });

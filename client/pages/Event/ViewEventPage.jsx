@@ -18,7 +18,9 @@ export default class ViewEventPage extends React.Component{
 
     componentDidMount(){
         axios.get(this.props.serverURL + '/event/' + this.props.eventID)
-            .then((res)=>{this.setState({
+            .then((res)=>{
+                console.log(res.data);
+                this.setState({
                 event:{
                     name:res.data.name,
                     date:new Date(res.data.date).toLocaleDateString()
@@ -30,6 +32,7 @@ export default class ViewEventPage extends React.Component{
             .then((res)=>{
                 // console.log(res);
                 this.setState({surveyResults:res.data.surveyResults})})
+
     }
 
     renderSurveyResults(){
