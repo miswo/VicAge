@@ -62,8 +62,6 @@ router.post('/handleSurvey',(req,res)=>{
     //     })
 });
 
-
-
 router.get('/:id/survey',(req,res)=>{
     var collection = db.get().collection('activity');
     collection.find().toArray((err,docs)=>{

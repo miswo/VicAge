@@ -18,9 +18,7 @@ export default class ViewEventPage extends React.Component{
 
     componentDidMount(){
         axios.get(this.props.serverURL + '/event/' + this.props.eventID)
-            .then((res)=>{
-                console.log(res.data);
-                this.setState({
+            .then((res)=>{this.setState({
                 event:{
                     name:res.data.name,
                     date:new Date(res.data.date).toLocaleDateString()

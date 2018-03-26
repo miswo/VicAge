@@ -14,12 +14,19 @@ import CreateEventPage from './pages/Event/CreateEventPage';
 import ViewEventPage from './pages/Event/ViewEventPage';
 import SurveyPage from './pages/Event/SurveyPage';
 
+
+import CreateConceptPage from './pages/Concept/CreateConceptPage';
+
+
 import "./main.scss";
 
+// Remote Server 
+// const serverURL = 'http://13.70.182.53:5000'; 
 
-// const serverURL = 'http://13.70.182.53:5000';
-
+// Local Server
 const serverURL = 'http://localhost:5000';
+// const serverURL = 'http://118.139.88.86:5000';
+
 
 class App extends Component {
     constructor(props){
@@ -38,9 +45,10 @@ class App extends Component {
                         <Route exact path="/" component = {HomePage}/>
                         <Route path="/about" component ={AboutPage}/>
                         <Route exact path="/event"  render={()=>(<ListEventPage serverURL= {serverURL} />)}/>
-                        <Route path="/event/create" render={(history)=>(<CreateEventPage history = {history.history} serverURL= {serverURL}/>)}/>
-                        <Route exact path="/event/:id" render={(history)=>(<ViewEventPage history = {history.history} serverURL={serverURL} eventID={history.match.params.id} />)} />
-                        <Route path="/event/:id/survey" render={(history)=><SurveyPage serverURL={serverURL}    eventID={history.match.params.id} />}  />
+                        <Route path="/event/create" render={(history)=>(<CreateEventPage    history = {history.history} serverURL= {serverURL}/>)}/>
+                        <Route exact path="/event/:id" render={(history)=>(<ViewEventPage   history = {history.history} serverURL={serverURL} eventID={history.match.params.id} />)} />
+                        <Route path="/event/:id/survey" render={(history)=><SurveyPage      serverURL={serverURL}    eventID={history.match.params.id} />} />
+                        <Route paht="/concept/create" render={(history)=><CreateConceptPage history ={history.history}  serverURL={serverURL}/>}  />
                         <Route component={NotFound} />
                     </Switch>
 

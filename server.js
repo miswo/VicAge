@@ -14,6 +14,7 @@ app.use(function (req, res, next) {
 app.use(bodyParser.json());
 
 app.use('/event', require('./Controllers/event'));
+app.use('/concept',require('./Controllers/concept'));
 
 var db = require('./db');
 db.connect((err) => {
