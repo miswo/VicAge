@@ -36,7 +36,7 @@ export default class ViewEventPage extends React.Component{
     renderSurveyResults(){
         const results = this.state.surveyResults.length?this.state.surveyResults.map((item)=>
             <tr key = {item._id}>
-                <td>{item.activityName}</td>
+                <td>{item.conceptName}</td>
                 <td>{item.count}</td>
             </tr>
 
@@ -72,7 +72,7 @@ export default class ViewEventPage extends React.Component{
                     <table className="table table-hover">
                         <thead>
                             <tr>
-                                <th>Activity</th>
+                                <th>Concept</th>
                                 <th>Number of people in favor</th>
                             </tr>
                         </thead>

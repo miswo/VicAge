@@ -19,8 +19,9 @@ export default class CreateConceptPage extends React.Component{
 
         axios.post(this.props.serverURL+'/concept/create',this.state)
             .then((result)=>{
-                console.log(result);
+                this.props.history.push('/');
             })
+
     }
 
     handleNameChange(e){

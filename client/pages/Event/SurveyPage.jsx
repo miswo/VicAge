@@ -7,7 +7,7 @@ export default class SurveyPage extends React.Component{
     constructor(props){
         super(props);
         this.state={
-            "activities":[],
+            "concepts":[],
             "selected":'default'
         };
     }
@@ -15,25 +15,25 @@ export default class SurveyPage extends React.Component{
     componentDidMount(){
         axios.get(this.props.serverURL+'/event/'+ this.props.eventID+ '/survey')
             .then((res)=>{
-                this.setState({'activities':res.data.activities})
+                this.setState({'concepts':res.data.concepts})
             });
 
     }
 
-    renderActivities(){
-        let activityItems = this.state.activities.map((item)=>
+    renderConcepts(){
+        let conceptItems = this.state.concepts.map((item)=>
             <div key={item._id} className="col-lg-4 col-md-6 col-sm-12">
                 <div className="radio">
                     <label className="choice">
-                        <input type="radio" name="favoriate-activity" id={'activity'+item._id} value={item.name} onClick={this.handleOnclick.bind(this)}/>
-                        <p className="lead">{item.name}</p>
-                        <img alt={item.name} src={item.picurl} />
+                        <input type="radio" name="favoriate-concept" id={'concept'+item._id} value={item.conceptName} onClick={this.handleOnclick.bind(this)}/>
+                        <p className="lead">{item.conceptName}</p>
+                        <img alt={item.conceptName} src={item.imgUrl} />
                     </label>
                 </div>
             </div>
         )
         const test = <h1>Hello</h1>
-        return activityItems;
+        return conceptItems;
     }
 
     handleOnclick(e){
@@ -44,7 +44,7 @@ export default class SurveyPage extends React.Component{
         e.preventDefault();
         axios.post(this.props.serverURL+'/event/handleSurvey',{
             eventID: this.props.eventID,
-            activityName: this.state.selected
+            conceptName: this.state.selected
         })
             .then((res)=>{
                 if(res.data.result=='ok')
@@ -60,16 +60,16 @@ export default class SurveyPage extends React.Component{
                 <div className="jumbotron">
                     <div className="container">
                         <h2>New Survey</h2>
-                        <p className="lead">Select your favoriate activity</p>
+                        <p className="lead">Select your favoriate concept</p>
                     </div>
                 </div>
 
                 <div className="container">
-                    <h3>Activities</h3>
+                    <h3>Concepts</h3>
 
                     <form className="form" onSubmit={this.handleSubmit.bind(this)}>
                         <div className="row">
-                            {this.renderActivities()}
+                            {this.renderConcepts()}
                         </div>
                         <input type="submit" className="btn btn-primary" />
                     </form>

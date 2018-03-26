@@ -30,11 +30,11 @@ router.post('/handleSurvey',(req,res)=>{
     var collection = db.get().collection('survey');
     collection.findOne({
         eventID:newSurvey.eventID,
-        activityName:newSurvey.activityName},(err,result)=>{
+        conceptName:newSurvey.conceptName},(err,result)=>{
             if(result){
                 collection.findOneAndUpdate({
                     eventID:newSurvey.eventID,
-                    activityName:newSurvey.activityName},
+                    conceptName:newSurvey.conceptName},
                     {$inc:{count:1}
                 },(err,result)=>{
                         res.json({result:'ok'})
@@ -42,7 +42,7 @@ router.post('/handleSurvey',(req,res)=>{
             }else{
                 collection.insertOne({
                     eventID:newSurvey.eventID,
-                    activityName:newSurvey.activityName,
+                    conceptName:newSurvey.conceptName,
                     count:1
                 },(err,result)=>{
                     res.json({result:'ok'})
@@ -55,7 +55,7 @@ router.post('/handleSurvey',(req,res)=>{
     // console.log(surveyResult);
     // collection.save({
     //     eventID:newSurvey.eventID,
-    //     activityName:newSurvey.activityName,
+    //     conceptName:newSurvey.conceptName,
     //     count:count},(err,result)=>{
     //         if(err) return console.log(err);
     //         else res.json({result:"ok"})
@@ -63,9 +63,9 @@ router.post('/handleSurvey',(req,res)=>{
 });
 
 router.get('/:id/survey',(req,res)=>{
-    var collection = db.get().collection('activity');
+    var collection = db.get().collection('concept');
     collection.find().toArray((err,docs)=>{
-        res.json({activities:docs})
+        res.json({concepts:docs})
     })
 });
 
