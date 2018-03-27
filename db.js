@@ -1,7 +1,7 @@
 const MongoClient = require('mongodb').MongoClient;
-// const url = 'mongodb://localhost:27017';
+const url = 'mongodb://localhost:27017';
 const dbName = 'vicagedb';
-const url = "mongodb://wysdom-db.documents.azure.com:10255/?ssl=true";
+// const url = "mongodb://wysdom-db.documents.azure.com:10255/?ssl=true";
 const auth = {
     auth:{
         user: 'wysdom-db',
