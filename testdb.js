@@ -1,7 +1,7 @@
 const MongoClient = require('mongodb').MongoClient;
 // const url = 'mongodb://localhost:27017';
 const dbName = 'vicagedb';
-const url = "mongodb://wysdom-db.documents.azure.com:10255/?ssl=true";
+const url = "mongodb://wysdom-db-shard-00-00-8zcsc.mongodb.net:27017,wysdom-db-shard-00-01-8zcsc.mongodb.net:27017,wysdom-db-shard-00-02-8zcsc.mongodb.net:27017/admin?replicaSet=wysdom-db-shard-0&ssl=true";
 const auth = {
     auth:{
         user: 'wysdom-db',
