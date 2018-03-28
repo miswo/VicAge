@@ -40,7 +40,6 @@ router.get('/agedcare/:postcode',(req,res)=>{
     var collection = db.get().collection('aged_care_service');
     collection.find({"Physical Address Post Code":req.params.postcode}).toArray((err,result)=>{
         data = []
-        console.log(result);
         result.map((item)=>{
             data.push({
                 "_id":item._id,
@@ -58,7 +57,6 @@ router.get('/hospital/:postcode',(req,res)=>{
     var collection = db.get().collection('hospital_locations');
     collection.find({"Postcode":req.params.postcode}).toArray((err,result)=>{
         data = []
-        console.log(result);
         result.map((item)=>{
             data.push({
                 "_id":item._id,

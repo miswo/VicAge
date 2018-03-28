@@ -9,13 +9,13 @@ export default class ListServicePage extends React.Component{
         super(props);
         this.state={
             postcode:this.props.match.match.params.postcode,
-            active:"community",
+            active:"agedcare",
             data:[]
         }
     }
 
     componentDidMount(){
-        axios.get(this.props.serverURL+'/service/community/'+this.state.postcode)
+        axios.get(this.props.serverURL+'/service/agedcare/'+this.state.postcode)
             .then((res)=>{
                 this.setState({
                     data:res.data.services
@@ -105,11 +105,11 @@ export default class ListServicePage extends React.Component{
 
                 <div className="container">
                     <h4>In Post Code {this.state.postcode} Area, there are:</h4>
-                    <ul className="nav nav-tabs">
-                        <li role="presentation" id="community"  className={this.state.active =="community"?"active":""}  onClick={this.handleTabsClickCommunity.bind(this)}><a href="#">Community Service</a></li>
-                        <li role="presentation" id="disaility"  className={this.state.active =="disability"?"active":""} onClick={this.handleTabsClickDisability.bind(this)}> <a href="#">Disability Service</a></li>
-                        <li role="presentation" id="aged-care"  className={this.state.active =="aged-care"?"active":""}  onClick={this.handleTabsClickAgedCare.bind(this)}> <a href="#">Aged Care</a></li>
-                        <li role="presentation" id="aged-care"  className={this.state.active =="hospital"?"active":""}  onClick={this.handleTabsClickHospital.bind(this)}> <a href="#">Hospital</a></li>
+                    <ul className="nav nav-pills">
+                        <li role="presentation" className={this.state.active =="aged-care"?"active":""}  onClick={this.handleTabsClickAgedCare.bind(this)}> <a href="#">Aged Care</a></li>  
+                        <li role="presentation" className={this.state.active =="community"?"active":""}  onClick={this.handleTabsClickCommunity.bind(this)}><a href="#">Community Service</a></li>
+                        <li role="presentation" className={this.state.active =="disability"?"active":""} onClick={this.handleTabsClickDisability.bind(this)}> <a href="#">Disability Service</a></li>
+                        <li role="presentation" className={this.state.active =="hospital"?"active":""}  onClick={this.handleTabsClickHospital.bind(this)}> <a href="#">Hospital</a></li>
                     </ul>
 
                     <div className="content list-group">
