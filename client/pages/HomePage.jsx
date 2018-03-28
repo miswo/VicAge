@@ -3,29 +3,11 @@ import {Link} from 'react-router-dom';
 
 import {PieChart,Pie,Cell,Label} from 'recharts';
 
+import PostCodeSearch from '../components/PostCodeSearcher';
+
 
 export default class HomePage extends React.Component{
-    constructor(props){
-        super(props);
-        this.state={
-            postcode:''
-        }
-    }
 
-    handleInputChange(e){
-        this.setState({postcode:e.target.value})
-    }
-    
-    handleSubmit(e){
-        e.preventDefault();
-        if(this.state.postcode.match('[0-9]{4}')){
-            document.getElementById('feedback').innerText = "";
-            this.props.history.push('/service/'+ this.state.postcode);
-        }
-        else
-            document.getElementById('feedback').innerText = "Please enter correct post code."
-
-    }
 
     render(){
         var not_meet_physical_activity_guidelines = [{'name':'A','value':4},
@@ -42,15 +24,7 @@ export default class HomePage extends React.Component{
                             <h1>VicAge</h1>
                             <p className="lead">There are services in your community that are going to help you taking care of people</p>
                             
-
-                            <form className="form" onSubmit={this.handleSubmit.bind(this)}>
-                                <div className="form-group">
-                                    <input required className="input-lg" placeholder="Post Code" onChange={this.handleInputChange.bind(this)}/> 
-                                    <button type = "submit" className="btn btn-primary btn-lg" >Find out more</button>
-                                </div>
-                            </form>
-
-                            <p id="feedback"></p>
+                            <PostCodeSearch history={this.props.history}/>
                             
                         </div>
                         

@@ -10,6 +10,7 @@ export default class NotFound extends React.Component{
                 <div className="jumbotron banner">
                     <div className="container">
                         <h2>Oops, No such page.</h2>
+                        <p>This is a typical 404 not found.</p>
                     </div>
                 </div>
             </div>

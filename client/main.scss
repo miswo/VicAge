@@ -11,6 +11,9 @@ table,th{
     text-align: center;
 }
 
+h2{
+    font-size:3.5em;
+}
 textarea{
     resize: none;
 }
@@ -45,6 +48,23 @@ textarea{
     }
 }
 
+#post-code-searcher{
+    input{
+        margin:4px;
+        border-radius: 0;
+    }
+    .btn{
+        margin-top:-4px;
+        border-radius: 0;
+    }
+    @media(max-width:970px){
+        text-align: center;
+        .btn{
+            margin-top:10px;
+        }
+    }
+}
+
 
 // ------------------- Dev setting ------------//
 
@@ -68,19 +88,9 @@ footer{
             position: relative;
             top:50%;
         }
-        input{
-            margin:2px;
-            border-radius: 0;
-        }
-        .btn{
-            margin:2px;
-            border-radius: 0;
-        }
     }
     .facts{
-        h2{
-            text-align: center;
-        }
+        text-align: center;
         .fact-block{
             text{
                 font-size:3em;
@@ -88,7 +98,8 @@ footer{
         }
     }
     .recharts-wrapper{
-        margin-left:25px;
+        margin-left:auto;
+        margin-right:auto;
     }
 
 }

@@ -18,6 +18,9 @@ import SurveyPage from './pages/Event/SurveyPage';
 import CreateConceptPage from './pages/Concept/CreateConceptPage';
 
 
+import ListServicePage from './pages/Service/ListServicePage';
+
+
 import "./main.scss";
 
 // Remote Server 
@@ -49,6 +52,7 @@ class App extends Component {
                         <Route exact path="/event/:id" render={(history)=>(<ViewEventPage   history = {history.history} serverURL={serverURL} eventID={history.match.params.id} />)} />
                         <Route path="/event/:id/survey" render={(history)=><SurveyPage      serverURL={serverURL}    eventID={history.match.params.id} />} />
                         <Route path="/concept/create" render={(history)=><CreateConceptPage history ={history.history}  serverURL={serverURL}/>}  /> */}
+                        <Route path="/service/:postcode" render={(history)=>(<ListServicePage history={history.history} serverURL = {serverURL}/>)} />
                         <Route component={NotFound} />
                     </Switch>
 
