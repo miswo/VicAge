@@ -78,13 +78,17 @@ footer{
         }
     }
     .facts{
-        text-align: center;
+        h2{
+            text-align: center;
+        }
         .fact-block{
-            text-align: left;
             text{
                 font-size:3em;
             }
         }
+    }
+    .recharts-wrapper{
+        margin-left:25px;
     }
 
 }

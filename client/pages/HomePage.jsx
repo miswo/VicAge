@@ -19,12 +19,13 @@ export default class HomePage extends React.Component{
                     <div className="container">
                         <div className="caption">
                             <h1>VicAge</h1>
-                            <p className="lead">There are services in your community that is going to help you take care of people</p>
+                            <p className="lead">There are services in your community that are going to help you take care of people</p>
                             
-                            <div className="form-group">
-                                <input className="input-lg" placeholder="Post Code"/> 
-                                <button className="btn btn-primary btn-lg">Find out more</button>
-                            </div>
+                                <div className="form-group">
+                                        <input className="input-lg" placeholder="Post Code"/> 
+                                        <button className="btn btn-primary btn-lg">Find out more</button>
+                                </div>
+                            
                         </div>
                         
                     </div>
