@@ -5,7 +5,7 @@ const url = "mongodb://wysdom-db-shard-00-00-8zcsc.mongodb.net:27017,wysdom-db-s
 const auth = {
     auth:{
         user: 'will',
-        password:'NISHI2BI'
+        password:'ITwisdom'
     }}
 
 
