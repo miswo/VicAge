@@ -14,7 +14,7 @@ table,th{
 textarea{
     resize: none;
 }
-
+// -------------------Components
 .drop-zone{
     height:400px;
     width:400px;
@@ -28,13 +28,24 @@ textarea{
         vertical-align: middle
     }
 }
-
 .drop-zone:hover{
     background-color:#eee;
     span{
         font-size:6em;
     }
 }
+
+.banner{
+    background:url("https://s3-ap-southeast-2.amazonaws.com/vicage-image/5abbb2833c29cb166c68e1f3.jpeg") no-repeat;
+    h1,h2,h3{
+        color:white;
+    }
+    p{
+        color:white;
+    }
+}
+
+
 // ------------------- Dev setting ------------//
 
 footer{
@@ -51,21 +62,31 @@ footer{
 //-------------------Home Page ----------------//
 #homepage{
     .jumbotron{
-    text-align:center;
-        #start-event{
-            width:100px;
+        height: 400px;
+        text-align:center;
+        .caption{
+            position: relative;
+            top:50%;
+        }
+        input{
+            margin:2px;
+            border-radius: 0;
+        }
+        .btn{
+            margin:2px;
+            border-radius: 0;
         }
     }
-
     .facts{
         text-align: center;
         .fact-block{
-            span{
-                color:#555;
-                font-size:10em;
+            text-align: left;
+            text{
+                font-size:3em;
             }
         }
     }
+
 }
 
 
