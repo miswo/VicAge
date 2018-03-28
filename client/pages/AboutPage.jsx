@@ -23,7 +23,7 @@ const MediaListItem = (name,role,des,picURL)=>(
 
 const AboutPage=()=>(
     <div id="about-page">
-        <div className="jumbotron">
+        <div className="jumbotron banner">
             <div className="container">
                 <h2>About us</h2>
                 <p className="lead">

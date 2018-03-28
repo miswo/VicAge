@@ -42,13 +42,13 @@ class App extends Component {
                     <Navbar />
 
                     <Switch>
-                        <Route exact path="/" component = {HomePage}/>
+                        <Route exact path="/" render={(history)=>(<HomePage history={history.history}/>)}component = {HomePage}/>
                         <Route path="/about" component ={AboutPage}/>
-                        <Route exact path="/event"  render={()=>(<ListEventPage serverURL= {serverURL} />)}/>
+                        {/* <Route exact path="/event"  render={()=>(<ListEventPage serverURL= {serverURL} />)}/>
                         <Route path="/event/create" render={(history)=>(<CreateEventPage    history = {history.history} serverURL= {serverURL}/>)}/>
                         <Route exact path="/event/:id" render={(history)=>(<ViewEventPage   history = {history.history} serverURL={serverURL} eventID={history.match.params.id} />)} />
                         <Route path="/event/:id/survey" render={(history)=><SurveyPage      serverURL={serverURL}    eventID={history.match.params.id} />} />
-                        <Route path="/concept/create" render={(history)=><CreateConceptPage history ={history.history}  serverURL={serverURL}/>}  />
+                        <Route path="/concept/create" render={(history)=><CreateConceptPage history ={history.history}  serverURL={serverURL}/>}  /> */}
                         <Route component={NotFound} />
                     </Switch>
 

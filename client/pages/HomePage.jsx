@@ -5,7 +5,28 @@ import {PieChart,Pie,Cell,Label} from 'recharts';
 
 
 export default class HomePage extends React.Component{
+    constructor(props){
+        super(props);
+        this.state={
+            postcode:''
+        }
+    }
+
+    handleInputChange(e){
+        this.setState({postcode:e.target.value})
+    }
     
+    handleSubmit(e){
+        e.preventDefault();
+        if(this.state.postcode.match('[0-9]{4}')){
+            document.getElementById('feedback').innerText = "";
+            this.props.history.push('/service/'+ this.state.postcode);
+        }
+        else
+            document.getElementById('feedback').innerText = "Please enter correct post code."
+
+    }
+
     render(){
         var not_meet_physical_activity_guidelines = [{'name':'A','value':4},
                                                      {'name':'B','value':96}]
@@ -19,12 +40,17 @@ export default class HomePage extends React.Component{
                     <div className="container">
                         <div className="caption">
                             <h1>VicAge</h1>
-                            <p className="lead">There are services in your community that are going to help you take care of people</p>
+                            <p className="lead">There are services in your community that are going to help you taking care of people</p>
                             
+
+                            <form className="form" onSubmit={this.handleSubmit.bind(this)}>
                                 <div className="form-group">
-                                        <input className="input-lg" placeholder="Post Code"/> 
-                                        <button className="btn btn-primary btn-lg">Find out more</button>
+                                    <input required className="input-lg" placeholder="Post Code" onChange={this.handleInputChange.bind(this)}/> 
+                                    <button type = "submit" className="btn btn-primary btn-lg" >Find out more</button>
                                 </div>
+                            </form>
+
+                            <p id="feedback"></p>
                             
                         </div>
                         
@@ -42,7 +68,7 @@ export default class HomePage extends React.Component{
                                     <PieChart width={300} height={300}>
                                         <Pie data={not_meet_physical_activity_guidelines} dataKey="value" nameKey="name" >
                                             <Label value="4%" position="center" fill="#fff" />
-                                            <Cell fill="#FFBB28"/>
+                                            <Cell fill="#8884d8"/>
                                         </Pie>
                                     </PieChart>
                                     <p className="lead">People with severe disability living in the community</p>
