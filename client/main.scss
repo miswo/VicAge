@@ -1,3 +1,7 @@
+$small-screen: 439px;
+$median-screen:979px;
+
+
 //------------------Generals------------------//
 .navbar-nav>li>a.active{
     color:white;
@@ -64,7 +68,7 @@ textarea{
         margin-top:-4px;
         border-radius: 0;
     }
-    @media(max-width:439px){
+    @media(max-width:$small-screen){
         text-align: center;
         .btn{
             margin-top:10px;
@@ -135,6 +139,12 @@ footer{
                 }
             }
         }
+
+        @media(max-width:$median-screen) {
+            .person-description{
+                text-align:center;
+            }
+        }
     }
 }
 
@@ -169,9 +179,15 @@ footer{
 
 
 #list-service-page{
+
+    @media(max-width: $small-screen){
+        .banner{
+            text-align: center;
+        }
+    }
     .content{
         margin-top:20px;
     }
 
-    
+
 }

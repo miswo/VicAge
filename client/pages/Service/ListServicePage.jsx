@@ -29,7 +29,7 @@ export default class ListServicePage extends React.Component{
     }
 
     fetchdata(postcode){
-        axios.get(this.props.serverURL+'/service/agedcare/'+postcode)
+        axios.get(this.props.serverURL+'/service/agedcare/all/'+postcode)
             .then((res)=>{
                 this.setState({
                     agedcare:res.data.services,
@@ -38,7 +38,7 @@ export default class ListServicePage extends React.Component{
             }
         )
 
-        axios.get(this.props.serverURL+'/service/community/'+postcode)
+        axios.get(this.props.serverURL+'/service/community/all/'+postcode)
             .then((res)=>{
                 this.setState({
                     community:res.data.services
@@ -46,7 +46,7 @@ export default class ListServicePage extends React.Component{
             }
         )
 
-        axios.get(this.props.serverURL+'/service/disability/'+postcode)
+        axios.get(this.props.serverURL+'/service/disability/all/'+postcode)
             .then((res)=>{
                 this.setState({
                     disability:res.data.services
@@ -54,7 +54,7 @@ export default class ListServicePage extends React.Component{
             }
         )
 
-        axios.get(this.props.serverURL+'/service/hospital/'+postcode)
+        axios.get(this.props.serverURL+'/service/hospital/all/'+postcode)
             .then((res)=>{
                 this.setState({
                     hospital:res.data.services
@@ -67,7 +67,7 @@ export default class ListServicePage extends React.Component{
         const content = this.state.data.length?
 
         this.state.data.map((item)=>(
-            <a href="#" key={item._id} className="list-group-item" onClick={(e)=>{e.preventDefault()}}>
+            <a href={'/service/'+ this.state.active+'/detail/'+item._id} key={item._id} className="list-group-item">
                 <h4 className="list-group-item-heading">{item.name}</h4>  
                 <p className="list-group-item-text">
                     Address:
@@ -115,7 +115,7 @@ export default class ListServicePage extends React.Component{
                         <h2>Services</h2>
                         <p className="lead">Here is some information that might help you.</p>
                         <PostCodeSearcher history = {this.props.history} />
-                        <Link to="/" className="btn btn-default">Back</Link>
+                        <Link to="/" className="btn btn-default back">Back</Link>
                     </div>
                 </div>
 

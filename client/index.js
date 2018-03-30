@@ -19,7 +19,7 @@ import CreateConceptPage from './pages/Concept/CreateConceptPage';
 
 
 import ListServicePage from './pages/Service/ListServicePage';
-
+import DetailServicePage from './pages/Service/DetailServicePage';
 
 import "./main.scss";
 
@@ -66,7 +66,8 @@ class App extends Component {
                             <Route exact path="/event/:id" render={(history)=>(<ViewEventPage   history = {history.history} serverURL={serverURL} eventID={history.match.params.id} />)} />
                             <Route path="/event/:id/survey" render={(history)=><SurveyPage      serverURL={serverURL}    eventID={history.match.params.id} />} />
                             <Route path="/concept/create" render={(history)=><CreateConceptPage history ={history.history}  serverURL={serverURL}/>}  />
-                            <Route path="/service/:postcode" render={(history)=>(<ListServicePage match ={history} history={history.history} serverURL = {serverURL}/>)} />
+                            <Route path="/service/all/:postcode" render={(history)=>(<ListServicePage match ={history} history={history.history} serverURL = {serverURL}/>)} />
+                            <Route path={"/service/(agedcare|disability|hospital|community)/:id"} render={(history)=>(<DetailServicePage match={history} history={history.history} serverURL={serverURL}/>)} />
                             <Route component={NotFound} />
                         </Switch>
                         <Footer />
