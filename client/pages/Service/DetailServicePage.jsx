@@ -1,5 +1,6 @@
 import React from 'react';
 import  axios from 'axios';
+import {Link} from 'react-router-dom';
 
 export default class DetailServicePage extends React.Component{
 
@@ -22,7 +23,7 @@ export default class DetailServicePage extends React.Component{
     }
 
     goback(){
-        this.props.history.go(-1);
+        this.props.history.goBack();
     }
 
     renderDetail(){
@@ -71,7 +72,7 @@ export default class DetailServicePage extends React.Component{
                     <h4>Address:</h4>
                     {this.state.address?
                         <iframe
-                        width="400"
+                        width="500"
                         height="400"
                         frameBorder="0"
                         src={"https://www.google.com/maps/embed/v1/place?key=AIzaSyB__2CdN6RdNrlhe9prRxREE7cj2R4qwwk&q=" + this.state.address }

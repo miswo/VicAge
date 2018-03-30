@@ -90,7 +90,8 @@ router.get('/disability/detail/:id',(req,res)=>{
     collection.findOne({_id:ObjectID(req.params.id)},(err,result)=>{
         if(err) return err;
         res.json({
-            data:result
+            data:result,
+            "address":result["Street Address"]
         })
     })
 })
@@ -100,7 +101,8 @@ router.get('/agedcare/detail/:id',(req,res)=>{
     collection.findOne({_id:ObjectID(req.params.id)},(err,result)=>{
         if(err) return err;
         res.json({
-            data:result
+            data:result,
+            "address":result['Physical Address Line 1'] + ' ' + result['Physical Address Line 2'] ,
         })
     })
 })
@@ -110,7 +112,8 @@ router.get('/hospital/detail/:id',(req,res)=>{
     collection.findOne({_id:ObjectID(req.params.id)},(err,result)=>{
         if(err) return err;
         res.json({
-            data:result
+            data:result,
+            "address":result["StreetNum"] +' '+ result["RoadName"]
         })
     })
 })

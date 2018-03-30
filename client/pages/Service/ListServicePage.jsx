@@ -67,13 +67,13 @@ export default class ListServicePage extends React.Component{
         const content = this.state.data.length?
 
         this.state.data.map((item)=>(
-            <a href={'/service/'+ this.state.active+'/detail/'+item._id} key={item._id} className="list-group-item">
+            <Link to={'/service/'+ this.state.active+'/detail/'+item._id} key={item._id} from={this.state.postcode} className="list-group-item">
                 <h4 className="list-group-item-heading">{item.name}</h4>  
                 <p className="list-group-item-text">
                     Address:
                     {item.address}
                 </p>
-            </a>
+            </Link>
         ))
         :
         <a className="list-group-item">No services found..</a>
