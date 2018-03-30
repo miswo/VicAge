@@ -72,6 +72,4 @@ router.get('/hospital/:postcode',(req,res)=>{
 
 
 
-
-
 module.exports = router;

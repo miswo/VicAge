@@ -10,17 +10,55 @@ export default class ListServicePage extends React.Component{
         this.state={
             postcode:this.props.match.match.params.postcode,
             active:"agedcare",
-            data:[]
+            data:[],
+            community:[],
+            disability:[],
+            agedcare:[],
+            hospital:[]
         }
     }
 
     componentDidMount(){
-        axios.get(this.props.serverURL+'/service/agedcare/'+this.state.postcode)
+        this.fetchdata(this.state.postcode);
+    }
+
+    componentWillReceiveProps(nextProps){
+        var newPostcode = nextProps.match.match.params.postcode;
+
+        this.setState({postcode:newPostcode});
+        this.fetchdata(newPostcode);
+    }
+
+    fetchdata(postcode){
+        axios.get(this.props.serverURL+'/service/agedcare/'+postcode)
             .then((res)=>{
                 this.setState({
+                    agedcare:res.data.services,
                     data:res.data.services
                 })
             })
+
+        axios.get(this.props.serverURL+'/service/community/'+postcode)
+            .then((res)=>{
+                this.setState({
+                    community:res.data.services
+                })
+        })
+
+        axios.get(this.props.serverURL+'/service/disability/'+postcode)
+            .then((res)=>{
+                this.setState({
+                    disability:res.data.services
+                })
+            })
+
+        axios.get(this.props.serverURL+'/service/hospital/'+postcode)
+            .then((res)=>{
+                this.setState({
+                    hospital:res.data.services
+                })
+        })
+        this.forceUpdate();
     }
 
     renderServices(){
@@ -44,61 +82,37 @@ export default class ListServicePage extends React.Component{
 
     handleTabsClickCommunity(e){
         e.preventDefault();
-        this.setState({active:"community",data:[]})
-        axios.get(this.props.serverURL+'/service/community/'+this.state.postcode)
-            .then((res)=>{
-                this.setState({
-                    data:res.data.services
-                })
-            })
+        this.setState({active:"community",data:this.state.community})
+
     }
 
     handleTabsClickDisability(e){
         e.preventDefault();
-        this.setState({active:"disability",data:[]})
+        this.setState({active:"disability",data:this.state.disability})
 
-        axios.get(this.props.serverURL+'/service/disability/'+this.state.postcode)
-            .then((res)=>{
-                this.setState({
-                    data:res.data.services
-                })
-            })
     }
     
     handleTabsClickAgedCare(e){
         e.preventDefault();
-        this.setState({active:"aged-care",data:[]})
+        this.setState({active:"agedcare",data:this.state.agedcare})
 
-        axios.get(this.props.serverURL+'/service/agedcare/'+this.state.postcode)
-            .then((res)=>{
-                this.setState({
-                    data:res.data.services
-                })
-            })
     }
 
     handleTabsClickHospital(e){
         e.preventDefault();
-        this.setState({active:"hospital",data:[]})
+        this.setState({active:"hospital",data:this.state.hospital})
 
-        axios.get(this.props.serverURL+'/service/hospital/'+this.state.postcode)
-            .then((res)=>{
-                this.setState({
-                    data:res.data.services
-                })
-            })
+
     }
 
     render(){
-        
         return(
-
             <div id="list-service-page">
                 <div className="jumbotron banner">
                     <div className="container">
                         <h2>Services</h2>
                         <p className="lead">Here are some information that might help you.</p>
-                        {/* <PostCodeSearcher history = {this.props.history} /> */}
+                        <PostCodeSearcher history = {this.props.history} />
                         <Link to="/" className="btn btn-default">Back</Link>
                     </div>
                 </div>
@@ -106,10 +120,10 @@ export default class ListServicePage extends React.Component{
                 <div className="container">
                     <h4>In Post Code {this.state.postcode} Area, there are:</h4>
                     <ul className="nav nav-pills">
-                        <li role="presentation" className={this.state.active =="aged-care"?"active":""}  onClick={this.handleTabsClickAgedCare.bind(this)}> <a href="#">Aged Care</a></li>  
-                        <li role="presentation" className={this.state.active =="community"?"active":""}  onClick={this.handleTabsClickCommunity.bind(this)}><a href="#">Community Service</a></li>
-                        <li role="presentation" className={this.state.active =="disability"?"active":""} onClick={this.handleTabsClickDisability.bind(this)}> <a href="#">Disability Service</a></li>
-                        <li role="presentation" className={this.state.active =="hospital"?"active":""}  onClick={this.handleTabsClickHospital.bind(this)}> <a href="#">Hospital</a></li>
+                        <li role="presentation" className={this.state.active =="agedcare"?"active":""}  onClick={this.handleTabsClickAgedCare.bind(this)}> <a href="#">         Aged Care({this.state.agedcare.length})</a></li>  
+                        <li role="presentation" className={this.state.active =="community"?"active":""}  onClick={this.handleTabsClickCommunity.bind(this)}><a href="#">        Community Service({this.state.community.length})</a></li>
+                        <li role="presentation" className={this.state.active =="disability"?"active":""} onClick={this.handleTabsClickDisability.bind(this)}> <a href="#">      Disability Service({this.state.disability.length})</a></li>
+                        <li role="presentation" className={this.state.active =="hospital"?"active":""}  onClick={this.handleTabsClickHospital.bind(this)}> <a href="#">         Hospital({this.state.hospital.length})</a></li>
                     </ul>
 
                     <div className="content list-group">
