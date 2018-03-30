@@ -77,7 +77,11 @@ router.get('/community/detail/:id',(req,res)=>{
     var collection = db.get().collection('community_service');
     collection.findOne({_id:ObjectID(req.params.id)},(err,result)=>{
         if(err) return err;
-        res.json({data:result})
+        res.json({
+            data:result,
+            address:result["Street Address"]
+
+        })
     })
 })
 
@@ -85,7 +89,9 @@ router.get('/disability/detail/:id',(req,res)=>{
     var collection = db.get().collection('disability_service_provider');
     collection.findOne({_id:ObjectID(req.params.id)},(err,result)=>{
         if(err) return err;
-        res.json({data:result})
+        res.json({
+            data:result
+        })
     })
 })
 
@@ -93,7 +99,9 @@ router.get('/agedcare/detail/:id',(req,res)=>{
     var collection = db.get().collection('aged_care_service');
     collection.findOne({_id:ObjectID(req.params.id)},(err,result)=>{
         if(err) return err;
-        res.json({data:result})
+        res.json({
+            data:result
+        })
     })
 })
 
@@ -101,7 +109,9 @@ router.get('/hospital/detail/:id',(req,res)=>{
     var collection = db.get().collection('hospital_locations');
     collection.findOne({_id:ObjectID(req.params.id)},(err,result)=>{
         if(err) return err;
-        res.json({data:result})
+        res.json({
+            data:result
+        })
     })
 })
 

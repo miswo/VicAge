@@ -6,16 +6,23 @@ export default class DetailServicePage extends React.Component{
     constructor(props){
         super(props);
         this.state={
-            data:{}
+            data:{},
+            address:''
         }
     }
 
     componentDidMount(){
-        console.log(this.state.data)
         axios.get(this.props.serverURL + this.props.history.location.pathname)
             .then((res)=>{
-                this.setState({data:res.data.data})
+                this.setState({
+                    data:res.data.data,
+                    address:res.data.address
+                })
             })
+    }
+
+    goback(){
+        this.props.history.go(-1);
     }
 
     renderDetail(){
@@ -35,7 +42,7 @@ export default class DetailServicePage extends React.Component{
                     {arr.map((item)=>(
                         <div key={item.key}>
                             <h4>{item.key}</h4>
-                            <p>{item.value}</p>
+                            {item.value?<p>{item.value}</p>:<span>--<br/></span>}
                         </div>
                     ))}
                 </div>
@@ -51,7 +58,8 @@ export default class DetailServicePage extends React.Component{
         
                 <div className="jumbotron banner">
                     <div className="container">
-                        <h2>Service Provider Name</h2>
+                        <h2>Service Provider Detail</h2>
+                        <button className="btn btn-default" onClick={this.goback.bind(this)}>Back</button>
                     </div>
                 </div>
 
@@ -59,6 +67,19 @@ export default class DetailServicePage extends React.Component{
                     <div className=".content">
                         {this.renderDetail()}
                     </div>
+
+                    <h4>Address:</h4>
+                    {this.state.address?
+                        <iframe
+                        width="400"
+                        height="400"
+                        frameBorder="0"
+                        src={"https://www.google.com/maps/embed/v1/place?key=AIzaSyB__2CdN6RdNrlhe9prRxREE7cj2R4qwwk&q=" + this.state.address }
+                        allowFullScreen>
+                        </iframe>
+                        :
+                        ''
+                    }
                 </div>
             </div>
 
