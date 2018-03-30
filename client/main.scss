@@ -17,7 +17,14 @@ h2{
 textarea{
     resize: none;
 }
-// -------------------Components
+
+#app-lock{
+    width:400px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:300px;
+}
+// -------------------Components -------------------
 .drop-zone{
     height:400px;
     width:400px;
@@ -57,7 +64,7 @@ textarea{
         margin-top:-4px;
         border-radius: 0;
     }
-    @media(max-width:440px){
+    @media(max-width:439px){
         text-align: center;
         .btn{
             margin-top:10px;
@@ -120,7 +127,9 @@ footer{
                 margin-left:auto;
                 margin-right:auto;
                 text-align: center;
-
+                img{
+                    height:200px;
+                }
                 span{
                     font-size:8em;
                 }
@@ -163,4 +172,6 @@ footer{
     .content{
         margin-top:20px;
     }
+
+    
 }
