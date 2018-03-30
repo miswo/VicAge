@@ -24,8 +24,12 @@ export default class ListServicePage extends React.Component{
 
     componentWillReceiveProps(nextProps){
         var newPostcode = nextProps.match.match.params.postcode;
-        this.setState({postcode:newPostcode});
+        this.setState({
+            postcode:newPostcode,
+            active:'agedcare'
+        });
         this.fetchdata(newPostcode);
+
     }
 
     fetchdata(postcode){

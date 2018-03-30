@@ -24,10 +24,10 @@ import DetailServicePage from './pages/Service/DetailServicePage';
 import "./main.scss";
 
 // Remote Server 
-const serverURL = 'http://13.70.182.53:5000'; 
+// const serverURL = 'http://13.70.182.53:5000'; 
 
 // Local Server
-// const serverURL = 'http://localhost:5000';
+const serverURL = 'http://localhost:5000';
 // const serverURL = 'http://118.139.73.54:5000';
 
 
