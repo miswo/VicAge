@@ -24,7 +24,6 @@ export default class ListServicePage extends React.Component{
 
     componentWillReceiveProps(nextProps){
         var newPostcode = nextProps.match.match.params.postcode;
-
         this.setState({postcode:newPostcode});
         this.fetchdata(newPostcode);
     }
@@ -36,36 +35,39 @@ export default class ListServicePage extends React.Component{
                     agedcare:res.data.services,
                     data:res.data.services
                 })
-            })
+            }
+        )
 
         axios.get(this.props.serverURL+'/service/community/'+postcode)
             .then((res)=>{
                 this.setState({
                     community:res.data.services
                 })
-        })
+            }
+        )
 
         axios.get(this.props.serverURL+'/service/disability/'+postcode)
             .then((res)=>{
                 this.setState({
                     disability:res.data.services
                 })
-            })
+            }
+        )
 
         axios.get(this.props.serverURL+'/service/hospital/'+postcode)
             .then((res)=>{
                 this.setState({
                     hospital:res.data.services
                 })
-        })
-        this.forceUpdate();
+            }
+        )
     }
 
     renderServices(){
         const content = this.state.data.length?
 
         this.state.data.map((item)=>(
-            <a href="#" key={item._id} className="list-group-item">
+            <a href="#" key={item._id} className="list-group-item" onClick={(e)=>{e.preventDefault()}}>
                 <h4 className="list-group-item-heading">{item.name}</h4>  
                 <p className="list-group-item-text">
                     Address:
