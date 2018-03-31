@@ -7,8 +7,21 @@ $median-screen:979px;
     color:white;
 }
 
+
+
 .navbar{
     margin-bottom:0;
+}
+
+.navbar-inverse .navbar-brand{
+    padding:5px;
+    color:#00a2e8;
+}
+#navlogo{
+    display: inline;
+    width:40px;
+    height:40px;
+    margin-right:10px;
 }
 
 table,th{
@@ -23,7 +36,7 @@ textarea{
 }
 
 #app-lock{
-    width:400px;
+    width:300px;
     margin-left: auto;
     margin-right: auto;
     margin-top:300px;
@@ -50,7 +63,7 @@ textarea{
 }
 
 .banner{
-    background:url("https://s3-ap-southeast-2.amazonaws.com/vicage-image/5abbb2833c29cb166c68e1f3.jpeg") no-repeat;
+    background:url("https://s3-ap-southeast-2.amazonaws.com/vicage-image/5abbb2833c29cb166c68e1f3.jpeg") no-repeat center;
     h1,h2,h3{
         color:white;
     }
@@ -76,6 +89,14 @@ textarea{
     }
 }
 
+#google-map{
+    width:700px;
+}
+@media(max-width:$small-screen){
+    #google-map{
+        width:400px;
+    }
+}
 
 // ------------------- Dev setting ------------//
 
@@ -119,8 +140,19 @@ footer{
 //--------------------About Page ------------
 
 #about-page{
+
+    .project-description{
+        h3{
+            font-size:2.5em;
+            text-align: center;
+            margin-bottom:20px;
+        }
+
+        margin-bottom:50px;
+    }
     .team-description{
         h3{
+            font-size:2.5em;
             text-align: center;
         }
 

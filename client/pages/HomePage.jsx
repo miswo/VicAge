@@ -22,7 +22,8 @@ export default class HomePage extends React.Component{
                     <div className="container">
                         <div className="caption">
                             <h1>VicAge</h1>
-                            <p className="lead">There are services in your community that are going to help you taking care of people</p>
+                            <h3>We help carers so they can help people.</h3>
+                            <p className="lead">There are services in your community that are going to help you:</p>
                             
                             <PostCodeSearch history={this.props.history}/>
                             
