@@ -36,10 +36,10 @@ textarea{
 }
 
 #app-lock{
-    width:300px;
+    width:250px;
     margin-left: auto;
     margin-right: auto;
-    margin-top:300px;
+    margin-top:200px;
 }
 // -------------------Components -------------------
 .drop-zone{
@@ -94,7 +94,7 @@ textarea{
 }
 @media(max-width:$small-screen){
     #google-map{
-        width:400px;
+        width:300px;
     }
 }
 
