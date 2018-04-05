@@ -34,5 +34,19 @@ router.post('/create',(req,res)=>{
 })
 
 
+router.post('/list/create',(req,res)=>{
+    var collection = db.get().collection('concept-list');
+    collection.insertOne({
+        listName:req.body.listName,
+        concepts:req.body.concepts,
+        createDate:new Date()
+    },(err,result)=>{
+        if(err) return console.log(err);
+        res.json({status:200})
+    })
+})
+
+
+
 
 module.exports = router;

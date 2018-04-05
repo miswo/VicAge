@@ -43,24 +43,27 @@ textarea{
 }
 // -------------------Components -------------------
 .drop-zone{
-    height:400px;
-    width:400px;
-    border: 5px dashed #999;
-    line-height: 400px;
-    text-align: center;
+    max-width:100%;
+    border:3px dashed #eee;
     span{
-        display: inline-block;
-        position:relative;
-        font-size:5em;;
-        vertical-align: middle
+        position: absolute;
+        font-size:5em;
+        left:50%;
+        transform:translate(-50%,-50%);
+        top:50%;
     }
+}
+.drop-zone:after{
+    content:"";
+    display: block;
+    padding-bottom:100%;
 }
 .drop-zone:hover{
     background-color:#eee;
-    span{
-        font-size:6em;
-    }
+    border:3px dashed #aaa;
 }
+
+
 
 .banner{
     background:url("https://s3-ap-southeast-2.amazonaws.com/vicage-image/5abbb2833c29cb166c68e1f3.jpeg") no-repeat center;
@@ -205,9 +208,72 @@ footer{
 #concept-create-compoenent{
     img{
         display: block;
-        height:400px;
+        max-width:100%;
+        min-width:100%;
     }
+
 }
+
+//------------------Create Concept List Page
+#create-concept-list-page{
+    .add-concept-widget{
+        max-width:100%;
+        border:3px dashed #eee;
+        span{
+            position: absolute;
+            font-size:5em;
+            left:50%;
+            transform:translate(-50%,-50%);
+            top:50%;
+        }
+    }
+    .add-concept-widget:after{
+        content:"";
+        display: block;
+        padding-bottom:100%;
+    }
+    .add-concept-widget:hover{
+        background-color:#eee;
+        border:3px dashed #aaa;
+    }
+    
+    .delete-concept-widget{
+        max-width:100%;
+        border:3px dashed #eee;
+        span{
+            position: absolute;
+            font-size:5em;
+            left:50%;
+            transform:translate(-50%,-50%);
+            top:50%;
+        }
+        margin-bottom: 20px;
+    }
+    .delete-concept-widget:after{
+        content:"";
+        display: block;
+        padding-bottom:100%;
+    }
+    .delete-concept-widget:hover{
+        background-color:#eee;
+        border:3px dashed #aaa;
+    }
+    
+    .concept-block{
+        max-width:100%;
+        img{
+            max-width:100%;
+            min-width:100%;
+        }
+        text-align: center;
+        h5{
+            font-size:2em;
+        }
+    }
+
+}
+
+
 
 
 #list-service-page{

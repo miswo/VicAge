@@ -16,6 +16,8 @@ import SurveyPage from './pages/Event/SurveyPage';
 
 
 import CreateConceptPage from './pages/Concept/CreateConceptPage';
+import CreateConceptListPage from './pages/Concept/CreateConceptListPage';
+
 
 
 import ListServicePage from './pages/Service/ListServicePage';
@@ -24,18 +26,18 @@ import DetailServicePage from './pages/Service/DetailServicePage';
 import "./main.scss";
 
 // Remote Server 
-const serverURL = 'http://13.70.182.53:5000'; 
+// const serverURL = 'http://13.70.182.53:5000'; 
 
 // Local Server
-// const serverURL = 'http://localhost:5000';
-// const serverURL = 'http://118.139.73.54:5000';
+const serverURL = 'http://localhost:5000';
+// const serverURL = 'http://118.139.83.108:5000';
 
 
 class App extends Component {
     constructor(props){
         super(props);
         this.state = {
-            active:false,
+            active:true,
             inputPassword:''
         }
     }
@@ -58,13 +60,14 @@ class App extends Component {
                     <div className="page">
                         <Navbar />
                         <Switch>
-                            <Route exact path="/" render={(history)=>(<HomePage history={history.history}/>)}component = {HomePage}/>
+                            <Route exact path="/" render={(history)=>(<HomePage history={history.history}/>)}/>
                             <Route path="/about"  render ={()=>(<AboutPage/>)}/>
                             {/* <Route exact path="/event"  render={()=>(<ListEventPage serverURL= {serverURL} />)}/>
                             <Route path="/event/create" render={(history)=>(<CreateEventPage    history = {history.history} serverURL= {serverURL}/>)}/>
                             <Route exact path="/event/:id" render={(history)=>(<ViewEventPage   history = {history.history} serverURL={serverURL} eventID={history.match.params.id} />)} />
                             <Route path="/event/:id/survey" render={(history)=><SurveyPage      serverURL={serverURL}    eventID={history.match.params.id} />} />
                             <Route path="/concept/create" render={(history)=><CreateConceptPage history ={history.history}  serverURL={serverURL}/>}  /> */}
+                            <Route path="/concept/list/create" render={(history)=><CreateConceptListPage history={history.history} serverURL={serverURL}/>} />}
                             <Route path="/service/all/:postcode" render={(history)=>(<ListServicePage match ={history} history={history.history} serverURL = {serverURL}/>)} />
                             <Route path={"/service/(agedcare|disability|hospital|community)/:id"} render={(history)=>(<DetailServicePage match={history} history={history.history} serverURL={serverURL}/>)} />
                             <Route render={()=>(<NotFound/>)} />

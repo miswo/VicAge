@@ -25,6 +25,7 @@ class Navbar extends Component{
                         <ul className="nav navbar-nav">
                             <li><NavLink to="/" exact           activeClassName="active">Home</NavLink></li>
                             {/* <li><NavLink to="/event"        activeClassName="active">Event</NavLink></li> */}
+                            <li><NavLink to="/concept/list/create" activeClassName="active">Lists</NavLink></li>
                             <li><NavLink to="/service/all/3000"    activeClassName="active">Services</NavLink> </li>
                             <li><NavLink to="/about"            activeClassName="active">About</NavLink></li>
                         </ul>
