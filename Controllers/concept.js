@@ -46,7 +46,23 @@ router.post('/list/create',(req,res)=>{
     })
 })
 
+//
 
+router.get('/list/all',(req,res)=>{
+    var collection = db.get().collection('concept-list');
+    collection.find({}).toArray((err,result)=>{
+        if(err) console.log(err);
+        else res.json({lists:result})
+    })
+})
+
+router.get('/list/detail/:id',(req,res)=>{
+    var collection = db.get().collection('concept-list');
+    collection.findOne({_id:ObjectID(req.params.id)},(err,result)=>{
+        if(err) console.log(err);
+        else res.json({data:result})
+    })
+})
 
 
 module.exports = router;
