@@ -26,10 +26,6 @@ const AboutPage=()=>(
         <div className="jumbotron banner">
             <div className="container">
                 <h2>About</h2>
-                <p className="lead">
-                    Team WYSDoM is a group of passionate students trying to 
-                    help the carers in Victoria.
-                </p>
             </div>
         </div>
 
@@ -47,33 +43,7 @@ const AboutPage=()=>(
                 </p>
 
             </div>
-
-
-
-
-            <div className="team-description">
-                <h3> Team WYSDoM</h3>
-                {MediaListItem('Junpeng ( Will ) Chen',
-                                'Master Information Technology',
-                                'Will is a student at Monash University in his final semester of the Master of Information Technology course. He is passionate about learning and applying cutting-edge technologies to solve real-world problems, including gather and analyze data, design and implement application architecture, and optimize its performance.',
-                                'https://s3-ap-southeast-2.amazonaws.com/vicage-image/5abe31f9b8918f3070db21c6.jpeg')}
-                {MediaListItem('Yifan Peng',
-                                'Master of Business Information System',
-                                'Yifan is  a student at Monash University in his final semester of the Master of Business Information Systems course. He has plenty of knowledge in the field of IT, concerning business analysis and design and is good at assisting with documentation issues.',
-                                'https://s3-ap-southeast-2.amazonaws.com/vicage-image/5abe3239b8918f3070db21ca.jpeg')}
-                {MediaListItem('Sujit Ajit Kumar',
-                                'Master of Business Information System',
-                                'Sujit is  a student at Monash University in his final semester of the Master of Business Information Systems course.  His interest lies in the application of Technical skills in the area of web page development and user interface design amalgamated with operational support tasks and activities such as content creating and reviewing documentation and material for presentations.',
-                                'https://s3-ap-southeast-2.amazonaws.com/vicage-image/5abe3228b8918f3070db21c9.jpeg')}
-                {MediaListItem('Duncan Morrison',
-                                'Master of Business Information System',
-                                'Duncan is  a student at Monash University in his final semester of the Master of Business Information Systems course. His area of interest is predominantly of a technical nature concerning the utilization of skills in the area of web page and database development. Additional support in terms of some systems design analysis, project management, and documentation-based duties.',
-                                'https://s3-ap-southeast-2.amazonaws.com/vicage-image/5abe3215b8918f3070db21c7.jpeg')}
-                {MediaListItem('Misuzu Otake',
-                                'Master Information Technology',
-                                'Misuzu is a student at Monash University in her final semester of the Master of Information Technology course. She has a wide range of knowledge of IT especially user interface and usability design, and web site development.',
-                                'https://s3-ap-southeast-2.amazonaws.com/vicage-image/5abe321eb8918f3070db21c8.jpeg')}
-            </div>
+           
         </div>
 
     </div>
