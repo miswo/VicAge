@@ -45,7 +45,6 @@ export default class DetailListPage extends React.Component{
                 <div className="jumbotron banner">
                     <div className="container">
                         <h2>{this.state.list.listName? this.state.list.listName :"List Detail"}</h2>
-                        <p>List Detail</p>
                         <NavLink to="/list/all" className="btn btn-default">Back</NavLink>
                     </div>
                 </div>

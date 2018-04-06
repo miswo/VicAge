@@ -63,7 +63,7 @@ export default class CreateListPage extends React.Component{
             concepts:this.state.concepts
         })
         .then((result)=>{
-            if (result.status == 200) this.props.history.push('/')
+            if (result.status == 200) this.props.history.push('/list/all')
         })
         
     }
