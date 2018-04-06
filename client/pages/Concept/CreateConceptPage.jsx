@@ -93,7 +93,7 @@ export default class CreateConceptPage extends React.Component{
                 </div>
 
 
-                <form id="concept-create-compoenent" className="form" onSubmit={this.handleSubmit.bind(this)}>
+                <form id="concept-create-compoenent" onSubmit={this.handleSubmit.bind(this)}>
                     <div className="row">
                         <div className="col-sm-12 col-md-6 col-lg-6">
                             <div className="form-group">
