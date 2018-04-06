@@ -86,7 +86,7 @@ export default class CreateConceptListPage extends React.Component{
                             <div className="col-sm-12 col-md-6 col-lg-4">
                                 <div className="form-group">
                                     <label htmlFor="list-name"> List Name:</label>
-                                    <input required type="text" className="form-control"/>
+                                    <input required type="text" className="form-control" onChange={this.handleOnChangeListName.bind(this)}/>
                                  </div>
                             </div>
                         </div>

@@ -31,7 +31,6 @@ export default class CreateConceptPage extends React.Component{
         axios.post(this.props.serverURL+'/concept/create',this.state)
             .then((result)=>{
                 // this.props.history.push('/');
-                console.log(this.state);
                 this.props.callback(this.state);
                 $("#create-concept-modal").modal('toggle');
                 this.resetState();
