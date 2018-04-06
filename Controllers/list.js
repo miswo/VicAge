@@ -28,7 +28,7 @@ router.get('/detail/:id',(req,res)=>{
     var collection = db.get().collection('concept-list');
     collection.findOne({_id:ObjectID(req.params.id)},(err,result)=>{
         if(err) console.log(err);
-        else res.json({data:result})
+        else res.json({list:result})
     })
 })
 

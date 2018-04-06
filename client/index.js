@@ -73,7 +73,7 @@ class App extends Component {
                             <Route path="/concept/create" render={(history)=><CreateConceptPage history ={history.history}  serverURL={serverURL}/>}  /> */}
                             <Route path="/list/create"              render={(history)=><CreateListPage  history={history.history} serverURL={serverURL}/>} />}
                             <Route path="/list/all"                 render={(history)=><ListAllListPage history={history.history} serverURL={serverURL}/>}/>}
-                            <Route path="/list/detail/:id"                 render={(history)=><DetailListPage  history={history.history} serverURL={serverURL}/>}/>}
+                            <Route path="/list/detail/:id"          render={(history)=><DetailListPage  match ={history}  history={history.history} serverURL={serverURL}/>}/>}
                             <Route path="/service/all/:postcode"    render={(history)=>(<ListServicePage match ={history} history={history.history} serverURL = {serverURL}/>)} />
                             <Route path={"/service/(agedcare|disability|hospital|community)/:id"} render={(history)=>(<DetailServicePage match={history} history={history.history} serverURL={serverURL}/>)} />
                             <Route render={()=>(<NotFound/>)} />

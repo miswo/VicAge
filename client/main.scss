@@ -44,6 +44,18 @@ textarea{
     margin-right: auto;
     margin-top:200px;
 }
+
+.concept-block{
+    max-width:100%;
+    img{
+        max-width:100%;
+        min-width:100%;
+    }
+    text-align: center;
+    h5{
+        font-size:2em;
+    }
+}
 // -------------------Components -------------------
 .drop-zone{
     max-width:100%;
@@ -264,18 +276,6 @@ footer{
     .delete-concept-widget:hover{
         background-color:#eee;
         border:3px dashed #aaa;
-    }
-    
-    .concept-block{
-        max-width:100%;
-        img{
-            max-width:100%;
-            min-width:100%;
-        }
-        text-align: center;
-        h5{
-            font-size:2em;
-        }
     }
     .btn{
         margin-top:10px;
