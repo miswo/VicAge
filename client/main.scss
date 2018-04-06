@@ -14,15 +14,18 @@ $median-screen:979px;
 }
 
 .navbar-inverse .navbar-brand{
-    padding:5px;
+    padding:10px;
     color:#00a2e8;
+    #navlogo{
+        display: inline-block;
+        width:30px;
+        height:30px;
+        margin-right:5px;
+        
+    }
+
 }
-#navlogo{
-    display: inline;
-    width:40px;
-    height:40px;
-    margin-right:10px;
-}
+
 
 table,th{
     text-align: center;
@@ -70,8 +73,12 @@ textarea{
     h1,h2,h3{
         color:white;
     }
+    .lead{
+        font-size:2em;
+    }
     p{
         color:white;
+        font-size:1em;
     }
 }
 
@@ -215,7 +222,7 @@ footer{
 }
 
 //------------------Create Concept List Page
-#create-concept-list-page{
+#create-list-page{
     .add-concept-widget{
         max-width:100%;
         border:3px dashed #eee;
@@ -270,6 +277,10 @@ footer{
             font-size:2em;
         }
     }
+    .btn{
+        margin-top:10px;
+        margin-right:10px;
+    }
 
 }
 
@@ -277,7 +288,6 @@ footer{
 
 
 #list-service-page{
-
     @media(max-width: $small-screen){
         .banner{
             text-align: center;

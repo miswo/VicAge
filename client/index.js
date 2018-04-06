@@ -16,8 +16,11 @@ import SurveyPage from './pages/Event/SurveyPage';
 
 
 import CreateConceptPage from './pages/Concept/CreateConceptPage';
-import CreateConceptListPage from './pages/Concept/CreateConceptListPage';
-import ListAllConceptListPage from './pages/Concept/ListAllConceptListPage';
+
+
+import CreateListPage from './pages/List/CreateListPage';
+import ListAllListPage from './pages/List/ListAllListPage';
+import DetailListPage from './pages/List/DetailListPage';
 
 
 
@@ -68,9 +71,10 @@ class App extends Component {
                             <Route exact path="/event/:id" render={(history)=>(<ViewEventPage   history = {history.history} serverURL={serverURL} eventID={history.match.params.id} />)} />
                             <Route path="/event/:id/survey" render={(history)=><SurveyPage      serverURL={serverURL}    eventID={history.match.params.id} />} />
                             <Route path="/concept/create" render={(history)=><CreateConceptPage history ={history.history}  serverURL={serverURL}/>}  /> */}
-                            <Route path="/concept/list/create" render={(history)=><CreateConceptListPage history={history.history} serverURL={serverURL}/>} />}
-                            <Route path="/concept/list/all" render={(history)=><ListAllConceptListPage history={history.history} serverURL={serverURL}/>}/>}
-                            <Route path="/service/all/:postcode" render={(history)=>(<ListServicePage match ={history} history={history.history} serverURL = {serverURL}/>)} />
+                            <Route path="/list/create"              render={(history)=><CreateListPage  history={history.history} serverURL={serverURL}/>} />}
+                            <Route path="/list/all"                 render={(history)=><ListAllListPage history={history.history} serverURL={serverURL}/>}/>}
+                            <Route path="/list/detail/:id"                 render={(history)=><DetailListPage  history={history.history} serverURL={serverURL}/>}/>}
+                            <Route path="/service/all/:postcode"    render={(history)=>(<ListServicePage match ={history} history={history.history} serverURL = {serverURL}/>)} />
                             <Route path={"/service/(agedcare|disability|hospital|community)/:id"} render={(history)=>(<DetailServicePage match={history} history={history.history} serverURL={serverURL}/>)} />
                             <Route render={()=>(<NotFound/>)} />
                         </Switch>
