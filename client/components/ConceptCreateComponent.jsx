@@ -7,7 +7,6 @@ export default class ConceptCreateComponent extends React.Component{
 
     handleSubmit(e){
         e.preventDefault();
-        console.log('submit');
     }
 
     onDrop(file){

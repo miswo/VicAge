@@ -15,7 +15,6 @@ export default class ListAllListPage extends React.Component{
         axios.get(this.props.serverURL+'/list/all')
             .then((res)=>{
             this.setState({lists:res.data.lists})
-            console.log(this.state);
         })
     }
 
