@@ -5,3 +5,5 @@ dist
 .vscode
 npm-debug.log
 aws.js
+db.js
+testdb.js
