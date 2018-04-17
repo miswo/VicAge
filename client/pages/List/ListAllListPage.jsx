@@ -41,11 +41,11 @@ export default class ListAllListPage extends React.Component{
                     <div className="container">
                         <h2>Lists</h2>
                         <p className="lead">A list contains concepts that can help you to choose from, take a look of the lists below or create a list that suits your need.</p>
-                        <NavLink to="/list/create" className="btn btn-primary">Create New List</NavLink>
                     </div>
                 </div>
 
                 <div className="container">
+                    <NavLink to="/list/create" className="btn btn-lg btn-primary create-list-button">Create New List</NavLink>
                     <table className="table table-hover">
                         <thead>
                             <tr>
