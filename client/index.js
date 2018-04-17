@@ -17,6 +17,7 @@ import SurveyPage from './pages/Event/SurveyPage';
 
 import CreateConceptPage from './pages/Concept/CreateConceptPage';
 import DetailConceptPage from './pages/Concept/DetailConceptPage';
+import EditConceptPage from './pages/Concept/EditConceptPage';
 
 
 import CreateListPage from './pages/List/CreateListPage';
@@ -77,6 +78,8 @@ class App extends Component {
                             <Route path="/list/detail/:id"          render={(history)=><DetailListPage      match ={history}    history={history.history} serverURL={serverURL}/>}/>}
 
                             <Route path="/concept/detail/:id"       render={(history)=><DetailConceptPage   match = {history} history={history.history} serverURL={serverURL}/>}/>}
+                            <Route path="/concept/edit/:id"         render={(history)=><EditConceptPage     match = {history} history={history.history} serverURL={serverURL}/>}/>}
+
 
                             <Route path="/service/all/:postcode"    render={(history)=>(<ListServicePage    match ={history} history={history.history} serverURL = {serverURL}/>)} />
                             <Route path={"/service/(agedcare|disability|hospital|community)/:id"} render={(history)=>(<DetailServicePage match={history} history={history.history} serverURL={serverURL}/>)} />

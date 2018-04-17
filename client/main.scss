@@ -325,6 +325,9 @@ footer{
 //--------------------   Detail Concept Page ------------------
 #detail-concept-page{
     .concept-detail{
-        text-align: center;
+        img{
+            margin-left: auto;
+            margin-right:auto;
+        }
     }
 }

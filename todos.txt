@@ -1,0 +1,2 @@
+1.align list concept and concpet itself
+2.add rich text editor.
