@@ -46,13 +46,27 @@ textarea{
 }
 
 .concept-block{
+    border:1px solid #eee;
     max-width:100%;
-    .img-wrapper{
-        height:270px;
-        img{
-            width:100%;
+    margin-bottom: 50px;
+    @media(min-width:769px){
+        height:350px;
+        .img-wrapper{
+            height:270px;
+            img{
+                width:100%;
+            }
         }
     }
+
+    @media(max-width:768px){
+        .img-wrapper{
+            img{
+                width:100%;
+            }
+        }
+    }
+
     text-align: center;
     h5{
         font-size:2em;
@@ -236,7 +250,7 @@ footer{
 
 }
 
-//------------------Create Concept List Page
+//------------------Create Concept List Page ---------------
 #create-list-page{
     .add-concept-widget{
         max-width:100%;
@@ -288,7 +302,7 @@ footer{
 }
 
 
-
+// --------------------   List service page -------------------
 
 #list-service-page{
     @media(max-width: $small-screen){
@@ -303,10 +317,14 @@ footer{
 
 }
 
-
+//--------------------   List all list page --------------------
 #list-all-list-page{
-    .create-list-button{
-        margin-left:auto;
-        margin-right:auto;
+   
+}
+
+//--------------------   Detail Concept Page ------------------
+#detail-concept-page{
+    .concept-detail{
+        text-align: center;
     }
 }

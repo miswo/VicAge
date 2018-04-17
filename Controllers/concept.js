@@ -3,6 +3,8 @@ var db = require('../db');
 var ObjectID = require('mongodb').ObjectID;
 var aws = require('../aws');
 
+const magicWord = 'youshallnotpass';
+
 router.post('/slot',(req,res)=>{
     var data = req.body;
     var collection = db.get().collection('concept');
@@ -33,6 +35,35 @@ router.post('/create',(req,res)=>{
     })
 })
 
+
+router.get('/detail/:id',(req,res)=>{
+    var collection = db.get().collection('concept');
+    collection.findOne({_id:ObjectID(req.params.id)},(err,result)=>{
+        if(err) console.log(err);
+        else res.json({concept:result})
+    })
+})
+
+router.post('/update/:id',(req,res)=>{
+    var data = req.body;
+    if(data.password != magicWord)
+        res.json({
+            status:403,
+            message:'Password Incorrect.'
+        })
+    else{
+        var collection = db.get().collection('concept');
+        collection.findOneAndUpdate({
+            _id:ObjectID(req.params.id),
+            conceptDescription:data.conceptDescription},
+            (err,result)=>{
+                res.json({
+                    status:200,
+                    message:'ok'
+                })
+            })
+    }
+})
 
 
 module.exports = router;
