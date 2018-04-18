@@ -3,7 +3,6 @@ import axios from 'axios';
 import {NavLink} from 'react-router-dom';
 
 
-
 export default class CreateConceptPage extends React.Component{
 
     constructor(props){
@@ -12,13 +11,15 @@ export default class CreateConceptPage extends React.Component{
             id:this.props.match.match.params.id,
             concept:null,
             password:null,
+            conceptDescription:null
         }
     }
     componentDidMount(){
         axios.get(this.props.serverURL + '/concept/detail/' + this.state.id)
             .then((res)=>{
                 this.setState({
-                    concept:res.data.concept
+                    concept:res.data.concept,
+                    conceptDescription:res.data.concept.conceptDescription
                 })
             })
     }
@@ -39,26 +40,35 @@ export default class CreateConceptPage extends React.Component{
         })
     }
 
-    onChangeConceptDescription(e){
+    onChangeConceptDescription(content){
         this.setState({
-            concept:{
-                conceptName:this.state.concept.conceptName,
-                imgUrl:this.state.concept.imgUrl,
-                conceptDescription:e.target.value
+            conceptDescription:{
+                conceptDescription:content
             }
         })
+
+        console.log(this.state.conceptDescription)
     }
 
     onSubmit(e){
         e.preventDefault();
         axios.post(this.props.serverURL+'/concept/update/'+this.state.id,{
             password:this.state.password,
-            concept:this.state.concept
+            concept:{
+                conceptName:this.state.concept.conceptName,
+                imgUrl:this.state.concept.imgUrl,
+                conceptDescription:this.state.conceptDescription
+            }
         })
             .then((res)=>{
                 if(res.data.status==403) alert('Incorrect Password');
                 else this.props.history.goBack();
             })
+    }
+
+    onCancel(e){
+        e.preventDefault();
+        this.props.history.goBack();
     }
 
 
@@ -104,6 +114,7 @@ export default class CreateConceptPage extends React.Component{
                                                 value={this.state.concept?this.state.concept.conceptDescription:"loading"}
                                                 onChange={this.onChangeConceptDescription.bind(this)}
                                     />
+
                                 </div>
                             </div>
                         </div>
@@ -123,7 +134,7 @@ export default class CreateConceptPage extends React.Component{
                             </div>
                         </div>
                         <button type="submit" className="btn btn-primary">Update</button>
-                        <button className="btn btn-default" onClick={this.props.history.goBack}>Back</button>
+                        <button className="btn btn-default" onClick={this.onCancel.bind(this)}>Back</button>
                         
                     </form>
                 </div>
