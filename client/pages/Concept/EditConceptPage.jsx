@@ -101,6 +101,7 @@ export default class EditConceptPage extends React.Component{
                                             id="concept-name" 
                                             value={this.state.conceptName?this.state.conceptName:"loading"}
                                             onChange={this.onChangeConceptName.bind(this)}
+                                            disabled
                                     />
                                 </div>
                             </div>
