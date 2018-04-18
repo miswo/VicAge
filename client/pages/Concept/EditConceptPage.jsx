@@ -2,24 +2,29 @@ import React from 'react';
 import axios from 'axios';
 import {NavLink} from 'react-router-dom';
 
+import CKEditor from '../../components/CKEditor';
 
-export default class CreateConceptPage extends React.Component{
+
+export default class EditConceptPage extends React.Component{
 
     constructor(props){
         super(props);
         this.state={
             id:this.props.match.match.params.id,
-            concept:null,
             password:null,
-            conceptDescription:null
+            conceptName:'',
+            imgUrl:'',
+            conceptDescription:''
         }
     }
     componentDidMount(){
         axios.get(this.props.serverURL + '/concept/detail/' + this.state.id)
             .then((res)=>{
+                var concept = res.data.concept;
                 this.setState({
-                    concept:res.data.concept,
-                    conceptDescription:res.data.concept.conceptDescription
+                    conceptName : concept.conceptName,
+                    imgUrl :concept.imgUrl,
+                    conceptDescription: concept.conceptDescription
                 })
             })
     }
@@ -32,22 +37,16 @@ export default class CreateConceptPage extends React.Component{
 
     onChangeConceptName(e){
         this.setState({
-            concept:{
-                conceptName:e.target.value,
-                imgUrl:this.state.concept.imgUrl,
-                conceptDescription:this.state.concept.conceptDescription
-            }
+            conceptName:e.target.value,
         })
     }
 
     onChangeConceptDescription(content){
+        console.log(content);
         this.setState({
-            conceptDescription:{
-                conceptDescription:content
-            }
+            conceptDescription:content
         })
 
-        console.log(this.state.conceptDescription)
     }
 
     onSubmit(e){
@@ -55,8 +54,8 @@ export default class CreateConceptPage extends React.Component{
         axios.post(this.props.serverURL+'/concept/update/'+this.state.id,{
             password:this.state.password,
             concept:{
-                conceptName:this.state.concept.conceptName,
-                imgUrl:this.state.concept.imgUrl,
+                conceptName:this.state.conceptName,
+                imgUrl:this.state.imgUrl,
                 conceptDescription:this.state.conceptDescription
             }
         })
@@ -80,9 +79,14 @@ export default class CreateConceptPage extends React.Component{
                         <h2>Edit Concept</h2>
                     </div>
                 </div> 
+
+
+                <div className="container">
+                </div>
+
                 <div className="container">
                     <img    className="img-responsive"
-                            src={this.state.concept?this.state.concept.imgUrl:""}
+                            src={this.state.imgUrl?this.state.imgUrl:""}
                     />
                     <form className="form" onSubmit={this.onSubmit.bind(this)}>
 
@@ -95,7 +99,7 @@ export default class CreateConceptPage extends React.Component{
                                     <input  type="text" 
                                             className="form-control"
                                             id="concept-name" 
-                                            value={this.state.concept?this.state.concept.conceptName:"loading"}
+                                            value={this.state.conceptName?this.state.conceptName:"loading"}
                                             onChange={this.onChangeConceptName.bind(this)}
                                     />
                                 </div>
@@ -108,12 +112,15 @@ export default class CreateConceptPage extends React.Component{
                                     <label htmlFor="concept-description">
                                         Concept Description:
                                     </label>
-                                    <textarea   type="text" 
-                                                className="form-control"
-                                                id="concept-description" 
-                                                value={this.state.concept?this.state.concept.conceptDescription:"loading"}
-                                                onChange={this.onChangeConceptDescription.bind(this)}
-                                    />
+
+                                    {this.state.conceptDescription?
+                                        <CKEditor 
+                                            text={this.state.conceptDescription} 
+                                            onChange={this.onChangeConceptDescription.bind(this)}    
+                                        />
+                                        :
+                                        "Loading.."
+                                    }
 
                                 </div>
                             </div>
