@@ -65,50 +65,22 @@ export default class DetailServicePage extends React.Component{
                 </div>
 
                 <div className="container">
-
-                    <div>
-                        <h3>Melbourne Oral and Facial Surgery</h3>
-                        <h4>Adress:</h4>
-                        <h4>Website:</h4>
-                        <h4>Phone:</h4>
+                    <div className=".content">
+                        {this.renderDetail()}
                     </div>
 
-                    <div>
-                        <h3>Yearly Activity Budget Per Resident</h3>
-                        <p>$146</p>
-                        <p>Lower than the average of your area</p>
-                    </div>
-
-
-
-                    <div>
-                    
-                        <button class="btn btn-secondaly" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                            What is Activity Budget?
-                        </button>
-    
-                        <div class="collapse" id="collapseExample">
-                             <div class="card card-body">
-                                <p>Activity budget is allocated to a facility yearly to support their service provided to residents.</p>
-                            </div>
-                        </div>
-                
-                        
-                    </div>
-            </div>
-            <div className="container">
-                    <div>Picture</div>
-                    <div>
+                    <h4>Map:</h4>
                     {this.state.address?
                         <iframe id="google-map"
+                        width="400"
+                        height="400"
                         frameBorder="0"
                         src={"https://www.google.com/maps/embed/v1/place?key=AIzaSyB__2CdN6RdNrlhe9prRxREE7cj2R4qwwk&q=" + this.state.address }
                         allowFullScreen>
                         </iframe>
                         :
                         ''
-                    }</div>
-
+                    }
                 </div>
             </div>
 

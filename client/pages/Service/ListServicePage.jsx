@@ -124,7 +124,7 @@ export default class ListServicePage extends React.Component{
                 </div>
 
                 <div className="container">
-                    <h3>In Post Code {this.state.postcode} Area, there are:</h3><br />
+                    <h4>In Post Code {this.state.postcode} Area, there are:</h4>
                     <ul className="nav nav-pills">
                         <li role="presentation" className={this.state.active =="agedcare"?"active":""}  onClick={this.handleTabsClickAgedCare.bind(this)}> <a href="#">         Aged Care({this.state.agedcare.length})</a></li>  
                         <li role="presentation" className={this.state.active =="community"?"active":""}  onClick={this.handleTabsClickCommunity.bind(this)}><a href="#">        Community Service({this.state.community.length})</a></li>

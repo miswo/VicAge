@@ -30,20 +30,10 @@ const AboutPage=()=>(
         </div>
 
         <div className="container">
-        <div className="project-description">
-<div class="accordion" id="accordion">
-  <div class="card">
-    <div class="card-header" id="headingOne">
-      <h5 class="mb-0">
-        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-        <h4>Our Mission</h4>
-        </button>
-      </h5>
-    </div>
 
-    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-      <div class="card-body">
-      <p>
+            <div className="project-description">
+                <h4>Our Mission</h4>
+                <p>
                     The state of Victoria is one of the states in Australia with
                     the most number of aged people and number of aged care facilities.
                     <br/>
@@ -53,20 +43,9 @@ const AboutPage=()=>(
                     This process will help the elderly stay active and connected to the 
                     community around them which will provide them with an added sense of happiness.
                 </p>
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header" id="headingTwo">
-      <h5 class="mb-0">
-        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-        <h4>Overview of the Scene of Aged care in Victoria</h4>
-        </button>
-      </h5>
-    </div>
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-      <div class="card-body">
-      <p>
+
+                <h4>Overview of the Scene of Aged care in Victoria</h4>
+                <p>
                     Our Scope will be written here:
                     <br/>
                     Are you facing some difficulty to communicate with elderly
@@ -76,34 +55,15 @@ const AboutPage=()=>(
                     As a carer, do you want to understand elderly people's needs more easily,
                     so that their life will be more enjoyable?
                 </p>
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header" id="headingThree">
-      <h5 class="mb-0">
-        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-        <h4>Our Solution - Communication tool using pictures</h4>
-        </button>
-      </h5>
-    </div>
-    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-      <div class="card-body">
-                       
-      <p>
+
+                <h4>Our Solution - Communication tool using pictures</h4>
+                <p>
                     Try out our products! It is easy to use: Just pick a pre-made list 
                     or create your own list.
                     <br/>
                     <br/>
                     <a href="/list/all" className="btn btn-primary">Try our solution now! </a>
                 </p>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
             </div>
            
         </div>
