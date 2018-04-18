@@ -23,12 +23,10 @@ export default class ListAllListPage extends React.Component{
         
         const listRows = this.state.lists?
             this.state.lists.map((item)=>(
-            
-                <tr class="listTable" key = {item._id}>
-                    <td><NavLink to={"/list/detail/" + item._id}>{item.listName}</NavLink></td>
-                    <td><NavLink to={"/list/detail/" + item._id} className="btn btn-default" id="detailBtn">Details</NavLink></td>
+                <tr key = {item._id}>
+                    <td>{item.listName}</td>
+                    <td><NavLink to={"/list/detail/" + item._id} className="btn btn-default">Details</NavLink></td>
                 </tr>
-             
             ))
             :<tr><td>No list found...</td></tr>
 
@@ -47,22 +45,18 @@ export default class ListAllListPage extends React.Component{
                 </div>
 
                 <div className="container">
-                    
-                        <NavLink to="/list/create" id="createListBtn" className="btn btn-lg btn-primary create-list-button">Create New List</NavLink>
-                    
-                    <div id="listContainer">
+                    <NavLink to="/list/create" className="btn btn-lg btn-primary create-list-button">Create New List</NavLink>
                     <table className="table table-hover">
                         <thead>
                             <tr>
                                 <th>List Name</th>
-                                <th></th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             {this.renderLists()}
                         </tbody>
                     </table>
-                    </div>
                 </div>
             
             </div>
