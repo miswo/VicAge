@@ -18,7 +18,7 @@ export default class DetailListPage extends React.Component{
                 this.setState({
                     list:res.data.list
                 })
-            })  
+            })
     }
 
     renderConcepts(){
