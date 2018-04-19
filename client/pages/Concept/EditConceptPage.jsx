@@ -14,7 +14,7 @@ export default class EditConceptPage extends React.Component{
             password:null,
             conceptName:'',
             imgUrl:'',
-            conceptDescription:''
+            conceptDescription:' '
         }
     }
     componentDidMount(){
@@ -42,7 +42,6 @@ export default class EditConceptPage extends React.Component{
     }
 
     onChangeConceptDescription(content){
-        console.log(content);
         this.setState({
             conceptDescription:content
         })
@@ -114,7 +113,7 @@ export default class EditConceptPage extends React.Component{
                                         Concept Description:
                                     </label>
 
-                                    {this.state.conceptDescription?
+                                    {this.state.conceptName?
                                         <CKEditor 
                                             text={this.state.conceptDescription} 
                                             onChange={this.onChangeConceptDescription.bind(this)}    

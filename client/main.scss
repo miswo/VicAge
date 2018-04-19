@@ -3,6 +3,7 @@ $median-screen:979px;
 
 
 //------------------Generals------------------//
+
 .navbar-nav>li>a.active{
     color:white;
 }
@@ -47,10 +48,13 @@ textarea{
     max-width:100%;
     margin-bottom: 50px;
     @media(min-width:769px){
-        height:350px;
+        height:300px;
         .img-wrapper{
-            height:270px;
+            height:250px;
+            line-height: 250px;
+            overflow: hidden;
             img{
+                vertical-align: middle;
                 width:100%;
             }
         }
@@ -58,7 +62,9 @@ textarea{
 
     @media(max-width:768px){
         .img-wrapper{
+            line-height: 100%;
             img{
+                vertical-align: middle;
                 width:100%;
             }
         }

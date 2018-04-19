@@ -6,13 +6,14 @@ export default class DetailListPage extends React.Component{
     constructor(props){
         super(props);
         this.state={
+            id:this.props.match.match.params.id,
             list:{}
         }
     }
 
 
     componentDidMount(){
-        axios.get(this.props.serverURL + '/list/detail/'+ this.props.match.match.params.id)
+        axios.get(this.props.serverURL + '/list/detail/'+ this.state.id)
             .then((res)=>{
                 this.setState({
                     list:res.data.list
@@ -49,6 +50,7 @@ export default class DetailListPage extends React.Component{
                 <div className="jumbotron banner">
                     <div className="container">
                         <h2>{this.state.list.listName? this.state.list.listName :"List Detail"}</h2>
+                        <NavLink to={"/survey/" + this.state.id} className="btn btn-primary"> Start a Survey</NavLink>
                         <NavLink to="/list/all" className="btn btn-default">Back</NavLink>
                     </div>
                 </div>

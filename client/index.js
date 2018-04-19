@@ -25,6 +25,8 @@ import ListAllListPage from './pages/List/ListAllListPage';
 import DetailListPage from './pages/List/DetailListPage';
 
 
+import SingleListSurvey from './pages/Survey/SingleListSurveyPage';
+
 
 import ListServicePage from './pages/Service/ListServicePage';
 import DetailServicePage from './pages/Service/DetailServicePage';
@@ -79,6 +81,8 @@ class App extends Component {
 
                             <Route path="/concept/detail/:id"       render={(history)=><DetailConceptPage   match = {history} history={history.history} serverURL={serverURL}/>}/>}
                             <Route path="/concept/edit/:id"         render={(history)=><EditConceptPage     match = {history} history={history.history} serverURL={serverURL}/>}/>}
+                            
+                            <Route path="/survey/:id"               render={(history)=><SingleListSurvey    match = {history} history={history.history} serverURL={serverURL}/>}/>}
 
 
                             <Route path="/service/all/:postcode"    render={(history)=>(<ListServicePage    match ={history} history={history.history} serverURL = {serverURL}/>)} />
