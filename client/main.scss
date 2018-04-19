@@ -141,6 +141,43 @@ textarea{
 }
 
 
+//---------Slick---------
+
+#slick-slider-wrapper{
+    h3{
+        text-align: center;
+    }
+}
+.slick-slider{
+    margin-bottom: 30px;
+    .slick-list{
+        .slick-item{
+            background-color:rgba(0,0,0,0.7);
+            text-align: center;
+            height:450px;
+            color:white;
+
+            img{
+                padding-top:30px;
+                margin-left:auto;
+                margin-right:auto;
+                height:400px;
+            }
+        }
+        .active{
+            background-color:rgba(34,139,34,1);
+        }
+    }
+}
+.slick-item-selected{
+    background-color:rgba(34,139,34,1);
+}
+.slick-item-not-selected{
+    color:white;
+    background-color:rgba(0,0,0,0.7);
+}
+
+
 // ------------------- Dev setting ------------//
 
 footer{
