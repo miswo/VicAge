@@ -33,14 +33,11 @@ export default class SingleListSurveyPage extends React.Component{
             if(selected[i] === id){
                 delete selected[i];
                 this.setState({selected:selected})
-
-                console.log(this.state);
                 return;
             }
         }
         selected.push(id);
         this.setState({selected:selected})
-        console.log(this.state)
     }
 
     handleSubmit(){
