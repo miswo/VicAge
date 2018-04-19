@@ -27,9 +27,9 @@ export default class DetailListPage extends React.Component{
             <div key={item.id} className="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                 <div className="concept-block">
                     <div className="img-wrapper">
-                        <a href={"/concept/detail/" + item.id}>
+                        <NavLink to={"/concept/detail/" + item.id}>
                             <img src={item.imgUrl} alt={item.conceptName} />
-                        </a>
+                        </NavLink>
                     </div>
                     <h5>{item.conceptName}</h5>
                 </div>
@@ -50,7 +50,7 @@ export default class DetailListPage extends React.Component{
                 <div className="jumbotron banner">
                     <div className="container">
                         <h2>{this.state.list.listName? this.state.list.listName :"List Detail"}</h2>
-                        <NavLink to={"/survey/" + this.state.id} className="btn btn-primary"> Start a Survey</NavLink>
+                        <NavLink to={"/survey/list/" + this.state.id} className="btn btn-primary"> Start a Survey</NavLink>
                         <NavLink to="/list/all" className="btn btn-default">Back</NavLink>
                     </div>
                 </div>

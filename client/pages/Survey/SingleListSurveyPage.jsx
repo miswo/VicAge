@@ -44,7 +44,13 @@ export default class SingleListSurveyPage extends React.Component{
     }
 
     handleSubmit(){
-        this.props.dataTransfer(this.state)
+        this.props.dataTransfer(this.state);
+        this.props.history.push('/survey/result');
+
+    }
+
+    handleBack(){
+        this.props.history.goBack();
     }
 
 
@@ -67,7 +73,7 @@ export default class SingleListSurveyPage extends React.Component{
                     </p>
 
                     <button className="btn btn-primary" onClick={this.handleSubmit.bind(this)}>Submit</button>
-                    <button className="btn btn-default">Back</button>
+                    <button className="btn btn-default" onClick={this.handleBack.bind(this)}>Back</button>
                 </div>
 
             </div>

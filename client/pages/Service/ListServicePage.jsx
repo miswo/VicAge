@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import{Link} from 'react-router-dom';
+import{NavLink,Link} from 'react-router-dom';
 
 import PostCodeSearcher from '../../components/PostCodeSearcher';
 
@@ -126,10 +126,10 @@ export default class ListServicePage extends React.Component{
                 <div className="container">
                     <h4>In Post Code {this.state.postcode} Area, there are:</h4>
                     <ul className="nav nav-pills">
-                        <li role="presentation" className={this.state.active =="agedcare"?"active":""}  onClick={this.handleTabsClickAgedCare.bind(this)}> <a href="#">         Aged Care({this.state.agedcare.length})</a></li>  
-                        <li role="presentation" className={this.state.active =="community"?"active":""}  onClick={this.handleTabsClickCommunity.bind(this)}><a href="#">        Community Service({this.state.community.length})</a></li>
-                        <li role="presentation" className={this.state.active =="disability"?"active":""} onClick={this.handleTabsClickDisability.bind(this)}> <a href="#">      Disability Service({this.state.disability.length})</a></li>
-                        <li role="presentation" className={this.state.active =="hospital"?"active":""}  onClick={this.handleTabsClickHospital.bind(this)}> <a href="#">         Hospital({this.state.hospital.length})</a></li>
+                        <li role="presentation" className={this.state.active =="agedcare"?"active":""}  onClick={this.handleTabsClickAgedCare.bind(this)}> <NavLink to="#">         Aged Care({this.state.agedcare.length})</NavLink></li>  
+                        <li role="presentation" className={this.state.active =="community"?"active":""}  onClick={this.handleTabsClickCommunity.bind(this)}><NavLink to="#">        Community Service({this.state.community.length})</NavLink></li>
+                        <li role="presentation" className={this.state.active =="disability"?"active":""} onClick={this.handleTabsClickDisability.bind(this)}> <NavLink to="#">      Disability Service({this.state.disability.length})</NavLink></li>
+                        <li role="presentation" className={this.state.active =="hospital"?"active":""}  onClick={this.handleTabsClickHospital.bind(this)}> <NavLink to="#">         Hospital({this.state.hospital.length})</NavLink></li>
                     </ul>
 
                     <div className="content list-group">

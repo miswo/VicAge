@@ -1,4 +1,5 @@
 import React from 'react';
+import {NavLink} from 'react-router-dom';
 
 
 const MediaListItem = (name,role,des,picURL)=>(
@@ -62,7 +63,7 @@ const AboutPage=()=>(
                     or create your own list.
                     <br/>
                     <br/>
-                    <a href="/list/all" className="btn btn-primary">Try our solution now! </a>
+                    <NavLink to="/list/all" className="btn btn-primary">Try our solution now! </NavLink>
                 </p>
             </div>
            
