@@ -11,7 +11,7 @@ export default class Slick extends React.Component{
     renderItems(){
         const items = this.props.items? 
             this.props.items.map((item)=>(
-                <div className="slick-item" id={item.id} key={item.id}>
+                <div className="slick-item" id={item._id} key={item._id}>
                     <img src={item.imgUrl} className="responsive-img" onClick={this.onClick.bind(this)}/>
                     <h3>{item.conceptName}</h3>
                 </div>

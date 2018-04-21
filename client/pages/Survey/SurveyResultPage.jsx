@@ -77,7 +77,7 @@ export default class SurveyResult extends React.Component{
                     <p> 
                         *Only display your latest survey result.
                         <br/>
-                        *Do NOT refresh this page or use browser "back", or your last survey result will be gone.    
+                        *Do NOT refresh this page, or your last survey result will be gone.    
                     </p>
                     
                     <div className="row">

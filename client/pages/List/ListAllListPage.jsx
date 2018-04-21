@@ -35,7 +35,7 @@ export default class ListAllListPage extends React.Component{
                 <NavLink key={item._id} to={"/list/detail/" + item._id} className="list-group-item"><strong>{item.listName}</strong></NavLink>
             ))
             :
-            <button className="list-group-item">No List found</button>
+            <a className="list-group-item">No List found</a>
         return listRows;
     }
 
@@ -46,7 +46,7 @@ export default class ListAllListPage extends React.Component{
                 <NavLink key={item._id} to={"/list/detail/" + item._id} className="list-group-item"><strong><span className="glyphicon glyphicon-star"></span>{item.listName}</strong></NavLink>
             ))
             :
-            <button className="list-group-item">No List found</button>
+            <a className="list-group-item">No List found</a>
         return listRows;
     }
     
