@@ -47,7 +47,7 @@ export default class CreateListPage extends React.Component{
 
     addNewConcept(newConcept){
         var concepts = this.state.concepts;
-        concepts.push(newConcept);
+        concepts.push(newConcept.id);
         this.setState({concepts:concepts})
     }
 
@@ -60,7 +60,8 @@ export default class CreateListPage extends React.Component{
         e.preventDefault();
         axios.post(this.props.serverURL+'/list/create/',{
             listName:this.state.listName,
-            concepts:this.state.concepts
+            concepts:this.state.concepts,
+            author:null
         })
         .then((result)=>{
             if (result.status == 200) this.props.history.push('/list/all')

@@ -22,12 +22,13 @@ export default class DetailListPage extends React.Component{
     }
 
     renderConcepts(){
+        console.log(this.state.list);
         const conceptBlocks = this.state.list.concepts?
         this.state.list.concepts.map((item)=>(
-            <div key={item.id} className="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+            <div key={item._id} className="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                 <div className="concept-block">
                     <div className="img-wrapper">
-                        <NavLink to={"/concept/detail/" + item.id}>
+                        <NavLink to={"/concept/detail/" + item._id}>
                             <img src={item.imgUrl} alt={item.conceptName} />
                         </NavLink>
                     </div>

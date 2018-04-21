@@ -26,9 +26,23 @@ router.get('/all',(req,res)=>{
 
 router.get('/detail/:id',(req,res)=>{
     var collection = db.get().collection('concept-list');
-    collection.findOne({_id:ObjectID(req.params.id)},(err,result)=>{
+    collection.findOne({_id:ObjectID(req.params.id)},(err,list)=>{
         if(err) console.log(err);
-        else res.json({list:result})
+        else{
+            var concept_ids =[]
+            for(var i=0;i<list.concepts.length;i++){
+                console.log(list.concepts[i].id)
+                concept_ids.push(ObjectID(list.concepts[i].id))
+            }
+                
+            db.get().collection('concept').find({_id:{$in:concept_ids}}).toArray((err,concepts)=>{
+                if (err) console.log(err);
+                else{
+                    list.concepts = concepts;
+                    res.json({list:list})
+                }
+            })
+        }
     })
 })
 
