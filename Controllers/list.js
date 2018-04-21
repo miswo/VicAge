@@ -31,7 +31,6 @@ router.get('/detail/:id',(req,res)=>{
         else{
             var concept_ids =[]
             for(var i=0;i<list.concepts.length;i++){
-                console.log(list.concepts[i].id)
                 concept_ids.push(ObjectID(list.concepts[i].id))
             }
                 

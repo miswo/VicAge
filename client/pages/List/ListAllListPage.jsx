@@ -7,6 +7,7 @@ export default class ListAllListPage extends React.Component{
     constructor(props){
         super(props);
         this.state={
+            featuredLists:[],
             lists:[]
         }
     }
@@ -14,24 +15,41 @@ export default class ListAllListPage extends React.Component{
     componentDidMount(){
         axios.get(this.props.serverURL+'/list/all')
             .then((res)=>{
-            this.setState({lists:res.data.lists})
-        })
+                var featuredLists = [];
+                var lists =[];
+                for(var i=0;i<res.data.lists.length;i++){
+                    if(res.data.lists[i].author ==='admin')
+                        featuredLists.push(res.data.lists[i]);
+                    else
+                        lists.push(res.data.lists[i]);
+                }
+                this.setState({lists,featuredLists})
+            })
     }
 
 
     renderLists(){
         
-        const listRows = this.state.lists?
+        const listRows = this.state.lists.length != 0?
             this.state.lists.map((item)=>(
-                <tr key = {item._id}>
-                    <td>{item.listName}</td>
-                    <td><NavLink to={"/list/detail/" + item._id} className="btn btn-default">Details</NavLink></td>
-                </tr>
+                <NavLink key={item._id} to={"/list/detail/" + item._id} className="list-group-item"><strong>{item.listName}</strong></NavLink>
             ))
-            :<tr><td>No list found...</td></tr>
-
+            :
+            <button className="list-group-item">No List found</button>
         return listRows;
     }
+
+    renderFeaturedLists(){
+        console.log(this.state.featuredLists)
+        const listRows = this.state.featuredLists.length != 0?
+            this.state.featuredLists.map((item)=>(
+                <NavLink key={item._id} to={"/list/detail/" + item._id} className="list-group-item"><strong><span className="glyphicon glyphicon-star"></span>{item.listName}</strong></NavLink>
+            ))
+            :
+            <button className="list-group-item">No List found</button>
+        return listRows;
+    }
+    
 
     
     render(){
@@ -46,17 +64,17 @@ export default class ListAllListPage extends React.Component{
 
                 <div className="container">
                     <NavLink to="/list/create" className="btn btn-lg btn-primary create-list-button">Create New List</NavLink>
-                    <table className="table table-hover">
-                        <thead>
-                            <tr>
-                                <th>List Name</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {this.renderLists()}
-                        </tbody>
-                    </table>
+                    
+                    <h3>Featured Lists</h3>
+                    <div className="list-group">
+                        {this.renderFeaturedLists()}
+                    </div>
+                    
+                    <h3>Customize Lists</h3>
+                    <div className="list-group">
+                        {this.renderLists()}
+                    </div>
+
                 </div>
             
             </div>

@@ -22,7 +22,6 @@ export default class DetailListPage extends React.Component{
     }
 
     renderConcepts(){
-        console.log(this.state.list);
         const conceptBlocks = this.state.list.concepts?
         this.state.list.concepts.map((item)=>(
             <div key={item._id} className="col-xs-12 col-sm-6 col-md-4 col-lg-4">
