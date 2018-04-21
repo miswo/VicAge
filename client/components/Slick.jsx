@@ -23,7 +23,7 @@ export default class Slick extends React.Component{
 
     onClick(e){
         e.target.parentNode.className = e.target.parentNode.className ===  'slick-item active' ? 'slick-item' :'slick-item active'
-        this.props.onDoubleClick(e);
+        this.props.onClick(e);
 
     }
 

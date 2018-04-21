@@ -7,9 +7,11 @@ import PostCodeSearcher from '../../components/PostCodeSearcher';
 export default class ListServicePage extends React.Component{
     constructor(props){
         super(props);
+        var serviceName = this.props.match.match.params.serviceName;
+        serviceName = (serviceName ==='all' ? 'agedcare':serviceName);
         this.state={
             postcode:this.props.match.match.params.postcode,
-            active:"agedcare",
+            active:serviceName,
             data:[],
             community:[],
             disability:[],
@@ -119,7 +121,7 @@ export default class ListServicePage extends React.Component{
                         <h2>Services</h2>
                         <p className="lead">Here is some information that might help you.</p>
                         <PostCodeSearcher history = {this.props.history} />
-                        <Link to="/" className="btn btn-default back">Back</Link>
+                        <button  className="btn btn-default back" onClick={this.props.history.goBack}>Back</button>
                     </div>
                 </div>
 

@@ -90,8 +90,8 @@ class App extends Component {
                             <Route path="/survey/list/:id"          render={(history)=><SingleListSurveyPage    match = {history} history={history.history} serverURL={serverURL} dataTransfer={this.dataTransfer.bind(this)}/>}/>}
                             <Route path="/survey/result"            render={(history)=><SurveyResultPage        match={history} history={history.history}   serverURL={serverURL} data={this.state.data}/>}/>}
 
-                            <Route path="/service/all/:postcode"    render={(history)=>(<ListServicePage        match ={history} history={history.history}  serverURL = {serverURL}/>)} />
-                            <Route path={"/service/(agedcare|disability|hospital|community)/:id"} render={(history)=>(<DetailServicePage match={history} history={history.history} serverURL={serverURL}/>)} />
+                            <Route path="/service/:serviceName/:postcode"    render={(history)=>(<ListServicePage        match ={history} history={history.history}  serverURL = {serverURL}/>)} />
+                            <Route path={"/service/(agedcare|disability|hospital|community)/detail/:id"} render={(history)=>(<DetailServicePage match={history} history={history.history} serverURL={serverURL}/>)} />
                             <Route render={()=>(<NotFound/>)} />
                         </Switch>
                         <Footer />

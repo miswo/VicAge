@@ -34,9 +34,11 @@ export default class CreateListPage extends React.Component{
 
     renderConcepts(){
         const conceptBlocks = this.state.concepts? this.state.concepts.map((item)=>(
-            <div key={item.id} className="col-sm-6 col-md-4 col-lg-4">
-                <div className="concept-block"> 
-                    <img src={item.imgUrl} alt={item.conceptName} />
+            <div key={item._id} className="col-sm-6 col-md-4 col-lg-4">
+                <div className="concept-block">
+                    <div className="img-wrapper">
+                        <img src={item.imgUrl} alt={item.conceptName} />
+                    </div>
                     <h5>{item.conceptName}</h5>
                 </div>
             </div>
@@ -47,7 +49,7 @@ export default class CreateListPage extends React.Component{
 
     addNewConcept(newConcept){
         var concepts = this.state.concepts;
-        concepts.push(newConcept.id);
+        concepts.push(newConcept);
         this.setState({concepts:concepts})
     }
 
