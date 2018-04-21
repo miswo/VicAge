@@ -38,7 +38,9 @@ export default class CreateConceptPage extends React.Component{
                     {
                         this.state.concept?
                         <div className="concept-detail">
-                            <img className="img-responsive" src={this.state.concept.imgUrl} />
+                            <div className="img-wrapper">
+                                <img className="img-responsive" src={this.state.concept.imgUrl} />
+                            </div>
                             <div dangerouslySetInnerHTML={{__html:this.state.concept.conceptDescription}}/>
                         </div>
                         :

@@ -26,7 +26,7 @@ export default class SingleListSurveyPage extends React.Component{
 
     }
 
-    handleDoubleClick(e){
+    handleClick(e){
         const id = e.target.parentNode.id;
         var selected = this.state.selected;
         for(var i=0;i<selected.length;i++){
@@ -61,7 +61,7 @@ export default class SingleListSurveyPage extends React.Component{
                 </div>
 
                 <div className="container">
-                    <Slick listName={this.state.list.listName} items={this.state.list.concepts} onDoubleClick={this.handleDoubleClick.bind(this)}/>
+                    <Slick listName={this.state.list.listName} items={this.state.list.concepts} onClick={this.handleClick.bind(this)}/>
                     <p>Double tap the thing you want, swipe left or right to navigate.</p>
                     <p>
                         <span className="slick-item-selected" > *Selected</span>

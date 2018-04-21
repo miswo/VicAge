@@ -368,8 +368,16 @@ footer{
 #detail-concept-page{
     .concept-detail{
         img{
+            max-width:400px;
             margin-left: auto;
             margin-right:auto;
         }
+    }
+}
+
+
+#edit-concept-page{
+    img{
+        max-width:400px;
     }
 }

@@ -3,6 +3,7 @@ import axios from 'axios';
 import {NavLink} from 'react-router-dom';
 
 import CKEditor from '../../components/CKEditor';
+import ImageUploader from '../../components/ImageUploader';
 
 
 export default class EditConceptPage extends React.Component{
@@ -48,6 +49,11 @@ export default class EditConceptPage extends React.Component{
 
     }
 
+    handleUploadImage(img){
+        console.log(img);
+        this.setState({imgUrl:img.imgUrl})
+    }
+
     onSubmit(e){
         e.preventDefault();
         axios.post(this.props.serverURL+'/concept/update/'+this.state.id,{
@@ -72,21 +78,27 @@ export default class EditConceptPage extends React.Component{
 
     render(){
         return(
-            <div id="detail-concept-page">
+            <div id="edit-concept-page">
                 <div className="jumbotron banner">
                     <div className="container">
                         <h2>Edit Concept</h2>
                     </div>
                 </div> 
 
-
                 <div className="container">
-                </div>
 
-                <div className="container">
-                    <img    className="img-responsive"
-                            src={this.state.imgUrl?this.state.imgUrl:""}
-                    />
+                    <div className="row">
+                        <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <img    className="img-responsive"
+                                    src={this.state.imgUrl?this.state.imgUrl:""}
+                            />
+                        </div>
+                        <div className="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                            <ImageUploader onUpload={this.handleUploadImage.bind(this) } serverURL = {this.props.serverURL} />
+                            <p>Update Image</p>
+                        </div>
+                    </div>
+
                     <form className="form" onSubmit={this.onSubmit.bind(this)}>
 
                         <div className="row">
@@ -100,7 +112,6 @@ export default class EditConceptPage extends React.Component{
                                             id="concept-name" 
                                             value={this.state.conceptName?this.state.conceptName:"loading"}
                                             onChange={this.onChangeConceptName.bind(this)}
-                                            disabled
                                     />
                                 </div>
                             </div>

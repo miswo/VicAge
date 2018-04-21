@@ -40,7 +40,6 @@ export default class ListAllListPage extends React.Component{
     }
 
     renderFeaturedLists(){
-        console.log(this.state.featuredLists)
         const listRows = this.state.featuredLists.length != 0?
             this.state.featuredLists.map((item)=>(
                 <NavLink key={item._id} to={"/list/detail/" + item._id} className="list-group-item"><strong><span className="glyphicon glyphicon-star"></span>{item.listName}</strong></NavLink>
