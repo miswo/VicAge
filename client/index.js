@@ -35,10 +35,10 @@ import DetailServicePage from './pages/Service/DetailServicePage';
 import "./main.scss";
 
 // Remote Server 
-const serverURL = 'http://13.70.182.53:5000'; 
+// const serverURL = 'http://13.70.182.53:5000'; 
 
 // Local Server
-// const serverURL = 'http://localhost:5000';
+const serverURL = 'http://localhost:5000';
 // const serverURL = 'http://118.139.95.189:5000';
 
 
@@ -67,7 +67,6 @@ class App extends Component {
 
 
     render(){
-        console.log(this.state);
         return(
             <Router>
                 {this.state.active?

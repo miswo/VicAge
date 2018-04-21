@@ -12,7 +12,7 @@ export default class Slick extends React.Component{
         const items = this.props.items? 
             this.props.items.map((item)=>(
                 <div className="slick-item" id={item.id} key={item.id}>
-                    <img src={item.imgUrl} className="responsive-img" onDoubleClick={this.onDoubleClick.bind(this)}/>
+                    <img src={item.imgUrl} className="responsive-img" onClick={this.onClick.bind(this)}/>
                     <h3>{item.conceptName}</h3>
                 </div>
             ))
@@ -21,7 +21,7 @@ export default class Slick extends React.Component{
         return items;
     }
 
-    onDoubleClick(e){
+    onClick(e){
         e.target.parentNode.className = e.target.parentNode.className ===  'slick-item active' ? 'slick-item' :'slick-item active'
         this.props.onDoubleClick(e);
 
