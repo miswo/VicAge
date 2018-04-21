@@ -37,7 +37,6 @@ export default class ImgUploader extends React.Component{
                     id:id,
                     imgUrl:futureImgUrl
                 });
-                console.log(this.state);
                 this.props.onUpload(this.state);
             }
         })

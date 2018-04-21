@@ -1,2 +1,6 @@
-1.align list concept and concpet itself
-2.add rich text editor.
+0.  add grid selection
+1.  add to create sublist
+2.  add energy calculator
+3.  add calender
+4.  add goal funtion(use items to set goal);
+5.  add goal full filled or not function
