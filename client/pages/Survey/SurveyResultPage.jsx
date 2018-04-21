@@ -21,12 +21,14 @@ export default class SurveyResult extends React.Component{
         var concepts = [];
         var selected = this.state.data.selected;
         for(var i=0;i<selected.length;i++){
-            axios.get(this.props.serverURL + '/concept/detail/' + selected[i])
-                .then((res)=>{
-                    concepts.push(res.data.concept);
-                    this.setState({concepts:concepts})
-                    
-                })
+            if(selected[i] != undefined){
+                axios.get(this.props.serverURL + '/concept/detail/' + selected[i])
+                    .then((res)=>{
+                        concepts.push(res.data.concept);
+                        this.setState({concepts:concepts})
+                        
+                    })
+            }
         }
 
     }
