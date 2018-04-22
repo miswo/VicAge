@@ -41,6 +41,10 @@ export default class ListServicePage extends React.Component{
                 this.setState({
                     agedcare:res.data.services,
                 })
+                if(this.state.active ==='agedcare')
+                    this.setState({
+                        data:res.data.services
+                    })
             }
         )
 
@@ -49,6 +53,10 @@ export default class ListServicePage extends React.Component{
                 this.setState({
                     community:res.data.services
                 })
+                if(this.state.active ==='community')
+                    this.setState({
+                        data:res.data.services
+                    })
             }
         )
 
@@ -57,6 +65,10 @@ export default class ListServicePage extends React.Component{
                 this.setState({
                     disability:res.data.services
                 })
+                if(this.state.active ==='disability')
+                    this.setState({
+                        data:res.data.services
+                    })
             }
         )
 
@@ -65,6 +77,10 @@ export default class ListServicePage extends React.Component{
                 this.setState({
                     hospital:res.data.services
                 })
+                if(this.state.active ==='hospital')
+                    this.setState({
+                        data:res.data.services
+                    })
             }
         )
     }
