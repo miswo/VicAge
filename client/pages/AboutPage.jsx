@@ -36,12 +36,12 @@ const AboutPage=()=>(
                 <h4>Our Mission</h4>
                 <p>
                     The state of Victoria is one of the states in Australia with
-                    the most number of aged people and number of aged care facilities.
+                    the most number of carers and number of people cared for.
                     <br/>
                     The website 'VicAge' aims at understanding the situation of "Healthy is..."
-                    withe respect to an aged care scenario.
+                    withe respect to the home care scenario.
                     <br/>
-                    This process will help the elderly stay active and connected to the 
+                    This process will help the persons stay active and connected to the 
                     community around them which will provide them with an added sense of happiness.
                 </p>
 
@@ -50,16 +50,16 @@ const AboutPage=()=>(
                     Our Scope will be written here:
                     <br/>
                     Are you facing some difficulty to communicate with elderly
-                    people? Verbal communication is sometime not effective to understand 
+                    people? Verbal communication is sometimes not effective to understand 
                     their needs.
                     <br/>
-                    As a carer, do you want to understand elderly people's needs more easily,
+                    As a carer, do you want to understand their needs more easily,
                     so that their life will be more enjoyable?
                 </p>
 
                 <h4>Our Solution - Communication tool using pictures</h4>
                 <p>
-                    Try out our products! It is easy to use: Just pick a pre-made list 
+                    Try out our product! It is easy to use: Just pick a pre-made list 
                     or create your own list.
                     <br/>
                     <br/>
