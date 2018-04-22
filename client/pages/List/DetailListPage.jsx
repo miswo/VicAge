@@ -35,7 +35,6 @@ export default class DetailListPage extends React.Component{
                     <NavLink to={"/concept/detail/" + item._id}>
                         <h5>{item.conceptName}</h5>
                     </NavLink>
-
                 </div>
             </div>
         ))
@@ -54,16 +53,23 @@ export default class DetailListPage extends React.Component{
                 <div className="jumbotron banner">
                     <div className="container">
                         <h2>{this.state.list.listName? this.state.list.listName :"List Detail"}</h2>
-                        <NavLink to={"/survey/list/" + this.state.id} className="btn btn-primary"> Start a Survey</NavLink>
                         <NavLink to="/list/all" className="btn btn-default">Back</NavLink>
                     </div>
                 </div>
 
 
                 <div className="container">
+                <div className="text-center">   
+                        <NavLink to={"/survey/list/" + this.state.id} className="btn btn-lg btn-primary" id="productBtn"> Start a Survey</NavLink>                     
+                    </div> 
                     <div className="row">
                         {this.renderConcepts()}
-                    </div>
+                    </div>                
+                    <div className="text-center">   
+                        <NavLink to={"/survey/list/" + this.state.id} className="btn btn-lg btn-primary" id="productBtn"> Start a Survey</NavLink>                     
+                    </div>                  
+                     
+                    
                 </div>
             </div>
         )

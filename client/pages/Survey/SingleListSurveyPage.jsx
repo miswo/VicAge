@@ -57,6 +57,7 @@ export default class SingleListSurveyPage extends React.Component{
                 <div className="jumbotron banner">
                     <div className="container">
                         <h2>Survey</h2>
+                        <button className="btn btn-default" onClick={this.handleBack.bind(this)}>Back</button>
                     </div>
                 </div>
 
@@ -68,9 +69,11 @@ export default class SingleListSurveyPage extends React.Component{
                         <br/>
                         <span className="slick-item-not-selected"> *Not Selected</span>    
                     </p>
-
-                    <button className="btn btn-primary" onClick={this.handleSubmit.bind(this)}>Submit</button>
-                    <button className="btn btn-default" onClick={this.handleBack.bind(this)}>Back</button>
+                    <div class="text-center">   
+                        <button className="btn btn-lg btn-primary" onClick={this.handleSubmit.bind(this)}>Submit</button>
+                                       
+                    </div>  
+                    
                 </div>
 
             </div>
