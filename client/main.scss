@@ -4,17 +4,41 @@ $median-screen:979px;
 
 //------------------Generals------------------//
 
-.navbar-nav>li>a.active{
-    color:white;
+body{
+    font-size: 18px;
+}
+
+
+.nav > li > a{
+    color:#000 !important;
+}
+
+
+.nav > li > a:hover, 
+.nav > li > a:focus, 
+.nav > li > a:active{
+    color:#00a2e8 !important;
+    border-bottom: 2px solid #000 !important; 
 }
 
 .navbar{
-    margin-bottom:0;
+    margin:10px;
 }
+
+.navbar-inverse{
+    border-color: #fff !important;
+}
+
+.navbar-main li a{
+    font-size: 26px;
+    padding: 20px 18px;
+}
+
 
 .navbar-inverse .navbar-brand{
     padding:10px;
     color:#00a2e8;
+
     #navlogo{
         display: inline-block;
         width:30px;
@@ -23,6 +47,15 @@ $median-screen:979px;
         
     }
 
+}
+
+.navbar-main{
+    background: #fff;
+}
+
+
+.navbar-toggle{
+    background-color: #333;
 }
 
 table,th{
@@ -50,8 +83,8 @@ textarea{
     @media(min-width:769px){
         height:300px;
         .img-wrapper{
-            height:250px;
-            line-height: 250px;
+            height:215px;
+            /*line-height: 250px;*/
             overflow: hidden;
             img{
                 vertical-align: middle;
@@ -217,6 +250,26 @@ footer{
 }
 
 
+.animate-onscroll-home {
+    visibility: none;
+}
+
+#productBtn{
+    margin: 30px 0;
+    padding:10px 50px;
+    font-size:30px;
+    font-family: "Dosis", sans-serif;
+}
+
+#cta{
+    margin-top:30px;
+}
+#mission{
+    font-size:18px;
+    padding:10px 80px;
+}
+
+
 //--------------------About Page ------------
 
 #about-page{
@@ -357,12 +410,68 @@ footer{
     }
 
 
+
+
+    .nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover{
+        color:#fff !important;
+    }
+
+    .nav-pills > li > a{
+        color:#000 !important;
+        border: 1px #ddd solid;
+    }
+
+
+    .nav > li > a:hover{
+        color:#fff !important;
+        background-color:#00a2e8;
+    }
 }
 
 //--------------------   List all list page --------------------
 #list-all-list-page{
-   
+    
+    font-family: "Dosis", sans-serif;
+    th{
+        font-size:24px;
+    }
+
+    table{
+        width:80%;
+        margin-left:auto;margin-right:auto;
+    }
+
 }
+#listContainer{
+    text-align:center;
+}
+#createListBtn{
+    margin-left:10%;
+}
+#detailBtn{
+    border-bottom: 2px solid #000 !important;
+    font-size:16px;
+}
+     
+.listTable td { 
+    width:100%;
+    line-height: 2.5em;
+    text-align: center;
+    vertical-align:middle;
+    font-size: 24px; 
+    color: #404040; 
+}
+      
+.listTable td a{
+    display:block;
+    width:100%;
+    height:100%;
+} 
+.listTable td a:hover{
+    background-color: transparent;
+    border-bottom: none !important;
+} 
+
 
 //--------------------   Detail Concept Page ------------------
 #detail-concept-page{
@@ -380,4 +489,24 @@ footer{
     img{
         max-width:400px;
     }
+}
+
+#concept-description{
+    width:100%;
+}
+
+#concept-table{
+    border: 2px #ddd solid;
+    border-radius: 10px;
+    margin: 30px 0;
+    padding:20px;
+}
+
+.concept-detail{
+    width: 70%;
+    margin: 0 auto;
+}
+
+.img-responsive{
+    box-shadow: 2px 2px 4px gray;
 }

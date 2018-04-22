@@ -29,7 +29,7 @@ export default class CreateConceptPage extends React.Component{
                 <div className="jumbotron banner">
                     <div className="container">
                         <h2>{this.state.concept?this.state.concept.conceptName:"Concept"}</h2>
-                        <NavLink to={"/concept/edit/" + this.state.id} className="btn btn-primary">Edit</NavLink>
+
                         <button className="btn btn-default" onClick={this.props.history.goBack}>Back</button>
                     </div>
                 </div> 
@@ -42,6 +42,7 @@ export default class CreateConceptPage extends React.Component{
                                 <img className="img-responsive" src={this.state.concept.imgUrl} />
                             </div>
                             <div dangerouslySetInnerHTML={{__html:this.state.concept.conceptDescription}}/>
+                            <NavLink to={"/concept/edit/" + this.state.id} className="btn btn-primary">Edit</NavLink>
                         </div>
                         :
                         "Loading ...."
