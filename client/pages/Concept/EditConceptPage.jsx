@@ -152,7 +152,7 @@ export default class EditConceptPage extends React.Component{
                             </div>
                         </div>
                         <button type="submit" className="btn btn-primary">Update</button>
-                        <button className="btn btn-default" onClick={this.onCancel.bind(this)}>Back</button>
+                        <button className="btn btn-secondary" onClick={this.onCancel.bind(this)}>Back</button>
                         
                     </form>
                 </div>

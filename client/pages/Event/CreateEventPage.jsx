@@ -71,7 +71,7 @@ export default class CreateEventPage extends React.Component{
 
 
                         <input type="submit" value="create" className="btn btn-primary"/>
-                        <Link to='/event' className="btn btn-default">Back</Link>
+                        <Link to='/event' className="btn btn-secondary">Back</Link>
 
                     </form>
                 </div>

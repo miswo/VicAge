@@ -26,6 +26,7 @@ export default class ListServicePage extends React.Component{
 
     componentWillReceiveProps(nextProps){
         var newPostcode = nextProps.match.match.params.postcode;
+        var serviceName = nextProps.match.match.params.serviceName;
         this.setState({
             postcode:newPostcode,
             active:'agedcare'
@@ -121,7 +122,7 @@ export default class ListServicePage extends React.Component{
                         <h2>Services</h2>
                         <p className="lead">Here is some information that might help you.</p>
                         <PostCodeSearcher history = {this.props.history} />
-                        <button  className="btn btn-default back" onClick={this.props.history.goBack}>Back</button>
+                        <button  className="btn btn-secondary back" onClick={this.props.history.goBack}>Back</button>
                     </div>
                 </div>
 

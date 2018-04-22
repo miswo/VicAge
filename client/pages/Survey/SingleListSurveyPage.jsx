@@ -3,16 +3,14 @@ import axios from 'axios';
 
 import Slick from '../../components/Slick';
 
-
-
-
 export default class SingleListSurveyPage extends React.Component{
     constructor(props){
         super(props);
         this.state={
             id : this.props.match.match.params.id,
             list:{},
-            selected:[]
+            selected:[],
+            display:'grid',
         }
     }
 
@@ -40,6 +38,24 @@ export default class SingleListSurveyPage extends React.Component{
         this.setState({selected:selected})
     }
 
+    handleGridClick(e){
+        while(e.target.id.length == 0){
+            e.target = e.target.parentNode;
+        }
+        const id = e.target.id;
+
+        var selected = this.state.selected;
+        for(var i=0;i<selected.length;i++){
+            if(selected[i] === id){
+                delete selected[i];
+                this.setState({selected})
+                return;
+            }
+        }
+        selected.push(id);
+        this.setState({selected})
+    }
+
     handleSubmit(){
         this.props.dataTransfer(this.state);
         this.props.history.push('/survey/result');
@@ -50,30 +66,82 @@ export default class SingleListSurveyPage extends React.Component{
         this.props.history.goBack();
     }
 
+    checkActive(id){
+        for(var i=0;i<this.state.selected.length;i++){
+            if(this.state.selected[i] === id)
+                return 'concept-block selected';
+        }
+        return 'concept-block';
+    }
+    renderConcepts(){
+        const conceptBlocks = this.state.list.concepts?
+        this.state.list.concepts.map((item)=>(
+            <div key={item._id} className="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                <div className={this.checkActive(item._id)} id={item._id} onClick={this.handleGridClick.bind(this)}>
+                    <div className="img-wrapper">
+                        <img src={item.imgUrl} alt={item.conceptName} />
+                    </div>
+                        <h5>{item.conceptName}</h5>
+                </div>
+            </div>
+        ))
+
+        :
+        <p>There is no concepts in this list....</p>;
+
+        return conceptBlocks;
+    }
+
+    handleCreateSublist(e){
+        e.preventDefault();
+        for(var i=0;i<this.state.selected.length;i++){
+            if(this.state.selected[i] != undefined){
+                this.props.dataTransfer(this.state.selected);
+                this.props.history.push('/list/create/');
+                return;
+            }
+        }
+        return alert('Please select at least one concept to create a list.');
+    }
 
     render(){
         return(
             <div id="single-list-survey-page">
                 <div className="jumbotron banner">
                     <div className="container">
-                        <h2>Survey</h2>
-                        <button className="btn btn-default" onClick={this.handleBack.bind(this)}>Back</button>
+                        <h2>Select the Things You Want.</h2>
+                        <button className="btn btn-secondary" onClick={this.handleBack.bind(this)}>Back</button>
                     </div>
                 </div>
 
                 <div className="container">
-                    <Slick listName={this.state.list.listName} items={this.state.list.concepts} onClick={this.handleClick.bind(this)}/>
-                    <p>Double tap the thing you want, swipe left or right to navigate.</p>
-                    <p>
-                        <span className="slick-item-selected" > *Selected</span>
-                        <br/>
-                        <span className="slick-item-not-selected"> *Not Selected</span>    
-                    </p>
-                    <div class="text-center">   
-                        <button className="btn btn-lg btn-primary" onClick={this.handleSubmit.bind(this)}>Submit</button>
-                                       
-                    </div>  
+                    {
+                    this.state.display ==='grid'?
+
+                    <div id="grid-selection">
+                        <div className="container">
+                            <div className="row">
+                                {this.renderConcepts()}
+                            </div>                
+                        </div>
+                    </div>
                     
+                    :
+                    
+                    <div>
+                        <Slick listName={this.state.list.listName} items={this.state.list.concepts} onClick={this.handleClick.bind(this)}/>
+                        <p>Double tap the thing you want, swipe left or right to navigate.</p>
+                        <p>
+                            <span className="slick-item-selected" > *Selected</span>
+                            <br/>
+                            <span className="slick-item-not-selected"> *Not Selected</span>    
+                        </p>
+                    </div>
+                    }                    
+                    <div className="text-center">
+                        <button className="btn btn-lg btn-primary" onClick={this.handleCreateSublist.bind(this)}>Create Sub List</button>   
+                        <button className="btn btn-lg btn-primary" onClick={this.handleSubmit.bind(this)}>Add to My Calendar</button>
+                    </div>  
                 </div>
 
             </div>

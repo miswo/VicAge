@@ -98,6 +98,14 @@ textarea{
     border:1px solid #eee;
     max-width:100%;
     margin-bottom: 50px;
+    h5{
+        font-size: 1.5em;
+        color:black;
+    }
+    a{
+        text-decoration: none;
+    }
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
     @media(min-width:769px){
         height:300px;
         .img-wrapper{
@@ -122,9 +130,10 @@ textarea{
     }
 
     text-align: center;
-    h5{
-        font-size:2em;
-    }
+}
+
+.selected{
+    border:5px solid #115c9b;
 }
 // -------------------Components -------------------
 .drop-zone{
@@ -527,7 +536,7 @@ footer{
 
 //misu added//
 .img-responsive{
-    box-shadow: 10px 10px 25px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
 }
 
 #conceptDescription{

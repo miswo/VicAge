@@ -27,6 +27,7 @@ export default class CreateListPage extends React.Component{
     constructor(props){
         super(props);
         this.state={
+            selected:this.props.data,
             listName:'',
             concepts:[],
         };
@@ -34,7 +35,7 @@ export default class CreateListPage extends React.Component{
 
     renderConcepts(){
         const conceptBlocks = this.state.concepts? this.state.concepts.map((item)=>(
-            <div key={item._id} className="col-sm-6 col-md-4 col-lg-4">
+            <div key={item.id} className="col-sm-6 col-md-4 col-lg-4">
                 <div className="concept-block">
                     <div className="img-wrapper">
                         <img src={item.imgUrl} alt={item.conceptName} />
@@ -50,7 +51,7 @@ export default class CreateListPage extends React.Component{
     addNewConcept(newConcept){
         var concepts = this.state.concepts;
         concepts.push(newConcept);
-        this.setState({concepts:concepts})
+        this.setState({concepts})
     }
 
     handleOnChangeListName(e){
@@ -60,6 +61,7 @@ export default class CreateListPage extends React.Component{
 
     handleSubmit(e){
         e.preventDefault();
+
         axios.post(this.props.serverURL+'/list/create/',{
             listName:this.state.listName,
             concepts:this.state.concepts,
@@ -69,6 +71,27 @@ export default class CreateListPage extends React.Component{
             if (result.status == 200) this.props.history.push('/list/all')
         })
         
+    }
+    componentDidMount(){
+        var selected = this.state.selected;
+        if(!selected) return;
+
+        for(var i=0;i<selected.length;i++){
+            axios.get(this.props.serverURL + '/concept/detail/' + selected[i])
+                .then((res)=>{
+                    var concepts = this.state.concepts;
+
+                    concepts.push({
+                        id:res.data.concept._id,
+                        imgUrl:res.data.concept.imgUrl,
+                        conceptName:res.data.concept.conceptName,
+                        conceptDescription:res.data.concept.conceptDescription
+                    });
+
+                    console.log(concepts);
+                    this.setState({concepts})
+                })
+        }
     }
 
 
@@ -113,12 +136,16 @@ export default class CreateListPage extends React.Component{
                         <div className="row">
                             {this.renderConcepts()}
                             <div className="clearfix"></div>
-                            <AddConcept />
-                            {/* <DeleteConcept /> */}
+                            {
+                                this.state.selected?
+                                ""
+                                :
+                                <AddConcept />
+                            }
                         </div>
                         
                         <button type="submit" className="btn btn-primary">Submit</button>
-                        <NavLink to="/list/all" className="btn btn-default">Cancel</NavLink>
+                        <NavLink to="/list/all" className="btn btn-secondary">Cancel</NavLink>
 
                     </form>
                 </div>

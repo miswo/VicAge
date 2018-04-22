@@ -35,10 +35,10 @@ import DetailServicePage from './pages/Service/DetailServicePage';
 import "./main.scss";
 
 // Remote Server 
-const serverURL = 'http://13.70.182.53:5000'; 
+// const serverURL = 'http://13.70.182.53:5000'; 
 
 // Local Server
-// const serverURL = 'http://localhost:5000';
+const serverURL = 'http://localhost:5000';
 // const serverURL = 'http://118.139.95.189:5000';
 
 
@@ -62,7 +62,7 @@ class App extends Component {
         target?target.focus():'';
     }
     dataTransfer(data){
-        this.setState({data:data})
+        this.setState({data})
     }
 
 
@@ -80,7 +80,7 @@ class App extends Component {
                             <Route exact path="/event/:id" render={(history)=>(<ViewEventPage   history = {history.history} serverURL={serverURL} eventID={history.match.params.id} />)} />
                             <Route path="/event/:id/survey" render={(history)=><SurveyPage      serverURL={serverURL}    eventID={history.match.params.id} />} />
                             <Route path="/concept/create" render={(history)=><CreateConceptPage history ={history.history}  serverURL={serverURL}/>}  /> */}
-                            <Route path="/list/create"              render={(history)=><CreateListPage          history={history.history} serverURL={serverURL}/>} />}
+                            <Route path="/list/create"              render={(history)=><CreateListPage          history={history.history} serverURL={serverURL} data={this.state.data}/>} />}
                             <Route path="/list/all"                 render={(history)=><ListAllListPage         history={history.history} serverURL={serverURL}/>}/>}
                             <Route path="/list/detail/:id"          render={(history)=><DetailListPage          match ={history}    history={history.history} serverURL={serverURL}/>}/>}
 
