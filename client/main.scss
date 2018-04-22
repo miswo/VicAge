@@ -73,8 +73,14 @@ body{
 }
 
 
-//---------misu till here------------//
 
+
+//---------misu till here------------//
+.button-group{
+    button{
+        margin:10px;
+    }
+}
 table,th{
     text-align: center;
 }
@@ -129,6 +135,11 @@ textarea{
     }
 
     text-align: center;
+}
+
+.concept-quantity{
+    margin-top:-40px;
+    margin-bottom: 50px;
 }
 
 .selected{

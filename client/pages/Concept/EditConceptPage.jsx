@@ -25,7 +25,8 @@ export default class EditConceptPage extends React.Component{
                 this.setState({
                     conceptName : concept.conceptName,
                     imgUrl :concept.imgUrl,
-                    conceptDescription: concept.conceptDescription
+                    conceptDescription: concept.conceptDescription,
+                    data:concept.data
                 })
             })
     }
@@ -61,7 +62,8 @@ export default class EditConceptPage extends React.Component{
             concept:{
                 conceptName:this.state.conceptName,
                 imgUrl:this.state.imgUrl,
-                conceptDescription:this.state.conceptDescription
+                conceptDescription:this.state.conceptDescription,
+                data:this.state.concept.data
             }
         })
             .then((res)=>{

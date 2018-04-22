@@ -104,6 +104,18 @@ export default class SingleListSurveyPage extends React.Component{
         return alert('Please select at least one concept to create a list.');
     }
 
+    passToListHandler(e){
+        e.preventDefault();
+        for(var i=0;i<this.state.selected.length;i++){
+            if(this.state.selected[i] != undefined){
+                this.props.dataTransfer(this.state.selected);
+                this.props.history.push(this.state.list.handler.url);
+                return;
+            }
+        }
+        return alert('Please select at least one concept to create a list.');
+    }
+
     render(){
         return(
             <div id="single-list-survey-page">
@@ -138,7 +150,13 @@ export default class SingleListSurveyPage extends React.Component{
                         </p>
                     </div>
                     }                    
-                    <div className="text-center">
+                    <div className="text-center button-group">
+                        {
+                            this.state.list.handler?
+                                <button className="btn btn-lg btn-primary" onClick={this.passToListHandler.bind(this)}>Add to {this.state.list.handler.name}</button>
+                                :
+                                ""
+                        }
                         <button className="btn btn-lg btn-primary" onClick={this.handleCreateSublist.bind(this)}>Create Sub List</button>   
                         <button className="btn btn-lg btn-primary" onClick={this.handleSubmit.bind(this)}>Add to My Calendar</button>
                     </div>  

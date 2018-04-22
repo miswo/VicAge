@@ -56,7 +56,7 @@ export default class SurveyResult extends React.Component{
             <div id="survey-result">
                 <div className="jumbotron banner">
                     <div className="container">
-                        <h2>Survey Result</h2>
+                        <h2>Result</h2>
                     </div>
                 </div>
 

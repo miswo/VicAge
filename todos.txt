@@ -4,3 +4,4 @@
 4.  add goal funtion(use items to set goal);
 5.  add goal full filled or not function
 6.  clear appData after create sublist
+7.  Add page to lists and survey.
