@@ -15,10 +15,15 @@ class Navbar extends Component{
                             <span className="icon-bar"></span>
                             <span className="icon-bar"></span>
                         </button>
-                        <NavLink className="navbar-brand" to="/">
-                            <img id="navlogo"src="https://s3-ap-southeast-2.amazonaws.com/vicage-image/5abf1ada26dc6202b31ca2aa.png" />
-                            <span id="brand">VicAge</span>
-                        </NavLink>
+
+                        <ul className="nav navbar-nav">
+                            <li> 
+                                <NavLink className="navbar-brand" to="/">
+                                    <img id="navlogo"src="https://s3-ap-southeast-2.amazonaws.com/vicage-image/5abf1ada26dc6202b31ca2aa.png" />
+                                    <span id="brand">VicAge</span>
+                                </NavLink>
+                            </li>
+                        </ul>
                     </div>
 
                     <div className="collapse navbar-collapse navbar-right" id="navbar-menu">
