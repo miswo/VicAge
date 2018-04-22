@@ -41,7 +41,7 @@ export default class CreateConceptPage extends React.Component{
                             <div className="img-wrapper">
                                 <img className="img-responsive" src={this.state.concept.imgUrl} />
                             </div>
-                            <div dangerouslySetInnerHTML={{__html:this.state.concept.conceptDescription}}/>
+                            <div id="conceptDescription" dangerouslySetInnerHTML={{__html:this.state.concept.conceptDescription}}/>
                             <NavLink to={"/concept/edit/" + this.state.id} className="btn btn-primary">Edit</NavLink>
                         </div>
                         :

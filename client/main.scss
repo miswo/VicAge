@@ -525,6 +525,17 @@ footer{
     margin: 0 auto;
 }
 
+//misu added//
 .img-responsive{
     box-shadow: 10px 10px 25px 15px rgba(0, 0, 0, 0.3);
+}
+
+#conceptDescription{
+    h4{
+        font-size:22px;
+    }
+    a{
+        color:#000;
+        text-decoration: underline;
+    }
 }
