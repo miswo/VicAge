@@ -4,29 +4,42 @@ $median-screen:979px;
 
 //------------------Generals------------------//
 
+//misu changed from here----//
+
 body{
     font-size: 18px;
 }
+#brand{
+    color:#00a2e8;
+}
 
+.navbar-inverse .navbar-nav > li > a {
+    color: #000;
+}
 
-.nav > li > a{
-    color:#000 !important;
+.navbar-inverse .navbar-nav > li > a:hover{
+    color:#00a2e8;
+    border-bottom: 2px solid #000; 
+}
+
+.navbar-inverse .navbar-nav > li > a:focus{
+    color:#00a2e8;
+    border-bottom: 2px solid #000; 
+}
+
+.navbar-inverse .navbar-nav > li > a:active{
+    color:#00a2e8;
+    border-bottom: 2px solid #000; 
 }
 
 
-.nav > li > a:hover, 
-.nav > li > a:focus, 
-.nav > li > a:active{
-    color:#00a2e8 !important;
-    border-bottom: 2px solid #000 !important; 
-}
 
 .navbar{
     margin:10px;
 }
 
 .navbar-inverse{
-    border-color: #fff !important;
+    border-color: #fff;
 }
 
 .navbar-main li a{
@@ -39,6 +52,7 @@ body{
     padding:10px;
     color:#00a2e8;
 
+
     #navlogo{
         display: inline-block;
         width:30px;
@@ -49,6 +63,7 @@ body{
 
 }
 
+
 .navbar-main{
     background: #fff;
 }
@@ -57,6 +72,9 @@ body{
 .navbar-toggle{
     background-color: #333;
 }
+
+
+//---------misu till here------------//
 
 table,th{
     text-align: center;
@@ -249,7 +267,7 @@ footer{
 
 }
 
-
+//misu added----//
 .animate-onscroll-home {
     visibility: none;
 }
@@ -268,7 +286,7 @@ footer{
     font-size:18px;
     padding:10px 80px;
 }
-
+//misu till here--//
 
 //--------------------About Page ------------
 
@@ -410,20 +428,20 @@ footer{
     }
 
 
-
+// --------------------- misu ---
 
     .nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover{
-        color:#fff !important;
+        color:#fff ;
     }
 
     .nav-pills > li > a{
-        color:#000 !important;
+        color:#000 ;
         border: 1px #ddd solid;
     }
 
 
     .nav > li > a:hover{
-        color:#fff !important;
+        color:#fff ;
         background-color:#00a2e8;
     }
 }
@@ -508,5 +526,5 @@ footer{
 }
 
 .img-responsive{
-    box-shadow: 2px 2px 4px gray;
+    box-shadow: 10px 10px 25px 15px rgba(0, 0, 0, 0.3);
 }

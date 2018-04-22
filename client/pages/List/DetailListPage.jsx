@@ -57,13 +57,13 @@ export default class DetailListPage extends React.Component{
 
                 <div className="container">
                 <div class="text-center">   
-                        <NavLink to={"/survey/list/" + this.state.id} class="btn btn-lg btn-danger" id="productBtn"> Start a Survey</NavLink>                     
+                        <NavLink to={"/survey/list/" + this.state.id} class="btn btn-lg btn-primary" id="productBtn"> Start a Survey</NavLink>                     
                     </div> 
                     <div className="row">
                         {this.renderConcepts()}
                     </div>                
                     <div class="text-center">   
-                        <NavLink to={"/survey/list/" + this.state.id} class="btn btn-lg btn-danger" id="productBtn"> Start a Survey</NavLink>                     
+                        <NavLink to={"/survey/list/" + this.state.id} class="btn btn-lg btn-primary" id="productBtn"> Start a Survey</NavLink>                     
                     </div>                  
                      
                     

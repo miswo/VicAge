@@ -70,7 +70,7 @@ export default class SingleListSurveyPage extends React.Component{
                         <span className="slick-item-not-selected"> *Not Selected</span>    
                     </p>
                     <div class="text-center">   
-                        <button className="btn btn-lg btn-danger" onClick={this.handleSubmit.bind(this)}>Submit</button>
+                        <button className="btn btn-lg btn-primary" onClick={this.handleSubmit.bind(this)}>Submit</button>
                                        
                     </div>  
                     

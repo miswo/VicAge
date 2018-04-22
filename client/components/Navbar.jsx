@@ -17,7 +17,7 @@ class Navbar extends Component{
                         </button>
                         <NavLink className="navbar-brand" to="/">
                             <img id="navlogo"src="https://s3-ap-southeast-2.amazonaws.com/vicage-image/5abf1ada26dc6202b31ca2aa.png" />
-                            VicAge
+                            <span id="brand">VicAge</span>
                         </NavLink>
                     </div>
 

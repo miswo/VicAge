@@ -23,7 +23,7 @@ export default class HomePage extends React.Component{
                         <div class="caption">
                             <h1 class="carousel-title">VicAge</h1>
                             <h2 class="carousel-subtitle">One picture is worth a thousand words.</h2>
-                            <a href="/list/all" class="btn btn-lg btn-secondary animated slow">TRY OUR PRODUCT</a>
+                            <a href="/list/all" class="btn btn-lg btn-primary animated slow">TRY OUR PRODUCT</a>
                         </div>
                     </div>
                 </div>
@@ -63,7 +63,7 @@ export default class HomePage extends React.Component{
                         <div class="cause" id="cta">
                             <h3 class="cause-title">Are you interested? VicAge will make your life easy.</h3>
                             <div class="btn-holder text-center">                        
-                                <a class="btn btn-lg btn-danger" id="productBtn" href="/list/all">TRY OUR PRODUCT</a>
+                                <a class="btn btn-lg btn-primary" id="productBtn" href="/list/all">TRY OUR PRODUCT</a>
                             </div>                  
                         </div> 
                     </div>
