@@ -40,7 +40,6 @@ export default class ListServicePage extends React.Component{
             .then((res)=>{
                 this.setState({
                     agedcare:res.data.services,
-                    data:res.data.services
                 })
             }
         )
