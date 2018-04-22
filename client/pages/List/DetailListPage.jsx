@@ -26,12 +26,16 @@ export default class DetailListPage extends React.Component{
         this.state.list.concepts.map((item)=>(
             <div key={item._id} className="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                 <div className="concept-block">
+                
                     <div className="img-wrapper">
                         <NavLink to={"/concept/detail/" + item._id}>
                             <img src={item.imgUrl} alt={item.conceptName} />
                         </NavLink>
                     </div>
-                    <h5>{item.conceptName}</h5>
+                    <NavLink to={"/concept/detail/" + item._id}>
+                        <h5>{item.conceptName}</h5>
+                    </NavLink>
+
                 </div>
             </div>
         ))
