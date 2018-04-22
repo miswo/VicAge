@@ -33,43 +33,61 @@ const AboutPage=()=>(
         <div className="container">
 
             <div className="project-description">
-                <h4>Our Mission</h4>
-                <p>
-                    The state of Victoria is one of the states in Australia with
-                    the most number of aged people and number of aged care facilities.
-                    <br/>
-                    The website 'VicAge' aims at understanding the situation of "Healthy is..."
-                    withe respect to an aged care scenario.
-                    <br/>
-                    This process will help the elderly stay active and connected to the 
-                    community around them which will provide them with an added sense of happiness.
-                </p>
 
-                <h4>Overview of the Scene of Aged care in Victoria</h4>
-                <p>
-                    Our Scope will be written here:
-                    <br/>
-                    Are you facing some difficulty to communicate with elderly
-                    people? Verbal communication is sometime not effective to understand 
-                    their needs.
-                    <br/>
-                    As a carer, do you want to understand elderly people's needs more easily,
-                    so that their life will be more enjoyable?
-                </p>
-
-                <h4>Our Solution - Communication tool using pictures</h4>
-                <p>
-                    Try out our products! It is easy to use: Just pick a pre-made list 
-                    or create your own list.
-                    <br/>
-                    <br/>
-                    <NavLink to="/list/all" className="btn btn-primary">Try our solution now! </NavLink>
-                </p>
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingOne">
+                      <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Our Mission
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                      <div class="panel-body">
+                        <p>The state of Victoria is one of the states in Australia with the most number of aged people and number of aged care facilities.</p>
+                        <p>The website 'VicAge' aims at understanding the situation of "Healthy is..." with respect to an aged care scenario.</p>
+                        <p>This process will help the elderly stay active and connected to the community around them which will provide them with an added sense of happiness.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingTwo">
+                      <h4 class="panel-title">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Overview of the Scene of Aged care in Victoria
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                      <div class="panel-body">
+                        <p>Something here</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingThree">
+                      <h4 class="panel-title">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Our Solution - Communication tool using pictures
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                      <div class="panel-body">
+                      <p>Are you struggling to decide activities for your care home regidents? We have a solution.
+                        Our survey tool will minimise your job. It provides visual aids, which are easy to understand for everybody without explaining with a thousand words.
+                        Sometime it is difficult to communicate with people who have difficulties of verval communication.
+                        By using pictures, it will be much easier, and which will lead happier experience.</p>
+                        <br />
+                        <NavLink to="/list/all" className="btn btn-primary">Try our solution now! </NavLink>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+             </div>
             </div>
-           
         </div>
-
-    </div>
 )
 
 export default AboutPage;
