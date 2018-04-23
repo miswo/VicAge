@@ -136,17 +136,20 @@ export default class SingleListSurveyPage extends React.Component{
                 </div>
 
                 <div className="container">
+                        <label className="switch">
+                            <input type="checkbox"/>
+                            <span class="slider"></span>
+                        </label>
+
                     {
                     this.state.display ==='grid'?
 
                     <div id="grid-selection">
-                        <div className="container">
-                            <div className="row">
-                                {this.renderConcepts()}
-                            </div>
-                            <div className="text-center">
-                                <Pager pageNum={this.state.totalPageNumber} callback={this.setCurrentPage.bind(this)}/>
-                            </div>
+                        <div className="row">
+                            {this.renderConcepts()}
+                        </div>
+                        <div className="text-center">
+                            <Pager pageNum={this.state.totalPageNumber} callback={this.setCurrentPage.bind(this)}/>
                         </div>
                     </div>
                     
