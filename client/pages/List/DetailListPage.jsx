@@ -2,12 +2,17 @@ import React from 'react';
 import axios from 'axios';
 import {NavLink} from 'react-router-dom';
 
+import Pager from '../../components/Pager';
+
 export default class DetailListPage extends React.Component{
     constructor(props){
         super(props);
         this.state={
             id:this.props.match.match.params.id,
-            list:{}
+            list:{},
+            totalPageNumber:1,
+            currentPage:1,
+            itemPerPage:20
         }
     }
 
@@ -16,17 +21,17 @@ export default class DetailListPage extends React.Component{
         axios.get(this.props.serverURL + '/list/detail/'+ this.state.id)
             .then((res)=>{
                 this.setState({
-                    list:res.data.list
+                    list:res.data.list,
+                    totalPageNumber:Math.ceil(res.data.list.concepts.length/this.state.itemPerPage)
                 })
             })
     }
 
     renderConcepts(){
         const conceptBlocks = this.state.list.concepts?
-        this.state.list.concepts.map((item)=>(
+        this.state.list.concepts.slice(this.state.itemPerPage*(this.state.currentPage-1),this.state.itemPerPage*this.state.currentPage).map((item)=>(
             <div key={item._id} className="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                 <div className="concept-block">
-                
                     <div className="img-wrapper">
                         <NavLink to={"/concept/detail/" + item._id}>
                             <img src={item.imgUrl} alt={item.conceptName} />
@@ -44,6 +49,10 @@ export default class DetailListPage extends React.Component{
 
         return conceptBlocks;
 
+    }
+
+    setCurrentPage(num){
+        this.setState({currentPage:num})
     }
 
 
@@ -65,9 +74,11 @@ export default class DetailListPage extends React.Component{
                     </div> 
                     <div className="row">
                         {this.renderConcepts()}
-                    </div>                
-                     
-                    
+
+                    </div>         
+                     <div className="text-center">
+                        <Pager pageNum={this.state.totalPageNumber} callback={this.setCurrentPage.bind(this)}/>
+                     </div>
                 </div>
             </div>
         )
