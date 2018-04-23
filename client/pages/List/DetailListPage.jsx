@@ -12,7 +12,7 @@ export default class DetailListPage extends React.Component{
             list:{},
             totalPageNumber:1,
             currentPage:1,
-            itemPerPage:20
+            itemPerPage:9
         }
     }
 

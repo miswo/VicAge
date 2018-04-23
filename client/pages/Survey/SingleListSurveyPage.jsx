@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 
 import Slick from '../../components/Slick';
+import Pager from '../../components/Pager';
 
 export default class SingleListSurveyPage extends React.Component{
     constructor(props){
@@ -11,6 +12,9 @@ export default class SingleListSurveyPage extends React.Component{
             list:{},
             selected:[],
             display:'grid',
+            totalPageNumber:1,
+            currentPage:1,
+            itemPerPage:9
         }
     }
 
@@ -18,7 +22,8 @@ export default class SingleListSurveyPage extends React.Component{
         axios.get(this.props.serverURL + '/list/detail/'+ this.state.id)
             .then((res)=>{
                 this.setState({
-                    list:res.data.list
+                    list:res.data.list,
+                    totalPageNumber:Math.ceil(res.data.list.concepts.length/this.state.itemPerPage)
                 })
             })  
 
@@ -75,7 +80,7 @@ export default class SingleListSurveyPage extends React.Component{
     }
     renderConcepts(){
         const conceptBlocks = this.state.list.concepts?
-        this.state.list.concepts.map((item)=>(
+        this.state.list.concepts.slice(this.state.itemPerPage*(this.state.currentPage-1),this.state.itemPerPage*this.state.currentPage).map((item)=>(
             <div key={item._id} className="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                 <div className={this.checkActive(item._id)} id={item._id} onClick={this.handleGridClick.bind(this)}>
                     <div className="img-wrapper">
@@ -116,6 +121,10 @@ export default class SingleListSurveyPage extends React.Component{
         return alert('Please select at least one concept to create a list.');
     }
 
+    setCurrentPage(num){
+        this.setState({currentPage:num})
+    }
+
     render(){
         return(
             <div id="single-list-survey-page">
@@ -134,7 +143,10 @@ export default class SingleListSurveyPage extends React.Component{
                         <div className="container">
                             <div className="row">
                                 {this.renderConcepts()}
-                            </div>                
+                            </div>
+                            <div className="text-center">
+                                <Pager pageNum={this.state.totalPageNumber} callback={this.setCurrentPage.bind(this)}/>
+                            </div>
                         </div>
                     </div>
                     
