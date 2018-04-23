@@ -8,7 +8,6 @@ export default class LoginPage extends React.Component{
     constructor(props){
         super(props);
         this.state={
-
         }
     }
 
@@ -21,7 +20,7 @@ export default class LoginPage extends React.Component{
         axios.post(this.props.serverURL + '/user/login',{userName,password})
         .then((res)=>{
             if(res.data.status == 200){
-                this.props.callback({user:res.data});
+                this.props.callback(res.data.data);
             }
             else
                 alert(res.data.message)

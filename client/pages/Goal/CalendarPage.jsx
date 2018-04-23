@@ -119,14 +119,14 @@ export default class CalendarPage extends React.Component{
                                     events={this.state.goals}
                                     startAccessor='startDate'
                                     endAccessor='endDate'
-                                    views={['month','week']}
+                                    views={['month']}
                                     selectable
                                     defaultDate ={new Date()}
                                     eventPropGetter={this.eventClassName}
                                     onSelectEvent={this.onSelectEvent.bind(this)}
                                 />
                                 :
-                                ""
+                                <p>No Goals Yet...</p>
                             }
                             </div>
 
@@ -139,6 +139,9 @@ export default class CalendarPage extends React.Component{
                                     <h3>{this.state.selectedEvent.title}</h3>
                                     <h3>
                                         {this.state.selectedEvent.startDate} to {this.state.selectedEvent.endDate}
+                                    </h3>
+                                    <h3>
+                                        {this.state.selectedEvent.desc}
                                     </h3>
                                     <div className="concept-block">
                                         <div className="img-wrapper">
