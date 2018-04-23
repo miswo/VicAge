@@ -3,19 +3,41 @@ var db = require('../db');
 var ObjectID = require('mongodb').ObjectID;
 
 
-router.post('/login',(req,res)=>{
-    var collection = db.get().collection('user');
-    collection.findOne({user:req.body.userName},(err,result)=>{
+router.post('/create',(req,res)=>{
+    var collection = db.get().collection('goal');
+    collection.save({
+        title:req.body.listName,
+        concept:req.body.concept,
+        startDate:req.body.startDate,
+        endDate:req.body.endDate,
+        desc:req.body.desc,
+        completed:false,
+        userid:req.body.userid
+    },(err,result)=>{
         if(err) return console.log(err);
-        if(!result)
-            res.json({status:403,message:'No Such User'})
-        else if(result.password === req.body.password)
-            res.json({status:200,message:'ok',data:{user:result.user,id:result._id}})
-        else
-            res.json({status:403,message:'Incorrect Password'})
+        res.json({status:200})
     })
 });
 
+router.get('/user/:userid',(req,res)=>{
+    var collection = db.get().collection('goal');
+    collection.find({userid:{$in:req.params.userid}}).toArray((err,result)=>{
+        if(err) return console.log(err);
+        res.json({goals:result})
+    })
+})
+
+router.post('/update/:goalid',(req,res)=>{
+    var collection = db.get().collection('goal');
+    collection.findOneAndUpdate(
+        {_id:ObjectID(req.params.goalid)},
+        {completed:req.body.completed},
+        (err,result)=>{
+            if (err) return console.log(err);
+            res.json({status:200})
+        }
+    )
+})
 
 
 

@@ -35,7 +35,6 @@ class Navbar extends Component{
                             <li><NavLink to="/goal/calendar"            activeClassName="active">My Calendar</NavLink></li>
                             <li><NavLink to="/service/find/all/3000"    activeClassName="active">Services</NavLink> </li>
                             <li><NavLink to="/about"                    activeClassName="active">About</NavLink></li>
-
                         </ul>
                     </div>
                 </div>
