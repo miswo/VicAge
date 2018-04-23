@@ -612,11 +612,23 @@ footer{
 }
 
 
-//-------------detail-list-page
+//-------------detail-list-page-----------
 
 
 #detail-list-page{
     .choose-function{
         margin-bottom: 30px;
+    }
+}
+
+
+
+
+//--------------login page------------
+#login-page{
+    .login-form{
+        margin-left: auto;
+        margin-right:auto;
+        max-width: 500px;
     }
 }

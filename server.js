@@ -17,6 +17,7 @@ app.use('/event', require('./Controllers/event'));
 app.use('/concept',require('./Controllers/concept'));
 app.use('/service',require('./Controllers/service'));
 app.use('/list',require('./Controllers/list'));
+app.use('/user',require('./Controllers/user'))
 
 var db = require('./db');
 db.connect((err) => {

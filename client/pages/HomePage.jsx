@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 
 import PostCodeSearch from '../components/PostCodeSearcher';
 
@@ -15,7 +15,7 @@ export default class HomePage extends React.Component{
                         <div className="caption">
                             <h1 className="carousel-title">VicAge</h1>
                             <h2 className="carousel-subtitle">One picture is worth a thousand words.</h2>
-                            <a href="/list/all" className="btn btn-lg btn-primary animated slow">TRY OUR PRODUCT</a>
+                            <NavLink to="/list/all" className="btn btn-lg btn-primary animated slow">TRY OUR PRODUCT</NavLink>
                         </div>
                     </div>
                 </div>
@@ -55,7 +55,7 @@ export default class HomePage extends React.Component{
                         <div className="cause" id="cta">
                             <h3 className="cause-title">Are you interested? VicAge will make your life easy.</h3>
                             <div className="btn-holder text-center">                        
-                                <a className="btn btn-lg btn-primary" id="productBtn" href="/list/all">TRY OUR PRODUCT</a>
+                                <NavLink className="btn btn-lg btn-primary" id="productBtn" to="/list/all">TRY OUR PRODUCT</NavLink>
                             </div>                  
                         </div> 
                     </div>
@@ -122,7 +122,7 @@ export default class HomePage extends React.Component{
                             <p>This process will help the elderly stay active and connected to the community around them which will provide them with an added sense of happiness.</p>
                         </div>
                         <div className="btn-holder text-center">
-                            <a href="/list/all" className="btn btn-primary"> TRY OUR PRODUCT</a>
+                            <NavLink to="/list/all" className="btn btn-primary"> TRY OUR PRODUCT</NavLink>
                         </div>
                     </div>
                 </div>

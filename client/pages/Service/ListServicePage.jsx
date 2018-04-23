@@ -135,7 +135,7 @@ export default class ListServicePage extends React.Component{
                 <div className="jumbotron banner">
                     <div className="container">
                         <h2>Services</h2>
-                        <p className="lead">Here is some information that might help you.</p>
+                        <p>Here is some information that might help you.</p>
                         <PostCodeSearcher history = {this.props.history} />
                         <button  className="btn btn-secondary back" onClick={this.props.history.goBack}>Back</button>
                     </div>
