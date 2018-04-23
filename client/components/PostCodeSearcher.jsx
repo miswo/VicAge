@@ -16,7 +16,7 @@ export default class PostCodeSearcher extends React.Component{
         e.preventDefault();
         if(this.state.postcode.match('^3\\d{3}$')){
             document.getElementById('feedback').innerText = "";
-            this.props.history.push('/service/all/'+ this.state.postcode);
+            this.props.history.push('/service/find/all/'+ this.state.postcode);
         }
         else
             document.getElementById('feedback').innerText = "Please enter correct Victoria post code."

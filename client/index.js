@@ -27,6 +27,7 @@ import DetailListPage from './pages/List/DetailListPage';
 
 import SingleListSurveyPage from './pages/Survey/SingleListSurveyPage';
 import SurveyResultPage from './pages/Survey/SurveyResultPage';
+import CalorieCalculatorPage from './Pages/Survey/CalorieCalculatorPage';
 
 
 import ListServicePage from './pages/Service/ListServicePage';
@@ -62,7 +63,7 @@ class App extends Component {
         target?target.focus():'';
     }
     dataTransfer(data){
-        this.setState({data:data})
+        this.setState({data})
     }
 
 
@@ -80,17 +81,19 @@ class App extends Component {
                             <Route exact path="/event/:id" render={(history)=>(<ViewEventPage   history = {history.history} serverURL={serverURL} eventID={history.match.params.id} />)} />
                             <Route path="/event/:id/survey" render={(history)=><SurveyPage      serverURL={serverURL}    eventID={history.match.params.id} />} />
                             <Route path="/concept/create" render={(history)=><CreateConceptPage history ={history.history}  serverURL={serverURL}/>}  /> */}
-                            <Route path="/list/create"              render={(history)=><CreateListPage          history={history.history} serverURL={serverURL}/>} />}
+                            <Route path="/list/create"              render={(history)=><CreateListPage          history={history.history} serverURL={serverURL} data={this.state.data}/>} />}
                             <Route path="/list/all"                 render={(history)=><ListAllListPage         history={history.history} serverURL={serverURL}/>}/>}
                             <Route path="/list/detail/:id"          render={(history)=><DetailListPage          match ={history}    history={history.history} serverURL={serverURL}/>}/>}
 
                             <Route path="/concept/detail/:id"       render={(history)=><DetailConceptPage       match = {history} history={history.history} serverURL={serverURL}/>}/>}
                             <Route path="/concept/edit/:id"         render={(history)=><EditConceptPage         match = {history} history={history.history} serverURL={serverURL}/>}/>}
                             
-                            <Route path="/survey/list/:id"          render={(history)=><SingleListSurveyPage    match = {history} history={history.history} serverURL={serverURL} dataTransfer={this.dataTransfer.bind(this)}/>}/>}
+                            <Route path="/survey/list/:id/:actionName"          render={(history)=><SingleListSurveyPage    match = {history} history={history.history} serverURL={serverURL} dataTransfer={this.dataTransfer.bind(this)}/>}/>}
                             <Route path="/survey/result"            render={(history)=><SurveyResultPage        match={history} history={history.history}   serverURL={serverURL} data={this.state.data}/>}/>}
+                            <Route path="/survey/calorie-calculator"render={(history)=><CalorieCalculatorPage   match={history} history={history.history}   serverURL={serverURL} data={this.state.data}/>}/>}
+                            
 
-                            <Route path="/service/:serviceName/:postcode"    render={(history)=>(<ListServicePage        match ={history} history={history.history}  serverURL = {serverURL}/>)} />
+                            <Route path="/service/find/:serviceName/:postcode"    render={(history)=>(<ListServicePage        match ={history} history={history.history}  serverURL = {serverURL}/>)} />
                             <Route path={"/service/(agedcare|disability|hospital|community)/detail/:id"} render={(history)=>(<DetailServicePage match={history} history={history.history} serverURL={serverURL}/>)} />
                             <Route render={()=>(<NotFound/>)} />
                         </Switch>

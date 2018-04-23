@@ -15,7 +15,8 @@ export default class EditConceptPage extends React.Component{
             password:null,
             conceptName:'',
             imgUrl:'',
-            conceptDescription:' '
+            conceptDescription:' ',
+            conceptData:''
         }
     }
     componentDidMount(){
@@ -25,7 +26,8 @@ export default class EditConceptPage extends React.Component{
                 this.setState({
                     conceptName : concept.conceptName,
                     imgUrl :concept.imgUrl,
-                    conceptDescription: concept.conceptDescription
+                    conceptDescription: concept.conceptDescription,
+                    conceptData:concept.data
                 })
             })
     }
@@ -61,7 +63,8 @@ export default class EditConceptPage extends React.Component{
             concept:{
                 conceptName:this.state.conceptName,
                 imgUrl:this.state.imgUrl,
-                conceptDescription:this.state.conceptDescription
+                conceptDescription:this.state.conceptDescription,
+                Data:this.state.conceptData
             }
         })
             .then((res)=>{
@@ -152,7 +155,7 @@ export default class EditConceptPage extends React.Component{
                             </div>
                         </div>
                         <button type="submit" className="btn btn-primary">Update</button>
-                        <button className="btn btn-default" onClick={this.onCancel.bind(this)}>Back</button>
+                        <button className="btn btn-secondary" onClick={this.onCancel.bind(this)}>Back</button>
                         
                     </form>
                 </div>

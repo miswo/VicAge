@@ -60,27 +60,40 @@ export default class DetailServicePage extends React.Component{
                 <div className="jumbotron banner">
                     <div className="container">
                         <h2>Service Provider Details</h2>
-                        <button className="btn btn-default" onClick={this.goback.bind(this)}>Back</button>
+                        <button className="btn btn-secondary" onClick={this.goback.bind(this)}>Back</button>
                     </div>
                 </div>
 
                 <div className="container">
-                    <div className=".content">
-                        {this.renderDetail()}
+
+                    <div className="row">
+                        <div className="col-xs-12 col-sm-12 col-md-6 col-md-6">
+                            <div className=".content">
+                                {this.renderDetail()}
+                            </div>
+                        </div>
+                        
+                        <div className="col-xs-12 col-sm-12 col-md-6 col-md-6">
+                            <h4>Map:</h4>
+                            {this.state.address?
+                                <iframe id="google-map"
+                                width="400"
+                                height="400"
+                                frameBorder="0"
+                                src={"https://www.google.com/maps/embed/v1/place?key=AIzaSyB__2CdN6RdNrlhe9prRxREE7cj2R4qwwk&q=" + this.state.address }
+                                allowFullScreen>
+                                </iframe>
+                                :
+                                ''
+                            }
+                        </div>
+
+
                     </div>
 
-                    <h4>Map:</h4>
-                    {this.state.address?
-                        <iframe id="google-map"
-                        width="400"
-                        height="400"
-                        frameBorder="0"
-                        src={"https://www.google.com/maps/embed/v1/place?key=AIzaSyB__2CdN6RdNrlhe9prRxREE7cj2R4qwwk&q=" + this.state.address }
-                        allowFullScreen>
-                        </iframe>
-                        :
-                        ''
-                    }
+                    
+
+                    
                 </div>
             </div>
 

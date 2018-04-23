@@ -26,6 +26,7 @@ export default class ListServicePage extends React.Component{
 
     componentWillReceiveProps(nextProps){
         var newPostcode = nextProps.match.match.params.postcode;
+        var serviceName = nextProps.match.match.params.serviceName;
         this.setState({
             postcode:newPostcode,
             active:'agedcare'
@@ -39,8 +40,11 @@ export default class ListServicePage extends React.Component{
             .then((res)=>{
                 this.setState({
                     agedcare:res.data.services,
-                    data:res.data.services
                 })
+                if(this.state.active ==='agedcare')
+                    this.setState({
+                        data:res.data.services
+                    })
             }
         )
 
@@ -49,6 +53,10 @@ export default class ListServicePage extends React.Component{
                 this.setState({
                     community:res.data.services
                 })
+                if(this.state.active ==='community')
+                    this.setState({
+                        data:res.data.services
+                    })
             }
         )
 
@@ -57,6 +65,10 @@ export default class ListServicePage extends React.Component{
                 this.setState({
                     disability:res.data.services
                 })
+                if(this.state.active ==='disability')
+                    this.setState({
+                        data:res.data.services
+                    })
             }
         )
 
@@ -65,6 +77,10 @@ export default class ListServicePage extends React.Component{
                 this.setState({
                     hospital:res.data.services
                 })
+                if(this.state.active ==='hospital')
+                    this.setState({
+                        data:res.data.services
+                    })
             }
         )
     }
@@ -121,7 +137,7 @@ export default class ListServicePage extends React.Component{
                         <h2>Services</h2>
                         <p className="lead">Here is some information that might help you.</p>
                         <PostCodeSearcher history = {this.props.history} />
-                        <button  className="btn btn-default back" onClick={this.props.history.goBack}>Back</button>
+                        <button  className="btn btn-secondary back" onClick={this.props.history.goBack}>Back</button>
                     </div>
                 </div>
 

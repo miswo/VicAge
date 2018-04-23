@@ -29,6 +29,7 @@ router.get('/detail/:id',(req,res)=>{
     collection.findOne({_id:ObjectID(req.params.id)},(err,list)=>{
         if(err) console.log(err);
         else{
+            if(!list) res.json({'status':404});
             var concept_ids =[]
             for(var i=0;i<list.concepts.length;i++){
                 concept_ids.push(ObjectID(list.concepts[i].id))

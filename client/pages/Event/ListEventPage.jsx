@@ -20,7 +20,7 @@ export default class ListEventPage extends React.Component{
             <tr key={event._id}>
                 <td>{event.name}</td>
                 <td>{new Date(event.date).toLocaleDateString()}</td>
-                <td><Link to={"event/"+ event._id} className="btn btn-default">Detail</Link></td>
+                <td><Link to={"event/"+ event._id} className="btn btn-secondary">Detail</Link></td>
             </tr>
         ):<tr><td>No event found.</td></tr>;
 

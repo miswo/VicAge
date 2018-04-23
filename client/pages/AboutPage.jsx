@@ -33,7 +33,6 @@ const AboutPage=()=>(
         <div className="container">
 
             <div className="project-description">
-
                 <div className="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                   <div className="panel panel-default">
                     <div className="panel-heading" role="tab" id="headingOne">

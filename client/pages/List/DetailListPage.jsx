@@ -2,12 +2,17 @@ import React from 'react';
 import axios from 'axios';
 import {NavLink} from 'react-router-dom';
 
+import Pager from '../../components/Pager';
+
 export default class DetailListPage extends React.Component{
     constructor(props){
         super(props);
         this.state={
             id:this.props.match.match.params.id,
-            list:{}
+            list:{},
+            totalPageNumber:1,
+            currentPage:1,
+            itemPerPage:9
         }
     }
 
@@ -16,14 +21,15 @@ export default class DetailListPage extends React.Component{
         axios.get(this.props.serverURL + '/list/detail/'+ this.state.id)
             .then((res)=>{
                 this.setState({
-                    list:res.data.list
+                    list:res.data.list,
+                    totalPageNumber:Math.ceil(res.data.list.concepts.length/this.state.itemPerPage)
                 })
             })
     }
 
     renderConcepts(){
         const conceptBlocks = this.state.list.concepts?
-        this.state.list.concepts.map((item)=>(
+        this.state.list.concepts.slice(this.state.itemPerPage*(this.state.currentPage-1),this.state.itemPerPage*this.state.currentPage).map((item)=>(
             <div key={item._id} className="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                 <div className="concept-block">
                     <div className="img-wrapper">
@@ -31,7 +37,9 @@ export default class DetailListPage extends React.Component{
                             <img src={item.imgUrl} alt={item.conceptName} />
                         </NavLink>
                     </div>
-                    <h3>{item.conceptName}</h3>
+                    <NavLink to={"/concept/detail/" + item._id}>
+                        <h5>{item.conceptName}</h5>
+                    </NavLink>
                 </div>
             </div>
         ))
@@ -43,6 +51,10 @@ export default class DetailListPage extends React.Component{
 
     }
 
+    setCurrentPage(num){
+        this.setState({currentPage:num})
+    }
+
 
     render(){
         return(
@@ -50,23 +62,41 @@ export default class DetailListPage extends React.Component{
                 <div className="jumbotron banner">
                     <div className="container">
                         <h2>{this.state.list.listName? this.state.list.listName :"List Detail"}</h2>
-                        <NavLink to="/list/all" className="btn btn-default">Back</NavLink>
+                        <p>Select the things you need in the list to save into another list or your personal calendar</p>
+                        <NavLink to="/list/all" className="btn btn-secondary">Back</NavLink>
                     </div>
                 </div>
 
 
                 <div className="container">
-                <div class="text-center">   
-                        <NavLink to={"/survey/list/" + this.state.id} class="btn btn-lg btn-primary" id="productBtn"> Start a Survey</NavLink>                     
-                    </div> 
+                    <div className="center">
+                        <div className="dropdown choose-function">
+                            <button className="btn btn-primary" id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Choose a function
+                                <span className="caret"></span>
+                            </button>
+                            <ul className="dropdown-menu" aria-labelledby="dLabel">
+                                <li>{
+                                    this.state.list.handler?
+                                        <NavLink to={"/survey/list/" + this.state.id +'/Calorie-Calculator'}>{this.state.list.handler.name}</NavLink>
+                                    :
+                                    ''
+                                    }
+                                </li>
+
+                                <li><NavLink to={"/survey/list/" + this.state.id +'/New-List'} >Save to a New List</NavLink></li>
+                                <li><NavLink to={"/survey/list/" + this.state.id +'/Calendar'} >Add to Calendar</NavLink></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+
                     <div className="row">
                         {this.renderConcepts()}
-                    </div>                
-                    <div class="text-center">   
-                        <NavLink to={"/survey/list/" + this.state.id} class="btn btn-lg btn-primary" id="productBtn"> Start a Survey</NavLink>                     
-                    </div>                  
-                     
-                    
+                    </div>         
+                     <div className="text-center">
+                        <Pager pageNum={this.state.totalPageNumber} callback={this.setCurrentPage.bind(this)}/>
+                     </div>
                 </div>
             </div>
         )

@@ -10,8 +10,8 @@ router.get('/community/all/:postcode',(req,res)=>{
         result.map((item)=>{
             data.push({
                 "_id":item._id,
-                "name":item["Community Service Organisation Name"],
-                "address":item["Street Address"]
+                "name":item["Name"],
+                "address":item["Address"]
             })
         })
 
@@ -27,8 +27,8 @@ router.get('/disability/all/:postcode',(req,res)=>{
         result.map((item)=>{
             data.push({
                 "_id":item._id,
-                "name":item["Disability Service Provider  Name"],
-                "address":item["Street Address"]
+                "name":item["Name"],
+                "address":item["Address"]
             })
         })
 
@@ -38,13 +38,13 @@ router.get('/disability/all/:postcode',(req,res)=>{
 
 router.get('/agedcare/all/:postcode',(req,res)=>{
     var collection = db.get().collection('aged_care_service');
-    collection.find({"Physical Address Post Code":req.params.postcode}).toArray((err,result)=>{
+    collection.find({"Post Code":req.params.postcode}).toArray((err,result)=>{
         data = []
         result.map((item)=>{
             data.push({
                 "_id":item._id,
-                "address":item['Physical Address Line 1'] + ' ' + item['Physical Address Line 2'] ,
-                "name":item["Service name"]
+                "address":item['Address'],
+                "name":item["Name"]
             })
         })
 
@@ -60,8 +60,8 @@ router.get('/hospital/all/:postcode',(req,res)=>{
         result.map((item)=>{
             data.push({
                 "_id":item._id,
-                "name":item['LabelName'],
-                "address":item["StreetNum"] +' '+ item["RoadName"]
+                "name":item['Name'],
+                "address":item["Address"]
             })
         })
 
@@ -79,7 +79,7 @@ router.get('/community/detail/:id',(req,res)=>{
         if(err) return err;
         res.json({
             data:result,
-            address:result["Street Address"]
+            address:result["Address"]
 
         })
     })
@@ -91,7 +91,7 @@ router.get('/disability/detail/:id',(req,res)=>{
         if(err) return err;
         res.json({
             data:result,
-            "address":result["Street Address"]
+            "address":result["Address"]
         })
     })
 })
@@ -102,7 +102,7 @@ router.get('/agedcare/detail/:id',(req,res)=>{
         if(err) return err;
         res.json({
             data:result,
-            "address":result['Physical Address Line 1'] + ' ' + result['Physical Address Line 2'] ,
+            "address":result['Address']
         })
     })
 })
@@ -113,7 +113,7 @@ router.get('/hospital/detail/:id',(req,res)=>{
         if(err) return err;
         res.json({
             data:result,
-            "address":result["StreetNum"] +' '+ result["RoadName"]
+            "address":result["Address"]
         })
     })
 })
