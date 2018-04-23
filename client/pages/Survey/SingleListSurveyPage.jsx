@@ -12,6 +12,7 @@ export default class SingleListSurveyPage extends React.Component{
             list:{},
             selected:[],
             display:'grid',
+            actionName:this.props.match.match.params.actionName,
             totalPageNumber:1,
             currentPage:1,
             itemPerPage:9
@@ -61,14 +62,30 @@ export default class SingleListSurveyPage extends React.Component{
         this.setState({selected})
     }
 
-    handleSubmit(){
+    handleSubmitToSurveyResult(){
+
         this.props.dataTransfer(this.state);
         this.props.history.push('/survey/result');
 
     }
+    handleSubmit(e){
+        if(this.state.actionName==='Calorie-Calculator')
+            return this.passToListHandler(e);
+        if(this.state.actionName==='New-List')
+            return this.handleCreateSublist(e);
+        if(this.state.actionName==='Calendar')
+            return this.handleSubmitToSurveyResult(e);
+    }
 
     handleBack(){
         this.props.history.goBack();
+    }
+    handleDisplayChange(e){
+        var display = e.target.checked?'slider':'grid';
+        this.setState({
+            display:display,
+            selected:[]
+        })
     }
 
     checkActive(id){
@@ -118,7 +135,7 @@ export default class SingleListSurveyPage extends React.Component{
                 return;
             }
         }
-        return alert('Please select at least one concept to create a list.');
+        return alert('Please select at least one concept to calculate calorie.');
     }
 
     setCurrentPage(num){
@@ -130,16 +147,20 @@ export default class SingleListSurveyPage extends React.Component{
             <div id="single-list-survey-page">
                 <div className="jumbotron banner">
                     <div className="container">
-                        <h2>Select the Things You Want.</h2>
+                        <h2>Select the Things to Add to {this.state.actionName} </h2>
                         <button className="btn btn-secondary" onClick={this.handleBack.bind(this)}>Back</button>
                     </div>
                 </div>
 
                 <div className="container">
-                        <label className="switch">
-                            <input type="checkbox"/>
-                            <span class="slider"></span>
-                        </label>
+                        <div className="slider-switcher">
+                            <p>Slider View:</p>
+                                <label className="switch" onChange={this.handleDisplayChange.bind(this)}>
+                                    <input type="checkbox"/>
+                                    <span className="slider"></span>
+                                </label>
+                        </div>
+                        
 
                     {
                     this.state.display ==='grid'?
@@ -166,14 +187,10 @@ export default class SingleListSurveyPage extends React.Component{
                     </div>
                     }                    
                     <div className="text-center button-group">
-                        {
-                            this.state.list.handler?
-                                <button className="btn btn-lg btn-primary" onClick={this.passToListHandler.bind(this)}>Add to {this.state.list.handler.name}</button>
-                                :
-                                ""
-                        }
-                        <button className="btn btn-lg btn-primary" onClick={this.handleCreateSublist.bind(this)}>Create Sub List</button>   
-                        <button className="btn btn-lg btn-primary" onClick={this.handleSubmit.bind(this)}>Add to My Calendar</button>
+
+                        {/* <button className="btn btn-lg btn-primary" onClick={this.passToListHandler.bind(this)}>Add to {this.state.list.handler.name}</button>
+                        <button className="btn btn-lg btn-primary" onClick={this.handleCreateSublist.bind(this)}>Create Sub List</button>    */}
+                        <button className="btn btn-lg btn-primary" onClick={this.handleSubmit.bind(this)}>Submit</button>
                     </div>  
                 </div>
 

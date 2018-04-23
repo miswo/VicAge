@@ -62,19 +62,37 @@ export default class DetailListPage extends React.Component{
                 <div className="jumbotron banner">
                     <div className="container">
                         <h2>{this.state.list.listName? this.state.list.listName :"List Detail"}</h2>
-                        <p>Select the tings you need in the list to save into another list or your personal calendar</p>
+                        <p>Select the things you need in the list to save into another list or your personal calendar</p>
                         <NavLink to="/list/all" className="btn btn-secondary">Back</NavLink>
                     </div>
                 </div>
 
 
                 <div className="container">
-                <div className="text-center">   
-                        <NavLink to={"/survey/list/" + this.state.id} className="btn btn-lg btn-primary" id="productBtn">Select</NavLink>                     
-                    </div> 
+                    <div className="center">
+                        <div className="dropdown choose-function">
+                            <button className="btn btn-primary" id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Choose a function
+                                <span className="caret"></span>
+                            </button>
+                            <ul className="dropdown-menu" aria-labelledby="dLabel">
+                                <li>{
+                                    this.state.list.handler?
+                                        <NavLink to={"/survey/list/" + this.state.id +'/Calorie-Calculator'}>{this.state.list.handler.name}</NavLink>
+                                    :
+                                    ''
+                                    }
+                                </li>
+
+                                <li><NavLink to={"/survey/list/" + this.state.id +'/New-List'} >Save to a New List</NavLink></li>
+                                <li><NavLink to={"/survey/list/" + this.state.id +'/Calendar'} >Add to Calendar</NavLink></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+
                     <div className="row">
                         {this.renderConcepts()}
-
                     </div>         
                      <div className="text-center">
                         <Pager pageNum={this.state.totalPageNumber} callback={this.setCurrentPage.bind(this)}/>

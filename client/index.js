@@ -88,7 +88,7 @@ class App extends Component {
                             <Route path="/concept/detail/:id"       render={(history)=><DetailConceptPage       match = {history} history={history.history} serverURL={serverURL}/>}/>}
                             <Route path="/concept/edit/:id"         render={(history)=><EditConceptPage         match = {history} history={history.history} serverURL={serverURL}/>}/>}
                             
-                            <Route path="/survey/list/:id"          render={(history)=><SingleListSurveyPage    match = {history} history={history.history} serverURL={serverURL} dataTransfer={this.dataTransfer.bind(this)}/>}/>}
+                            <Route path="/survey/list/:id/:actionName"          render={(history)=><SingleListSurveyPage    match = {history} history={history.history} serverURL={serverURL} dataTransfer={this.dataTransfer.bind(this)}/>}/>}
                             <Route path="/survey/result"            render={(history)=><SurveyResultPage        match={history} history={history.history}   serverURL={serverURL} data={this.state.data}/>}/>}
                             <Route path="/survey/calorie-calculator"render={(history)=><CalorieCalculatorPage   match={history} history={history.history}   serverURL={serverURL} data={this.state.data}/>}/>}
                             
