@@ -638,4 +638,59 @@ footer{
 
 #calendar{
     height:500px;
+    .rbc-event {
+        padding: 2px 5px;
+        background-color: #3174ad;
+        border-radius: 5px;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    .rbc-event.rbc-selected{
+        background-color:#265985 
+    }
+
+    .rbc-event-compelete {
+        padding: 2px 5px;
+        background-color: #3ba33b;
+        border-radius: 5px;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    .rbc-event-compelete.rbc-selected{
+        background-color:#166416 
+    }
+
+}
+
+
+#calendar-page{
+    .selected-goal{
+        border:2px solid #eee;
+        text-align: center;
+        .concept-block{
+            margin-bottom: 10px;
+            box-shadow: none;
+        }
+        .slider {
+            background-color: #3174ad;
+          }
+          
+          
+          input:checked + .slider {
+            background-color: #3ba33b;
+          }
+          
+          input:focus + .slider {
+            box-shadow: 0 0 1px #3ba33b;
+          }
+          
+          input:checked + .slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+          }
+
+    }
 }

@@ -80,7 +80,9 @@ export default class SingleListSurveyPage extends React.Component{
     }
 
     handleSubmitToCalendar(){
-        alert('not yet');
+        this.props.dataTransfer(this.state);
+        this.props.history.push('/goal/calendar');
+        
     }
     handleBack(){
         this.props.history.goBack();

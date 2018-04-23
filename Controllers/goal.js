@@ -6,7 +6,7 @@ var ObjectID = require('mongodb').ObjectID;
 router.post('/create',(req,res)=>{
     var collection = db.get().collection('goal');
     collection.save({
-        title:req.body.listName,
+        title:req.body.title,
         concept:req.body.concept,
         startDate:req.body.startDate,
         endDate:req.body.endDate,
@@ -21,17 +21,17 @@ router.post('/create',(req,res)=>{
 
 router.get('/user/:userid',(req,res)=>{
     var collection = db.get().collection('goal');
-    collection.find({userid:{$in:req.params.userid}}).toArray((err,result)=>{
+    collection.find({userid:req.params.userid}).toArray((err,result)=>{
         if(err) return console.log(err);
         res.json({goals:result})
     })
 })
 
-router.post('/update/:goalid',(req,res)=>{
+router.post('/completed/:goalid',(req,res)=>{
     var collection = db.get().collection('goal');
     collection.findOneAndUpdate(
         {_id:ObjectID(req.params.goalid)},
-        {completed:req.body.completed},
+        {$set:{completed:req.body.completed}},
         (err,result)=>{
             if (err) return console.log(err);
             res.json({status:200})
