@@ -1,8 +1,5 @@
 
-2.  add energy calculator
 3.  add calender
 4.  add goal funtion(use items to set goal);
 5.  add goal full filled or not function
 6.  clear appData after create sublist
-7.  Add page to lists and survey.
-8.  change select another set direct to survey instead of list.

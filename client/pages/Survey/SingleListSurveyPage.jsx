@@ -73,7 +73,9 @@ export default class SingleListSurveyPage extends React.Component{
             return this.passToListHandler(e);
         if(this.state.actionName==='New-List')
             return this.handleCreateSublist(e);
-        if(this.state.actionName==='Calendar')
+
+
+        if(this.state.actionName==='Survey-Result')
             return this.handleSubmitToSurveyResult(e);
     }
 
