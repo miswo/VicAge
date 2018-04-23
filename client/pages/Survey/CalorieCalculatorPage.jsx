@@ -104,7 +104,7 @@ export default class CalorieCalculatorPage extends React.Component{
                     <hr/>
                     <p className="lead">Total Calorie:{this.totalCalorie()} KCal</p>
                     <p className="lead">Daily Intake Energy Complete:{Math.round(this.totalCalorie()/this.state.DI * 100)} % </p>
-                    <NavLink to="/list/detail/5adb9db2a13eac29fc7f01f6" className="btn btn-primary">Select Another Set</NavLink>
+                    <NavLink to="/survey/list/5adb9db2a13eac29fc7f01f6" className="btn btn-primary">Select Another Set</NavLink>
                 </div>
             </div>
         )

@@ -15,7 +15,8 @@ export default class EditConceptPage extends React.Component{
             password:null,
             conceptName:'',
             imgUrl:'',
-            conceptDescription:' '
+            conceptDescription:' ',
+            conceptData:''
         }
     }
     componentDidMount(){
@@ -26,7 +27,7 @@ export default class EditConceptPage extends React.Component{
                     conceptName : concept.conceptName,
                     imgUrl :concept.imgUrl,
                     conceptDescription: concept.conceptDescription,
-                    data:concept.data
+                    conceptData:concept.data
                 })
             })
     }
@@ -63,7 +64,7 @@ export default class EditConceptPage extends React.Component{
                 conceptName:this.state.conceptName,
                 imgUrl:this.state.imgUrl,
                 conceptDescription:this.state.conceptDescription,
-                data:this.state.concept.data
+                Data:this.state.conceptData
             }
         })
             .then((res)=>{
