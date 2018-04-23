@@ -68,7 +68,7 @@ const AboutPage=()=>(
                         Sometime it is difficult to communicate with people who have difficulties of verval communication.
                         By using pictures, it will be much easier, and which will lead happier experience.</p>
                         <br />
-                        <NavLink to="/list/all" className="btn btn-primary">Try our solution now! </NavLink>
+                        <NavLink to="/list/all" className="btn btn-primary">Click Here to Begin</NavLink>
                       </div>
                     </div>
                   </div>

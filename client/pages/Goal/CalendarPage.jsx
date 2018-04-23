@@ -85,7 +85,6 @@ export default class CalendarPage extends React.Component{
 
     onSelectEvent(event,e){
         this.setState({selectedEvent:event});
-        this.forceUpdate();
     }
 
     onClickComplete(e){
@@ -157,7 +156,7 @@ export default class CalendarPage extends React.Component{
                                     <div className="slider-switcher">
                                         <p>Completed:</p>
                                             <label className="switch" >
-                                                <input type="checkbox" defaultChecked={this.state.selectedEvent.completed} onClick={this.onClickComplete.bind(this)}/>
+                                                <input type="checkbox" checked={this.state.selectedEvent.completed} onClick={this.onClickComplete.bind(this)}/>
                                                 <span className="slider"></span>
                                             </label>
                                         </div>

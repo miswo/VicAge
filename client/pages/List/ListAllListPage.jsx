@@ -69,7 +69,7 @@ export default class ListAllListPage extends React.Component{
                         {this.renderFeaturedLists()}
                     </div>
                     
-                    <h3>Customize Lists</h3>
+                    <h3>Custom Lists</h3>
                     <div className="list-group">
                         {this.renderLists()}
                     </div>

@@ -15,7 +15,7 @@ export default class HomePage extends React.Component{
                         <div className="caption">
                             <h1 className="carousel-title">VicAge</h1>
                             <h2 className="carousel-subtitle">One picture is worth a thousand words.</h2>
-                            <NavLink to="/list/all" className="btn btn-lg btn-primary animated slow">TRY OUR PRODUCT</NavLink>
+                            <NavLink to="/list/all" className="btn btn-lg btn-primary animated slow">Click Here to Begin</NavLink>
                         </div>
                     </div>
                 </div>
@@ -52,12 +52,6 @@ export default class HomePage extends React.Component{
                             </div>
                         </div>
 
-                        <div className="cause" id="cta">
-                            <h3 className="cause-title">Are you interested? VicAge will make your life easy.</h3>
-                            <div className="btn-holder text-center">                        
-                                <NavLink className="btn btn-lg btn-primary" id="productBtn" to="/list/all">TRY OUR PRODUCT</NavLink>
-                            </div>                  
-                        </div> 
                     </div>
                 </div>                
 
@@ -111,21 +105,16 @@ export default class HomePage extends React.Component{
                                 </div>
                             </div>
                         </div>
+
+                        <div className="cause" id="cta">
+                            <h3 className="cause-title">Are you interested? VicAge will make your life easy.</h3>
+                            <div className="btn-holder text-center">                        
+                                <NavLink className="btn btn-lg btn-primary" id="productBtn" to="/list/all">Click Here to Begin</NavLink>
+                            </div>                  
+                        </div> 
                     </div>
                 </div>
-                <div className="container">
-                    <div className="cause">
-                        <h2 className="title-style-1">our mission <span className="title-under"></span></h2>
-                        <div className="cause-details" id="mission">
-                            <p>The state of Victoria is one of the states in Australia with the most number of aged people and number of aged care facilities.</p>
-                            <p>The website 'VicAge' aims at understanding the situation of "Healthy is..." with respect to an aged care scenario.</p>
-                            <p>This process will help the elderly stay active and connected to the community around them which will provide them with an added sense of happiness.</p>
-                        </div>
-                        <div className="btn-holder text-center">
-                            <NavLink to="/list/all" className="btn btn-primary"> TRY OUR PRODUCT</NavLink>
-                        </div>
-                    </div>
-                </div>
+            
             </div>
             
         )
