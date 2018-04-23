@@ -85,7 +85,8 @@ export default class DetailListPage extends React.Component{
                                 </li>
 
                                 <li><NavLink to={"/survey/list/" + this.state.id +'/New-List'} >Save to a New List</NavLink></li>
-                                <li><NavLink to={"/survey/list/" + this.state.id +'/Calendar'} >Add to Calendar</NavLink></li>
+                                <li><NavLink to={"/survey/list/" + this.state.id +'/Survey-Result'} >Start a Survey</NavLink></li>
+                                <li><NavLink to={"/survey/list/" + this.state.id +'/Calendar'} >Add to my Calendar</NavLink></li>
                             </ul>
                         </div>
                     </div>

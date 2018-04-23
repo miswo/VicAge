@@ -51,18 +51,7 @@ const AboutPage=()=>(
                     </div>
                   </div>
                   <div className="panel panel-default">
-                    <div className="panel-heading" role="tab" id="headingTwo">
-                      <h4 className="panel-title">
-                        <a className="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        Overview of the Scene of Aged care in Victoria
-                        </a>
-                      </h4>
-                    </div>
-                    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                      <div className="panel-body">
-                        <p>Something here</p>
-                      </div>
-                    </div>
+                    
                   </div>
                   <div className="panel panel-default">
                     <div className="panel-heading" role="tab" id="headingThree">

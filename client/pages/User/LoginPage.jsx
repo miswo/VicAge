@@ -39,11 +39,11 @@ export default class LoginPage extends React.Component{
                             <h3>Welcome to VicAge!</h3>
                             <div className="form-group">
                                 <label htmlFor="user-name">User:</label>
-                                <input id="userName" type="text" className="form-control"/>
+                                <input required id="userName" type="text" className="form-control"/>
                             </div>
                             <div className="form-group">
                                 <label htmlFor="user-password">Password:</label>
-                                <input id="password" type="password" className="form-control"/>
+                                <input required id="password" type="password" className="form-control"/>
                             </div>
                             <button type="submit" className="btn btn-primary">Login</button>
                         </form>

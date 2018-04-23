@@ -80,7 +80,7 @@ export default class SurveyResult extends React.Component{
                         *Do NOT refresh this page, or your last survey result will be gone.    
                     </p>
                     
-                    <div className="row">
+                    {/* <div className="row">
                         <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                             <div className="form-group">
                                 <label htmlFor="input-email">Send result to:</label>
@@ -88,7 +88,7 @@ export default class SurveyResult extends React.Component{
                             </div>
                             <button className="btn btn-primary">Send</button>
                         </div>                        
-                    </div>
+                    </div> */}
                 </div>
             </div>
         )

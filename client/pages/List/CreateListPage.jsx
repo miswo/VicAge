@@ -88,7 +88,6 @@ export default class CreateListPage extends React.Component{
                         conceptDescription:res.data.concept.conceptDescription
                     });
 
-                    console.log(concepts);
                     this.setState({concepts})
                 })
         }

@@ -35,6 +35,10 @@ import DetailServicePage from './pages/Service/DetailServicePage';
 
 import LoginPage from './pages/User/LoginPage';
 
+import CalendarPage from './pages/Goal/CalendarPage';
+
+
+
 
 import "./main.scss";
 
@@ -50,7 +54,8 @@ class App extends Component {
     constructor(props){
         super(props);
         this.state = {
-            user:null,
+            user:{id:'5addf8ff6f2a1d36346222fc',user:'will'},
+            // user:null,
             data:null
         }
     }
@@ -90,6 +95,8 @@ class App extends Component {
                         <Route path="/survey/list/:id/:actionName"          render={(history)=><SingleListSurveyPage    match = {history} history={history.history} serverURL={serverURL} dataTransfer={this.dataTransfer.bind(this)}/>}/>}
                         <Route path="/survey/result"            render={(history)=><SurveyResultPage        match={history} history={history.history}   serverURL={serverURL} data={this.state.data}/>}/>}
                         <Route path="/survey/calorie-calculator"render={(history)=><CalorieCalculatorPage   match={history} history={history.history}   serverURL={serverURL} data={this.state.data}/>}/>}
+
+                        <Route path="/goal/calendar"            render={(history)=><CalendarPage   match={history} history={history.history}   serverURL={serverURL} data={this.state.data}/>}/>}
                         
 
                         <Route path="/service/find/:serviceName/:postcode"    render={(history)=>(<ListServicePage        match ={history} history={history.history}  serverURL = {serverURL}/>)} />

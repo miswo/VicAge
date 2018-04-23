@@ -32,6 +32,7 @@ class Navbar extends Component{
                             {/* <li><NavLink to="/event"        activeClassName="active">Event</NavLink></li> */}
                             <li><NavLink to="/list/all"                 activeClassName ="active">Lists</NavLink></li>
                             <li><NavLink to="/survey/calorie-calculator"            activeClassName="active">Calorie Calculator</NavLink></li>
+                            <li><NavLink to="/goal/calendar"            activeClassName="active">My Calendar</NavLink></li>
                             <li><NavLink to="/service/find/all/3000"    activeClassName="active">Services</NavLink> </li>
                             <li><NavLink to="/about"                    activeClassName="active">About</NavLink></li>
 
