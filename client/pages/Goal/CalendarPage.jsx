@@ -123,6 +123,8 @@ export default class CalendarPage extends React.Component{
                                     defaultDate ={new Date()}
                                     eventPropGetter={this.eventClassName}
                                     onSelectEvent={this.onSelectEvent.bind(this)}
+                                    popup={true}
+
                                 />
                                 :
                                 <p>No Goals Yet...</p>
@@ -155,11 +157,15 @@ export default class CalendarPage extends React.Component{
 
                                     <div className="slider-switcher">
                                         <p>Completed:</p>
-                                            <label className="switch" >
-                                                <input type="checkbox" checked={this.state.selectedEvent.completed} onClick={this.onClickComplete.bind(this)}/>
-                                                <span className="slider"></span>
-                                            </label>
-                                        </div>
+                                        <label className="switch" >
+                                            <input type="checkbox" checked={this.state.selectedEvent.completed} onClick={this.onClickComplete.bind(this)}/>
+                                            <span className="slider"></span>
+                                        </label>
+                                    </div>
+
+                                    {/* <div className="delete">
+                                        <button className="btn btn-danger">Delete</button>
+                                    </div> */}
                                 </div>
 
                                 :

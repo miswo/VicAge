@@ -90,10 +90,6 @@ export default class DetailServicePage extends React.Component{
 
 
                     </div>
-
-                    
-
-                    
                 </div>
             </div>
 

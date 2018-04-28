@@ -203,8 +203,16 @@ textarea{
 }
 
 #google-map{
-    width:700px;
+    width:600px;
 }
+
+
+@media(min-width:$small-screen) and (max-width:$median-screen){
+    #google-map{
+        width:400px;
+    }
+}
+
 @media(max-width:$small-screen){
     #google-map{
         width:300px;
