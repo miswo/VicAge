@@ -3,7 +3,7 @@ import {NavLink} from 'react-router-dom';
 
 
 const FunctionSquare = (title,url,spanName)=>(
-    <div className="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+    <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4">
         <NavLink to={url} className="function-square btn btn-primary">
             <span className={spanName}></span>
             <h3>{title}</h3>

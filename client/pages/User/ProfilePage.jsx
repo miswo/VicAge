@@ -75,7 +75,6 @@ export default class ProfilePage extends React.Component{
     }
 
     render(){
-        var profile = this.state.profile?this.state.profile:null
         return(
             <div id="profile-page">
                 <div className="jumbotron banner">
@@ -88,86 +87,85 @@ export default class ProfilePage extends React.Component{
 
                 <div className="container">
                     <div className="query-box">
-                            <h3>Set Profile of Your Dependant</h3>
-                            <form className="form" onSubmit={this.onSubmitInputProfile.bind(this)}>
-                                
-                                <div className="row">
-                                    <div className="form-group">
-                                        <div className="col-xs-4 col-sm-4 col-md-2 col-lg-2">
-                                            <label htmlFor="input-age">Age:</label>
-                                        </div>
-                                        <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                                            <input required  value={this.state.profile?this.state.profile.age:undefined} 
-                                                    onChange = {this.onValueChange.bind(this)} 
-                                                    className="form-control query-input" 
-                                                    type="number" 
-                                                    id="input-age" />
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className="row">
-                                    <div className="form-group">
-                                        <div className="col-xs-4 col-sm-4 col-md-2 col-lg-2">
-                                        
-                                            <label htmlFor="input-gender">Gender:</label>
-                                        </div>
-                                        <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                                            <select required  onChange = {this.onValueChange.bind(this)} 
-                                                    value={this.state.profile?this.state.profile.gender+'':undefined}
-                                                    className="form-control query-input" 
-                                                    name="input-gender" 
-                                                    id="input-gender">
-                                                <option value="male" >Male</option>
-                                                <option value="female">Female</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className="row">
+                        <h3>Set Profile of Your Dependant</h3>
+                        <form className="form" onSubmit={this.onSubmitInputProfile.bind(this)}>
+                            <div className="row">
                                 <div className="form-group">
-                                    <div className="col-xs-4 col-sm-4 col-md-2 col-lg-2">
-                                
-                                        <label htmlFor="input-height">Height:</label>
+                                    <div className="col-xs-3 col-sm-3 col-md-2 col-lg-2">
+                                        <label htmlFor="input-age">Age:</label>
                                     </div>
                                     <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                                    
-                                        <input required onChange = {this.onValueChange.bind(this)} 
-                                                value={this.state.profile?this.state.profile.height:undefined}  
+                                        <input required  value={this.state.profile?this.state.profile.age:undefined} 
+                                                onChange = {this.onValueChange.bind(this)} 
                                                 className="form-control query-input" 
                                                 type="number" 
-                                                id="input-height" />
-                                        <label>cm</label>
+                                                id="input-age" />
                                     </div>
                                 </div>
-                                </div>
+                            </div>
 
-
-                                <div className="row">
-                                    <div className="form-group">
-                                        <div className="col-xs-4 col-sm-4 col-md-2 col-lg-2">
-                                            <label htmlFor="input-weight">Weight:</label>
-                                        </div>
-                                        <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                                            <input required onChange = {this.onValueChange.bind(this)} 
-                                                    value={this.state.profile?this.state.profile.weight:undefined} 
-                                                    className="form-control query-input" 
-                                                    type="number" 
-                                                    id="input-weight" />
-
-                                            <label>kg</label>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className="row">
+                            <div className="row">
                                 <div className="form-group">
-                                    <div className="col-xs-4 col-sm-4 col-md-2 col-lg-2">
+                                    <div className="col-xs-3 col-sm-3 col-md-2 col-lg-2">
+                                    
+                                        <label htmlFor="input-gender">Gender:</label>
+                                    </div>
+                                    <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                                        <select required  onChange = {this.onValueChange.bind(this)} 
+                                                value={this.state.profile?this.state.profile.gender+'':undefined}
+                                                className="form-control query-input" 
+                                                name="input-gender" 
+                                                id="input-gender">
+                                            <option value="male" >Male</option>
+                                            <option value="female">Female</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="row">
+                            <div className="form-group">
+                                <div className="col-xs-3 col-sm-3 col-md-2 col-lg-2">
+                            
+                                    <label htmlFor="input-height">Height:</label>
+                                </div>
+                                <div className="col-xs-9 col-sm-9 col-md-8 col-lg-8">
+                                
+                                    <input required onChange = {this.onValueChange.bind(this)} 
+                                            value={this.state.profile?this.state.profile.height:undefined}  
+                                            className="form-control query-input" 
+                                            type="number" 
+                                            id="input-height" />
+                                    <label>cm</label>
+                                </div>
+                            </div>
+                            </div>
+
+
+                            <div className="row">
+                                <div className="form-group">
+                                    <div className="col-xs-3 col-sm-3 col-md-2 col-lg-2">
+                                        <label htmlFor="input-weight">Weight:</label>
+                                    </div>
+                                    <div className="col-xs-9 col-sm-9 col-md-8 col-lg-8">
+                                        <input required onChange = {this.onValueChange.bind(this)} 
+                                                value={this.state.profile?this.state.profile.weight:undefined} 
+                                                className="form-control query-input" 
+                                                type="number" 
+                                                id="input-weight" />
+
+                                        <label>kg</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="row">
+                                <div className="form-group">
+                                    <div className="col-xs-3 col-sm-3 col-md-2 col-lg-2">
                                 
                                         <label htmlFor="input-active-level">Active Level:</label>
                                     </div>
-                                    <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                    <div className="col-xs-9 col-sm-9 col-md-6 col-lg-6">
                                         <select required onChange = {this.onValueChange.bind(this)} 
                                                 value={this.state.profile?this.state.profile.activeLevel+'':undefined}
                                                 className="form-control query-input" 

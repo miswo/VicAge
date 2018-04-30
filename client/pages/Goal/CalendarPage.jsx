@@ -200,7 +200,6 @@ export default class CalendarPage extends React.Component{
                             </div>
                         </div>
                     </div>
-
                 </div>
 
 
