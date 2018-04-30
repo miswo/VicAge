@@ -203,7 +203,7 @@ export default class NutritionPage extends React.Component{
 
                 <div className="container">
                     <div className="text-center">
-                        <NavLink to="diary-exercise-planner" className="btn btn-primary">Next--Make Plans to Get Healthier</NavLink>
+                        <NavLink to="/planner" className="btn btn-primary">Next--Make Plans to Get Healthier</NavLink>
                     </div>
                 </div>
 
