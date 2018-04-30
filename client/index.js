@@ -35,9 +35,8 @@ import DetailServicePage from './pages/Service/DetailServicePage';
 
 import LoginPage from './pages/User/LoginPage';
 import ProfilePage from './pages/User/ProfilePage';
+import UserCenterPage from  './pages/User/UserCenterPage';
 
-
-import UserCenterPage from  './pages/Planner/UserCenterPage';
 import NutrtionPage from './pages/Planner/NutritionPage';
 import PlannerPage from './pages/Planner/PlannerPage';
 
@@ -103,10 +102,10 @@ class App extends Component {
                         <Route path="/survey/calorie-calculator"render={(history)=><CalorieCalculatorPage   match={history} history={history.history}   serverURL={serverURL} data={this.state.data}/>}/>}
 
                         <Route path="/goal/calendar"            render={(history)=><CalendarPage            match={history} history={history.history}   serverURL={serverURL} data={this.state.data} user={this.state.user}/>}/>}
-                        <Route path="/user-center"              render={()=><UserCenterPage />} />
+                        <Route path="/user/center"              render={()=><UserCenterPage />} />
                         <Route path="/nutrition"                render={()=><NutrtionPage />  } />
-                        <Route path="/profile"                  render=  {()=><ProfilePage user={this.state.user}/>  } />
-                        <Route path="/planner"                  render=  {()=><PlannerPage user={this.state.user}/>  } />
+                        <Route path="/user/profile"             render=  {()=><ProfilePage user={this.state.user} serverURL={serverURL}/>  } />
+                        <Route path="/planner"                  render=  {()=><PlannerPage user={this.state.user} serverURL={serverURL}/>  } />
 
 
                         <Route path="/service/find/:serviceName/:postcode"    render={(history)=>(<ListServicePage        match ={history} history={history.history}  serverURL = {serverURL}/>)} />

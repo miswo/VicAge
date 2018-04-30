@@ -17,6 +17,28 @@ router.post('/login',(req,res)=>{
 });
 
 
+router.post('/profile',(req,res)=>{
+    var collection = db.get().collection('user');
+    collection.findOneAndUpdate(
+        {_id:ObjectID(req.body._id)},
+        {$set:{profile:req.body.profile}},
+        (err,result)=>{
+            if(err) return console.log(err)
+            res.json({status:200})
+    })
+})
+
+router.get('/profile/:userid',(req,res)=>{
+    var collection = db.get().collection('user');
+    collection.findOne(
+        {_id:ObjectID(req.params.userid)},
+        (err,result)=>{
+            if(err) return console.log(err);
+            res.json({profile:result.profile})
+        }
+    )
+})
+
 
 
 module.exports = router;

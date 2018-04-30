@@ -12,7 +12,7 @@ export default class ProfilePage extends React.Component{
     }
 
     componentDidMount(){
-        axios.get(this.props.serverURL+'/user/profile')
+        axios.get(this.props.serverURL+'/user/profile/'+this.props.user.id)
         .then((res)=>{
             this.setState({
                 profile:res.data.profile
@@ -20,7 +20,7 @@ export default class ProfilePage extends React.Component{
         })
     }
 
-    onSubmitInputProfile(){
+    onSubmitInputProfile(e){
         e.preventDefault();
         var age = document.getElementById('input-age').value;
         age = parseInt(Math.round(age));
@@ -44,7 +44,8 @@ export default class ProfilePage extends React.Component{
             return alert('Please enter a correct height.')
         
         axios.post(this.props.serverURL + '/user/profile',{
-            age,gender,weight,height,activeLevel
+            _id:this.props.user.id,
+            profile:{age,gender,weight,height,activeLevel}
         })
         .then((res)=>{
             if(res.data.status == 200)
@@ -53,7 +54,28 @@ export default class ProfilePage extends React.Component{
 
     }
 
+    onValueChange(e){
+        e.preventDefault();
+        var age = document.getElementById('input-age').value;
+        age = parseInt(Math.round(age));
+        var gender = document.getElementById('input-gender').value;
+
+        var weight = document.getElementById('input-weight').value;
+        weight = parseInt(Math.round(weight));
+
+        var height = document.getElementById('input-height').value;
+        height = parseInt(Math.round(height));
+
+        var activeLevel = document.getElementById('input-active-level').value;
+        activeLevel = parseFloat(activeLevel);
+
+        this.setState({
+            profile:{age,gender,weight,height,activeLevel}
+        })
+    }
+
     render(){
+        var profile = this.state.profile?this.state.profile:null
         return(
             <div id="profile-page">
                 <div className="jumbotron banner">
@@ -66,7 +88,7 @@ export default class ProfilePage extends React.Component{
 
                 <div className="container">
                     <div className="query-box">
-                            <h3>Find out the Nutrition Requirement</h3>
+                            <h3>Set Profile of Your Dependant</h3>
                             <form className="form" onSubmit={this.onSubmitInputProfile.bind(this)}>
                                 
                                 <div className="row">
@@ -75,7 +97,11 @@ export default class ProfilePage extends React.Component{
                                             <label htmlFor="input-age">Age:</label>
                                         </div>
                                         <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                                            <input required  value={this.state.profile?this.state.profile.age:null} className="form-control query-input" type="number" id="input-age" />
+                                            <input required  value={this.state.profile?this.state.profile.age:undefined} 
+                                                    onChange = {this.onValueChange.bind(this)} 
+                                                    className="form-control query-input" 
+                                                    type="number" 
+                                                    id="input-age" />
                                         </div>
                                     </div>
                                 </div>
@@ -87,9 +113,13 @@ export default class ProfilePage extends React.Component{
                                             <label htmlFor="input-gender">Gender:</label>
                                         </div>
                                         <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                                            <select required className="form-control query-input" name="input-gender" id="input-gender">
-                                                <option value="male"   selected = {this.state.profile?this.state.profile.gender==='male':false} >Male</option>
-                                                <option value="female" selected = {this.state.profile?this.state.profile.gender==='female':false}>Female</option>
+                                            <select required  onChange = {this.onValueChange.bind(this)} 
+                                                    value={this.state.profile?this.state.profile.gender+'':undefined}
+                                                    className="form-control query-input" 
+                                                    name="input-gender" 
+                                                    id="input-gender">
+                                                <option value="male" >Male</option>
+                                                <option value="female">Female</option>
                                             </select>
                                         </div>
                                     </div>
@@ -103,7 +133,11 @@ export default class ProfilePage extends React.Component{
                                     </div>
                                     <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                                     
-                                        <input required value={this.state.profile?this.state.profile.height:null}  className="form-control query-input" type="number" id="input-height" />
+                                        <input required onChange = {this.onValueChange.bind(this)} 
+                                                value={this.state.profile?this.state.profile.height:undefined}  
+                                                className="form-control query-input" 
+                                                type="number" 
+                                                id="input-height" />
                                         <label>cm</label>
                                     </div>
                                 </div>
@@ -116,7 +150,12 @@ export default class ProfilePage extends React.Component{
                                             <label htmlFor="input-weight">Weight:</label>
                                         </div>
                                         <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                                            <input required value={this.state.profile?this.state.profile.weight:null} className="form-control query-input" type="number" id="input-weight" />
+                                            <input required onChange = {this.onValueChange.bind(this)} 
+                                                    value={this.state.profile?this.state.profile.weight:undefined} 
+                                                    className="form-control query-input" 
+                                                    type="number" 
+                                                    id="input-weight" />
+
                                             <label>kg</label>
                                         </div>
                                     </div>
@@ -129,11 +168,15 @@ export default class ProfilePage extends React.Component{
                                         <label htmlFor="input-active-level">Active Level:</label>
                                     </div>
                                     <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                        <select required className="form-control query-input" name="input-active-level" id="input-active-level">
-                                            <option value="1.2"     selected = {this.state.profile?this.state.profile.activeLevel==1.2:false}>No Exercise</option>
-                                            <option value="1.375"   selected = {this.state.profile?this.state.profile.activeLevel==1.375:false}>Exercise 1-3 Days a Week</option>
-                                            <option value="1.55"    selected = {this.state.profile?this.state.profile.activeLevel==1.55:false}>Exercise 3-5 Days a Week</option>
-                                            <option value="1.725"   selected = {this.state.profile?this.state.profile.activeLevel==1.725:false}>Exercise 6-7 Days a Week</option>
+                                        <select required onChange = {this.onValueChange.bind(this)} 
+                                                value={this.state.profile?this.state.profile.activeLevel+'':undefined}
+                                                className="form-control query-input" 
+                                                name="input-active-level" 
+                                                id="input-active-level">
+                                            <option value="1.2">No Exercise</option>
+                                            <option value="1.375">Exercise 1-3 Days a Week</option>
+                                            <option value="1.55">Exercise 3-5 Days a Week</option>
+                                            <option value="1.725">Exercise 6-7 Days a Week</option>
                                         </select>
                                     </div>
                                 </div>

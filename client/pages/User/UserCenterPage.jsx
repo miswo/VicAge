@@ -33,7 +33,7 @@ export default class UserCenterPage extends React.Component{
 
                 <div className="container">
                     <div className="row">
-                        {FunctionSquare('Profile','/profile')}
+                        {FunctionSquare('Profile','/user/profile')}
                         {FunctionSquare('Planner','/planner')}
                         {FunctionSquare('Plan Report','/planner/report')}
                         {FunctionSquare('Activity Calendar','/goal/calendar')}
