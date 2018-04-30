@@ -101,7 +101,6 @@ class App extends Component {
                         <Route path="/goal/calendar"            render={(history)=><CalendarPage            match={history} history={history.history}   serverURL={serverURL} data={this.state.data} user={this.state.user}/>}/>}
                         <Route path="/user-center"              render={()=><UserCenterPage />} />
                         <Route path="/nutrition"                render={()=><NutrtionPage />  } />
-                        <Route path="/exercise"                 render={()=><NutrtionPage />  } />
 
 
                         <Route path="/service/find/:serviceName/:postcode"    render={(history)=>(<ListServicePage        match ={history} history={history.history}  serverURL = {serverURL}/>)} />
