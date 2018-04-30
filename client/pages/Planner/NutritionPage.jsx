@@ -18,7 +18,7 @@ export default class NutritionPage extends React.Component{
         }
     }
 
-    onSubmitInputAge(e){
+    onSubmitInputQuery(e){
         e.preventDefault();
         var age = document.getElementById('input-age').value;
         age = parseInt(Math.round(age));
@@ -111,7 +111,7 @@ export default class NutritionPage extends React.Component{
                 <div className="container">
                     <div className="query-box">
                         <h3>Find out the Nutrition Requirement</h3>
-                        <form className="form" onSubmit={this.onSubmitInputAge.bind(this)}>
+                        <form className="form" onSubmit={this.onSubmitInputQuery.bind(this)}>
                             
                             <div className="row">
                                 <div className="form-group">
