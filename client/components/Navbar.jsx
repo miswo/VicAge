@@ -26,16 +26,23 @@ class Navbar extends Component{
                         </ul>
                     </div>
 
-                    <div className="collapse navbar-collapse navbar-right" id="navbar-menu">
+                    <div className="collapse navbar-collapse " id="navbar-menu">
                         <ul className="nav navbar-nav">
                             <li><NavLink to="/" exact                   activeClassName="active">Home</NavLink></li>
                             {/* <li><NavLink to="/event"        activeClassName="active">Event</NavLink></li> */}
                             <li><NavLink to="/list/all"                 activeClassName ="active">Lists</NavLink></li>
-                            <li><NavLink to="/goal/calendar"            activeClassName="active">My Calendar</NavLink></li>
-                            <li><NavLink to="/service/find/all/3000"    activeClassName="active">Services</NavLink> </li>
+                            {/* <li><NavLink to="/goal/calendar"            activeClassName="active">My Calendar</NavLink></li> */}
+                            {/* <li><NavLink to="/service/find/all/3000"    activeClassName="active">Services</NavLink> </li> */}
+                            
                             <li><NavLink to="/about"                    activeClassName="active">About</NavLink></li>
                         </ul>
+
+                        <ul className="nav navbar-nav navbar-right">
+                            <li><NavLink to="/user-center/"              activeClassName="active">Welcome,{this.props.user.name}</NavLink></li>
+                        </ul>
                     </div>
+
+
                 </div>
             </div>
         )

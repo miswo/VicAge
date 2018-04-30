@@ -34,6 +34,8 @@ import ListServicePage from './pages/Service/ListServicePage';
 import DetailServicePage from './pages/Service/DetailServicePage';
 
 import LoginPage from './pages/User/LoginPage';
+import UserCenterPage from  './pages/Planner/UserCenterPage';
+import NutrtionPage from './pages/Planner/NutritionPage';
 
 import CalendarPage from './pages/Goal/CalendarPage';
 
@@ -43,10 +45,10 @@ import CalendarPage from './pages/Goal/CalendarPage';
 import "./main.scss";
 
 // Remote Server 
-const serverURL = 'http://13.70.182.53:5000'; 
+// const serverURL = 'http://13.70.182.53:5000'; 
 
 // Local Server
-// const serverURL = 'http://localhost:5000';
+const serverURL = 'http://localhost:5000';
 // const serverURL = 'http://118.139.95.189:5000';
 
 
@@ -54,8 +56,8 @@ class App extends Component {
     constructor(props){
         super(props);
         this.state = {
-            // user:{id:'5addf8ff6f2a1d36346222fc',name:'will'},
-            user:null,
+            user:{id:'5addf8ff6f2a1d36346222fc',name:'will'},
+            // user:null,
             data:null
         }
     }
@@ -76,7 +78,7 @@ class App extends Component {
         return(
             <Router>
                 <div className="page">
-                    <Navbar />
+                    <Navbar user={this.state.user}/>
                     <Switch>
                         <Route exact path="/" render={(history)=>(<HomePage history={history.history}/>)}/>
                         <Route path="/about"  render ={()=>(<AboutPage/>)}/>
@@ -97,7 +99,10 @@ class App extends Component {
                         <Route path="/survey/calorie-calculator"render={(history)=><CalorieCalculatorPage   match={history} history={history.history}   serverURL={serverURL} data={this.state.data}/>}/>}
 
                         <Route path="/goal/calendar"            render={(history)=><CalendarPage            match={history} history={history.history}   serverURL={serverURL} data={this.state.data} user={this.state.user}/>}/>}
-                        
+                        <Route path="/user-center"              render={()=><UserCenterPage />} />
+                        <Route path="/nutrition"                render={()=><NutrtionPage />  } />
+                        <Route path="/exercise"                 render={()=><NutrtionPage />  } />
+
 
                         <Route path="/service/find/:serviceName/:postcode"    render={(history)=>(<ListServicePage        match ={history} history={history.history}  serverURL = {serverURL}/>)} />
                         <Route path={"/service/(agedcare|disability|hospital|community)/detail/:id"} render={(history)=>(<DetailServicePage match={history} history={history.history} serverURL={serverURL}/>)} />

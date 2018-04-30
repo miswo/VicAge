@@ -702,3 +702,30 @@ footer{
 
     }
 }
+
+
+//---------------User Center------------
+
+#user-center-page{
+    .function-square{
+        width:300px;
+        height:300px;
+        margin-bottom:50px;
+    }
+}
+
+
+
+//--------------- Nutrition Page ---------
+#nutrition-page{
+    .query-box{
+        padding:20px;
+        border:1px solid #eee;
+    }
+    .query-input{
+        display:inline-block;
+        margin-left:10px;
+        margin-right:10px;
+        width:150px;
+    }
+}
