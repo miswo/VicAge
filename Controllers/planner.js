@@ -3,9 +3,13 @@ var db = require('../db');
 var ObjectID = require('mongodb').ObjectID;
 
 
-router.get('/recipes/:recipeName',(req,res)=>{
+router.post('/recipes/',(req,res)=>{
     var collection = db.get().collection('recipe');
-    collection.find({RecipeName:{$regex:".*"+req.params.recipeName+".*",$options:'i'}}).toArray((err,result)=>{
+    var terms = req.body.terms;
+    var terms_regex = terms.map((term)=>(
+        new RegExp(".*"+term+".*","i")
+    ));
+    collection.find({RecipeName:{$all:terms_regex}}).toArray((err,result)=>{
         if(err) console.log(err);
         res.json({recipes:result})
     })
