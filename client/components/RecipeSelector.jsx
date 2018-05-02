@@ -20,8 +20,9 @@ export default class RecipeSelector extends React.Component{
 
     handleSearch(e){
         e.preventDefault();
+        if(this.state.recipeName.length<=3) return alert('Input at Least 3 Letters.');
         this.setState({loading:true})
-        axios.post(this.props.serverURL + '/planner/recipes/' + this.state.recipeName)
+        axios.get(this.props.serverURL + '/planner/recipes/' + this.state.recipeName)
             .then((res)=>{
                 this.setState({recipes:res.data.recipes,loading:false})
             }) 
@@ -30,12 +31,14 @@ export default class RecipeSelector extends React.Component{
     renderRecipes(){
         if(this.state.loading)
             return <p>Loading...</p>
-        const recipes = this.state.recipes == 0? <p>No recipe found..</p>:
+
+        const recipes = this.state.recipes == 0? <p> No Recipe found..</p>:
             this.state.recipes.map((item)=>(
-                <a id={item.id} key={item.id} className="list-group-item">
-                    {item.recipeName}
+                <a id={item._id} key={item._id} className="list-group-item" data-toggle="tooltip" data-placement="bottom" title={item.Description}>
+                    {item.RecipeName}
                 </a>
             ))
+        return recipes;
     }
     render(){
         return(
@@ -47,9 +50,9 @@ export default class RecipeSelector extends React.Component{
                 </div>
 
                 <div className="recipeDisplay">
-                    <ul className="list-group">
+                    <div className="list-group">
                         {this.renderRecipes()}
-                    </ul>
+                    </div>
                 </div>
             </div>
         )

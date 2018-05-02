@@ -79,9 +79,8 @@ export default class PlannerPage extends React.Component{
                                 <div className="text-center"></div>
                                 <h3>{this.state.selectedDate.toDateString()} Daily View</h3>
                                 <hr/>
-                                <h4>Dairy</h4>
+                                <h4>Dietary</h4>
 
-                                <RecipeSelector serverURL={this.props.serverURL} />
 
                                 <hr/>
                                 <h4>Excercise</h4>
@@ -90,8 +89,15 @@ export default class PlannerPage extends React.Component{
                                 <p>{this.props.user.profile}</p>
                             </div>
                         </div>
+                    </div>
 
+                    <div className="row">
+                        <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <RecipeSelector serverURL={this.props.serverURL} />
+                        </div>
 
+                        <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                        </div>
                     </div>
                 </div>
 
