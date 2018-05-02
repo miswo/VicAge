@@ -19,7 +19,16 @@ router.post('/recipes/',(req,res)=>{
 router.post('/add-new-meal',(req,res)=>{
     var collection = db.get().collection('plan');
     var newPlan = req.body;
-    console.log(newPlan); 
+    collection.save(newPlan,(err,result)=>{
+        if(err) return console.log(err);
+        res.json({status:200})
+    })
+})
+
+
+router.get('/meal-plans/:userid',(req,res)=>{
+    var collection = db.get().collection('plan');
+    // collection.find({user})
 })
 
 module.exports = router;

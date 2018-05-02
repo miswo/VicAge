@@ -52,7 +52,7 @@ export default class PlannerPage extends React.Component{
     }
 
     handleAddNewMeal(newMealPlan){
-        $('add-new-meal-modal'),modal('hide');
+        $('#add-new-meal-modal').modal('hide');
         var mealPlans = this.state.mealplans;
         mealPlans.push(newMealPlan);
         this.setState({mealPlans});

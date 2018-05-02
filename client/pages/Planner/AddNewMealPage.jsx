@@ -7,20 +7,29 @@ export default class AddNewMealPage extends React.Component{
     constructor(props){
         super(props);
         this.state={
-            date:Date(),
+            name:'',
+            date:moment(this.props.date).format('YYYY-MM-DD'),
             quantity:0
         }
     }
 
+    componentWillReceiveProps(props){
+        this.setState({
+            name:props.recipe.RecipeName,
+            date:moment(props.date).format('YYYY-MM-DD')
+        })
+    }
     handleSubmit(e){
         e.preventDefault();
+        var name = document.getElementById('input-name').value;
         var date = document.getElementById('input-date').value;
         var quantity = document.getElementById('input-quantity').value;
         if(quantity<=0) return alert('Please enter correct quantity');
 
         var newMealPlan = {
+            planName:name,
             type:'meal',
-            recipeID:this.props.recipe._id,
+            recipe:this.props.recipe,
             userid:this.props.user.id,
             date,quantity
         };
@@ -34,14 +43,19 @@ export default class AddNewMealPage extends React.Component{
             }
         })
 
+
+        document.getElementById('input-quantity').value = 0;
+
     }
 
+
     onValueChange(){
+        var name = document.getElementById('input-name').value;
         var date = document.getElementById('input-date').value;
         var quantity = document.getElementById('input-quantity').value;
 
         this.setState({
-            date,quantity
+            name,date,quantity
         })
     }
 
@@ -58,7 +72,7 @@ export default class AddNewMealPage extends React.Component{
                     <div className="row">
                         <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <div className="form-group">
-                                <h3>{this.props.recipe?this.props.recipe.RecipeName:''}</h3>
+                                <p>{this.props.recipe?this.props.recipe.Description:''}</p>
                             </div>
                         </div>
                     </div>
@@ -66,7 +80,8 @@ export default class AddNewMealPage extends React.Component{
                     <div className="row">
                         <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <div className="form-group">
-                                <p>{this.props.recipe?this.props.recipe.Description:''}</p>
+                            <label htmlFor="input-name">Name:</label>
+                                <input type="text" value={this.state.name} id="input-name" onChange={this.onValueChange.bind(this)} className="form-control" />
                             </div>
                         </div>
                     </div>
@@ -75,7 +90,7 @@ export default class AddNewMealPage extends React.Component{
                         <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                             <div className="form-group">
                                 <label htmlFor="input-date">Date:</label>
-                                <input type="date" value={moment(this.props.date).format('YYYY-MM-DD')} id="input-date" onChange={this.onValueChange.bind(this)} className="form-control" />
+                                <input type="date" value={this.state.date} id="input-date" onChange={this.onValueChange.bind(this)} className="form-control" />
                             </div>
                         </div>
                     </div>
@@ -94,7 +109,7 @@ export default class AddNewMealPage extends React.Component{
 
                     </div>
 
-                    <button type="sbumit" className="btn btn-primary">Add Recipe</button>
+                    <button type="sbumit" className="btn btn-primary">Add Meal Plan</button>
 
                 </form>                
             
