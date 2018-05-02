@@ -59,7 +59,7 @@ class App extends Component {
     constructor(props){
         super(props);
         this.state = {
-            user:{id:'5addf8ff6f2a1d36346222fc',userName:'will'},
+            user:{id:'5addf8ff6f2a1d36346222fc',userName:'will',profile:{activeLevel:1.55,age:26,gender:"male",height:175,weight:75}},
             // user:null,
             data:null
         }

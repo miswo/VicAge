@@ -28,7 +28,10 @@ router.post('/add-new-meal',(req,res)=>{
 
 router.get('/meal-plans/:userid',(req,res)=>{
     var collection = db.get().collection('plan');
-    // collection.find({user})
+    collection.find({userid:req.params.userid}).toArray((err,result)=>{
+        if(err) console.log(err);
+        res.json({mealPlans:result})
+    })
 })
 
 module.exports = router;

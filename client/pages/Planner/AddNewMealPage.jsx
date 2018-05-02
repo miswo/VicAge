@@ -8,7 +8,7 @@ export default class AddNewMealPage extends React.Component{
         super(props);
         this.state={
             name:'',
-            date:moment(this.props.date).format('YYYY-MM-DD'),
+            date:moment().format('YYYY-MM-DD'),
             quantity:0
         }
     }
@@ -81,7 +81,7 @@ export default class AddNewMealPage extends React.Component{
                         <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <div className="form-group">
                             <label htmlFor="input-name">Name:</label>
-                                <input type="text" value={this.state.name} id="input-name" onChange={this.onValueChange.bind(this)} className="form-control" />
+                                <input type="text" value={this.state.name?this.state.name:''} id="input-name" onChange={this.onValueChange.bind(this)} className="form-control" />
                             </div>
                         </div>
                     </div>
