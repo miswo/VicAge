@@ -6,8 +6,9 @@ import BigCalendar from 'react-big-calendar';
 import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 
-import CreateGoalPage from '../Goal/CreateGoalPage';
 import RecipeSelector from '../../components/RecipeSelector';
+
+import AddNewMealPage from './AddNewMealPage';
 
 BigCalendar.setLocalizer(BigCalendar.momentLocalizer(moment));
 
@@ -16,7 +17,8 @@ export default class PlannerPage extends React.Component{
     constructor(props){
         super(props);
         this.state={
-            selectedDate:new Date()
+            selectedDate:new Date(),
+            selectedRecipe:{}
         }
     }
 
@@ -36,7 +38,13 @@ export default class PlannerPage extends React.Component{
         this.forceUpdate();
     }
 
-    handleNewGoalCreated(){
+    onSelectRecipe(selectedRecipe){
+        this.setState({selectedRecipe});
+        this.forceUpdate();
+        $('#add-new-meal-modal').modal('show');
+    }
+
+    handleAddNewMeal(){
 
     }
 
@@ -93,7 +101,7 @@ export default class PlannerPage extends React.Component{
 
                     <div className="row">
                         <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                            <RecipeSelector serverURL={this.props.serverURL} />
+                            <RecipeSelector serverURL={this.props.serverURL} callback={this.onSelectRecipe.bind(this)}/>
                         </div>
 
                         <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
@@ -101,15 +109,19 @@ export default class PlannerPage extends React.Component{
                     </div>
                 </div>
 
-                <div className="modal fade" id="create-goal-modal" tabIndex="-1" role="dialog" aria-labelledby="create-goal-modal-label">
+                <div className="modal fade" id="add-new-meal-modal" tabIndex="-1" role="dialog" aria-labelledby="add-new-meal-modal">
                     <div className="modal-dialog modal-lg" role="document">
                         <div className="modal-content">
                             <div className="modal-header">
                                 <button type="button" className="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                <h4 className="modal-title" id="gridSystemModalLabel">Set new Goal</h4>
+                                <h4 className="modal-title" id="gridSystemModalLabel">Add Meal</h4>
                             </div>
                             <div className="modal-body ">
-                                <CreateGoalPage serverURL={this.props.serverURL}  concept={this.state.newGoalConcept} callback = {this.handleNewGoalCreated.bind(this)} user={this.props.user}/>
+                                <AddNewMealPage serverURL={this.props.serverURL}  
+                                                recipe={this.state.selectedRecipe} 
+                                                date={this.state.selectedDate}
+                                                callback = {this.handleAddNewMeal.bind(this)} 
+                                                user={this.props.user}/>
                             </div>
                         </div>
                     </div>

@@ -120,7 +120,7 @@ export default class ProfilePage extends React.Component{
                                                 <label htmlFor="input-age">Age:</label>
                                             </div>
                                             <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                                                <input required  value={this.state.profile?this.state.profile.age:undefined} 
+                                                <input required  value={this.state.profile?this.state.profile.age:''} 
                                                         onChange = {this.onValueChange.bind(this)} 
                                                         className="form-control query-input" 
                                                         type="number" 
@@ -137,7 +137,7 @@ export default class ProfilePage extends React.Component{
                                             </div>
                                             <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                                                 <select required  onChange = {this.onValueChange.bind(this)} 
-                                                        value={this.state.profile?this.state.profile.gender+'':undefined}
+                                                        value={this.state.profile?this.state.profile.gender:''}
                                                         className="form-control query-input" 
                                                         name="input-gender" 
                                                         id="input-gender">
@@ -157,7 +157,7 @@ export default class ProfilePage extends React.Component{
                                         <div className="col-xs-9 col-sm-9 col-md-8 col-lg-8">
                                         
                                             <input required onChange = {this.onValueChange.bind(this)} 
-                                                    value={this.state.profile?this.state.profile.height:undefined}  
+                                                    value={this.state.profile?this.state.profile.height:''}  
                                                     className="form-control query-input" 
                                                     type="number" 
                                                     id="input-height" />
@@ -174,7 +174,7 @@ export default class ProfilePage extends React.Component{
                                             </div>
                                             <div className="col-xs-9 col-sm-9 col-md-8 col-lg-8">
                                                 <input required onChange = {this.onValueChange.bind(this)} 
-                                                        value={this.state.profile?this.state.profile.weight:undefined} 
+                                                        value={this.state.profile?this.state.profile.weight:''} 
                                                         className="form-control query-input" 
                                                         type="number" 
                                                         id="input-weight" />
@@ -192,7 +192,7 @@ export default class ProfilePage extends React.Component{
                                             </div>
                                             <div className="col-xs-9 col-sm-9 col-md-6 col-lg-6">
                                                 <select required onChange = {this.onValueChange.bind(this)} 
-                                                        value={this.state.profile?this.state.profile.activeLevel+'':undefined}
+                                                        value={this.state.profile?this.state.profile.activeLevel:''}
                                                         className="form-control query-input" 
                                                         name="input-active-level" 
                                                         id="input-active-level">

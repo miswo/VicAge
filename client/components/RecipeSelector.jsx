@@ -31,14 +31,27 @@ export default class RecipeSelector extends React.Component{
             }) 
     }
 
+    onSelect(e){
+        e.preventDefault();
+        var recipeID = e.target.id;
+        for(var i=0;i<this.state.recipes.length;i++)
+            if(this.state.recipes[i]._id === recipeID)
+                this.props.callback(this.state.recipes[i])
+    }
+
     renderRecipes(){
-        console.log(this.state.recipes);
         if(this.state.loading)
             return <p>Loading...</p>
-
         const recipes = this.state.recipes == 0? <p> No Recipe found..</p>:
             this.state.recipes.slice(10*(this.state.currentPage-1),this.state.currentPage*10).map((item)=>(
-                <a id={item._id} key={item._id} className="list-group-item" data-toggle="tooltip" data-placement="bottom" title={item.Description}>
+                <a id={item._id} 
+                    key={item._id} 
+                    onClick={this.onSelect.bind(this)}
+                    className="list-group-item" 
+                    data-toggle="tooltip" 
+                    data-placement="bottom" 
+                    title={item.Description}
+                    href="#">
                     {item.RecipeName}
                 </a>
             ))
