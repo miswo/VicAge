@@ -21,7 +21,7 @@ export default class RecipeSelector extends React.Component{
     handleSearch(e){
         e.preventDefault();
         this.setState({loading:true})
-        axios.post(this.props.serverURL + '/planner/recipe' + this.state.recipeName)
+        axios.post(this.props.serverURL + '/planner/recipes/' + this.state.recipeName)
             .then((res)=>{
                 this.setState({recipes:res.data.recipes,loading:false})
             }) 

@@ -4,8 +4,6 @@ import {NavLink} from 'react-router-dom';
 
 class Navbar extends Component{
     render(){
-    console.log(this.props.user);
-        
         return(
             <div className="navbar navbar-default navbar-main">
                 <div className="container">

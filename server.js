@@ -19,6 +19,7 @@ app.use('/service',require('./Controllers/service'));
 app.use('/list',require('./Controllers/list'));
 app.use('/user',require('./Controllers/user'));
 app.use('/goal',require('./Controllers/goal'));
+app.use('/planner',require('./Controllers/planner'));
 
 var db = require('./db');
 db.connect((err) => {
