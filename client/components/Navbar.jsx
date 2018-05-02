@@ -3,8 +3,9 @@ import {NavLink} from 'react-router-dom';
 
 
 class Navbar extends Component{
-    
     render(){
+    console.log(this.props.user);
+        
         return(
             <div className="navbar navbar-default navbar-main">
                 <div className="container">
@@ -38,7 +39,7 @@ class Navbar extends Component{
                         </ul>
 
                         <ul className="nav navbar-nav navbar-right">
-                            <li><NavLink to="/user/center/"              activeClassName="active">Welcome,{this.props.user.name}</NavLink></li>
+                            <li><NavLink to="/user/center/"              activeClassName="active">Welcome,{this.props.user.userName}</NavLink></li>
                         </ul>
                     </div>
 

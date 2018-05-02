@@ -7,6 +7,7 @@ import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 
 import CreateGoalPage from '../Goal/CreateGoalPage';
+import RecipeSelector from '../../components/RecipeSelector';
 
 BigCalendar.setLocalizer(BigCalendar.momentLocalizer(moment));
 
@@ -79,15 +80,18 @@ export default class PlannerPage extends React.Component{
                                 <h3>{this.state.selectedDate.toDateString()} Daily View</h3>
                                 <hr/>
                                 <h4>Dairy</h4>
+
+                                <RecipeSelector serverURL={this.props.serverURL} />
+
                                 <hr/>
                                 <h4>Excercise</h4>
                                 <hr/>
                                 <h4>Nutrition Status</h4>
+                                <p>{this.props.user.profile}</p>
                             </div>
-                            
-
-                        
                         </div>
+
+
                     </div>
                 </div>
 
