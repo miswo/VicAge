@@ -15,4 +15,11 @@ router.post('/recipes/',(req,res)=>{
     })
 })
 
+
+router.post('/add-new-meal',(req,res)=>{
+    var collection = db.get().collection('plan');
+    var newPlan = req.body;
+    console.log(newPlan); 
+})
+
 module.exports = router;

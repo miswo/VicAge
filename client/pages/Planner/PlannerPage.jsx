@@ -18,9 +18,16 @@ export default class PlannerPage extends React.Component{
         super(props);
         this.state={
             selectedDate:new Date(),
-            selectedRecipe:{}
+            selectedRecipe:{},
+            mealplans:[],
+            excercisePlans:[]
         }
     }
+
+    componentDidMount(){
+        
+    }
+
 
     eventClassName(event,start,end,isSelected){
         if(event.completed && isSelected)
@@ -44,8 +51,11 @@ export default class PlannerPage extends React.Component{
         $('#add-new-meal-modal').modal('show');
     }
 
-    handleAddNewMeal(){
-
+    handleAddNewMeal(newMealPlan){
+        $('add-new-meal-modal'),modal('hide');
+        var mealPlans = this.state.mealplans;
+        mealPlans.push(newMealPlan);
+        this.setState({mealPlans});
     }
 
 
@@ -88,8 +98,7 @@ export default class PlannerPage extends React.Component{
                                 <h3>{this.state.selectedDate.toDateString()} Daily View</h3>
                                 <hr/>
                                 <h4>Dietary</h4>
-
-
+                                    {this.renderMealPlans}  
                                 <hr/>
                                 <h4>Excercise</h4>
                                 <hr/>

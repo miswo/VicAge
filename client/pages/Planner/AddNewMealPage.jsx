@@ -18,11 +18,20 @@ export default class AddNewMealPage extends React.Component{
         var quantity = document.getElementById('input-quantity').value;
         if(quantity<=0) return alert('Please enter correct quantity');
 
-        axios.post(this.props.serverURL+'/planner/addNewMeal/',{
+        var newMealPlan = {
             type:'meal',
             recipeID:this.props.recipe._id,
             userid:this.props.user.id,
             date,quantity
+        };
+
+
+        axios.post(this.props.serverURL+'/planner/add-new-meal/',newMealPlan)
+        .then((res)=>{
+            if(res.data.status == 200) {
+                alert('Added a New Meal Plan');
+                this.props.callback(newMealPlan)
+            }
         })
 
     }
