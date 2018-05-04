@@ -30,7 +30,7 @@ export default class CreateConceptPage extends React.Component{
                     <div className="container">
                         <h2>{this.state.concept?this.state.concept.conceptName:"Concept"}</h2>
 
-                        <button className="btn btn-secondary" onClick={this.props.history.goBack}>Back</button>
+                        <button className="btn btn-default" onClick={this.props.history.goBack}>Back</button>
                     </div>
                 </div> 
                 <div className="container">

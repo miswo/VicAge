@@ -155,7 +155,7 @@ export default class SingleListSurveyPage extends React.Component{
                 <div className="jumbotron banner">
                     <div className="container">
                         <h2>Select the Things to Add to {this.state.actionName} </h2>
-                        <button className="btn btn-secondary" onClick={this.handleBack.bind(this)}>Back</button>
+                        <button className="btn btn-default" onClick={this.handleBack.bind(this)}>Back</button>
                     </div>
                 </div>
 

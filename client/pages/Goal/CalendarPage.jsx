@@ -47,7 +47,7 @@ export default class CalendarPage extends React.Component{
         const concepts = this.state.concepts.length!=0?
             this.state.concepts.map((item)=>(
                 <li key={item._id} id={item._id} className="list-group-item">
-                    {item.conceptName} <button onClick={this.onClickSetNewGoal.bind(this)} className="btn btn-secondary pull-right">Set New Goal</button>
+                    {item.conceptName} <button onClick={this.onClickSetNewGoal.bind(this)} className="btn btn-default pull-right">Set New Goal</button>
                 </li>
             ))
             :

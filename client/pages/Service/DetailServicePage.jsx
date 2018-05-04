@@ -60,7 +60,7 @@ export default class DetailServicePage extends React.Component{
                 <div className="jumbotron banner">
                     <div className="container">
                         <h2>Service Provider Details</h2>
-                        <button className="btn btn-secondary" onClick={this.goback.bind(this)}>Back</button>
+                        <button className="btn btn-default" onClick={this.goback.bind(this)}>Back</button>
                     </div>
                 </div>
 

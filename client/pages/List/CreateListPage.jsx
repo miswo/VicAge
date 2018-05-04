@@ -144,7 +144,7 @@ export default class CreateListPage extends React.Component{
                         </div>
                         
                         <button type="submit" className="btn btn-primary">Submit</button>
-                        <NavLink to="/list/all" className="btn btn-secondary">Cancel</NavLink>
+                        <NavLink to="/list/all" className="btn btn-default">Cancel</NavLink>
 
                     </form>
                 </div>

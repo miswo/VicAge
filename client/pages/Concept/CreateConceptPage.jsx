@@ -131,7 +131,7 @@ export default class CreateConceptPage extends React.Component{
                     </div>
 
                     <button type="submit" className="btn btn-primary">Add</button>
-                    <button className="btn btn-secondary" data-dismiss="modal" onClick={this.handleCancel.bind(this)} >Cancel</button>
+                    <button className="btn btn-default" data-dismiss="modal" onClick={this.handleCancel.bind(this)} >Cancel</button>
                     
                 </form>
             </div>

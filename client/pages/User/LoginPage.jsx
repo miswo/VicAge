@@ -45,6 +45,7 @@ export default class LoginPage extends React.Component{
                                 <input required id="password" type="password" className="form-control"/>
                             </div>
                             <button type="submit" className="btn btn-primary">Login</button>
+                            <NavLink to="register" className="btn btn-primary">Register</NavLink>
                         </form>
                     </div>
                 </div>

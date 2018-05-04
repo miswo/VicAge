@@ -63,7 +63,7 @@ export default class DetailListPage extends React.Component{
                     <div className="container">
                         <h2>{this.state.list.listName? this.state.list.listName :"List Detail"}</h2>
                         <p>Select the things you need in the list to save into another list or your personal calendar</p>
-                        <NavLink to="/list/all" className="btn btn-secondary">Back</NavLink>
+                        <NavLink to="/list/all" className="btn btn-default">Back</NavLink>
                     </div>
                 </div>
 
