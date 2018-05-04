@@ -37,7 +37,7 @@ class Navbar extends Component{
                         </ul>
 
                         <ul className="nav navbar-nav navbar-right">
-                            <li><NavLink to="/user/center/"              activeClassName="active">Welcome,{this.props.user.userName}</NavLink></li>
+                            <li><NavLink to="/home"              activeClassName="active">Welcome,{this.props.user.userName}</NavLink></li>
                         </ul>
                     </div>
 

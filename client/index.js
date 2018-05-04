@@ -34,6 +34,7 @@ import ListServicePage from './pages/Service/ListServicePage';
 import DetailServicePage from './pages/Service/DetailServicePage';
 
 import LoginPage from './pages/User/LoginPage';
+import RegisterPage from './pages/User/RegisterPage';
 import ProfilePage from './pages/User/ProfilePage';
 import UserCenterPage from  './pages/User/UserCenterPage';
 
@@ -59,8 +60,8 @@ class App extends Component {
     constructor(props){
         super(props);
         this.state = {
-            user:{id:'5addf8ff6f2a1d36346222fc',userName:'will',profile:{activeLevel:1.55,age:26,gender:"male",height:175,weight:75}},
-            // user:null,
+            // user:{id:'5addf8ff6f2a1d36346222fc',userName:'will',profile:{activeLevel:1.55,age:26,gender:"male",height:175,weight:75}},
+            user:null,
             data:null
         }
     }
@@ -76,14 +77,28 @@ class App extends Component {
 
     render(){
         if(!this.state.user)
-        return <LoginPage callback={this.setLoginUser.bind(this)} serverURL={serverURL}/>
+        return (
+            <Router>
+                <div className="page">
+                <Switch>
+                    <Route exact path="/" render={(history)=>(<HomePage history={history.history}/>)}/>
+                    <Route       path="/login"      render={()=>(       <LoginPage     callback={this.setLoginUser.bind(this)} serverURL={serverURL}/>)} />
+                    <Route       path="/register"   render={(history)=>(<RegisterPage  callback={this.setLoginUser.bind(this)} history={history.history} serverURL={serverURL}/>)} />
+                    <Route                          render={()=>(       <LoginPage     callback={this.setLoginUser.bind(this)} serverURL={serverURL}/>)} />
+                </Switch>
+
+                <Footer />
+                
+                </div>
+            </Router>
+        )
+
         else
         return(
             <Router>
                 <div className="page">
                     <Navbar user={this.state.user}/>
                     <Switch>
-                        <Route exact path="/" render={(history)=>(<HomePage history={history.history}/>)}/>
                         <Route path="/about"  render ={()=>(<AboutPage/>)}/>
                         {/* <Route exact path="/event"  render={()=>(<ListEventPage serverURL= {serverURL} />)}/>
                         <Route path="/event/create" render={(history)=>(<CreateEventPage    history = {history.history} serverURL= {serverURL}/>)}/>
@@ -102,7 +117,7 @@ class App extends Component {
                         <Route path="/survey/calorie-calculator"render={(history)=><CalorieCalculatorPage   match={history} history={history.history}   serverURL={serverURL} data={this.state.data}/>}/>}
 
                         <Route path="/goal/calendar"            render={(history)=><CalendarPage            match={history} history={history.history}   serverURL={serverURL} data={this.state.data} user={this.state.user}/>}/>}
-                        <Route path="/user/center"              render={()=><UserCenterPage />} />
+                        <Route path="/home"                     render={()=><UserCenterPage />} />
                         <Route path="/nutrition"                render={()=><NutrtionPage />  } />
                         <Route path="/user/profile"             render=  {()=><ProfilePage user={this.state.user} serverURL={serverURL}/>  } />
                         <Route path="/planner"                  render=  {()=><PlannerPage user={this.state.user} serverURL={serverURL}/>  } />

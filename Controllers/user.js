@@ -7,7 +7,6 @@ router.post('/login',(req,res)=>{
     var collection = db.get().collection('user');
     collection.findOne({userName:req.body.userName},(err,result)=>{
         if(err) return console.log(err);
-
         console.log(result);
         if(!result)
             res.json({status:403,message:'No Such User'})
@@ -16,6 +15,27 @@ router.post('/login',(req,res)=>{
         else
             res.json({status:403,message:'Incorrect Password'})
     })
+});
+
+
+
+router.post('/register',(req,res)=>{
+    var collection = db.get().collection('user');
+    var newUser = req.body;
+    newUser.profile={};
+
+    collection.findOne({userName:req.body.userName},(err,result)=>{
+        if(err) return console.log(err);
+        if(result)
+            res.json({status:403,message:'Email Already Exist.'})
+        else{
+            collection.save(newUser,(err,result)=>{
+                if(err) return console.log(err);
+                res.json({status:200,message:'ok',data:{userName:result.userName,id:result._id,profile:result.profile}})
+            })
+        }
+    })
+        
 });
 
 
