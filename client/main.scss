@@ -4,17 +4,10 @@ $median-screen:979px;
 
 //------------------Generals------------------//
 
-//misu changed from here----//
 
 #brand{
     color:#00a2e8;
 }
-
-
-
-
-
-
 
 .navbar-default .navbar-brand{
     color:#00a2e8;
@@ -23,19 +16,9 @@ $median-screen:979px;
         width:20px;
         height:20px;
         margin-right:5px;
-        
-    }
-
-}
-
-
-//---------misu till here------------//
-.button-group{
-    .btn{
-        margin-right:20px;
-        margin-bottom: 20px;
     }
 }
+
 table,th{
     text-align: center;
 }
@@ -47,12 +30,6 @@ textarea{
     resize: none;
 }
 
-#app-lock{
-    width:250px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top:200px;
-}
 
 .concept-block{
     border:1px solid #eee;
@@ -676,7 +653,6 @@ footer{
         margin-bottom:50px;
     }
 }
-
 
 
 //--------------- Nutrition Page ---------
