@@ -47,6 +47,7 @@ import CalendarPage from './pages/Goal/CalendarPage';
 
 
 import "./main.scss";
+import "./main2.scss";
 
 // Remote Server 
 // const serverURL = 'http://13.70.182.53:5000'; 
@@ -83,7 +84,7 @@ class App extends Component {
                     <Navbar />
                     <Switch>
                         <Route exact path="/"           render={(history)=>(<HomePage history={history.history}/>)}/>
-                        <Route       path="/login"      render={()=>(       <LoginPage     callback={this.setLoginUser.bind(this)} history  ={history.history} serverURL={serverURL}/>)} />
+                        <Route       path="/login"      render={(history)=>(<LoginPage     callback={this.setLoginUser.bind(this)} history  ={history.history} serverURL={serverURL}/>)} />
                         <Route       path="/register"   render={(history)=>(<RegisterPage  callback={this.setLoginUser.bind(this)} history  ={history.history} serverURL={serverURL}/>)} />
                         <Route                          render={()=>(       <LoginPage     callback={this.setLoginUser.bind(this)} serverURL={serverURL}/>)} />
                     </Switch>

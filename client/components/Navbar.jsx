@@ -13,7 +13,7 @@ const LogedinList = () =>(
         {/* <li><NavLink to="/goal/calendar"            activeClassName="active">My Calendar</NavLink></li> */}
         {/* <li><NavLink to="/service/find/all/3000"    activeClassName="active">Services</NavLink> </li> */}
         {/* <li><NavLink to="/about"                    activeClassName="active">About</NavLink></li> */}
-        <li><NavLink to="/planner"                activeClassName="active">Nutrition</NavLink></li>
+        <li><NavLink to="/planner"                  activeClassName="active">Nutrition</NavLink></li>
         <li><NavLink to="/nutrition"                activeClassName="active">Excersise</NavLink></li>
         <li><NavLink to="/nutrition"                activeClassName="active">Activities</NavLink></li>
         <li><NavLink to="/nutrition"                activeClassName="active">Health Status</NavLink></li>
@@ -56,11 +56,11 @@ class Navbar extends Component{
                         <ul className="nav navbar-nav navbar-right">
 
                             {this.props.user?
-                                <li class="dropdown">
-                                    <Link to="/home"  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        Welcome,{this.props.user.userName}<span class="caret"></span>
+                                <li className="dropdown">
+                                    <Link to="/home"  className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        Welcome,{this.props.user.userName}<span className="caret"></span>
                                     </Link>
-                                    <ul class="dropdown-menu">
+                                    <ul className="dropdown-menu">
                                         <li><NavLink to="/profiles">Switch Profile</NavLink></li>
                                         <li><NavLink to="/">Logout</NavLink></li>
                                     </ul>

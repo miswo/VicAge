@@ -21,7 +21,7 @@ export default class LoginPage extends React.Component{
         .then((res)=>{
             if(res.data.status == 200){
                 this.props.callback(res.data.data);
-                this.props.history.push('/home');
+                // this.props.history.push('/home');
             }
             else
                 alert(res.data.message)
