@@ -1,6 +1,30 @@
 import React,{Component} from 'react';
-import {NavLink} from 'react-router-dom';
+import {NavLink,Link} from 'react-router-dom';
 
+
+
+
+const LogedinList = () =>(
+    <ul className="nav navbar-nav">
+        {/* <li><NavLink to="/" exact                   activeClassName="active">Home</NavLink></li> */}
+        <li><NavLink to="/home" exact                   activeClassName="active">Home</NavLink></li>
+        {/* <li><NavLink to="/event"        activeClassName="active">Event</NavLink></li> */}
+        {/* <li><NavLink to="/list/all"                 activeClassName ="active">Lists</NavLink></li> */}
+        {/* <li><NavLink to="/goal/calendar"            activeClassName="active">My Calendar</NavLink></li> */}
+        {/* <li><NavLink to="/service/find/all/3000"    activeClassName="active">Services</NavLink> </li> */}
+        {/* <li><NavLink to="/about"                    activeClassName="active">About</NavLink></li> */}
+        <li><NavLink to="/planner"                activeClassName="active">Nutrition</NavLink></li>
+        <li><NavLink to="/nutrition"                activeClassName="active">Excersise</NavLink></li>
+        <li><NavLink to="/nutrition"                activeClassName="active">Activities</NavLink></li>
+        <li><NavLink to="/nutrition"                activeClassName="active">Health Status</NavLink></li>
+    </ul>
+)
+
+
+const DefaultList = () =>(
+    <ul className="nav navbar-nav">
+    </ul>
+)
 
 class Navbar extends Component{
     render(){
@@ -26,18 +50,24 @@ class Navbar extends Component{
                     </div>
 
                     <div className="collapse navbar-collapse " id="navbar-menu">
-                        <ul className="nav navbar-nav">
-                            <li><NavLink to="/" exact                   activeClassName="active">Home</NavLink></li>
-                            {/* <li><NavLink to="/event"        activeClassName="active">Event</NavLink></li> */}
-                            <li><NavLink to="/list/all"                 activeClassName ="active">Lists</NavLink></li>
-                            {/* <li><NavLink to="/goal/calendar"            activeClassName="active">My Calendar</NavLink></li> */}
-                            <li><NavLink to="/service/find/all/3000"    activeClassName="active">Services</NavLink> </li>
-                            <li><NavLink to="/nutrition"                activeClassName="active">Nutrition</NavLink></li>
-                            <li><NavLink to="/about"                    activeClassName="active">About</NavLink></li>
-                        </ul>
+                        
+                        {this.props.user?<LogedinList />:<DefaultList />}
 
                         <ul className="nav navbar-nav navbar-right">
-                            <li><NavLink to="/home"              activeClassName="active">Welcome,{this.props.user.userName}</NavLink></li>
+
+                            {this.props.user?
+                                <li class="dropdown">
+                                    <Link to="/home"  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        Welcome,{this.props.user.userName}<span class="caret"></span>
+                                    </Link>
+                                    <ul class="dropdown-menu">
+                                        <li><NavLink to="/profiles">Switch Profile</NavLink></li>
+                                        <li><NavLink to="/">Logout</NavLink></li>
+                                    </ul>
+                                </li>
+                                :
+                                <li><NavLink to="/login"             activeClassName="active">Login </NavLink></li>
+                            }
                         </ul>
                     </div>
 

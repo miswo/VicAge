@@ -7,7 +7,6 @@ router.post('/login',(req,res)=>{
     var collection = db.get().collection('user');
     collection.findOne({userName:req.body.userName},(err,result)=>{
         if(err) return console.log(err);
-        console.log(result);
         if(!result)
             res.json({status:403,message:'No Such User'})
         else if(result.password === req.body.password)

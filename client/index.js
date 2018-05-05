@@ -80,14 +80,15 @@ class App extends Component {
         return (
             <Router>
                 <div className="page">
-                <Switch>
-                    <Route exact path="/" render={(history)=>(<HomePage history={history.history}/>)}/>
-                    <Route       path="/login"      render={()=>(       <LoginPage     callback={this.setLoginUser.bind(this)} serverURL={serverURL}/>)} />
-                    <Route       path="/register"   render={(history)=>(<RegisterPage  callback={this.setLoginUser.bind(this)} history={history.history} serverURL={serverURL}/>)} />
-                    <Route                          render={()=>(       <LoginPage     callback={this.setLoginUser.bind(this)} serverURL={serverURL}/>)} />
-                </Switch>
+                    <Navbar />
+                    <Switch>
+                        <Route exact path="/"           render={(history)=>(<HomePage history={history.history}/>)}/>
+                        <Route       path="/login"      render={()=>(       <LoginPage     callback={this.setLoginUser.bind(this)} history  ={history.history} serverURL={serverURL}/>)} />
+                        <Route       path="/register"   render={(history)=>(<RegisterPage  callback={this.setLoginUser.bind(this)} history  ={history.history} serverURL={serverURL}/>)} />
+                        <Route                          render={()=>(       <LoginPage     callback={this.setLoginUser.bind(this)} serverURL={serverURL}/>)} />
+                    </Switch>
 
-                <Footer />
+                    <Footer />
                 
                 </div>
             </Router>
@@ -119,8 +120,8 @@ class App extends Component {
                         <Route path="/goal/calendar"            render={(history)=><CalendarPage            match={history} history={history.history}   serverURL={serverURL} data={this.state.data} user={this.state.user}/>}/>}
                         <Route path="/home"                     render={()=><UserCenterPage />} />
                         <Route path="/nutrition"                render={()=><NutrtionPage />  } />
-                        <Route path="/user/profile"             render=  {()=><ProfilePage user={this.state.user} serverURL={serverURL}/>  } />
-                        <Route path="/planner"                  render=  {()=><PlannerPage user={this.state.user} serverURL={serverURL}/>  } />
+                        <Route path="/user/profile"             render={()=><ProfilePage user={this.state.user} serverURL={serverURL}/>  } />
+                        <Route path="/planner"                  render={()=><PlannerPage user={this.state.user} serverURL={serverURL}/>  } />
 
 
                         <Route path="/service/find/:serviceName/:postcode"    render={(history)=>(<ListServicePage        match ={history} history={history.history}  serverURL = {serverURL}/>)} />

@@ -30,10 +30,10 @@ exports.NutritionRequirementCalculator = (age,gender,height,weight,activeLevel)=
             else    
                 fiber= 25;
 
-        var fat = '';
+        var fat = 0;
         if(age >20)
             fat = 20;
-        else if (age>4)
+        else if (age > 4)
             fat = 30;
         else 
             fat = 40;
