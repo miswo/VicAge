@@ -23,10 +23,12 @@ export default class ProfilePage extends React.Component{
 
     onSubmitInputProfile(e){
         e.preventDefault();
+
+        var name = document.getElementById('input-name').value;
         var age = document.getElementById('input-age').value;
         age = parseInt(Math.round(age));
-        var gender = document.getElementById('input-gender').value;
 
+        var gender = document.getElementById('input-gender').value;
         var weight = document.getElementById('input-weight').value;
         weight = parseInt(Math.round(weight));
 
@@ -46,7 +48,7 @@ export default class ProfilePage extends React.Component{
         
         axios.post(this.props.serverURL + '/user/profile',{
             _id:this.props.user.id,
-            profile:{age,gender,weight,height,activeLevel}
+            profile:{name,age,gender,weight,height,activeLevel}
         })
         .then((res)=>{
             if(res.data.status == 200)
@@ -57,10 +59,13 @@ export default class ProfilePage extends React.Component{
 
     onValueChange(e){
         e.preventDefault();
+
+        var name = document.getElementById('input-name').value;
+
         var age = document.getElementById('input-age').value;
         age = parseInt(Math.round(age));
-        var gender = document.getElementById('input-gender').value;
 
+        var gender = document.getElementById('input-gender').value;
         var weight = document.getElementById('input-weight').value;
         weight = parseInt(Math.round(weight));
 
@@ -71,7 +76,7 @@ export default class ProfilePage extends React.Component{
         activeLevel = parseFloat(activeLevel);
 
         this.setState({
-            profile:{age,gender,weight,height,activeLevel}
+            profile:{name,age,gender,weight,height,activeLevel}
         })
     }
 
@@ -101,7 +106,7 @@ export default class ProfilePage extends React.Component{
             <div id="profile-page">
                 <div className="jumbotron banner">
                     <div className="container">
-                        <h2>Profile</h2>
+                        <h2>{this.state.profile.name?this.state.profile.name + '\'s Profile':'Profile'}</h2>
                         <p>Set a profile.</p>
                     </div>
                 </div>
@@ -114,6 +119,22 @@ export default class ProfilePage extends React.Component{
                             <div className="query-box">
                                 <h3>Set Profile of Your Dependant</h3>
                                 <form className="form" onSubmit={this.onSubmitInputProfile.bind(this)}>
+
+                                    <div className="row">
+                                        <div className="form-group">
+                                            <div className="col-xs-3 col-sm-3 col-md-2 col-lg-2">
+                                                <label htmlFor="input-name">Name:</label>
+                                            </div>
+                                            <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                                                <input required  value={this.state.profile?this.state.profile.name:''} 
+                                                        onChange = {this.onValueChange.bind(this)} 
+                                                        className="form-control query-input" 
+                                                        type="text" 
+                                                        id="input-name" />
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     <div className="row">
                                         <div className="form-group">
                                             <div className="col-xs-3 col-sm-3 col-md-2 col-lg-2">

@@ -28,9 +28,10 @@ router.post('/register',(req,res)=>{
         if(result)
             res.json({status:403,message:'Email Already Exist.'})
         else{
-            collection.save(newUser,(err,result)=>{
+            collection.insert(newUser,(err,result)=>{
                 if(err) return console.log(err);
-                res.json({status:200,message:'ok',data:{userName:result.userName,id:result._id,profile:result.profile}})
+                console.log(newUser);
+                res.json({status:200,message:'ok',data:{userName:newUser.userName,id:newUser._id,profile:newUser.profile}})
             })
         }
     })

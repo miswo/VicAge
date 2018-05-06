@@ -54,7 +54,7 @@ import "./main2.scss";
 
 // Local Server
 const serverURL = 'http://localhost:5000';
-// const serverURL = 'http://118.139.95.189:5000';
+// const serverURL = 'http://118.139.84.138:5000';
 
 
 class App extends Component {

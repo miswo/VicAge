@@ -39,7 +39,7 @@ export default class LoginPage extends React.Component{
 
                     <div className="login-form">
                         <form className="form" onSubmit={this.onSubmit.bind(this)}>
-                            <h3>Welcome to VicAge!</h3>
+                            <h3>Register</h3>
                             <div className="form-group">
                                 <label htmlFor="email">Email:</label>
                                 <input required id="email" type="email" className="form-control"/>
