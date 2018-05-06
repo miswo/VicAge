@@ -23,7 +23,6 @@ export default class PlannerPage extends React.Component{
             selectedRecipe:{},
             mealPlans:[],
             mealPlansForTheDay:[],
-            excercisePlans:[]
         }
     }
 
@@ -80,8 +79,6 @@ export default class PlannerPage extends React.Component{
         const mealPlans = this.state.mealPlansForTheDay.map((item)=>(
             <p key={item._id}>{item.planName}({item.quantity}g)</p>
         ));
-
-
         return mealPlans;
     }
 
@@ -123,11 +120,11 @@ export default class PlannerPage extends React.Component{
 
     render(){
         return(
-            <div id="planner-page">
+            <div id="nutrition-planner-page">
                 <div className="jumbotron banner">
                     <div className="container">
-                        <h2>Planner</h2>
-                        <p>Make the Diary and Excersies Plan.</p>
+                        <h2>Nutrition Planner</h2>
+                        <p>Make Nutrition Plan.</p>
                     </div>
 
                 </div>
@@ -162,8 +159,6 @@ export default class PlannerPage extends React.Component{
                                 <hr/>
                                 <h4>Dietary</h4>
                                     {this.renderMealPlans()}  
-                                <hr/>
-                                <h4>Excercise</h4>
                                 <hr/>
                                 <h4>Nutrition Status</h4>
                                 {this.renderNutritionStatus()}
