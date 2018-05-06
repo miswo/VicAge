@@ -57,7 +57,6 @@ router.post('/register',(req,res)=>{
 
 
 router.post('/profile',(req,res)=>{
-    console.log(req.body);
     var collection = db.get().collection('user');
     var profileCollection = db.get().collection('profile');
 
@@ -79,7 +78,6 @@ router.post('/profile',(req,res)=>{
                 }}
             ,(err,result)=>{
                 if(err) return console.log(err);
-                console.log('success');
                 res.json({status:200})
             })
     })

@@ -13,7 +13,6 @@ export default class ProfilePage extends React.Component{
     }
 
     componentDidMount(){
-        console.log(this.props.user);
         axios.get(this.props.serverURL+'/user/profile/'+this.props.user.id)
         .then((res)=>{
             this.setState({
@@ -50,7 +49,6 @@ export default class ProfilePage extends React.Component{
         
         var profile = {name,age,gender,weight,height,activeLevel};
         profile.id = this.props.user.profile.id;
-        console.log(profile);
         axios.post(this.props.serverURL + '/user/profile',{
             _id:this.props.user.id,
             profile
