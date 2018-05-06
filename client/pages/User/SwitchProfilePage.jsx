@@ -81,7 +81,7 @@ export default class SwitchProflePage extends React.Component{
                     <div className="row">
                         {this.renderProfiles()}
 
-                        <div className="btn btn-primary function-square" onClick={this.handleAddnewProfile.bind(this)}>Add New Profile</div>
+                        <div className="btn btn-default function-square" onClick={this.handleAddnewProfile.bind(this)}>Add New Profile</div>
 
                     </div>
                 </div>

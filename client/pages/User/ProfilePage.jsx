@@ -147,7 +147,7 @@ export default class ProfilePage extends React.Component{
                                                 <label htmlFor="input-age">Age:</label>
                                             </div>
                                             <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                                                <input required  value={this.state.profile?this.state.profile.age:''} 
+                                                <input required  value={this.state.profile?this.state.profile.age:0} 
                                                         onChange = {this.onValueChange.bind(this)} 
                                                         className="form-control query-input" 
                                                         type="number" 
@@ -184,7 +184,7 @@ export default class ProfilePage extends React.Component{
                                         <div className="col-xs-9 col-sm-9 col-md-8 col-lg-8">
                                         
                                             <input required onChange = {this.onValueChange.bind(this)} 
-                                                    value={this.state.profile?this.state.profile.height:''}  
+                                                    value={this.state.profile?this.state.profile.height:0}  
                                                     className="form-control query-input" 
                                                     type="number" 
                                                     id="input-height" />
@@ -201,7 +201,7 @@ export default class ProfilePage extends React.Component{
                                             </div>
                                             <div className="col-xs-9 col-sm-9 col-md-8 col-lg-8">
                                                 <input required onChange = {this.onValueChange.bind(this)} 
-                                                        value={this.state.profile?this.state.profile.weight:''} 
+                                                        value={this.state.profile?this.state.profile.weight:0} 
                                                         className="form-control query-input" 
                                                         type="number" 
                                                         id="input-weight" />
@@ -219,7 +219,7 @@ export default class ProfilePage extends React.Component{
                                             </div>
                                             <div className="col-xs-9 col-sm-9 col-md-6 col-lg-6">
                                                 <select required onChange = {this.onValueChange.bind(this)} 
-                                                        value={this.state.profile?this.state.profile.activeLevel:''}
+                                                        value={this.state.profile?this.state.profile.activeLevel:0}
                                                         className="form-control query-input" 
                                                         name="input-active-level" 
                                                         id="input-active-level">

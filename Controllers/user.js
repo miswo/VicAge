@@ -119,13 +119,13 @@ router.post('/new-profile/',(req,res)=>{
     profileCollection.insertOne(newProfile,(err,result)=>{
         if(err) console.log(err)
 
-        console.log(newProfile);
         var allProfile = req.body.allProfile;
         allProfile.push(newProfile._id.toString());
+        
+        collection.findOneAndUpdate({_id:ObjectID(req.body.userid)},{$set:{allProfile:allProfile}},(err,result)=>{
+            res.json({profile:{id:newProfile._id.toString(),name:newProfile.name},allProfile})
+        })
 
-        collection.findOneAndUpdate({_id:Object(req.body.userid)},{allProfile})
-
-        res.json({profile:{id:newProfile._id.toString(),name:newProfile.name},allProfile})
     })
 })
 
