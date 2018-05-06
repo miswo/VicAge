@@ -24,6 +24,13 @@ export default class ExercisePlannerPage extends React.Component{
     }
 
     componentDidMount(){ 
+
+        axios.get(this.props.serverURL+'/planner/exercises')
+        .then((res)=>{
+            this.setState({exercises:res.data.exercises})
+        })
+
+
         axios.post(this.props.serverURL+'/planner/exercise-plans',{
             userid:this.props.user.id,
             profileid:this.props.user.profile.id
