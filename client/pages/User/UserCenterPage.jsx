@@ -45,19 +45,19 @@ export default class UserCenterPage extends React.Component{
                 <div className="container">
                     <div className="row">
                         <div className="col-md-3">
-                        <NavLink to={"/planner"}>
+                        <NavLink to={"/nutrition-planner"}>
                             <div className="concept-block" id="listImgColor">
                                 <div className="img-wrapper">
                                     <img className="userCenterImg" src="http://d-ash.lolipop.jp/img/pizza.png" />
                                 </div>
-                                <h3>Dietary Planner</h3>
+                                <h3>Nutrition Planner</h3>
                             </div>
                         </NavLink>  
-                    </div>
+                        </div>
 
                   
                         <div className="col-md-3">
-                            <NavLink to={"/planner"}>
+                            <NavLink to={"/exercise-planner"}>
                             <div className="concept-block" id="listImgColor">
                                 <div className="img-wrapper">
                                     <img className="userCenterImg" src="http://d-ash.lolipop.jp/img/exercise.png" />
@@ -68,7 +68,7 @@ export default class UserCenterPage extends React.Component{
                         </div>
 
                         <div className="col-md-3">
-                            <NavLink to={"/planner"}>
+                            <NavLink to={"/exercise-planner"}>
                             <div className="concept-block" id="listImgColor">
                                 <div className="img-wrapper">
                                     <img className="userCenterImg" src="http://d-ash.lolipop.jp/img/happy.png" />
@@ -79,7 +79,7 @@ export default class UserCenterPage extends React.Component{
                         </div>
 
                         <div className="col-md-3">
-                            <NavLink to={"/planner"}>
+                            <NavLink to={"/exercise-planner"}>
                             <div className="concept-block" id="listImgColor">
                                 <div className="img-wrapper">
                                     <img className="userCenterImg" src="http://d-ash.lolipop.jp/img/monitor.png" />
@@ -88,7 +88,17 @@ export default class UserCenterPage extends React.Component{
                             </div>
                             </NavLink>
                         </div>
-
+        
+                        <div className="col-md-3">
+                            <NavLink to={"/user/profile"}>
+                            <div className="concept-block" id="listImgColor">
+                                <div className="img-wrapper">
+                                    <img className="userCenterImg" src="http://d-ash.lolipop.jp/img/monitor.png" />
+                                </div>
+                                <h3>Edit Profil</h3>
+                            </div>
+                            </NavLink>
+                        </div>
 
                     </div>
                 </div>

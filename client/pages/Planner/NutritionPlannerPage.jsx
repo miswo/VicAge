@@ -23,7 +23,6 @@ export default class PlannerPage extends React.Component{
             selectedRecipe:{},
             mealPlans:[],
             mealPlansForTheDay:[],
-            excercisePlans:[]
         }
     }
 
@@ -80,8 +79,6 @@ export default class PlannerPage extends React.Component{
         const mealPlans = this.state.mealPlansForTheDay.map((item)=>(
             <p key={item._id}>{item.planName}({item.quantity}g)</p>
         ));
-
-
         return mealPlans;
     }
 
@@ -102,16 +99,16 @@ export default class PlannerPage extends React.Component{
                 currentNutrition.Fiber   += parseFloat(mealPlan.recipe.Fiber)   * mealPlan.quantity/100;
                 currentNutrition.Fat     += parseFloat(mealPlan.recipe.Fat)     * mealPlan.quantity/100;
                 currentNutrition.Protein += parseFloat(mealPlan.recipe.Protein) * mealPlan.quantity/100;
-                currentNutrition.Calorie += Math.round(parseFloat(mealPlan.recipe.Energy),2) * mealPlan.quantity/100;
+                currentNutrition.Calorie += parseFloat(mealPlan.recipe.Energy)  * mealPlan.quantity/100;
             }
 
             const nutritionStatus = (
                 <div className="nutritionStatusBox">
-                    <p>Fiber:   {currentNutrition.Fiber}    / {this.state.nutritionRequirement.fiber} g</p>
-                    <p>Fat:     {currentNutrition.Fat}      / {this.state.nutritionRequirement.fat} g</p>
-                    <p>Protein: {currentNutrition.Protein}  / {this.state.nutritionRequirement.protein} g</p>
-                    <p>Calcium: {currentNutrition.Calcium}  / {this.state.nutritionRequirement.calcium} mg</p>
-                    <p>Calorie: {currentNutrition.Calorie}  / {this.state.nutritionRequirement.calorie} kcal</p>
+                    <p>Fiber:   {Math.round(currentNutrition.Fiber,2)}    / {Math.round(this.state.nutritionRequirement.fiber,2)} g</p>
+                    <p>Fat:     {Math.round(currentNutrition.Fat,2)}      / {Math.round(this.state.nutritionRequirement.fat,2)} g</p>
+                    <p>Protein: {Math.round(currentNutrition.Protein,2)}  / {Math.round(this.state.nutritionRequirement.protein,2)} g</p>
+                    <p>Calcium: {Math.round(currentNutrition.Calcium,2)}  / {Math.round(this.state.nutritionRequirement.calcium,2)} mg</p>
+                    <p>Calorie: {Math.round(currentNutrition.Calorie,2)}  / {Math.round(this.state.nutritionRequirement.calorie,2)} kcal</p>
                 
                 </div>
             )
@@ -123,11 +120,11 @@ export default class PlannerPage extends React.Component{
 
     render(){
         return(
-            <div id="planner-page">
+            <div id="nutrition-planner-page">
                 <div className="jumbotron banner">
                     <div className="container">
-                        <h2>Planner</h2>
-                        <p>Make the Diary and Excersies Plan.</p>
+                        <h2>Nutrition Planner</h2>
+                        <p>Make Nutrition Plan.</p>
                     </div>
 
                 </div>
@@ -162,8 +159,6 @@ export default class PlannerPage extends React.Component{
                                 <hr/>
                                 <h4>Dietary</h4>
                                     {this.renderMealPlans()}  
-                                <hr/>
-                                <h4>Excercise</h4>
                                 <hr/>
                                 <h4>Nutrition Status</h4>
                                 {this.renderNutritionStatus()}
