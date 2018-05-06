@@ -98,8 +98,7 @@ export default class ExercisePlannerPage extends React.Component{
 
         if(exercise == null)
             return alert('Something is wrong');
-
-        axios.post(this.props.serverURL +'/planner/add-new-exercise',{
+        var newExercisePlan ={
             planName:exercise.ExerciseName,
             type:'Exercise',
             userid:this.props.user.id,
@@ -107,10 +106,14 @@ export default class ExercisePlannerPage extends React.Component{
             date:moment(this.state.selectedDate).format('YYYY-MM-DD'),
             exercise,
             quantity
-        })
+        };
+        axios.post(this.props.serverURL +'/planner/add-new-exercise',newExercisePlan)
         .then((res)=>{
             if(res.data.status==200){
                 alert('Exercise Plan Added');
+                var exercisePlans = this.state.exercisePlans;
+                exercisePlans.push(newExercisePlan);
+                this.setState({exercisePlans});
             }
         })
     }

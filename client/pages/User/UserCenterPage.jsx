@@ -32,13 +32,10 @@ export default class UserCenterPage extends React.Component{
     render(){
         return(
 
-
-
-
             <div id="user-center-page">
                 <div className="jumbotron banner">
                     <div className="container">
-                        <h2>User Center</h2>
+                        <h2>{this.props.user.profile.name}'s Center</h2>
                     </div>
                 </div>
 

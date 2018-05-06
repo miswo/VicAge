@@ -8,18 +8,17 @@ export default class ProfilePage extends React.Component{
     constructor(props){
         super(props);
         this.state={
-            profile:{},
+            profile:this.props.user.profile
         }
     }
 
     componentDidMount(){
-        axios.get(this.props.serverURL+'/user/profile/'+this.props.user.id)
-        .then((res)=>{
-            this.setState({
-                profile:res.data.profile,
-            })
-
-        })
+        // axios.get(this.props.serverURL+'/user/profile/'+this.props.user.id)
+        // .then((res)=>{
+        //     this.setState({
+        //         profile:res.data.profile,
+        //     })
+        // })
     }
 
     onSubmitInputProfile(e){
@@ -96,12 +95,51 @@ export default class ProfilePage extends React.Component{
                                                                         profile.activeLevel);
         
         const requirements =
-        <div>
-            <p>Calcium: {nutritionRequirements.calcium} mg</p>
-            <p>Fiber: {nutritionRequirements.fiber} g</p>
-            <p>Fat: {nutritionRequirements.fat} g</p>
-            <p>Protein: {nutritionRequirements.protein} g</p>
-            <p>Calorie: {nutritionRequirements.calorie} kcal</p>
+        <div className="row">
+            <div className="col-md-1">
+                <div className="concept-block" id="NutriImg">
+                    <p>Calcium</p>
+                    <img src="http://d-ash.lolipop.jp/img/calcium.png" />
+                    <h4>{nutritionRequirements.calcium}</h4>
+                    <p>mg</p>
+                </div>
+            </div>
+
+            <div className="col-md-1">
+                <div className="concept-block" id="NutriImg">
+                    <p>Fiber</p>
+                    <img src="http://d-ash.lolipop.jp/img/fiber.png" />
+                    <h4>{nutritionRequirements.fiber}</h4>
+                    <p>g</p>
+                </div>
+            </div>
+
+            <div className="col-md-1">
+                <div className="concept-block" id="NutriImg">
+                <p>Fat</p>
+                        <img src="http://d-ash.lolipop.jp/img/fat.png" />
+                        <h4>{nutritionRequirements.fat}</h4>
+                    <p>g</p>
+                </div>
+            </div>
+
+            <div className="col-md-1">
+                <div className="concept-block" id="NutriImg">
+                <p>Protein</p>
+                <img src="http://d-ash.lolipop.jp/img/protein.png" />
+                <h4>{nutritionRequirements.protein}</h4>
+                <p>g</p>
+                </div>
+            </div>
+
+            <div className="col-md-1">
+                <div className="concept-block" id="NutriImg">
+                    <p>Calorie</p>
+                    <img src="http://d-ash.lolipop.jp/img/calorie.png" />
+                    <h4>{nutritionRequirements.calorie}</h4>
+                    <p>kcal</p>
+                </div>
+            </div>
 
         </div>
 
@@ -113,7 +151,7 @@ export default class ProfilePage extends React.Component{
             <div id="profile-page">
                 <div className="jumbotron banner">
                     <div className="container">
-                        <h2>{this.state.profile.name?this.state.profile.name + '\'s Profile':'Profile'}</h2>
+                        <h2>{this.state.profile?this.state.profile.name + '\'s Profile':'Profile'}</h2>
                         <p>Set a profile.</p>
                     </div>
                 </div>
@@ -255,73 +293,13 @@ export default class ProfilePage extends React.Component{
                         <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                             <div className="query-box">
                                 <h3 id="NutritionH3">Nutrition Requirement</h3>
-
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-1">
-                        
-                            <div className="concept-block" id="NutriImg">
-                            <p>Calcium</p>
-                                    <img src="http://d-ash.lolipop.jp/img/calcium.png" />
-                                    <h4>000000</h4>
-                                <p>mg</p>
+                                <div className="container">
+                                    {this.renderNutritionRequirement()}
+                                </div>
                             </div>
                         </div>
-
-                        <div className="col-md-1">
-                        
-                            <div className="concept-block" id="NutriImg">
-                            <p>Fiber</p>
-                                    <img src="http://d-ash.lolipop.jp/img/fiber.png" />
-                                    <h4>000000</h4>
-                                <p>mg</p>
-                            </div>
-                        </div>
-
-                        <div className="col-md-1">
-                        
-                            <div className="concept-block" id="NutriImg">
-                            <p>Fat</p>
-                                    <img src="http://d-ash.lolipop.jp/img/fat.png" />
-                                    <h4>000000</h4>
-                                <p>g</p>
-                            </div>
-                        </div>
-
-                        <div className="col-md-1">
-                        
-                            <div className="concept-block" id="NutriImg">
-                            <p>Protein</p>
-                                    <img src="http://d-ash.lolipop.jp/img/protein.png" />
-                                    <h4>000000</h4>
-                                <p>g</p>
-                            </div>
-                        </div>
-
-                        <div className="col-md-1">
-                        
-                            <div className="concept-block" id="NutriImg">
-                            <p>Calorie</p>
-                                    <img src="http://d-ash.lolipop.jp/img/calorie.png" />
-                                <h4>000000</h4>
-                                <p>kcal</p>
-                            </div>
-                        </div>
-
-
-
-                    </div>
-                </div>
-
-
-                             
-                            </div>
-
-                        </div>
-
                                             
                     </div>
-
                 </div>
             </div>
         )
