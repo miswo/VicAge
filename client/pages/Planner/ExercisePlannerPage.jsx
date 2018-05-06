@@ -18,14 +18,18 @@ export default class ExercisePlannerPage extends React.Component{
             selectedDate:new Date(),
             exercises:[],
             exercisePlans:[],
+            exercisePlansForTheDay:[],
             selectedExerciseLevel:'Light',
         }
     }
 
     componentDidMount(){ 
-        axios.get(this.props.serverURL+'/planner/exercises')
+        axios.post(this.props.serverURL+'/planner/exercise-plans',{
+            userid:this.props.user.id,
+            profileid:this.props.user.profile.id
+        })
         .then((res)=>{
-            this.setState({exercises:res.data.exercises});
+            this.setState({exercisePlans:res.data.exercisePlans});
         })
 
     }
@@ -45,14 +49,18 @@ export default class ExercisePlannerPage extends React.Component{
     onSelectDate(selectedDate){
         this.setState({selectedDate});
         var date = moment(selectedDate).format('YYYY-MM-DD');
-
+        var exercisePlansForTheDay = [];
+        for(var i=0;i<this.state.exercisePlans.length;i++){
+            if(this.state.exercisePlans[i].date === date)
+                exercisePlansForTheDay.push(this.state.exercisePlans[i]);
+        }
+        this.setState({exercisePlansForTheDay})
         this.forceUpdate();
     }
 
     onSelectExerciseLevel(e){
         this.setState({selectedExerciseLevel:e.target.value})
     }
-
 
     renderExercisesToSelect(){
         var exercisesToDisplay = [];
@@ -100,6 +108,30 @@ export default class ExercisePlannerPage extends React.Component{
         })
     }
 
+    renderExercisePlan(){
+        const plans = this.state.exercisePlansForTheDay.map((item)=>(
+            <p key={item._id}>{item.planName}({item.quantity} Minutes)</p>
+        ))
+
+        return plans;
+    }
+
+    renderCalorieBurn(){
+        if(this.state.exercisePlansForTheDay.length == 0){
+            return <p>0 kcal</p>
+        }
+        var weight = this.props.user.profile.weight;
+
+        var calorieBurn = 0;
+
+        for(var i=0;i<this.state.exercisePlansForTheDay.length;i++){
+            var plan = this.state.exercisePlansForTheDay[i];
+            calorieBurn += parseFloat(plan.exercise.CalorieBurnt) * plan.quantity * weight / 10 / 10;
+        }
+
+        return <p> {calorieBurn} kcal</p>
+    }
+
     render(){
         return(
             <div id="excersise-planner-page">
@@ -118,7 +150,7 @@ export default class ExercisePlannerPage extends React.Component{
                             <div id="calendar">
                                 <BigCalendar
                                     date={this.state.selectedDate}
-                                    events={[]}
+                                    events={this.state.exercisePlans}
                                     startAccessor='date'
                                     endAccessor='date'
                                     titleAccessor='type'
@@ -140,7 +172,10 @@ export default class ExercisePlannerPage extends React.Component{
                                 <h3>{this.state.selectedDate.toDateString()} Daily View</h3>
                                 <hr/>
                                 <h4>Excersise</h4>
+                                {this.renderExercisePlan()}
                                 <hr/>
+                                <h4>Total Calorie Burn</h4>
+                                {this.renderCalorieBurn()}
                             </div>
                         </div>
                     </div>

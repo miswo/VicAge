@@ -54,4 +54,17 @@ router.post('/add-new-exercise',(req,res)=>{
     })
 })
 
+
+router.post('/exercise-plans',(req,res)=>{
+    var collection = db.get().collection('plan');
+    collection.find({
+        userid:req.body.userid,
+        profileid:req.body.profileid,
+        type:'Exercise'
+    }).toArray((err,result)=>{
+        if(err) console.log(err);
+        res.json({exercisePlans:result})
+    })
+})
+
 module.exports = router;
