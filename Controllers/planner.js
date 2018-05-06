@@ -26,11 +26,14 @@ router.post('/add-new-meal',(req,res)=>{
 })
 
 
-router.get('/meal-plans/:userid',(req,res)=>{
+router.post('/meal-plans/',(req,res)=>{
     var collection = db.get().collection('plan');
-    collection.find({userid:req.params.userid}).toArray((err,result)=>{
-        if(err) console.log(err);
-        res.json({mealPlans:result})
+    collection.find({
+        userid:req.body.userid,
+        profileid:req.body.profileid
+        }).toArray((err,result)=>{
+            if(err) console.log(err);
+            res.json({mealPlans:result})
     })
 })
 

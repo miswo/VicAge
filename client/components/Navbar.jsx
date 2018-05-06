@@ -27,6 +27,18 @@ const DefaultList = () =>(
 )
 
 class Navbar extends Component{
+    constructor(props){
+        super(props);
+        this.state={
+
+        }
+    }
+
+    handleLogout(){
+        this.props.dataTransfer({data:null})
+    }
+
+    
     render(){
         return(
             <div className="navbar navbar-default navbar-main">
@@ -61,8 +73,8 @@ class Navbar extends Component{
                                         Welcome,{this.props.user.userName}<span className="caret"></span>
                                     </Link>
                                     <ul className="dropdown-menu">
-                                        <li><NavLink to="/profiles">Switch Profile</NavLink></li>
-                                        <li><NavLink to="/">Logout</NavLink></li>
+                                        <li><NavLink to="/switch-profile">Switch Profile</NavLink></li>
+                                        <li><NavLink to="/" onClick={this.handleLogout.bind(this)}>Logout</NavLink></li>
                                     </ul>
                                 </li>
                                 :

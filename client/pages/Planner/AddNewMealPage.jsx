@@ -28,9 +28,10 @@ export default class AddNewMealPage extends React.Component{
 
         var newMealPlan = {
             planName:name,
-            type:'meal',
+            type:'Meal',
             recipe:this.props.recipe,
             userid:this.props.user.id,
+            profileid:this.props.user.profile.id,
             date,quantity
         };
 

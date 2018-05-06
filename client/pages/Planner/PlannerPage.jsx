@@ -27,8 +27,8 @@ export default class PlannerPage extends React.Component{
         }
     }
 
-    componentDidMount(){
-        axios.get(this.props.serverURL+'/planner/meal-plans/'+this.props.user.id)
+    componentDidMount(){ 
+        axios.post(this.props.serverURL+'/planner/meal-plans/',{userid:this.props.user.id,profileid:this.props.user.profile.id})
         .then((res)=>{
            this.setState({mealPlans:res.data.mealPlans})
         })
@@ -142,14 +142,14 @@ export default class PlannerPage extends React.Component{
                                     events={this.state.mealPlans}
                                     startAccessor='date'
                                     endAccessor='date'
-                                    titleAccessor='planName'
+                                    titleAccessor='type'
                                     views={['month']}
                                     onNavigate={this.onSelectDate.bind(this)}
                                     // selectable
                                     defaultDate ={new Date()}
                                     eventPropGetter={this.eventClassName}
                                     onSelectEvent={null}
-                                    popup={true}
+                                    popup={false}
                                 />
                             </div>
                         </div>
