@@ -1,0 +1,121 @@
+// Misu 
+
+
+body {
+    font-family: Lato,'Helvetica Neue',Helvetica,Arial,sans-serif;
+
+}
+
+.navbar{
+    margin-bottom: 0px;
+    min-height: 60px;
+}
+.navbar-default {
+    background-color: #fff;
+    border-color: #e7e7e7;
+}
+
+.row {
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+.carouselDescription{
+    font-size:4rem;
+}
+
+.item{
+    height:600px;
+}
+
+.carousel-caption{
+    left:10%;
+    padding-bottom: 200px;
+}
+
+.understandingVicAge{
+    padding:80px 30px;
+    background-color:#efefef;
+}
+
+#vicAgeExplain{
+    font-size:26px;
+}
+
+.featureExplain{
+    font-size:18px;
+    color:#767676;
+}
+
+.rounded-circle {
+    border-radius: 50% !important;
+}
+
+#understand-title{
+margin-top: 0px;
+margin-bottom: 20px;
+}
+
+#offerTitle {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.line{
+   width: 50%;
+   background-color: #149dcc;
+    color: #149dcc;
+    height: 2px;
+    margin: 0 auto;
+}
+
+#CTABtn{
+    margin-top:40px;
+    margin-left:30px;
+}
+
+#CTAregisterBtn{
+    width:150px;
+    margin: 5px 0;
+    font-size:2rem;
+    padding:10px 0;
+}
+
+.call-to-action{
+    padding:50px 0;
+    background: linear-gradient(45deg, #55b4d4, #c1c1c1);
+    h2{
+        color:#fff;
+    }
+}
+#lets{
+    font-size:22px;
+    color:#fff;
+}
+
+footer {
+    margin-top: 0px;
+}
+
+#login-page{
+padding: 200px;
+
+}
+#loginWelcome{
+}
+
+.loginLabel{
+    font-size:18px;
+}
+
+#Btnlogin{
+    margin-right:30px;
+}
+
+#navLoginBtn{
+    margin: 5px 0;
+    width:150px;
+    font-size:2rem;
+    background-color: #337ab7;
+    color:#fff;
+}

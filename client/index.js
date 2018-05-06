@@ -83,7 +83,7 @@ class App extends Component {
                 <div className="page">
                     <Navbar />
                     <Switch>
-                        <Route exact path="/"           render={(history)=>(<HomePage history={history.history}/>)}/>
+                        <Route exact path="/"           render={(history)=>(<HomePage      history={history.history}/>)}/>
                         <Route       path="/login"      render={(history)=>(<LoginPage     callback={this.setLoginUser.bind(this)} history  ={history.history} serverURL={serverURL}/>)} />
                         <Route       path="/register"   render={(history)=>(<RegisterPage  callback={this.setLoginUser.bind(this)} history  ={history.history} serverURL={serverURL}/>)} />
                         <Route                          render={()=>(       <LoginPage     callback={this.setLoginUser.bind(this)} serverURL={serverURL}/>)} />
@@ -101,7 +101,8 @@ class App extends Component {
                 <div className="page">
                     <Navbar user={this.state.user}/>
                     <Switch>
-                        <Route path="/about"  render ={()=>(<AboutPage/>)}/>
+                        <Route exact path="/"           render={(history)=>(<HomePage      history={history.history}/>)}/>
+                        {/* <Route path="/about"  render ={()=>(<AboutPage/>)}/> */}
                         {/* <Route exact path="/event"  render={()=>(<ListEventPage serverURL= {serverURL} />)}/>
                         <Route path="/event/create" render={(history)=>(<CreateEventPage    history = {history.history} serverURL= {serverURL}/>)}/>
                         <Route exact path="/event/:id" render={(history)=>(<ViewEventPage   history = {history.history} serverURL={serverURL} eventID={history.match.params.id} />)} />

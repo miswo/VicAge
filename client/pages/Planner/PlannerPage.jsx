@@ -34,7 +34,6 @@ export default class PlannerPage extends React.Component{
         })
 
         var profile = this.props.user.profile;
-        console.log(profile);
         if(profile.age == undefined) return this.setState({nutritionRequirement:false})
         var nutritionRequirement = util.NutritionRequirementCalculator(profile.age,profile.gender,profile.height,profile.weight,profile.activeLevel);
         this.setState({nutritionRequirement})
