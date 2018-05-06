@@ -1,2 +1,5 @@
 
-6.  clear appData after create sublist
+1.clear appData after create sublist
+2.Add not log in navbar
+3.Add exercise calendar
+4
