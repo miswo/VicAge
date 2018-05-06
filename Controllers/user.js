@@ -33,10 +33,10 @@ router.post('/register',(req,res)=>{
         if(result)
             res.json({status:403,message:'Email Already Exist.'})
         else{
-            var newProfile = {};
+            var newProfile = {name:'default name'};
             profileCollection.insert(newProfile,(err,result)=>{
                 if(err) return console.log(err);
-                newUser.profile = {id:newProfile._id.toString()};
+                newUser.profile = {id:newProfile._id.toString(),name:'default name'};
                 newUser.allProfile = [newProfile._id.toString()];
                 collection.insert(newUser,(err,result)=>{
                     if(err) return console.log(err);
@@ -70,6 +70,7 @@ router.post('/profile',(req,res)=>{
             profileCollection.findOneAndUpdate(
                 {_id:ObjectID(req.body.profile.id)},
                 {$set:{
+                    name:profile.name,
                     age:profile.age,
                     gender:profile.gender,
                     height:profile.height,
@@ -83,15 +84,49 @@ router.post('/profile',(req,res)=>{
     })
 })
 
-router.get('/profile/:userid',(req,res)=>{
-    var collection = db.get().collection('user');
+router.get('/profile/:profileid',(req,res)=>{
+    var collection = db.get().collection('profile');
     collection.findOne(
-        {_id:ObjectID(req.params.userid)},
+        {_id:ObjectID(req.params.profileid)},
         (err,result)=>{
             if(err) return console.log(err);
-            res.json({profile:result.profile})
+            res.json({profile:result})
         }
     )
+})
+
+router.post('/profiles/',(req,res)=>{
+    var collection = db.get().collection('profile');
+
+    var allProfile = req.body.allProfile;
+
+    for(var i=0;i<allProfile.length;i++)
+        allProfile[i] = ObjectID(allProfile[i]);
+
+    collection.find({_id:{$in:allProfile}}).toArray((err,result)=>{
+        if(err) return console.log(err);
+        res.json({profiles:result})
+    })
+
+});
+
+router.post('/new-profile/',(req,res)=>{
+    var profileCollection = db.get().collection('profile');
+    var collection = db.get().collection('user');
+
+
+    var newProfile = {name:'default name'};
+    profileCollection.insertOne(newProfile,(err,result)=>{
+        if(err) console.log(err)
+
+        console.log(newProfile);
+        var allProfile = req.body.allProfile;
+        allProfile.push(newProfile._id.toString());
+
+        collection.findOneAndUpdate({_id:Object(req.body.userid)},{allProfile})
+
+        res.json({profile:{id:newProfile._id.toString(),name:newProfile.name},allProfile})
+    })
 })
 
 

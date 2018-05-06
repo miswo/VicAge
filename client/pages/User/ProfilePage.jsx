@@ -13,12 +13,11 @@ export default class ProfilePage extends React.Component{
     }
 
     componentDidMount(){
-        axios.get(this.props.serverURL+'/user/profile/'+this.props.user.id)
+        axios.get(this.props.serverURL+'/user/profile/'+this.props.user.profile.id)
         .then((res)=>{
             this.setState({
                 profile:res.data.profile,
             })
-
         })
     }
 

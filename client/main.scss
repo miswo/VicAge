@@ -117,7 +117,7 @@ textarea{
 
 
 .banner{
-    // background:url("https://s3-ap-southeast-2.amazonaws.com/vicage-image/assets/5ac7afb67d9c430b3ce7140e.png") no-repeat center;
+    background:url("https://s3-ap-southeast-2.amazonaws.com/vicage-image/assets/5ac7afb67d9c430b3ce7140e.png") no-repeat center;
     h1,h2,h3{
         color:white;
     }
@@ -686,7 +686,7 @@ footer{
     }
 }
 
-//----------------Profile Page
+//----------------Profile Page ------------------------
 
 #profile-page{
     .row{
@@ -701,5 +701,16 @@ footer{
         margin-left:10px;
         margin-right:10px;
         width:150px;
+    }
+}
+
+
+//---------------Switch profile Page ----------------
+
+#switch-profile-page{
+    .function-square{
+        width:300px;
+        height:300px;
+        margin-bottom:50px;
     }
 }

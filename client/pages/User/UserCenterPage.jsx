@@ -27,16 +27,16 @@ export default class UserCenterPage extends React.Component{
             <div id="user-center-page">
                 <div className="jumbotron banner">
                     <div className="container">
-                        <h2>User Center</h2>
+                        <h2>{this.props.user?this.props.user.profile.name + '\'s Profile':'Profile Center'}</h2>
                     </div>
                 </div>
 
                 <div className="container">
                     <div className="row">
-                        {FunctionSquare('Profile','/user/profile')}
-                        {FunctionSquare('Planner','/planner')}
-                        {FunctionSquare('Plan Report','/planner/report')}
+                        {FunctionSquare('Edit Profile','/user/profile')}
+                        {FunctionSquare('Nutrition Planner','/planner')}
                         {FunctionSquare('Activity Calendar','/goal/calendar')}
+                        {FunctionSquare('Plan Report','/planner/report')}
                     </div>
                    
                 </div>
