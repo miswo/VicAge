@@ -3,10 +3,17 @@ $median-screen:979px;
 
 
 //------------------Generals------------------//
-
+body {
+    font-family: Lato,'Helvetica Neue',Helvetica,Arial,sans-serif;
+}
 
 #brand{
     color:#00a2e8;
+}
+
+.navbar{
+    margin-bottom: 0px;
+    min-height: 60px;
 }
 
 .navbar-default .navbar-brand{
@@ -23,7 +30,10 @@ $median-screen:979px;
 .navbar-nav>li>a.active{
     color:black;
 }
-
+.navbar-default {
+    background-color: #fff;
+    border-color: #e7e7e7;
+}
 table,th{
     text-align: center;
 }
