@@ -127,7 +127,7 @@ export default class HomePage extends React.Component{
 
                             <div className="col-md-8">
                                 <h2 className="pull-right">Are you interested?</h2>
-                                <div class="clearfix"></div>
+                                <div className="clearfix"></div>
                                     <p className="pull-right" id="lets">Let's start palnning better with VicAge.</p>
                                 </div>
                                 <div className="col-md-4">

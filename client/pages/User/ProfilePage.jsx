@@ -13,11 +13,13 @@ export default class ProfilePage extends React.Component{
     }
 
     componentDidMount(){
+        console.log(this.props.user);
         axios.get(this.props.serverURL+'/user/profile/'+this.props.user.id)
         .then((res)=>{
             this.setState({
                 profile:res.data.profile,
             })
+
         })
     }
 
@@ -46,13 +48,20 @@ export default class ProfilePage extends React.Component{
         if(height<=0 || height>= 300)
             return alert('Please enter a correct height.')
         
+        var profile = {name,age,gender,weight,height,activeLevel};
+        profile.id = this.props.user.profile.id;
+        console.log(profile);
         axios.post(this.props.serverURL + '/user/profile',{
             _id:this.props.user.id,
-            profile:{name,age,gender,weight,height,activeLevel}
+            profile
         })
         .then((res)=>{
-            if(res.data.status == 200)
-                alert('Profile have been saved');
+            if(res.data.status == 200){
+                var user = this.props.user;
+                user.profile = profile;
+                this.props.dataTransfer({user});
+                alert('Profile Change Saved.')
+            }
         })
 
     }

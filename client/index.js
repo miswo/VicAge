@@ -50,10 +50,10 @@ import "./main.scss";
 import "./main2.scss";
 
 // Remote Server 
-const serverURL = 'http://13.70.182.53:5000'; 
+// const serverURL = 'http://13.70.182.53:5000'; 
 
 // Local Server
-// const serverURL = 'http://localhost:5000';
+const serverURL = 'http://localhost:5000';
 // const serverURL = 'http://118.139.84.138:5000';
 
 
@@ -122,7 +122,7 @@ class App extends Component {
                         <Route path="/goal/calendar"            render={(history)=><CalendarPage            match={history} history={history.history}   serverURL={serverURL} data={this.state.data} user={this.state.user}/>}/>}
                         <Route path="/home"                     render={()=><UserCenterPage />} />
                         <Route path="/nutrition"                render={()=><NutrtionPage />  } />
-                        <Route path="/user/profile"             render={()=><ProfilePage user={this.state.user} serverURL={serverURL}/>  } />
+                        <Route path="/user/profile"             render={()=><ProfilePage user={this.state.user} serverURL={serverURL} dataTransfer={this.dataTransfer.bind(this)}/>  } />
                         <Route path="/planner"                  render={()=><PlannerPage user={this.state.user} serverURL={serverURL}/>  } />
 
 
