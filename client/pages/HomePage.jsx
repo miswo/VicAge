@@ -33,7 +33,7 @@ export default class HomePage extends React.Component{
                             <div className="container">
                                 <div className="carousel-caption text-left">
                                     <div className="col-md-8 px-0">
-                                        <p className="lead text-left carouselDescription">No matter who you care for, taking on a careinig role is a significant event thant brings many challenges and rewards.</p>
+                                        <p className="lead text-left carouselDescription">No matter who you care for, taking on a carinig role is a significant event thant brings many challenges and rewards.</p>
                                     </div>
                                 </div>
                         </div>

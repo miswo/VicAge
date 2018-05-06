@@ -13,11 +13,12 @@ export default class ProfilePage extends React.Component{
     }
 
     componentDidMount(){
-        axios.get(this.props.serverURL+'/user/profile/'+this.props.user.profile.id)
+        axios.get(this.props.serverURL+'/user/profile/'+this.props.user.id)
         .then((res)=>{
             this.setState({
                 profile:res.data.profile,
             })
+
         })
     }
 
@@ -123,13 +124,13 @@ export default class ProfilePage extends React.Component{
 
                         <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                             <div className="query-box">
-                                <h3>Set Profile of Your Dependant</h3>
-                                <form className="form" onSubmit={this.onSubmitInputProfile.bind(this)}>
+                                <h3 id="decorationH3">Set Profile of Your Dependant</h3>
+                                <form id="profileForm" className="form" onSubmit={this.onSubmitInputProfile.bind(this)}>
 
                                     <div className="row">
                                         <div className="form-group">
-                                            <div className="col-xs-3 col-sm-3 col-md-2 col-lg-2">
-                                                <label htmlFor="input-name">Name:</label>
+                                            <div className="col-xs-3 col-sm-3 col-md-2 col-lg-3">
+                                                <label htmlFor="input-name" className="pull-right">Name:</label>
                                             </div>
                                             <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                                                 <input required  value={this.state.profile?this.state.profile.name:''} 
@@ -143,11 +144,11 @@ export default class ProfilePage extends React.Component{
 
                                     <div className="row">
                                         <div className="form-group">
-                                            <div className="col-xs-3 col-sm-3 col-md-2 col-lg-2">
-                                                <label htmlFor="input-age">Age:</label>
+                                            <div className="col-xs-3 col-sm-3 col-md-2 col-lg-3">
+                                                <label htmlFor="input-age" className="pull-right">Age:</label>
                                             </div>
                                             <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                                                <input required  value={this.state.profile?this.state.profile.age:0} 
+                                                <input required  value={this.state.profile?this.state.profile.age:''} 
                                                         onChange = {this.onValueChange.bind(this)} 
                                                         className="form-control query-input" 
                                                         type="number" 
@@ -158,9 +159,9 @@ export default class ProfilePage extends React.Component{
 
                                     <div className="row">
                                         <div className="form-group">
-                                            <div className="col-xs-3 col-sm-3 col-md-2 col-lg-2">
+                                            <div className="col-xs-3 col-sm-3 col-md-2 col-lg-3">
                                             
-                                                <label htmlFor="input-gender">Gender:</label>
+                                                <label htmlFor="input-gender" className="pull-right">Gender:</label>
                                             </div>
                                             <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                                                 <select required  onChange = {this.onValueChange.bind(this)} 
@@ -177,14 +178,14 @@ export default class ProfilePage extends React.Component{
 
                                     <div className="row">
                                     <div className="form-group">
-                                        <div className="col-xs-3 col-sm-3 col-md-2 col-lg-2">
+                                        <div className="col-xs-3 col-sm-3 col-md-2 col-lg-3">
                                     
-                                            <label htmlFor="input-height">Height:</label>
+                                            <label htmlFor="input-height" className="pull-right">Height:</label>
                                         </div>
                                         <div className="col-xs-9 col-sm-9 col-md-8 col-lg-8">
                                         
                                             <input required onChange = {this.onValueChange.bind(this)} 
-                                                    value={this.state.profile?this.state.profile.height:0}  
+                                                    value={this.state.profile?this.state.profile.height:''}  
                                                     className="form-control query-input" 
                                                     type="number" 
                                                     id="input-height" />
@@ -196,12 +197,12 @@ export default class ProfilePage extends React.Component{
 
                                     <div className="row">
                                         <div className="form-group">
-                                            <div className="col-xs-3 col-sm-3 col-md-2 col-lg-2">
-                                                <label htmlFor="input-weight">Weight:</label>
+                                            <div className="col-xs-3 col-sm-3 col-md-2 col-lg-3">
+                                                <label htmlFor="input-weight" className="pull-right">Weight:</label>
                                             </div>
                                             <div className="col-xs-9 col-sm-9 col-md-8 col-lg-8">
                                                 <input required onChange = {this.onValueChange.bind(this)} 
-                                                        value={this.state.profile?this.state.profile.weight:0} 
+                                                        value={this.state.profile?this.state.profile.weight:''} 
                                                         className="form-control query-input" 
                                                         type="number" 
                                                         id="input-weight" />
@@ -213,13 +214,13 @@ export default class ProfilePage extends React.Component{
 
                                     <div className="row">
                                         <div className="form-group">
-                                            <div className="col-xs-3 col-sm-3 col-md-2 col-lg-2">
+                                            <div className="col-xs-3 col-sm-3 col-md-2 col-lg-3">
                                         
-                                                <label htmlFor="input-active-level">Active Level:</label>
+                                                <label htmlFor="input-active-level" className="pull-right">Active Level:</label>
                                             </div>
                                             <div className="col-xs-9 col-sm-9 col-md-6 col-lg-6">
                                                 <select required onChange = {this.onValueChange.bind(this)} 
-                                                        value={this.state.profile?this.state.profile.activeLevel:0}
+                                                        value={this.state.profile?this.state.profile.activeLevel:''}
                                                         className="form-control query-input" 
                                                         name="input-active-level" 
                                                         id="input-active-level">
@@ -232,15 +233,88 @@ export default class ProfilePage extends React.Component{
                                         </div>
                                     </div>
 
-                                    <button type="submit" className="btn btn-primary">Save Profile</button>
+
+                                    <div className="row">
+                                        <div className="form-group">
+                                            <div className="col-xs-3 col-sm-3 col-md-2 col-lg-3">
+                                           
+                                            </div>
+                                            <div className="col-xs-9 col-sm-9 col-md-8 col-lg-8" id="saveProfile">
+                                            <button type="submit" className="btn btn-primary" id="BtnSaveProfile">Save Profile</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                   
                                 </form>                        
                             </div>
                         </div>
 
+
+
                         <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                             <div className="query-box">
-                                <h3>Nutrition Requirement</h3>
-                                {this.renderNutritionRequirement()}
+                                <h3 id="NutritionH3">Nutrition Requirement</h3>
+
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-1">
+                        
+                            <div className="concept-block" id="NutriImg">
+                            <p>Calcium</p>
+                                    <img src="http://d-ash.lolipop.jp/img/calcium.png" />
+                                    <h4>000000</h4>
+                                <p>mg</p>
+                            </div>
+                        </div>
+
+                        <div className="col-md-1">
+                        
+                            <div className="concept-block" id="NutriImg">
+                            <p>Fiber</p>
+                                    <img src="http://d-ash.lolipop.jp/img/fiber.png" />
+                                    <h4>000000</h4>
+                                <p>mg</p>
+                            </div>
+                        </div>
+
+                        <div className="col-md-1">
+                        
+                            <div className="concept-block" id="NutriImg">
+                            <p>Fat</p>
+                                    <img src="http://d-ash.lolipop.jp/img/fat.png" />
+                                    <h4>000000</h4>
+                                <p>g</p>
+                            </div>
+                        </div>
+
+                        <div className="col-md-1">
+                        
+                            <div className="concept-block" id="NutriImg">
+                            <p>Protein</p>
+                                    <img src="http://d-ash.lolipop.jp/img/protein.png" />
+                                    <h4>000000</h4>
+                                <p>g</p>
+                            </div>
+                        </div>
+
+                        <div className="col-md-1">
+                        
+                            <div className="concept-block" id="NutriImg">
+                            <p>Calorie</p>
+                                    <img src="http://d-ash.lolipop.jp/img/calorie.png" />
+                                <h4>000000</h4>
+                                <p>kcal</p>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+
+
+                             
                             </div>
 
                         </div>
