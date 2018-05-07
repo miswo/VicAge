@@ -39,7 +39,7 @@ exports.NutritionRequirementCalculator = (age,gender,height,weight,activeLevel)=
             fat = 40;
 
         var protein =0;
-        protein = Math.round(weight * 0.8,2);
+        protein = Math.round(weight * 0.8 * 100)/100;
 
         var bmr = 0;
         if(gender ==='male')
@@ -47,7 +47,7 @@ exports.NutritionRequirementCalculator = (age,gender,height,weight,activeLevel)=
         if(gender ==='female')
             bmr = 10 * weight  + 6.25 * height - 5* age -161;
 
-        var calorie = Math.round(bmr * activeLevel,2);
+        var calorie = Math.round(bmr * activeLevel * 100) /100;
 
         return {calcium,fiber,fat,protein,calorie};
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import moment from 'moment';
 import util from '../../util/util';
-import rechart from 'recharts';
+import {AreaChart,XAxis,YAxis,CartesianGrid,Tooltip,Area,Legend} from 'recharts';
 
 
 
@@ -15,7 +15,7 @@ export default class HealthStatusPage extends React.Component{
             mealPlans:[],
             exercisePlans:[],
             nutritionRequirements:{},
-            dailyAverageIntake:{}
+            dailyAverageIntake:{},
         }
     }
 
@@ -144,8 +144,63 @@ export default class HealthStatusPage extends React.Component{
     }
 
     renderCalorieAreaChart(){
-        console.log(moment(Date()).endOf('month'))
-        
+        var dateNumber = moment().endOf('month').date();
+        var calorieIntake = [];
+        var calorieBurn = [];
+        var basicCalorieBurn = this.state.nutritionRequirements.calorie / this.props.user.profile.activeLevel * 1.2;
+
+        for(var i=0;i<dateNumber;i++){
+            calorieIntake.push(0);
+            calorieBurn.push(basicCalorieBurn);
+        }
+
+        for(var i=0;i<this.state.mealPlans.length;i++){
+            var date = moment(this.state.mealPlans[i].date).date();
+            calorieIntake[date] += this.state.mealPlans[i].recipe.Energy * this.state.mealPlans[i].quantity / 100;
+        }
+
+        for(var i=0;i<dateNumber;i++){
+            if(calorieIntake[i] == 0)
+                calorieIntake[i] = this.state.dailyAverageIntake.calorie;
+        }
+
+        for(var i=0;i<this.state.exercisePlans.length;i++){
+            var date = moment(this.state.exercisePlans[i].date).date();
+            calorieBurn[date] += this.state.exercisePlans[i].exercise.CalorieBurnt * this.state.exercisePlans[i].quantity * this.props.user.profile.weight /10 /10 ;
+        }
+        var data = [];
+
+        for(var i=0;i<dateNumber;i++){
+            data.push({
+                Date:i+1,
+                Intake:Math.round(calorieIntake[i]*100)/100,
+                Burn:Math.round(calorieBurn[i]*100)/100
+            })
+        }
+
+
+        var width = document.getElementById('chart-wrapper')?document.getElementById('chart-wrapper').offsetWidth:1080;
+        return(
+            <AreaChart width={width} height={400} data={data} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
+                <defs>
+                    <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="5%" stopColor="#8884d8" stopOpacity={0.8}/>
+                    <stop offset="95%" stopColor="#8884d8" stopOpacity={0}/>
+                    </linearGradient>
+                    <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="5%" stopColor="#82ca9d" stopOpacity={0.8}/>
+                    <stop offset="95%" stopColor="#82ca9d" stopOpacity={0}/>
+                    </linearGradient>
+                </defs>
+            <XAxis dataKey="Date" />
+            <YAxis />
+            <CartesianGrid strokeDasharray="3 3" />
+            <Legend verticalAlign="top" height={36}/>
+            <Tooltip />
+            <Area type="monotone" dataKey="Intake"  stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
+            <Area type="monotone" dataKey="Burn"    stroke="#82ca9d"   fillOpacity={1} fill="url(#colorPv)" />
+            </AreaChart>
+        )
     }
 
 
@@ -185,7 +240,7 @@ export default class HealthStatusPage extends React.Component{
                                 <li><p className={this.state.dailyAverageIntake.calcium<this.state.nutritionRequirements.calcium?'text-danger':'text-success'}>High Blood Pressure</p></li>
 
                                 <li><p className={this.state.dailyAverageIntake.protein<this.state.nutritionRequirements.protein?'text-danger':'text-success'}>Marasmus</p></li>
-                                <li><p className={this.state.dailyAverageIntake.protein<this.state.nutritionRequirements.protein?'text-danger':'text-success'}v>Kwashiorkor</p></li>
+                                <li><p className={this.state.dailyAverageIntake.protein<this.state.nutritionRequirements.protein?'text-danger':'text-success'}>Kwashiorkor</p></li>
                                 <li><p className={this.state.dailyAverageIntake.protein<this.state.nutritionRequirements.protein?'text-danger':'text-success'}>Cachexia</p></li>
                                 <li><p className={this.state.dailyAverageIntake.protein<this.state.nutritionRequirements.protein?'text-danger':'text-success'}>Chronic Kidney Failure</p></li>
                                 <li><p className={this.state.dailyAverageIntake.protein<this.state.nutritionRequirements.protein?'text-danger':'text-success'}>Chronic Obstructive Pulmonary Disease</p></li>
@@ -202,7 +257,13 @@ export default class HealthStatusPage extends React.Component{
 
 
                     <div className="row">
-                        {this.renderCalorieAreaChart()}
+                        <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <h4>Monthly Calorie Chart</h4>
+                            <div id="chart-wrapper">
+                                {this.renderCalorieAreaChart()}
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
             </div>
