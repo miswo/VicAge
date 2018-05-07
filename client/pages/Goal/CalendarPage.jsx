@@ -154,7 +154,6 @@ export default class CalendarPage extends React.Component{
                             <div className="daily-view">
                                 <div className="text-center"></div>
                                 <h3>Activity Detail</h3>
-                                <hr/>
                             </div>
                             {
                                 this.state.selectedEvent?

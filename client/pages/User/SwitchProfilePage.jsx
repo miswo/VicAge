@@ -48,7 +48,7 @@ export default class SwitchProflePage extends React.Component{
             .then((res)=>{
                 if(res.data.status == 200){
                     this.props.dataTransfer({user});
-                    this.props.history.push('/home');
+                    this.props.history.push('/center');
                 }
             })
         })

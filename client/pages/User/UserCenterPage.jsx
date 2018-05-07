@@ -80,7 +80,7 @@ export default class UserCenterPage extends React.Component{
                         </div>
 
                         <div className="col-md-3">
-                            <NavLink to={"/exercise-planner"}>
+                            <NavLink to={"/health-status"}>
                             <div className="concept-block" id="listImgColor">
                                 <div className="img-wrapper">
                                     <img className="userCenterImg" src="http://d-ash.lolipop.jp/img/monitor.png" />
