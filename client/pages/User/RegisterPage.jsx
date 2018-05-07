@@ -39,21 +39,20 @@ export default class LoginPage extends React.Component{
 
                     <div className="login-form">
                         <form className="form" onSubmit={this.onSubmit.bind(this)}>
-                            <h3>Register</h3>
+                            <h3 className="text-center" id="registerH3">Registration</h3>
                             <div className="form-group">
-                                <label htmlFor="email">Email:</label>
+                                <label htmlFor="email" className="loginLabel">Email:</label>
                                 <input required id="email" type="email" className="form-control"/>
                             </div>
                             <div className="form-group">
-                                <label htmlFor="user-password">Password:</label>
+                                <label htmlFor="user-password" className="loginLabel">Password:</label>
                                 <input required id="password" type="password" className="form-control"/>
                             </div>
                             <div className="form-group">
-                                <label htmlFor="repeat-password">Repeat Password:</label>
+                                <label htmlFor="repeat-password" className="loginLabel">Repeat Password:</label>
                                 <input required id="repeat-password" type="password" className="form-control"/>
                             </div>
-                            <button type="submit" className="btn btn-primary">Register</button>
-                            <NavLink to="/login" className="btn btn-default">Go to Login</NavLink>
+                            <button type="submit" className="btn btn-lg btn-warning">Register</button>
                         </form>
                     </div>
                 </div>
