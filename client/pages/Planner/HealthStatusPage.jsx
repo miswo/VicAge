@@ -14,6 +14,8 @@ export default class HealthStatusPage extends React.Component{
     componentDidMount(){
         axios.post(this.props.serverURL + '/planner/meal-plans',{userid:this.props.user.id,profileid:this.props.user.profile.id})
         .then((res)=>{
+            var mealPlans = res.data.mealPlans;
+            
             this.setState({mealPlans:res.data.mealPlans})
             console.log(this.state);
         })

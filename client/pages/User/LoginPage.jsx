@@ -22,7 +22,7 @@ export default class LoginPage extends React.Component{
             if(res.data.status == 200){
                 this.props.callback(res.data.data);
                 if(this.props.history)
-                    this.props.history.push('/home');
+                    this.props.history.push('/center');
             }
             else
                 alert(res.data.message)
@@ -51,7 +51,7 @@ export default class LoginPage extends React.Component{
                             </div>
 
                             <button type="submit" className="btn btn-lg btn-primary" id="Btnlogin">Login</button>
-                            <NavLink to="/register" className="btn btn-lg btn-warning">Register</NavLink>
+                            <NavLink to="/register" className="btn btn-lg btn-primary">Register</NavLink>
                         </form>
                     </div>
                 

@@ -112,8 +112,6 @@ export default class CalendarPage extends React.Component{
                     <div className="row">
                         <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                             <div id="calendar">
-                            {   
-                                this.state.goals.length!=0?
                                 <BigCalendar
                                     events={this.state.goals}
                                     startAccessor='startDate'
@@ -126,9 +124,6 @@ export default class CalendarPage extends React.Component{
                                     popup={true}
 
                                 />
-                                :
-                                <p>No Goals Yet...</p>
-                            }
                             </div>
 
                         </div>
@@ -176,7 +171,7 @@ export default class CalendarPage extends React.Component{
 
                     <div className="row">
                         <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                            <h4>Items to Add:</h4>
+                            <h4>Select Activities to add:</h4>
                             <ul className="list-group">
                                 {this.renderConceptsToSetGoal()}
                             </ul>
@@ -191,7 +186,7 @@ export default class CalendarPage extends React.Component{
                         <div className="modal-content">
                             <div className="modal-header">
                                 <button type="button" className="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                <h4 className="modal-title" id="gridSystemModalLabel">Set new Goal</h4>
+                                <h4 className="modal-title" id="gridSystemModalLabel">Add Activity</h4>
                             </div>
 
 

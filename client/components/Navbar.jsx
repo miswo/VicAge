@@ -7,17 +7,18 @@ import {NavLink,Link} from 'react-router-dom';
 const LogedinList = () =>(
     <ul className="nav navbar-nav">
         {/* <li><NavLink to="/" exact                   activeClassName="active">Home</NavLink></li> */}
-        <li><NavLink to="/home" exact                   activeClassName="active" className="btn">Center</NavLink></li>
+        <li><NavLink to="/center" exact                   activeClassName="active" >Center</NavLink></li>
         {/* <li><NavLink to="/event"                    activeClassName="active">Event</NavLink></li> */}
         {/* <li><NavLink to="/list/all"                 activeClassName ="active">Lists</NavLink></li> */}
-        {/* <li><NavLink to="/goal/calendar"            activeClassName="active">My Calendar</NavLink></li> */}
         {/* <li><NavLink to="/service/find/all/3000"    activeClassName="active">Services</NavLink> </li> */}
         {/* <li><NavLink to="/about"                    activeClassName="active">About</NavLink></li> */}
 
 
-        <li><NavLink to="/nutrition-planner"            activeClassName="active" className="btn">Dietary</NavLink></li>
-        <li><NavLink to="/exercise-planner"             activeClassName="active" className="btn">Exercise</NavLink></li>
+        <li><NavLink to="/dietary-planner"              activeClassName="active" >Dietary</NavLink></li>
+        <li><NavLink to="/exercise-planner"             activeClassName="active" >Exercise</NavLink></li>
+        <li><NavLink to="/goal/calendar"                activeClassName="active"> Activity</NavLink></li>
         <li><NavLink to="/health-status"                activeClassName="active">Health Status</NavLink></li>
+        
         {/* <li><NavLink to="/nutrition"                activeClassName="active" className="btn">Activities</NavLink></li> */}
         {/* <li><NavLink to="/nutrition"                activeClassName="active" className="btn">Health Status</NavLink></li> */}
     </ul>
@@ -81,7 +82,7 @@ class Navbar extends Component{
                                     </ul>
                                 </li>
                                 :
-                                <li><NavLink to="/login" activeClassName="active" id="navLoginBtn">Login </NavLink></li>
+                                <li><NavLink to="/login" >Login </NavLink></li>
                             }
                         </ul>
                     </div>

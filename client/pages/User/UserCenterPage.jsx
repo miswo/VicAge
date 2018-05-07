@@ -36,7 +36,7 @@ export default class UserCenterPage extends React.Component{
                 <div className="jumbotron banner">
                     <div className="container">
                         <h2>{this.props.user.profile.name}'s Center</h2>
-                        <NavLink to={"/user/profile"} className="btn btn-lg btn-info">Edit {this.props.user.profile.name}'s Profile</NavLink> 
+                        <NavLink to={"/user/profile"} className="btn btn-lg btn-default">Edit {this.props.user.profile.name}'s Profile</NavLink> 
                     
                     </div>
 
@@ -69,7 +69,7 @@ export default class UserCenterPage extends React.Component{
                         </div>
 
                         <div className="col-md-3">
-                            <NavLink to={"/exercise-planner"}>
+                            <NavLink to={"/goal/calendar"}>
                             <div className="concept-block" id="listImgColor">
                                 <div className="img-wrapper">
                                     <img className="userCenterImg" src="http://d-ash.lolipop.jp/img/happy.png" />

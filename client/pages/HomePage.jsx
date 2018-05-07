@@ -71,7 +71,7 @@ export default class HomePage extends React.Component{
                             </div>
                             <div className="col-md-6">
                                 <div className="embed-responsive embed-responsive-16by9">
-                                    <iframe className="embed-responsive-item" src="https://youtu.be/aOibzqW75mI" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>
+                                    <iframe className="embed-responsive-item" src="https://youtube.com/embed/aOibzqW75mI" frameBorder="0" allow="autoplay" allowFullScreen></iframe>
                                 </div>
 
                 
@@ -139,7 +139,7 @@ export default class HomePage extends React.Component{
                                     <p className="pull-right" id="lets">Let's start palnning better with VicAge.</p>
                                 </div>
                                 <div className="col-md-4">
-                                    <div id="CTABtn"><a className="btn btn-warning" id="CTAregisterBtn" href="/register">REGISTER</a>
+                                    <div id="CTABtn"><a className="btn btn-primary" id="CTAregisterBtn" href="/register">REGISTER</a>
                                 </div>
                             </div>
                         </div>

@@ -67,6 +67,7 @@ margin-bottom: 20px;
 .call-to-action{
     padding:50px 0;
     background: linear-gradient(45deg, #55b4d4, #c1c1c1);
+    margin-bottom: -20px;
     h2{
         color:#fff;
     }
@@ -76,9 +77,6 @@ margin-bottom: 20px;
     color:#fff;
 }
 
-.call-to-action {
-    margin-bottom: -20px;
-}
 
 .loginLabel{
     font-size:18px;
@@ -89,12 +87,12 @@ margin-bottom: 20px;
 }
 
 #registerH3{
-color: #000;
-text-shadow: 0 0 5px white;
-padding:10px;
-text-align:center;
-background: -webkit-repeating-linear-gradient(-45deg, #ffce89, #ffce89 3px,#fff9e8 3px, #fff9e8 7px);
-background: repeating-linear-gradient(-45deg, #ffce89, #ffce89 3px,#fff9e8 3px, #fff9e8 7px);
+    color: #000;
+    text-shadow: 0 0 5px white;
+    padding:10px;
+    text-align:center;
+    background: -webkit-repeating-linear-gradient(-45deg, #ffce89, #ffce89 3px,#fff9e8 3px, #fff9e8 7px);
+    background: repeating-linear-gradient(-45deg, #ffce89, #ffce89 3px,#fff9e8 3px, #fff9e8 7px);
 }
 
 
@@ -203,21 +201,6 @@ background: repeating-linear-gradient(-45deg, #ffce89, #ffce89 3px,#fff9e8 3px, 
 
 /*PC*/
     @media(min-width:769px){
-
-
-        #navLoginBtn{
-            margin: 5px 0;
-            width:150px;
-            font-size:2.2rem;
-            background-color: #337ab7;
-            color:#fff;
-            padding-left: 48px;
-            border-radius: 4px;
-        }
-        #navLoginBtn:hover{
-            background-color: #2a679c;
-        }
-
         .item{
             height:600px;
         }

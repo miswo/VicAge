@@ -24,7 +24,7 @@ export default class LoginPage extends React.Component{
         .then((res)=>{
             if(res.data.status == 200){
                 this.props.callback(res.data.data);
-                this.props.history.push('/home');
+                this.props.history.push('/center');
             }
             else
                 alert(res.data.message)
@@ -52,7 +52,7 @@ export default class LoginPage extends React.Component{
                                 <label htmlFor="repeat-password" className="loginLabel">Repeat Password:</label>
                                 <input required id="repeat-password" type="password" className="form-control"/>
                             </div>
-                            <button type="submit" className="btn btn-lg btn-warning">Register</button>
+                            <button type="submit" className="btn btn-lg btn-primary">Register</button>
                         </form>
                     </div>
                 </div>

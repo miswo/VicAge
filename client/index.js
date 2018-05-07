@@ -124,12 +124,12 @@ class App extends Component {
                         <Route path="/survey/calorie-calculator"    render={(history)=><CalorieCalculatorPage   match={history} history={history.history}   serverURL={serverURL} data={this.state.data}/>}/>}
 
                         <Route path="/goal/calendar"                render={(history)=><CalendarPage            match={history} history={history.history}   serverURL={serverURL} data={this.state.data} user={this.state.user}/>}/>}
-                        <Route path="/home"                         render={()=><UserCenterPage                  user = {this.state.user} />} />
+                        <Route path="/center"                       render={()=><UserCenterPage                  user = {this.state.user} />} />
                         <Route path="/user/profile"                 render={()=><ProfilePage                     user={this.state.user} serverURL={serverURL} dataTransfer={this.dataTransfer.bind(this)}/>  } />
                         <Route path="/user/switch-profile"          render={(history)=><SwitchProfilePage        user={this.state.user} serverURL={serverURL} history={history.history} dataTransfer={this.dataTransfer.bind(this)}/>  } />                        
                         <Route path="/dietary-planner"              render={()=><DietaryPlannerPage            user={this.state.user} serverURL={serverURL}/>  } />
                         <Route path="/exercise-planner"             render={()=><ExercisePlannerPage             user={this.state.user} serverURL={serverURL}/>  } />
-                        <Route path="/health-status"                 render={()=><HealthStatusPage                user={this.state.user} serverURL={serverURL}/>  } />
+                        <Route path="/health-status"                render={()=><HealthStatusPage                user={this.state.user} serverURL={serverURL}/>  } />
 
 
                         <Route path="/service/find/:serviceName/:postcode"    render={(history)=>(<ListServicePage        match ={history} history={history.history}  serverURL = {serverURL}/>)} />
