@@ -129,7 +129,7 @@ class App extends Component {
                         <Route path="/user/switch-profile"          render={(history)=><SwitchProfilePage        user={this.state.user} serverURL={serverURL} history={history.history} dataTransfer={this.dataTransfer.bind(this)}/>  } />                        
                         <Route path="/dietary-planner"              render={()=><DietaryPlannerPage            user={this.state.user} serverURL={serverURL}/>  } />
                         <Route path="/exercise-planner"             render={()=><ExercisePlannerPage             user={this.state.user} serverURL={serverURL}/>  } />
-                        <Route path="/heath-status"                 render={()=><HealthStatusPage                user={this.state.user} serverURL={serverURL}/>  } />
+                        <Route path="/health-status"                 render={()=><HealthStatusPage                user={this.state.user} serverURL={serverURL}/>  } />
 
 
                         <Route path="/service/find/:serviceName/:postcode"    render={(history)=>(<ListServicePage        match ={history} history={history.history}  serverURL = {serverURL}/>)} />

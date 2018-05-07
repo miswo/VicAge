@@ -7,8 +7,16 @@ export default class HealthStatusPage extends React.Component{
     constructor(props){
         super(props);
         this.state={
-
+            mealPlans:[]
         }
+    }
+
+    componentDidMount(){
+        axios.post(this.props.serverURL + '/planner/meal-plans',{userid:this.props.user.id,profileid:this.props.user.profile.id})
+        .then((res)=>{
+            this.setState({mealPlans:res.data.mealPlans})
+            console.log(this.state);
+        })
     }
 
     render(){
@@ -22,7 +30,7 @@ export default class HealthStatusPage extends React.Component{
             
 
                 <div className="container">
-                
+
                 </div>
             </div>
         )

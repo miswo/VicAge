@@ -15,6 +15,7 @@ const LogedinList = () =>(
         {/* <li><NavLink to="/about"                    activeClassName="active">About</NavLink></li> */}
         <li><NavLink to="/dietary-planner"              activeClassName="active">Dietary</NavLink></li>
         <li><NavLink to="/exercise-planner"             activeClassName="active">Exercise</NavLink></li>
+        <li><NavLink to="/health-status"                activeClassName="active">Health Status</NavLink></li>
         {/* <li><NavLink to="/nutrition"                activeClassName="active">Activities</NavLink></li> */}
         {/* <li><NavLink to="/nutrition"                activeClassName="active">Health Status</NavLink></li> */}
     </ul>
