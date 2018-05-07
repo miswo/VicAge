@@ -18,10 +18,11 @@ export default class HomePage extends React.Component{
                     </ol>
                     <div className="carousel-inner">
                         <div className="item active">
-                            <img src="http://d-ash.lolipop.jp/img/landingpage-1.jpg" alt="First slide" />
+                            <img src="https://s3-ap-southeast-2.amazonaws.com/vicage-image/5af0bc87eb8f6a1cf83a6404.jpeg" alt="First slide" />
                             <div className="container">
                                 <div className="carousel-caption text-left"> 
                                     <div className="col-md-8 px-0">
+                                        <h1>VicAge</h1>
                                         <p className="lead text-left carouselDescription">Over 2.6 million Australians provide help and support to a family member or friend - caring can happen to anyone, anytime.</p>
                                     </div>
                                 </div>
@@ -29,7 +30,7 @@ export default class HomePage extends React.Component{
                     </div>
                         
                         <div className="item">
-                            <img src="http://d-ash.lolipop.jp/img/landingpage-2.jpg" alt="Second slide" />
+                            <img src="https://s3-ap-southeast-2.amazonaws.com/vicage-image/5af0bcbdfb532913408d1798.jpeg" alt="Second slide" />
                             <div className="container">
                                 <div className="carousel-caption text-left">
                                     <div className="col-md-8 px-0">
@@ -41,13 +42,11 @@ export default class HomePage extends React.Component{
 
 
                         <div className="item">
-                            <img src="http://d-ash.lolipop.jp/img/landingpage-3.jpg" alt="Third slide" />
+                            <img src="https://s3-ap-southeast-2.amazonaws.com/vicage-image/5af0bcdaf1e01b2318416477.jpeg" alt="Third slide" />
                             <div className="container">
                                 <div className="carousel-caption text-left">
                                     <div className="col-md-8 px-0">
                                         <p className="lead text-left carouselDescription">Caring can be emotionally taxing and physically draining - Solve that problem today!</p>
-                            
-                                        <p><a className="btn btn-lg btn-warning pull-left" id="CTAregisterBtn" href="/register" role="button">REGISTER</a></p>
                                     </div>
                                 </div>
                             </div>
