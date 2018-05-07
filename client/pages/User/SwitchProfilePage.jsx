@@ -58,8 +58,8 @@ export default class SwitchProflePage extends React.Component{
     renderProfiles(){
         const profiles = this.state.profiles.map((item)=>(
             <div className="col-xs-6 col-sm-6 col-md-4 col-lg-4" key={item._id}>
-                <div className="btn btn-primary function-square" id={item._id} onClick={this.setActiveProfile.bind(this)}>
-                    {item.name}
+                <div className="btn btn-primary function-square profileListName" id={item._id} onClick={this.setActiveProfile.bind(this)}>
+                    <p>{item.name}</p>
                 </div>
             </div>
         ))

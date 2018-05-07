@@ -148,7 +148,8 @@ export default class ExercisePlannerPage extends React.Component{
                 <div className="jumbotron banner">
                     <div className="container">
                         <h2>Exercise Planner</h2>
-                        <p>Make Exercise Plan.</p>
+                        <p>Selecting appropriate level of exercise with suitable duration could help patient not
+only for superior weight control, but also help with the monitoring and forward prediction of both calorie burn.</p>
                     </div>
 
                 </div>
