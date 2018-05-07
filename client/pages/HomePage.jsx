@@ -71,7 +71,7 @@ export default class HomePage extends React.Component{
                             </div>
                             <div className="col-md-6">
                                 <div className="embed-responsive embed-responsive-16by9">
-                                    <iframe className="embed-responsive-item" src="https://www.youtube.com/embed/1dxDBFCksuY" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>
+                                    <iframe className="embed-responsive-item" src="https://youtu.be/aOibzqW75mI" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>
                                 </div>
 
                 

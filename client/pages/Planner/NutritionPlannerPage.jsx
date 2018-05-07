@@ -123,8 +123,9 @@ export default class PlannerPage extends React.Component{
             <div id="nutrition-planner-page">
                 <div className="jumbotron banner">
                     <div className="container">
-                        <h2>Nutrition Planner</h2>
-                        <p>Make Nutrition Plan.</p>
+                        <h2>Dietary Planner</h2>
+                        <p>A calendar you could manage the following month’s recipe for your patient. <br />Choose
+the preferred recipe with a certain amount to fit the average daily nutrition intake.</p>
                     </div>
 
                 </div>
