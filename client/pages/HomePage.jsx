@@ -33,7 +33,7 @@ export default class HomePage extends React.Component{
                             <div className="container">
                                 <div className="carousel-caption text-left">
                                     <div className="col-md-8 px-0">
-                                        <p className="lead text-left carouselDescription">No matter who you care for, taking on a carinig role is a significant event thant brings many challenges and rewards.</p>
+                                        <p className="lead text-left carouselDescription">No matter who you care for, taking on a caring role is a significant event that brings many challenges and rewards.</p>
                                     </div>
                                 </div>
                         </div>
@@ -47,7 +47,7 @@ export default class HomePage extends React.Component{
                                     <div className="col-md-8 px-0">
                                         <p className="lead text-left carouselDescription">Caring can be emotionally taxing and physically draining - Solve that problem today!</p>
                             
-                                        <p><a className="btn btn-lg btn-warning pull-left" id="CTAregisterBtn" href="/login" role="button">REGISTER</a></p>
+                                        <p><a className="btn btn-lg btn-warning pull-left" id="CTAregisterBtn" href="/register" role="button">REGISTER</a></p>
                                     </div>
                                 </div>
                             </div>
@@ -92,28 +92,36 @@ export default class HomePage extends React.Component{
                                 <div className="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
                                     <img src="http://d-ash.lolipop.jp/img/pizza.png" alt="meal image" width="140" height="140" />
                                     <h3>Dietary<br />Planner</h3>
+                                    <div id="offerDescription">
                                     <p className="lead mb-0 featureExplain">VicAge enables you to plan meals for coming days, checking the sufficiency of important nutrients. Choose the preferred recipe with a certain amount to fit the average daily nutrition intake.</p>
+                                    </div>
                                 </div>
                             </div>
                             <div className="col-lg-3">
                                 <div className="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
                                     <img src="http://d-ash.lolipop.jp/img/exercise.png" alt="Generic placeholder image" width="140" height="140" />
                                         <h3>Exercise<br />Planner</h3>
+                                        <div id="offerDescription">
                                         <p className="lead mb-0 featureExplain">Selecting appropriate level of exercise with suitable duration could help patient not only for superior weight control, but also help with the monitoring and forward prediction of both calorie burn.</p>
+                                        </div>
                                 </div>
                             </div>
                             <div className="col-lg-3">
                                 <div className="features-icons-item mx-auto mb-0 mb-lg-3">
                                     <img src="http://d-ash.lolipop.jp/img/happy.png" alt="Generic placeholder image" width="140" height="140" />
                                     <h3>Activity<br />Scheduler</h3>
+                                    <div id="offerDescription">
                                     <p className="lead mb-0 featureExplain">The activity schedule could help with organizing both social activities and professional appointments with ease, future notifications ensuring that up-coming events are not forgotten.</p>
+                                    </div>
                                 </div>
                             </div>
                             <div className="col-lg-3">
                                 <div className="features-icons-item mx-auto mb-0 mb-lg-3">
                                     <img src="http://d-ash.lolipop.jp/img/monitor.png" alt="Generic placeholder image" width="140" height="140" />
                                     <h3>Health Status<br />Monitor</h3>
+                                    <div id="offerDescription">
                                     <p className="lead mb-0 featureExplain">A display of patient’s profile, current situation as well as the following month’s overview of nutrition intake and calorie burn.</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -131,7 +139,7 @@ export default class HomePage extends React.Component{
                                     <p className="pull-right" id="lets">Let's start palnning better with VicAge.</p>
                                 </div>
                                 <div className="col-md-4">
-                                    <div id="CTABtn"><a className="btn btn-warning" id="CTAregisterBtn" href="/login">REGISTER</a>
+                                    <div id="CTABtn"><a className="btn btn-warning" id="CTAregisterBtn" href="/register">REGISTER</a>
                                 </div>
                             </div>
                         </div>

@@ -1,8 +1,13 @@
 // Misu 
+
+
 .jumbotron{
     background-color:#2f6492;
 }
 
+.banner p {
+    font-size: 2em;
+}
 
 .understandingVicAge{
     background-color:#efefef;
@@ -13,6 +18,12 @@
 .featureExplain{
     font-size:18px;
     color:#767676;
+    
+}
+
+#offerDescription{
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 .rounded-circle {
@@ -73,13 +84,15 @@ footer {
     margin-right:30px;
 }
 
-#navLoginBtn{
-    margin: 5px 0;
-    width:150px;
-    font-size:2rem;
-    background-color: #337ab7;
-    color:#fff;
+#registerH3{
+color: #000;
+text-shadow: 0 0 5px white;
+padding:10px;
+text-align:center;
+background: -webkit-repeating-linear-gradient(-45deg, #ffce89, #ffce89 3px,#fff9e8 3px, #fff9e8 7px);
+background: repeating-linear-gradient(-45deg, #ffce89, #ffce89 3px,#fff9e8 3px, #fff9e8 7px);
 }
+
 
 /*user center*/
 
@@ -158,13 +171,37 @@ footer {
         margin-bottom: 10px;
         
         img{
-            width: 100% !important;
+            width: 100%;
         }
     }
+
+/*switch profile*/
+
+    #addProfileImg{
+        background-image: url(http://d-ash.lolipop.jp/img/add1.png);
+        background-position: 50% 80%;
+        -moz-background-size:contain;
+        background-size:70%; 
+        background-repeat:no-repeat;
+        }
 
 
 /*PC*/
     @media(min-width:769px){
+
+        #navLoginBtn{
+            margin: 5px 0;
+            width:150px;
+            font-size:2.2rem;
+            background-color: #337ab7;
+            color:#fff;
+            padding-left: 48px;
+            border-radius: 4px;
+        }
+        #navLoginBtn:hover{
+            background-color: #2a679c;
+        }
+
         .item{
             height:600px;
         }
@@ -188,6 +225,15 @@ footer {
             padding-bottom: 200px;
         
         }
+
+        #switch-profile-page .function-square {
+            width: 100%;
+            height: 300px;
+            margin-bottom: 50px;
+            font-size:30px;
+        }
+
+
     }
 /*mobile*/
     @media(max-width:768px){
@@ -231,4 +277,19 @@ footer {
         footer{
             padding: 20px;
         }
+        #NutriImg img {
+            width: 30%;
+        }
+
+        #switch-profile-page .function-square {
+            width: 100%;
+            height: 120px;
+            margin-bottom: 20px;
+            font-size:16px;
+        }
+
+         #addProfileImg{
+             font-size:13px !important;
+        }
+
     }

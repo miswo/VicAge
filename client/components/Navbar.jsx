@@ -78,7 +78,7 @@ class Navbar extends Component{
                                     </ul>
                                 </li>
                                 :
-                                <li><NavLink to="/login"             activeClassName="active">Login </NavLink></li>
+                                <li><NavLink to="/login" activeClassName="active" id="navLoginBtn">Login </NavLink></li>
                             }
                         </ul>
                     </div>
