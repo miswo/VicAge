@@ -19,7 +19,9 @@ export default class CalendarPage extends React.Component{
             selected:this.props.data?this.props.data.selected:[],
             concepts:[],
             newGoalConcept:null,
-            selectedEvent:null
+            selectedEvent:null,
+            selectedDate:new Date(),
+            activities:[]
         }
     }
 
@@ -41,13 +43,18 @@ export default class CalendarPage extends React.Component{
             )
         }
 
+        axios.get(this.props.serverURL + '/list/all')
+        .then((res)=>{
+            this.setState({activities:res.data.lists})
+        })
+
     }
 
     renderConceptsToSetGoal(){
         const concepts = this.state.concepts.length!=0?
             this.state.concepts.map((item)=>(
                 <li key={item._id} id={item._id} className="list-group-item">
-                    {item.conceptName} <button onClick={this.onClickSetNewGoal.bind(this)} className="btn btn-default pull-right">Set New Goal</button>
+                    {item.conceptName} <button onClick={this.onClickSetNewGoal.bind(this)} className="btn btn-xs btn-default pull-right">+</button>
                 </li>
             ))
             :
@@ -87,13 +94,25 @@ export default class CalendarPage extends React.Component{
         this.setState({selectedEvent:event});
     }
 
-    onClickComplete(e){
-        var completed = e.target.checked;
-        var selectedEvent = this.state.selectedEvent;
-        selectedEvent.completed = completed;
-        this.setState({selectedEvent})
+    onSelectDate(selectedDate){
+        this.setState({selectedDate});
+        var date = moment(selectedDate).format('YYYY-MM-DD');
         this.forceUpdate();
-        axios.post(this.props.serverURL + '/goal/completed/' + this.state.selectedEvent._id,{completed});
+    }
+
+    handleGoToSelectActivities(e){
+        e.preventDefault();
+        var listId = document.getElementById('select-activity-category').value;
+        this.props.history.push('/survey/list/' + listId +'/Calendar');
+
+    }
+
+    renderActivityCategories(){
+        const activityCategories = this.state.activities.map((item)=>(
+            <option value={item._id} key={item._id}>{item.listName}</option>
+        ))
+
+        return activityCategories;
     }
 
     render(){
@@ -101,8 +120,8 @@ export default class CalendarPage extends React.Component{
             <div id="calendar-page">
                 <div className="jumbotron banner">
                     <div className="container">
-                        <h2>Calendar</h2>
-                        <p>Set and View Your Goals Here. Click the goals in calendar for futhur detail.</p>
+                        <h2>Activity Planner</h2>
+                        <p>Plan and View Your Activities Here.</p>
                     </div>
                 </div>
 
@@ -113,10 +132,13 @@ export default class CalendarPage extends React.Component{
                         <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                             <div id="calendar">
                                 <BigCalendar
+                                    date={this.state.selectedDate}
+                                    onNavigate={this.onSelectDate.bind(this)}
                                     events={this.state.goals}
                                     startAccessor='startDate'
                                     endAccessor='endDate'
                                     views={['month']}
+                                    titleAccessor='type'
                                     selectable
                                     defaultDate ={new Date()}
                                     eventPropGetter={this.eventClassName}
@@ -129,6 +151,11 @@ export default class CalendarPage extends React.Component{
                         </div>
                         
                         <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <div className="daily-view">
+                                <div className="text-center"></div>
+                                <h3>Activity Detail</h3>
+                                <hr/>
+                            </div>
                             {
                                 this.state.selectedEvent?
                                 <div className="selected-goal">
@@ -150,14 +177,6 @@ export default class CalendarPage extends React.Component{
                                         </NavLink>
                                     </div>
 
-                                    <div className="slider-switcher">
-                                        <p>Completed:</p>
-                                        <label className="switch" >
-                                            <input type="checkbox" checked={this.state.selectedEvent.completed} onClick={this.onClickComplete.bind(this)}/>
-                                            <span className="slider"></span>
-                                        </label>
-                                    </div>
-
                                     {/* <div className="delete">
                                         <button className="btn btn-danger">Delete</button>
                                     </div> */}
@@ -171,6 +190,19 @@ export default class CalendarPage extends React.Component{
 
                     <div className="row">
                         <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <h4>Activity Category</h4>
+                            <div className="form-inline">
+                                <div className="form-group">
+                                    <div className="input-group">
+                                        <select name="select-activity-category" id="select-activity-category" className="form-control">
+                                            {this.renderActivityCategories()}
+                                        </select>
+                                    </div>
+                                </div>
+                                <button className="btn btn-primary" onClick={this.handleGoToSelectActivities.bind(this)}>Go to Select Activities</button>
+                            </div>
+
+
                             <h4>Select Activities to add:</h4>
                             <ul className="list-group">
                                 {this.renderConceptsToSetGoal()}

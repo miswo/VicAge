@@ -46,7 +46,7 @@ export default class UserCenterPage extends React.Component{
                 <div className="container">
                     <div className="row">
                         <div className="col-md-3">
-                        <NavLink to={"/nutrition-planner"}>
+                        <NavLink to={"/dietary-planner"}>
                             <div className="concept-block" id="listImgColor">
                                 <div className="img-wrapper">
                                     <img className="userCenterImg" src="http://d-ash.lolipop.jp/img/pizza.png" />

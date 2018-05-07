@@ -154,7 +154,7 @@ export default class SingleListSurveyPage extends React.Component{
             <div id="single-list-survey-page">
                 <div className="jumbotron banner">
                     <div className="container">
-                        <h2>Select the Things to Add to {this.state.actionName} </h2>
+                        <h2>Select the Things to Add to Activity Planner </h2>
                         <button className="btn btn-default" onClick={this.handleBack.bind(this)}>Back</button>
                     </div>
                 </div>
@@ -185,7 +185,7 @@ export default class SingleListSurveyPage extends React.Component{
                     
                     <div>
                         <Slick listName={this.state.list.listName} items={this.state.list.concepts} onClick={this.handleClick.bind(this)}/>
-                        <p>Double tap the thing you want, swipe left or right to navigate.</p>
+                        <p>Click the thing you want, swipe left or right to navigate.</p>
                         <p>
                             <span className="slick-item-selected" > *Selected</span>
                             <br/>
@@ -197,7 +197,7 @@ export default class SingleListSurveyPage extends React.Component{
 
                         {/* <button className="btn btn-lg btn-primary" onClick={this.passToListHandler.bind(this)}>Add to {this.state.list.handler.name}</button>
                         <button className="btn btn-lg btn-primary" onClick={this.handleCreateSublist.bind(this)}>Create Sub List</button>    */}
-                        <button className="btn btn-lg btn-primary" onClick={this.handleSubmit.bind(this)}>Submit</button>
+                        <button className="btn btn-lg btn-primary" onClick={this.handleSubmit.bind(this)}>Next</button>
                     </div>  
                 </div>
 

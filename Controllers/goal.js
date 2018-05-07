@@ -11,6 +11,7 @@ router.post('/create',(req,res)=>{
         startDate:req.body.startDate,
         endDate:req.body.endDate,
         desc:req.body.desc,
+        type:req.body.type,
         completed:false,
         userid:req.body.userid
     },(err,result)=>{

@@ -26,6 +26,7 @@ export default class CreateGoalPage extends React.Component{
             concept:this.state.concept,
             startDate:startDate,
             endDate:endDate,
+            type:'Activity',
             desc:document.getElementById('desc').value,
             userid:this.props.user.id
         }
@@ -33,7 +34,7 @@ export default class CreateGoalPage extends React.Component{
             .then((res)=>{
                 if(res.data.status == 200){
                     $('#create-goal-modal').modal('hide');
-                    alert("You have a New Goal!")
+                    alert("New Activity Plan Added!")
                 }
                 this.props.callback(newGoal);
             })
@@ -44,7 +45,7 @@ export default class CreateGoalPage extends React.Component{
             <div id="create-goal-page">
                 <div className="jumbotron banner">
                     <div className="container">
-                        <h2>Set New Goal</h2>
+                        <h2>Add Activity Plan</h2>
                     </div>
                 </div>
 
@@ -91,7 +92,7 @@ export default class CreateGoalPage extends React.Component{
                         </div>
 
                         <div className="row">
-                            <button type="submit" className="btn btn-primary">Set New Goal</button>
+                            <button type="submit" className="btn btn-primary">Add New Activity Plan</button>
                         </div>
                     </form>
                 </div>
