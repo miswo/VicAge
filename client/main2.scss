@@ -1,17 +1,21 @@
 // Misu 
 
+body{ 
+    padding-top: 60px; // for navbar fix-top.
+}
 
 .jumbotron{
     background-color:#2f6492;
 }
 
 .banner p {
-    font-size: 2em;
+    font-size: 1.5em;
 }
 
 .understandingVicAge{
     background-color:#efefef;
 }
+
 
 
 
@@ -72,8 +76,8 @@ margin-bottom: 20px;
     color:#fff;
 }
 
-footer {
-    margin-top: 0px;
+.call-to-action {
+    margin-bottom: -20px;
 }
 
 .loginLabel{
@@ -181,13 +185,25 @@ background: repeating-linear-gradient(-45deg, #ffce89, #ffce89 3px,#fff9e8 3px, 
         background-image: url(http://d-ash.lolipop.jp/img/add1.png);
         background-position: 50% 80%;
         -moz-background-size:contain;
-        background-size:70%; 
+        background-size:60%; 
         background-repeat:no-repeat;
         }
+
+    .profileListName{
+            word-break: break-all;
+            white-space: normal;
+
+            background-image: url(http://d-ash.lolipop.jp/img/person.png);
+            background-position: 50% 80%;
+            -moz-background-size:contain;
+            background-size:60%; 
+            background-repeat:no-repeat;
+        } 
 
 
 /*PC*/
     @media(min-width:769px){
+
 
         #navLoginBtn{
             margin: 5px 0;
@@ -231,6 +247,7 @@ background: repeating-linear-gradient(-45deg, #ffce89, #ffce89 3px,#fff9e8 3px, 
             height: 300px;
             margin-bottom: 50px;
             font-size:30px;
+
         }
 
 
@@ -285,11 +302,22 @@ background: repeating-linear-gradient(-45deg, #ffce89, #ffce89 3px,#fff9e8 3px, 
             width: 100%;
             height: 120px;
             margin-bottom: 20px;
-            font-size:16px;
+            font-size:22px;
         }
 
          #addProfileImg{
              font-size:13px !important;
         }
 
+    }
+
+    .daily-view{
+        h3{
+        color: #010079;
+        text-shadow: 0 0 5px white;
+        padding:10px;
+        text-align:center;
+        background: -webkit-repeating-linear-gradient(-45deg, #cce7ff, #cce7ff 3px,#e9f4ff 3px, #e9f4ff 7px);
+        background: repeating-linear-gradient(-45deg, #cce7ff, #cce7ff 3px,#e9f4ff 3px, #e9f4ff 7px);
+        }
     }
