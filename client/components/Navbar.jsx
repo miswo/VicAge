@@ -13,8 +13,8 @@ const LogedinList = () =>(
         {/* <li><NavLink to="/goal/calendar"            activeClassName="active">My Calendar</NavLink></li> */}
         {/* <li><NavLink to="/service/find/all/3000"    activeClassName="active">Services</NavLink> </li> */}
         {/* <li><NavLink to="/about"                    activeClassName="active">About</NavLink></li> */}
-        <li><NavLink to="/nutrition-planner"        activeClassName="active">Nutrition</NavLink></li>
-        <li><NavLink to="/exercise-planner"        activeClassName="active">Exercise</NavLink></li>
+        <li><NavLink to="/dietary-planner"              activeClassName="active">Dietary</NavLink></li>
+        <li><NavLink to="/exercise-planner"             activeClassName="active">Exercise</NavLink></li>
         {/* <li><NavLink to="/nutrition"                activeClassName="active">Activities</NavLink></li> */}
         {/* <li><NavLink to="/nutrition"                activeClassName="active">Health Status</NavLink></li> */}
     </ul>

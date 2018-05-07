@@ -47,7 +47,6 @@ router.get('/exercises',(req,res)=>{
 
 router.post('/add-new-exercise',(req,res)=>{
     var collection = db.get().collection('plan');
-    console.log(req.body);
     collection.save(req.body,(err,result)=>{
         if(err) return console.log(err);
         res.json({status:200});

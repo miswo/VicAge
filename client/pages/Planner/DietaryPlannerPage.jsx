@@ -13,7 +13,7 @@ import util from '../../util/util';
 
 BigCalendar.setLocalizer(BigCalendar.momentLocalizer(moment));
 
-export default class PlannerPage extends React.Component{
+export default class DietaryPlannerPage extends React.Component{
 
     constructor(props){
         super(props);
