@@ -148,7 +148,7 @@ export default class ExercisePlannerPage extends React.Component{
                 <div className="jumbotron banner">
                     <div className="container">
                         <h2>Exercise Planner</h2>
-                        <p>Selecting appropriate level of exercise with suitable duration could help patient not only for superior weight control, but also help with the monitoring and forward prediction of both calorie burn.</p>
+                        {/*<p>Selecting appropriate level of exercise with suitable duration could help patient not only for superior weight control, but also help with the monitoring and forward prediction of both calorie burn.</p>*/}
                     </div>
 
                 </div>
@@ -181,7 +181,7 @@ export default class ExercisePlannerPage extends React.Component{
                                 <div className="text-center"></div>
                                 <h3>{this.state.selectedDate.toDateString()} Daily View</h3>
                                 <hr/>
-                                <h4>Excersise</h4>
+                                <h4>Exercise</h4>
                                 {this.renderExercisePlan()}
                                 <hr/>
                                 <h4>Total Calorie Burn</h4>
@@ -195,7 +195,7 @@ export default class ExercisePlannerPage extends React.Component{
                             <form className="form" onSubmit={this.handleSubmit.bind(this)}>
                                 <h3>Select An Exercise to Add:</h3>
                                 <div className="form-group">
-                                    <label htmlFor="exercise-level">Select An Exersise Level:</label>
+                                    <label className="ExerciseLabel" htmlFor="exercise-level">Select An Exercise Level:</label>
                                     <select name="exercise-level" id="exercise-level" onChange={this.onSelectExerciseLevel.bind(this)} className="form-control">
                                         <option value="Light"   >Light</option>
                                         <option value="Moderate">Moderate</option>
@@ -204,14 +204,14 @@ export default class ExercisePlannerPage extends React.Component{
                                 </div>
 
                                 <div className="form-group">
-                                    <label htmlFor="exercise-name">Exercise Name:</label>
+                                    <label className="ExerciseLabel" htmlFor="exercise-name">Exercise Name:</label>
                                     <select name="exercise-name" id="exercise-name" className="form-control">
                                         {this.renderExercisesToSelect()}
                                     </select>
                                 </div>
 
                                 <div className="form-group">
-                                    <label htmlFor="input-quantity">Duration:</label>
+                                    <label className="ExerciseLabel" htmlFor="input-quantity">Duration:</label>
                                     <div className="input-group">
                                         <input type="number" id="input-quantity" className="form-control"/>
                                         <div className="input-group-addon">Minute(s)</div>

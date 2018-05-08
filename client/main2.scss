@@ -4,13 +4,25 @@ body{
     padding-top: 60px; // for navbar fix-top.
 }
 
-.jumbotron{
-    background-color:#2f6492;
+.banner {
+    background: linear-gradient(45deg, #3566b6, #c1c1c1);
 }
 
 .banner p {
     font-size: 1.5em;
 }
+
+
+
+.navbar-nav>li>a.active{
+    color:rgb(24, 20, 255) !important;
+}
+
+.dropdown-menu > li > a{
+    font-size:2rem;
+}
+
+    
 
 .understandingVicAge{
     background-color:#efefef;
@@ -199,8 +211,15 @@ margin-bottom: 20px;
         } 
 
 
+
+
 /*PC*/
     @media(min-width:769px){
+        .navbar-nav>li>a{
+            font-size:2rem;
+        
+        }
+
         .item{
             height:600px;
         }
@@ -233,7 +252,22 @@ margin-bottom: 20px;
 
         }
 
+        .nutritionStatusBox{
+            font-size:1.7rem;
+        }
 
+        .ExerciseLabel
+        {
+            font-size:1.7rem;
+        }
+
+        #mealSearchBtn{
+            margin-left:10px;
+        }
+    
+        #ActivitySearchBtn{
+        margin-left:10px;
+        }
     }
 /*mobile*/
     @media(max-width:768px){

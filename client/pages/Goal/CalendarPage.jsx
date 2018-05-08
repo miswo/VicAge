@@ -121,7 +121,7 @@ export default class CalendarPage extends React.Component{
                 <div className="jumbotron banner">
                     <div className="container">
                         <h2>Activity Planner</h2>
-                        <p>Plan and View Your Activities Here.</p>
+                        {/*<p>Plan and View Your Activities Here.</p>*/}
                     </div>
                 </div>
 
@@ -189,7 +189,7 @@ export default class CalendarPage extends React.Component{
 
                     <div className="row">
                         <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                            <h4>Activity Category</h4>
+                            <h3>Activity Category</h3>
                             <div className="form-inline">
                                 <div className="form-group">
                                     <div className="input-group">
@@ -198,11 +198,11 @@ export default class CalendarPage extends React.Component{
                                         </select>
                                     </div>
                                 </div>
-                                <button className="btn btn-primary" onClick={this.handleGoToSelectActivities.bind(this)}>Go to Select Activities</button>
+                                <button id="ActivitySearchBtn" className="btn btn-primary" onClick={this.handleGoToSelectActivities.bind(this)}>Go to Select Activities</button>
                             </div>
 
 
-                            <h4>Select Activities to add:</h4>
+                            <h3>Select Activities to add:</h3>
                             <ul className="list-group">
                                 {this.renderConceptsToSetGoal()}
                             </ul>
