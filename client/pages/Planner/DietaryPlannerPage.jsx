@@ -124,7 +124,7 @@ export default class DietaryPlannerPage extends React.Component{
                 <div className="jumbotron banner">
                     <div className="container">
                         <h2>Dietary Planner</h2>
-                        <p>A calendar you could manage the following month’s recipe for your patient. <br />Choose the preferred recipe with a certain amount to fit the average daily nutrition intake.</p>
+                        {/*<p>A calendar you could manage the following month’s recipe for your patient. <br />Choose the preferred recipe with a certain amount to fit the average daily nutrition intake.</p>*/}
                     </div>
 
                 </div>
@@ -157,7 +157,7 @@ export default class DietaryPlannerPage extends React.Component{
                                 <div className="text-center"></div>
                                 <h3>{this.state.selectedDate.toDateString()} Daily View</h3>
                                 <hr/>
-                                <h4>Dietary</h4>
+                                <h4>Dietary <a href="#MealsearchBox" class="badge">add</a></h4>
                                     {this.renderMealPlans()}  
                                 <hr/>
                                 <h4>Nutrition Status</h4>
@@ -165,7 +165,7 @@ export default class DietaryPlannerPage extends React.Component{
                             </div>
                         </div>
                     </div>
-
+                    <div id="MealsearchBox"></div>
                     <div className="row">
                         <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                             <RecipeSelector serverURL={this.props.serverURL} callback={this.onSelectRecipe.bind(this)}/>

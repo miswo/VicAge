@@ -65,12 +65,12 @@ export default class HomePage extends React.Component{
                     <div className="container">
                         <div className="row featurette">
                             <div className="col-md-6">
-                                <h2 className="featurette-heading" id="understand-title">Understanding VicAge</h2>
+                                <h2 className="featurette-heading" id="understand-title">What is VicAge?</h2>
                                 <p className="lead" id="vicAgeExplain">The website, VicAge aims to help carers in their caring duties so that they can provide improved levels of care for their loved ones and the people they care for.</p>
                             </div>
                             <div className="col-md-6">
                                 <div className="embed-responsive embed-responsive-16by9">
-                                    <iframe className="embed-responsive-item" src="https://youtube.com/embed/aOibzqW75mI" frameBorder="0" allow="autoplay" allowFullScreen></iframe>
+                                    <iframe className="embed-responsive-item" src="https://youtube.com/embed/lmsMHAsvSMI" frameBorder="0" allow="autoplay" allowFullScreen></iframe>
                                 </div>
 
                 
@@ -101,7 +101,7 @@ export default class HomePage extends React.Component{
                                     <img src="http://d-ash.lolipop.jp/img/exercise.png" alt="Generic placeholder image" width="140" height="140" />
                                         <h3>Exercise<br />Planner</h3>
                                         <div id="offerDescription">
-                                        <p className="lead mb-0 featureExplain">Selecting appropriate level of exercise with suitable duration could help patient not only for superior weight control, but also help with the monitoring and forward prediction of both calorie burn.</p>
+                                        <p className="lead mb-0 featureExplain">Selecting appropriate level of exercise with suitable duration could help dependant not only for superior weight control, but also help with the monitoring and forward prediction of both calorie burn.</p>
                                         </div>
                                 </div>
                             </div>
@@ -119,7 +119,7 @@ export default class HomePage extends React.Component{
                                     <img src="http://d-ash.lolipop.jp/img/monitor.png" alt="Generic placeholder image" width="140" height="140" />
                                     <h3>Health Status<br />Monitor</h3>
                                     <div id="offerDescription">
-                                    <p className="lead mb-0 featureExplain">A display of patient’s profile, current situation as well as the following month’s overview of nutrition intake and calorie burn.</p>
+                                    <p className="lead mb-0 featureExplain">A display of dependant’s profile, current situation as well as the following month’s overview of nutrition intake and calorie burn.</p>
                                     </div>
                                 </div>
                             </div>
