@@ -222,7 +222,6 @@ export default class HealthStatusPage extends React.Component{
                                 <h4>Weight:{this.props.user.profile.weight}kg</h4>
                             </div>
                         </div> */}
-
                         <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                             <div className="">
                                 <h3>Average Daily Nutrition Intake</h3>
@@ -240,13 +239,16 @@ export default class HealthStatusPage extends React.Component{
 
                                 <li><p className={this.state.dailyAverageIntake.protein<this.state.nutritionRequirements.protein?'text-danger':'text-success'}>Chronic Kidney Failure</p></li>
                                 <li><p className={this.state.dailyAverageIntake.protein<this.state.nutritionRequirements.protein?'text-danger':'text-success'}>Chronic Obstructive Pulmonary Disease</p></li>
-                                <li><p className={this.state.dailyAverageIntake.protein<this.state.nutritionRequirements.protein?'text-danger':'text-success'}>Rheumatoid Arthritis</p></li>
+                                <li><p className={this.state.dailyAverageIntake.protein<this.state.nutritionRequirements.protein?'text-danger':'text-success'}>Arthritis</p></li>
 
                                 <li><p className={this.state.dailyAverageIntake.fat<this.state.nutritionRequirements.fat?'text-danger':'text-success'}>Poor Vitamin Absorption</p></li>
                                 <li><p className={this.state.dailyAverageIntake.fat<this.state.nutritionRequirements.fat?'text-danger':'text-success'}>Depression</p></li>
-                                <li><p className={this.state.dailyAverageIntake.fat>this.state.nutritionRequirements.fat?'text-danger':'text-success'}>High Cholesterol</p></li>
-                                <li><p className={this.state.dailyAverageIntake.fat>this.state.nutritionRequirements.fat?'text-danger':'text-success'}>Heart Disease</p></li>
+                                <li><p className={this.state.dailyAverageIntake.fat>this.state.nutritionRequirements.fat*1.5?'text-danger':'text-success'}>High Cholesterol</p></li>
+                                <li><p className={this.state.dailyAverageIntake.fat>this.state.nutritionRequirements.fat*1.5?'text-danger':'text-success'}>Heart Disease</p></li>
                             </ul>
+                            <p className="bg-success">Low Risk</p>
+                            <p className="bg-warning">Be Careful</p>
+                            <p className="bg-danger"> High Risk</p>
                         </div>
                     </div>
 
@@ -256,6 +258,8 @@ export default class HealthStatusPage extends React.Component{
                             <h4>Monthly Calorie Chart</h4>
                             <div id="chart-wrapper">
                                 {this.renderCalorieAreaChart()}
+                                <p>*Intake Default:Daily Average.</p>
+                                <p>*Burn   Default:Calculated Based on Profile</p>   
                             </div>
                         </div>
                         
