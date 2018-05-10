@@ -140,7 +140,7 @@ margin-bottom: 20px;
 .box2 {
     padding: 0 5em 0 1.3em;
     margin: 1em 0 2em 0;
-    color: #6091d3;
+    color: #666;
     background: #FFF;
     /*border: solid 2px #6091d3;
     border-radius: 10px;*/
@@ -279,7 +279,10 @@ margin-bottom: 20px;
         } 
 
 
-
+    .indicatorDesc{
+        margin-right:5px;
+        padding:3px;
+    }
 
 /*PC*/
     @media(min-width:769px){

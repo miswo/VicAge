@@ -236,7 +236,10 @@ export default class HealthStatusPage extends React.Component{
                         <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                             <h3 className="MonitorTitles">Risk Evaluation <img src="http://d-ash.lolipop.jp/img/traffic.png" width="50px" /></h3>
                             <div className="box2">
-                                <p>Potential risks based on current dietary and exercise plan.</p>
+                                <p>Potential risks based on current dietary and exercise plan.<br />
+                                <span className="bg-success indicatorDesc">Low Risk</span>
+                                    <span className="bg-warning indicatorDesc">Be Careful</span>
+                                    <span className="bg-danger indicatorDesc"> High Risk</span></p>
                             </div>
                             <ul id="monitorDesease">
                                 <li><p className={this.state.dailyAverageIntake.calcium<this.state.nutritionRequirements.calcium?'text-danger':'text-success'}>Rickets</p></li>
@@ -252,9 +255,7 @@ export default class HealthStatusPage extends React.Component{
                                 <li><p className={this.state.dailyAverageIntake.fat>this.state.nutritionRequirements.fat*1.5?'text-danger':'text-success'}>High Cholesterol</p></li>
                                 <li><p className={this.state.dailyAverageIntake.fat>this.state.nutritionRequirements.fat*1.5?'text-danger':'text-success'}>Heart Disease</p></li>
                             </ul>
-                            <p className="bg-success">Low Risk</p>
-                            <p className="bg-warning">Be Careful</p>
-                            <p className="bg-danger"> High Risk</p>
+
                         </div>
                     </div>
 
