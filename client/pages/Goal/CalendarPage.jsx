@@ -32,6 +32,11 @@ export default class CalendarPage extends React.Component{
             this.setState({goals:res.data.goals})
         })
 
+        axios.get(this.props.serverURL + '/list/all')
+        .then((res)=>{
+            this.setState({activities:res.data.lists})
+        })
+
         if(!this.state.selected) return;
         for(var i=0;i<this.state.selected.length;i++){
             axios.get(this.props.serverURL + '/concept/detail/'+this.state.selected[i])
@@ -42,11 +47,6 @@ export default class CalendarPage extends React.Component{
                 }
             )
         }
-
-        axios.get(this.props.serverURL + '/list/all')
-        .then((res)=>{
-            this.setState({activities:res.data.lists})
-        })
 
     }
 

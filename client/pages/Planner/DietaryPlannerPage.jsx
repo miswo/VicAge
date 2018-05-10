@@ -29,13 +29,15 @@ export default class DietaryPlannerPage extends React.Component{
     componentDidMount(){ 
         axios.post(this.props.serverURL+'/planner/meal-plans/',{userid:this.props.user.id,profileid:this.props.user.profile.id})
         .then((res)=>{
-           this.setState({mealPlans:res.data.mealPlans})
+            this.setState({mealPlans:res.data.mealPlans});
+            this.onSelectDate(new Date());
         })
 
         var profile = this.props.user.profile;
         if(profile.age == undefined) return this.setState({nutritionRequirement:false})
         var nutritionRequirement = util.NutritionRequirementCalculator(profile.age,profile.gender,profile.height,profile.weight,profile.activeLevel);
         this.setState({nutritionRequirement})
+
     }
 
 
@@ -73,6 +75,7 @@ export default class DietaryPlannerPage extends React.Component{
         var mealPlans = this.state.mealPlans;
         mealPlans.push(newMealPlan);
         this.setState({mealPlans});
+        this.onSelectDate(this.state.selectedDate);
     }
 
     renderMealPlans(){
@@ -157,7 +160,7 @@ export default class DietaryPlannerPage extends React.Component{
                                 <div className="text-center"></div>
                                 <h3>{this.state.selectedDate.toDateString()} Daily View</h3>
                                 <hr/>
-                                <h4>Dietary <a href="#recipe-searcher" class="badge">add</a></h4>
+                                <h4>Dietary <a href="#recipe-searcher" className="badge">add</a></h4>
                                     {this.renderMealPlans()}  
                                 <hr/>
                                 <h4>Nutrition Status</h4>

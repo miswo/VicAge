@@ -27,7 +27,7 @@ export default class ExercisePlannerPage extends React.Component{
 
         axios.get(this.props.serverURL+'/planner/exercises')
         .then((res)=>{
-            this.setState({exercises:res.data.exercises})
+            this.setState({exercises:res.data.exercises});
         })
 
 
@@ -37,6 +37,7 @@ export default class ExercisePlannerPage extends React.Component{
         })
         .then((res)=>{
             this.setState({exercisePlans:res.data.exercisePlans});
+            this.onSelectDate(new Date())
         })
 
     }
@@ -114,6 +115,7 @@ export default class ExercisePlannerPage extends React.Component{
                 var exercisePlans = this.state.exercisePlans;
                 exercisePlans.push(newExercisePlan);
                 this.setState({exercisePlans});
+                this.onSelectDate(this.state.selectedDate);
             }
         })
     }
@@ -138,6 +140,8 @@ export default class ExercisePlannerPage extends React.Component{
             var plan = this.state.exercisePlansForTheDay[i];
             calorieBurn += parseFloat(plan.exercise.CalorieBurnt) * plan.quantity * weight / 10 / 10;
         }
+
+        calorieBurn = Math.round(calorieBurn*100) / 100;
 
         return <p className="ExerciseStatus"> {calorieBurn} kcal</p>
     }
@@ -181,7 +185,7 @@ export default class ExercisePlannerPage extends React.Component{
                                 <div className="text-center"></div>
                                 <h3>{this.state.selectedDate.toDateString()} Daily View</h3>
                                 <hr/>
-                                <h4>Exercise <a href="#ExerciseSerchBox" class="badge">add</a></h4>
+                                <h4>Exercise <a href="#ExerciseSerchBox" className="badge">add</a></h4>
                                 {this.renderExercisePlan()}
                                 <hr/>
                                 <h4>Total Calorie Burn</h4>
