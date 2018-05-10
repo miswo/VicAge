@@ -155,7 +155,7 @@ export default class HealthStatusPage extends React.Component{
         }
 
         for(var i=0;i<this.state.mealPlans.length;i++){
-            var date = moment(this.state.mealPlans[i].date).date();
+            var date = moment(this.state.mealPlans[i].date).date()-1;
             calorieIntake[date] += this.state.mealPlans[i].recipe.Energy * this.state.mealPlans[i].quantity / 100;
         }
 
@@ -165,7 +165,7 @@ export default class HealthStatusPage extends React.Component{
         }
 
         for(var i=0;i<this.state.exercisePlans.length;i++){
-            var date = moment(this.state.exercisePlans[i].date).date();
+            var date = moment(this.state.exercisePlans[i].date).date()-1;
             calorieBurn[date] += this.state.exercisePlans[i].exercise.CalorieBurnt * this.state.exercisePlans[i].quantity * this.props.user.profile.weight /10 /10 ;
         }
         var data = [];
