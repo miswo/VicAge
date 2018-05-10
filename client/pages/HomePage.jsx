@@ -18,7 +18,7 @@ export default class HomePage extends React.Component{
                     </ol>
                     <div className="carousel-inner">
                         <div className="item active">
-                            <img src="https://s3-ap-southeast-2.amazonaws.com/vicage-image/5af0bc87eb8f6a1cf83a6404.jpeg" alt="First slide" />
+                            <img src="http://d-ash.lolipop.jp/img/landingpage-1a.jpg" alt="First slide" />
                             <div className="container">
                                 <div className="carousel-caption text-left"> 
                                     <div className="col-md-8 px-0">
@@ -30,7 +30,7 @@ export default class HomePage extends React.Component{
                     </div>
                         
                         <div className="item">
-                            <img src="https://s3-ap-southeast-2.amazonaws.com/vicage-image/5af0bcbdfb532913408d1798.jpeg" alt="Second slide" />
+                            <img src="http://d-ash.lolipop.jp/img/landingpage-2a.jpg" alt="Second slide" />
                             <div className="container">
                                 <div className="carousel-caption text-left">
                                     <div className="col-md-8 px-0">
@@ -42,7 +42,7 @@ export default class HomePage extends React.Component{
 
 
                         <div className="item">
-                            <img src="https://s3-ap-southeast-2.amazonaws.com/vicage-image/5af0bcdaf1e01b2318416477.jpeg" alt="Third slide" />
+                            <img src="http://d-ash.lolipop.jp/img/landingpage-3a.jpg" alt="Third slide" />
                             <div className="container">
                                 <div className="carousel-caption text-left">
                                     <div className="col-md-8 px-0">

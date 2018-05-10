@@ -157,7 +157,7 @@ export default class DietaryPlannerPage extends React.Component{
                                 <div className="text-center"></div>
                                 <h3>{this.state.selectedDate.toDateString()} Daily View</h3>
                                 <hr/>
-                                <h4>Dietary <a href="#MealsearchBox" class="badge">add</a></h4>
+                                <h4>Dietary <a href="#recipe-searcher" class="badge">add</a></h4>
                                     {this.renderMealPlans()}  
                                 <hr/>
                                 <h4>Nutrition Status</h4>

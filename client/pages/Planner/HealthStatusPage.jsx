@@ -96,7 +96,7 @@ export default class HealthStatusPage extends React.Component{
         var caloriePercentage   = Math.round(this.state.dailyAverageIntake.calorie  / this.state.nutritionRequirements.calorie * 100);
         return(
             <div className="nutrition-status">
-                <h4>Calcium</h4>
+                <h4><img src="http://d-ash.lolipop.jp/img/calcium.png" width="30px"/> Calcium</h4>
                 <p>{this.state.dailyAverageIntake.calcium}/{this.state.nutritionRequirements.calcium} mg</p>
                 <div className="progress">
                     <div className={this.renderProgressBarClass(calciumPercentage)} role="progressbar" aria-valuenow={calciumPercentage} aria-valuemin="0" aria-valuemax="100" style={{width: calciumPercentage>100?'100%':calciumPercentage+'%'}}>
@@ -105,7 +105,7 @@ export default class HealthStatusPage extends React.Component{
                 </div>
 
 
-                <h4>Fiber</h4>
+                <h4><img src="http://d-ash.lolipop.jp/img/fiber.png" width="30px"/> Fiber</h4>
                 <p>{this.state.dailyAverageIntake.fiber}/{this.state.nutritionRequirements.fiber} g</p>
                 <div className="progress">
                     <div className={this.renderProgressBarClass(fiberPercentage)} role="progressbar" aria-valuenow={fiberPercentage} aria-valuemin="0" aria-valuemax="100" style={{width: fiberPercentage>100?'100%':fiberPercentage+'%'}}>
@@ -114,7 +114,7 @@ export default class HealthStatusPage extends React.Component{
                 </div>
 
 
-                <h4>Fat</h4>
+                <h4><img src="http://d-ash.lolipop.jp/img/fat.png" width="30px"/>  Fat</h4>
                 <p>{this.state.dailyAverageIntake.fat}/{this.state.nutritionRequirements.fat} g</p>
                 <div className="progress">
                     <div className={this.renderProgressBarClass(fatPercentage)} role="progressbar" aria-valuenow={fatPercentage} aria-valuemin="0" aria-valuemax="100" style={{width: fatPercentage>100?'100%':fatPercentage+'%'}}>
@@ -123,7 +123,7 @@ export default class HealthStatusPage extends React.Component{
                 </div>
 
 
-                <h4>Protein</h4>
+                <h4><img src="http://d-ash.lolipop.jp/img/protein.png" width="30px"/> Protein</h4>
                 <p>{this.state.dailyAverageIntake.protein}/{this.state.nutritionRequirements.protein} g</p>
                 <div className="progress">
                     <div className={this.renderProgressBarClass(proteinPercentage)} role="progressbar" aria-valuenow={proteinPercentage} aria-valuemin="0" aria-valuemax="100" style={{width: proteinPercentage>100?'100%':proteinPercentage+'%'}}>
@@ -131,7 +131,7 @@ export default class HealthStatusPage extends React.Component{
                     </div>
                 </div>
 
-                <h4>Calorie</h4>
+                <h4><img src="http://d-ash.lolipop.jp/img/calorie.png" width="30px"/> Calorie</h4>
                 <p>{this.state.dailyAverageIntake.calorie}/{this.state.nutritionRequirements.calorie} kcal</p>
                 <div className="progress">
                     <div className={this.renderProgressBarClass(caloriePercentage)} role="progressbar" aria-valuenow={caloriePercentage} aria-valuemin="0" aria-valuemax="100" style={{width: caloriePercentage>100?'100%':caloriePercentage+'%'}}>
@@ -225,14 +225,14 @@ export default class HealthStatusPage extends React.Component{
 
                         <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                             <div className="">
-                                <h3>Average Daily Nutrition Intake</h3>
+                                <h3 className="MonitorTitles">Average Daily Nutrition Intake</h3>
                                 {this.renderAverageDailyIntake()}
                                 
                             </div>
                         </div>
 
-                        <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                            <h3>Risk Evaluation</h3>
+                        <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6" id="monitorDesease">
+                            <h3 className="MonitorTitles">Risk Evaluation <img src="http://d-ash.lolipop.jp/img/traffic.png" width="50px" /></h3>
                             <ul>
                                 <li><p className={this.state.dailyAverageIntake.calcium<this.state.nutritionRequirements.calcium?'text-danger':'text-success'}>Rickets</p></li>
                                 <li><p className={this.state.dailyAverageIntake.calcium<this.state.nutritionRequirements.calcium?'text-danger':'text-success'}>Osteomalacia</p></li>
@@ -258,7 +258,7 @@ export default class HealthStatusPage extends React.Component{
 
                     <div className="row">
                         <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                            <h4>Monthly Calorie Chart</h4>
+                            <h4 className="MonitorTitles">Monthly Calorie Chart</h4>
                             <div id="chart-wrapper">
                                 {this.renderCalorieAreaChart()}
                             </div>
