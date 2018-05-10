@@ -66,7 +66,7 @@ export default class RecipeSelector extends React.Component{
             <div id="recipe-selector">
                 <div className="form-inline">
                     <h3>Search for Recipes to Add:</h3>
-                    <input type="text" id="recipe-searcher" autoFocus onChange={this.handleChange.bind(this)} className="form-control"/>
+                    <input type="text" id="recipe-searcher" onChange={this.handleChange.bind(this)} className="form-control"/>
                     <button onClick={this.handleSearch.bind(this)} className="btn btn-primary" id="mealSearchBtn">Search</button>
                 </div>
 

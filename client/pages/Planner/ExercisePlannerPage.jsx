@@ -120,7 +120,7 @@ export default class ExercisePlannerPage extends React.Component{
 
     renderExercisePlan(){
         const plans = this.state.exercisePlansForTheDay.map((item)=>(
-            <p key={item._id}>{item.planName}({item.quantity} Minutes)</p>
+            <p className="ExerciseStatus" key={item._id}>{item.planName}({item.quantity} Minutes)</p>
         ))
 
         return plans;
@@ -128,7 +128,7 @@ export default class ExercisePlannerPage extends React.Component{
 
     renderCalorieBurn(){
         if(this.state.exercisePlansForTheDay.length == 0){
-            return <p>0 kcal</p>
+            return <p className="ExerciseStatus">0 kcal</p>
         }
         var weight = this.props.user.profile.weight;
 
@@ -139,7 +139,7 @@ export default class ExercisePlannerPage extends React.Component{
             calorieBurn += parseFloat(plan.exercise.CalorieBurnt) * plan.quantity * weight / 10 / 10;
         }
 
-        return <p> {calorieBurn} kcal</p>
+        return <p className="ExerciseStatus"> {calorieBurn} kcal</p>
     }
 
     render(){
@@ -181,7 +181,7 @@ export default class ExercisePlannerPage extends React.Component{
                                 <div className="text-center"></div>
                                 <h3>{this.state.selectedDate.toDateString()} Daily View</h3>
                                 <hr/>
-                                <h4>Exercise</h4>
+                                <h4>Exercise <a href="#ExerciseSerchBox" class="badge">add</a></h4>
                                 {this.renderExercisePlan()}
                                 <hr/>
                                 <h4>Total Calorie Burn</h4>
@@ -192,6 +192,7 @@ export default class ExercisePlannerPage extends React.Component{
 
                     <div className="row">
                         <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                        <div id="ExerciseSerchBox"></div>
                             <form className="form" onSubmit={this.handleSubmit.bind(this)}>
                                 <h3>Select An Exercise to Add:</h3>
                                 <div className="form-group">

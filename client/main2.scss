@@ -114,6 +114,7 @@ margin-bottom: 20px;
     width: 70% !important;
 }
 
+
 #listImgColor {
     background-color: #fff;
     -webkit-transition: all 0.3s ease;
@@ -256,6 +257,10 @@ margin-bottom: 20px;
             font-size:1.7rem;
         }
 
+        .ExerciseStatus{
+            font-size: 1.7rem;
+        }
+
         .ExerciseLabel
         {
             font-size:1.7rem;
@@ -267,6 +272,18 @@ margin-bottom: 20px;
     
         #ActivitySearchBtn{
         margin-left:10px;
+        }
+
+        .MonitorTitles {
+            padding: 0.25em 0.5em;/*上下 左右の余白*/
+            color: #494949;/*文字色*/
+            background: transparent;/*背景透明に*/
+            border-left: solid 5px #7db4e6;/*左線*/
+            margin-bottom:30px;
+            }
+
+        #monitorDesease{
+            font-size:1.7rem;
         }
     }
 /*mobile*/

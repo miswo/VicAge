@@ -99,7 +99,7 @@ export default class AddNewMealPage extends React.Component{
                     <div className="row">
                         <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                             <div className="form-group">
-                                <label htmlFor="input-quntity">Quantity:</label>
+                                <label htmlFor="input-quntity">Weight of the meal:</label>
                                 <div className="input-group">   
                                     <input type="number" id="input-quantity" onChange={this.onValueChange.bind(this)} className="form-control"/>
                                     <div className="input-group-addon">g</div>
