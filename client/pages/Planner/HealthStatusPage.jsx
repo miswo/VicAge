@@ -225,14 +225,23 @@ export default class HealthStatusPage extends React.Component{
                         <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                             <div className="">
                                 <h3 className="MonitorTitles">Average Daily Nutrition Intake</h3>
+                                <div className="box2">
+                                    <p>Average daily intake based on whole month dietary plan compared with daily nutrition intake requirement.</p>
+                                </div>
                                 {this.renderAverageDailyIntake()}
                                 
                             </div>
                         </div>
 
-                        <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6" id="monitorDesease">
+                        <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                             <h3 className="MonitorTitles">Risk Evaluation <img src="http://d-ash.lolipop.jp/img/traffic.png" width="50px" /></h3>
-                            <ul>
+                            <div className="box2">
+                                <p>Potential risks based on current dietary and exercise plan.<br />
+                                <span className="bg-success indicatorDesc">Low Risk</span>
+                                    <span className="bg-warning indicatorDesc">Be Careful</span>
+                                    <span className="bg-danger indicatorDesc"> High Risk</span></p>
+                            </div>
+                            <ul id="monitorDesease">
                                 <li><p className={this.state.dailyAverageIntake.calcium<this.state.nutritionRequirements.calcium?'text-danger':'text-success'}>Rickets</p></li>
                                 <li><p className={this.state.dailyAverageIntake.calcium<this.state.nutritionRequirements.calcium?'text-danger':'text-success'}>Leg Cramps</p></li>
                                 <li><p className={this.state.dailyAverageIntake.calcium<this.state.nutritionRequirements.calcium?'text-danger':'text-success'}>High Blood Pressure</p></li>
@@ -246,16 +255,17 @@ export default class HealthStatusPage extends React.Component{
                                 <li><p className={this.state.dailyAverageIntake.fat>this.state.nutritionRequirements.fat*1.5?'text-danger':'text-success'}>High Cholesterol</p></li>
                                 <li><p className={this.state.dailyAverageIntake.fat>this.state.nutritionRequirements.fat*1.5?'text-danger':'text-success'}>Heart Disease</p></li>
                             </ul>
-                            <p className="bg-success">Low Risk</p>
-                            <p className="bg-warning">Be Careful</p>
-                            <p className="bg-danger"> High Risk</p>
+
                         </div>
                     </div>
 
 
                     <div className="row">
                         <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                            <h4 className="MonitorTitles">Monthly Calorie Chart</h4>
+                            <h3 className="MonitorTitles">Monthly Calorie Chart</h3>
+                            <div className="box2" id="graphDesc">
+                                <p>Monthly calorie chart based on whole month calorie intake and exercise.</p>
+                            </div>
                             <div id="chart-wrapper">
                                 {this.renderCalorieAreaChart()}
                                 <p>*Intake Default:Daily Average.</p>

@@ -155,7 +155,7 @@ export default class SingleListSurveyPage extends React.Component{
                 <div className="jumbotron banner">
                     <div className="container">
                         <h2>Select the Things to Add to Activity Planner </h2>
-                        <button className="btn btn-default" onClick={this.handleBack.bind(this)}>Back</button>
+                        <button className="btn btn-default" onClick={this.handleBack.bind(this)}>Cancel</button>
                     </div>
                 </div>
 
@@ -197,7 +197,7 @@ export default class SingleListSurveyPage extends React.Component{
 
                         {/* <button className="btn btn-lg btn-primary" onClick={this.passToListHandler.bind(this)}>Add to {this.state.list.handler.name}</button>
                         <button className="btn btn-lg btn-primary" onClick={this.handleCreateSublist.bind(this)}>Create Sub List</button>    */}
-                        <button className="btn btn-lg btn-primary" onClick={this.handleSubmit.bind(this)}>Next</button>
+                        <button className="btn btn-lg btn-primary" onClick={this.handleSubmit.bind(this)}>Submit</button>
                     </div>  
                 </div>
 

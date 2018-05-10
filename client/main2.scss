@@ -129,6 +129,73 @@ margin-bottom: 20px;
 
 
 /*Profile*/
+
+#nutritionReq{
+    p{
+    word-break: break-all;
+    white-space: normal;
+    }
+}
+
+.box2 {
+    padding: 0 5em 0 1.3em;
+    margin: 1em 0 2em 0;
+    color: #666;
+    background: #FFF;
+    /*border: solid 2px #6091d3;
+    border-radius: 10px;*/
+}
+.box2 p {
+    margin: 0; 
+    padding: 0;
+}
+/*.box6 {
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    background: #fff;
+    border: dashed 2px #5b8bd0;
+}
+.box6 p {
+    margin: 0; 
+    padding: 0;
+}*/
+.box16{
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    background: -webkit-repeating-linear-gradient(-45deg, #f0f8ff, #f0f8ff 3px,#e9f4ff 3px, #e9f4ff 7px);
+    background: repeating-linear-gradient(-45deg, #f0f8ff, #f0f8ff 3px,#e9f4ff 3px, #e9f4ff 7px);
+}
+.box16 p {
+    margin: 0; 
+    padding: 0;
+}
+
+
+.box26 {
+    position: relative;
+    margin: 2em 0;
+    padding: 0.5em 1em;
+    border: solid 3px #95ccff;
+    border-radius: 4px;
+    width:130%;
+}
+.box26 .box-title {
+    position: absolute;
+    display: inline-block;
+    top: -13px;
+    left: 10px;
+    padding: 0 9px;
+    line-height: 1;
+    font-size: 19px;
+    background: #FFF;
+    color: #95ccff;
+    font-weight: bold;
+}
+.box26 p {
+    margin: 0; 
+    padding: 0;
+}
+
 #decorationH3 {
     position: relative;
     padding-bottom: 10px;
@@ -212,7 +279,10 @@ margin-bottom: 20px;
         } 
 
 
-
+    .indicatorDesc{
+        margin-right:5px;
+        padding:3px;
+    }
 
 /*PC*/
     @media(min-width:769px){
@@ -266,6 +336,10 @@ margin-bottom: 20px;
             font-size:1.7rem;
         }
 
+        #monitorDesease{
+            font-size:1.7rem;
+        }
+
         #mealSearchBtn{
             margin-left:10px;
         }
@@ -275,15 +349,15 @@ margin-bottom: 20px;
         }
 
         .MonitorTitles {
-            padding: 0.25em 0.5em;/*上下 左右の余白*/
-            color: #494949;/*文字色*/
-            background: transparent;/*背景透明に*/
-            border-left: solid 5px #7db4e6;/*左線*/
-            margin-bottom:30px;
+            padding: 0.25em 0.5em;
+            color: #494949;
+            background: transparent;
+            border-left: solid 5px #7db4e6;
             }
 
-        #monitorDesease{
-            font-size:1.7rem;
+
+        #graphDesc{
+            width:50%;
         }
     }
 /*mobile*/
