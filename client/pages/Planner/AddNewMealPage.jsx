@@ -104,6 +104,10 @@ export default class AddNewMealPage extends React.Component{
                                     <input type="number" id="input-quantity" onChange={this.onValueChange.bind(this)} className="form-control"/>
                                     <div className="input-group-addon">g</div>
                                 </div>
+                                <div className="box26">
+                                <span className="box-title">Hint</span>
+                                    <p>A bowl of food is about 200 gram - 300 gram.<br />A bottle of drink is about 200 gram - 250 gram.</p>
+                                </div>
                                
                             </div>
                         </div>

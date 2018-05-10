@@ -293,8 +293,11 @@ export default class ProfilePage extends React.Component{
                         <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                             <div className="query-box">
                                 <h3 id="NutritionH3">Nutrition Requirement</h3>
-                                <div className="container">
+                                <div className="container" id="nutritionReq">
                                     {this.renderNutritionRequirement()}
+                                </div>
+                                <div className="box19">
+                                    <p>*This table of figures may be used to determine the daily nutrition intake a dependant of a carer requires.</p>
                                 </div>
                             </div>
                         </div>
