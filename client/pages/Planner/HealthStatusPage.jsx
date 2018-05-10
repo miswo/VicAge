@@ -235,22 +235,17 @@ export default class HealthStatusPage extends React.Component{
                             <h3>Risk Evaluation</h3>
                             <ul>
                                 <li><p className={this.state.dailyAverageIntake.calcium<this.state.nutritionRequirements.calcium?'text-danger':'text-success'}>Rickets</p></li>
-                                <li><p className={this.state.dailyAverageIntake.calcium<this.state.nutritionRequirements.calcium?'text-danger':'text-success'}>Osteomalacia</p></li>
                                 <li><p className={this.state.dailyAverageIntake.calcium<this.state.nutritionRequirements.calcium?'text-danger':'text-success'}>Leg Cramps</p></li>
                                 <li><p className={this.state.dailyAverageIntake.calcium<this.state.nutritionRequirements.calcium?'text-danger':'text-success'}>High Blood Pressure</p></li>
 
-                                <li><p className={this.state.dailyAverageIntake.protein<this.state.nutritionRequirements.protein?'text-danger':'text-success'}>Marasmus</p></li>
-                                <li><p className={this.state.dailyAverageIntake.protein<this.state.nutritionRequirements.protein?'text-danger':'text-success'}>Kwashiorkor</p></li>
-                                <li><p className={this.state.dailyAverageIntake.protein<this.state.nutritionRequirements.protein?'text-danger':'text-success'}>Cachexia</p></li>
                                 <li><p className={this.state.dailyAverageIntake.protein<this.state.nutritionRequirements.protein?'text-danger':'text-success'}>Chronic Kidney Failure</p></li>
                                 <li><p className={this.state.dailyAverageIntake.protein<this.state.nutritionRequirements.protein?'text-danger':'text-success'}>Chronic Obstructive Pulmonary Disease</p></li>
                                 <li><p className={this.state.dailyAverageIntake.protein<this.state.nutritionRequirements.protein?'text-danger':'text-success'}>Rheumatoid Arthritis</p></li>
 
                                 <li><p className={this.state.dailyAverageIntake.fat<this.state.nutritionRequirements.fat?'text-danger':'text-success'}>Poor Vitamin Absorption</p></li>
                                 <li><p className={this.state.dailyAverageIntake.fat<this.state.nutritionRequirements.fat?'text-danger':'text-success'}>Depression</p></li>
-                                <li><p className={this.state.dailyAverageIntake.fat<this.state.nutritionRequirements.fat?'text-danger':'text-success'}>High Cholesterol</p></li>
-                                <li><p className={this.state.dailyAverageIntake.fat<this.state.nutritionRequirements.fat?'text-danger':'text-success'}>Heart Disease</p></li>
-                                <li><p className={this.state.dailyAverageIntake.fat<this.state.nutritionRequirements.fat?'text-danger':'text-success'}>Weight Loss</p></li>
+                                <li><p className={this.state.dailyAverageIntake.fat>this.state.nutritionRequirements.fat?'text-danger':'text-success'}>High Cholesterol</p></li>
+                                <li><p className={this.state.dailyAverageIntake.fat>this.state.nutritionRequirements.fat?'text-danger':'text-success'}>Heart Disease</p></li>
                             </ul>
                         </div>
                     </div>
