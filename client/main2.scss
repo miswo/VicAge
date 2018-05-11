@@ -14,9 +14,16 @@ body{
 
 
 
-.navbar-nav>li>a.active{
-    color:rgb(24, 20, 255) !important;
+#navbarBgColor>li>a.active{
+    color:#010079 !important;
+    background: -webkit-repeating-linear-gradient(-45deg, #cce7ff, #cce7ff 3px,#e9f4ff 3px, #e9f4ff 7px);
+    background: repeating-linear-gradient(-45deg, #cce7ff, #cce7ff 3px,#e9f4ff 3px, #e9f4ff 7px);
 }
+
+#navbarBgColor > li > a {
+    padding-bottom:24px;
+}
+
 
 .dropdown-menu > li > a{
     font-size:2rem;
@@ -291,11 +298,35 @@ margin-bottom: 20px;
         border-left: solid 5px #7db4e6;
         }
 
+    #monitorDisclaimer{
+        color: #fff;
+    }
+
+    .CalendarSearchAreaTitle {
+        padding: 0.25em 0.5em;/*上下 左右の余白*/
+        color: #494949;/*文字色*/
+        background: transparent;/*背景透明に*/
+        border-left: solid 5px #7db4e6;/*左線*/
+        }
+
+
 /*PC*/
     @media(min-width:769px){
         .navbar-nav>li>a{
             font-size:2rem;
         
+        }
+
+        .navbar-default .navbar-brand #navlogo {
+            width: 32px;
+            height: 32px;
+            position: relative;
+            bottom: 5px;
+        
+        }
+
+        #brand {
+            font-size: 3rem;
         }
 
         .item{
@@ -331,20 +362,20 @@ margin-bottom: 20px;
         }
 
         .nutritionStatusBox{
-            font-size:1.7rem;
+            font-size:1.8rem;
         }
 
         .ExerciseStatus{
-            font-size: 1.7rem;
+            font-size: 1.8rem;
         }
 
         .ExerciseLabel
         {
-            font-size:1.7rem;
+            font-size:1.8rem;
         }
 
         #monitorDesease{
-            font-size:1.7rem;
+            font-size:1.8rem;
         }
 
         #mealSearchBtn{
@@ -355,7 +386,9 @@ margin-bottom: 20px;
         margin-left:10px;
         }
 
-
+        #ActivitySearch{
+            margin:20px 0 30px 17px;
+        }
 
 
         #graphDesc{
@@ -422,6 +455,8 @@ margin-bottom: 20px;
         .box2 {
             padding: 0 1em 0 1.3em;
         }
+
+
     }
 
     .daily-view{

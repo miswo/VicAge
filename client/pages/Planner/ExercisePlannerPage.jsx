@@ -122,7 +122,7 @@ export default class ExercisePlannerPage extends React.Component{
 
     renderExercisePlan(){
         const plans = this.state.exercisePlansForTheDay.map((item)=>(
-            <p className="ExerciseStatus" key={item._id}>{item.planName}({item.quantity} Minutes)</p>
+            <p className="ExerciseStatus" key={item._id}>{item.planName} ({item.quantity} Minutes)</p>
         ))
 
         return plans;
@@ -130,7 +130,7 @@ export default class ExercisePlannerPage extends React.Component{
 
     renderCalorieBurn(){
         if(this.state.exercisePlansForTheDay.length == 0){
-            return <p className="ExerciseStatus">0 kcal</p>
+            return <p className="ExerciseStatus"><img src="http://d-ash.lolipop.jp/img/calorie.png" width="20px"/> 0 kcal</p>
         }
         var weight = this.props.user.profile.weight;
 
@@ -143,7 +143,7 @@ export default class ExercisePlannerPage extends React.Component{
 
         calorieBurn = Math.round(calorieBurn*100) / 100;
 
-        return <p className="ExerciseStatus"> {calorieBurn} kcal</p>
+        return <p className="ExerciseStatus"><img src="http://d-ash.lolipop.jp/img/calorie.png" width="20px"/> {calorieBurn} kcal</p>
     }
 
     render(){
@@ -151,7 +151,7 @@ export default class ExercisePlannerPage extends React.Component{
             <div id="excersise-planner-page">
                 <div className="jumbotron banner">
                     <div className="container">
-                        <h2>Exercise Planner</h2>
+                        <h2>{this.props.user.profile.name}'s Exercise Planner</h2>
                         {/*<p>Selecting appropriate level of exercise with suitable duration could help patient not only for superior weight control, but also help with the monitoring and forward prediction of both calorie burn.</p>*/}
                     </div>
 
@@ -198,7 +198,7 @@ export default class ExercisePlannerPage extends React.Component{
                         <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                         <div id="ExerciseSerchBox"></div>
                             <form className="form" onSubmit={this.handleSubmit.bind(this)}>
-                                <h3>Select An Exercise to Add:</h3>
+                                <h3 className="CalendarSearchAreaTitle">Select An Exercise to Add:</h3>
                                 <div className="form-group">
                                     <label className="ExerciseLabel" htmlFor="exercise-level">Select An Exercise Level:</label>
                                     <select name="exercise-level" id="exercise-level" onChange={this.onSelectExerciseLevel.bind(this)} className="form-control">

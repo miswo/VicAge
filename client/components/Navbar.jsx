@@ -5,9 +5,9 @@ import {NavLink,Link} from 'react-router-dom';
 
 
 const LogedinList = () =>(
-    <ul className="nav navbar-nav">
+    <ul className="nav navbar-nav" id="navbarBgColor">
         {/* <li><NavLink to="/" exact                   activeClassName="active">Home</NavLink></li> */}
-        <li><NavLink to="/center" exact                   activeClassName="active" >Center</NavLink></li>
+        <li><NavLink to="/center" exact                   activeClassName="active" ><img src="http://d-ash.lolipop.jp/img/home.png" width="16px"/> Center</NavLink></li>
         {/* <li><NavLink to="/event"                    activeClassName="active">Event</NavLink></li> */}
         {/* <li><NavLink to="/list/all"                 activeClassName ="active">Lists</NavLink></li> */}
         {/* <li><NavLink to="/service/find/all/3000"    activeClassName="active">Services</NavLink> </li> */}
@@ -77,8 +77,8 @@ class Navbar extends Component{
                                         Welcome,{this.props.user.userName}<span className="caret"></span>
                                     </Link>
                                     <ul className="dropdown-menu">
-                                        <li><NavLink to="/user/switch-profile">Switch Profile</NavLink></li>
-                                        <li><NavLink to="/" onClick={this.handleLogout.bind(this)}>Logout</NavLink></li>
+                                        <li><NavLink to="/user/switch-profile"><img src="http://d-ash.lolipop.jp/img/reload.png" width="16px"/> Switch Profile</NavLink></li>
+                                        <li><NavLink to="/" onClick={this.handleLogout.bind(this)}><img src="http://d-ash.lolipop.jp/img/exit.png" width="16px"/> Logout</NavLink></li>
                                     </ul>
                                 </li>
                                 :

@@ -209,8 +209,8 @@ export default class HealthStatusPage extends React.Component{
             <div id="health-status-page">
                 <div className="jumbotron banner">
                     <div className="container">
-                        <h2>Health Status of {this.props.user.profile.name}</h2>
-                        <h5>*These are suggestive predictions only.</h5>
+                        <h2>{this.props.user.profile.name}'s Health Status</h2>
+                        <h4 id="monitorDisclaimer">*These are suggestive predictions only.</h4>
                     </div>
                 </div>
                 <div className="container">

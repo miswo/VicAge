@@ -107,11 +107,11 @@ export default class DietaryPlannerPage extends React.Component{
 
             const nutritionStatus = (
                 <div className="nutritionStatusBox">
-                    <p>Fiber:   {Math.round(currentNutrition.Fiber,2)}    / {Math.round(this.state.nutritionRequirement.fiber,2)} g</p>
-                    <p>Fat:     {Math.round(currentNutrition.Fat,2)}      / {Math.round(this.state.nutritionRequirement.fat,2)} g</p>
-                    <p>Protein: {Math.round(currentNutrition.Protein,2)}  / {Math.round(this.state.nutritionRequirement.protein,2)} g</p>
-                    <p>Calcium: {Math.round(currentNutrition.Calcium,2)}  / {Math.round(this.state.nutritionRequirement.calcium,2)} mg</p>
-                    <p>Calorie: {Math.round(currentNutrition.Calorie,2)}  / {Math.round(this.state.nutritionRequirement.calorie,2)} kcal</p>
+                    <p><img src="http://d-ash.lolipop.jp/img/fiber.png" width="20px"/> Fiber:   {Math.round(currentNutrition.Fiber,2)}    / {Math.round(this.state.nutritionRequirement.fiber,2)} g</p>
+                    <p><img src="http://d-ash.lolipop.jp/img/fat.png" width="20px"/> Fat:     {Math.round(currentNutrition.Fat,2)}      / {Math.round(this.state.nutritionRequirement.fat,2)} g</p>
+                    <p><img src="http://d-ash.lolipop.jp/img/protein.png" width="20px"/> Protein: {Math.round(currentNutrition.Protein,2)}  / {Math.round(this.state.nutritionRequirement.protein,2)} g</p>
+                    <p><img src="http://d-ash.lolipop.jp/img/calcium.png" width="20px"/> Calcium: {Math.round(currentNutrition.Calcium,2)}  / {Math.round(this.state.nutritionRequirement.calcium,2)} mg</p>
+                    <p><img src="http://d-ash.lolipop.jp/img/calorie.png" width="20px"/> Calorie: {Math.round(currentNutrition.Calorie,2)}  / {Math.round(this.state.nutritionRequirement.calorie,2)} kcal</p>
                 
                 </div>
             )
@@ -126,7 +126,7 @@ export default class DietaryPlannerPage extends React.Component{
             <div id="nutrition-planner-page">
                 <div className="jumbotron banner">
                     <div className="container">
-                        <h2>Dietary Planner</h2>
+                        <h2>{this.props.user.profile.name}'s Dietary Planner</h2>
                         {/*<p>A calendar you could manage the following month’s recipe for your patient. <br />Choose the preferred recipe with a certain amount to fit the average daily nutrition intake.</p>*/}
                     </div>
 
