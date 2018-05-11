@@ -153,7 +153,7 @@ export default class CalendarPage extends React.Component{
                         <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                             <div className="daily-view">
                                 <div className="text-center"></div>
-                                <h3>Activity Detail</h3>
+                                <h3>Activity Detail <a href="#activity-searcher" className="badge">add</a></h3>
                             </div>
                             {
                                 this.state.selectedEvent?
@@ -186,7 +186,8 @@ export default class CalendarPage extends React.Component{
                         }
                         </div>
                     </div>
-
+                    
+                    <div id="activity-searcher"></div>
                     <div className="row">
                         <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                             <h3>Activity Category</h3>

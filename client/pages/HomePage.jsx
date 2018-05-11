@@ -135,7 +135,7 @@ export default class HomePage extends React.Component{
                             <div className="col-md-8">
                                 <h2 className="pull-right">Are you interested?</h2>
                                 <div className="clearfix"></div>
-                                    <p className="pull-right" id="lets">Let's start palnning better with VicAge.</p>
+                                    <p className="pull-right" id="lets">Let's start planning better with VicAge.</p>
                                 </div>
                                 <div className="col-md-4">
                                     <div id="CTABtn"><a className="btn btn-primary" id="CTAregisterBtn" href="/register">REGISTER</a>
